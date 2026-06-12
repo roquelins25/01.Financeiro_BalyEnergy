@@ -10,11 +10,15 @@ queryGroup _Dim
 
 	annotation PBI_QueryGroupOrder = 0
 
+queryGroup _Fatos
+
+	annotation PBI_QueryGroupOrder = 1
+
 annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["TB_Apoio","TB_PGT","TB_CLI","TB_REP","TB_Rede","TB_Fatos"]
+annotation PBI_QueryOrder = ["TB_Apoio","TB_PGT","TB_CLI","TB_REP","TB_Rede","TB_Fatos","_Medidas","TB_FRJ","TB_AUXtempo"]
 
 ref table TB_Apoio
 ref table TB_PGT
@@ -26,9 +30,12 @@ ref table TB_Rede
 ref table TB_Fatos
 ref table LocalDateTable_583a235a-7d12-49c2-8072-ab5c4665e829
 ref table LocalDateTable_5299a92e-7ead-441a-934f-081ca3824f8b
-ref table LocalDateTable_94f95f41-5bd0-41bb-9594-393ed2d3271c
 ref table 'CALENDARIO DAX'
 ref table LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae
+ref table _Medidas
+ref table TB_FRJ
+ref table LocalDateTable_bf4a9a26-ee88-4118-b07b-73c8daa82f9a
+ref table TB_AUXtempo
 
 ref cultureInfo pt-BR
 

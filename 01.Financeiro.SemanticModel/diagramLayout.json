@@ -19,7 +19,7 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 8
         },
         {
           "location": {
@@ -81,11 +81,10 @@
           "nodeIndex": "CALENDARIO DAX",
           "nodeLineageTag": "0f262f67-91ee-4dcb-a1e3-7e780a60d1c9",
           "size": {
-            "height": 104,
+            "height": 200,
             "width": 234
           },
-          "zIndex": 6,
-          "expandedHeight": 200
+          "zIndex": 6
         },
         {
           "location": {
@@ -96,6 +95,32 @@
           "nodeLineageTag": "be5ca997-a178-48ac-8763-cfc7d006db9b",
           "size": {
             "height": 152,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 120.53250911007387
+          },
+          "nodeIndex": "_Medidas",
+          "nodeLineageTag": "e3e4dde9-a2a9-4978-8692-64e93c77e591",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 1631.5207497428285,
+            "y": 137.61518959063613
+          },
+          "nodeIndex": "TB_FRJ",
+          "nodeLineageTag": "f91fd509-d40c-4b14-bdfd-59918a7d7723",
+          "size": {
+            "height": 128,
             "width": 234
           },
           "zIndex": 1

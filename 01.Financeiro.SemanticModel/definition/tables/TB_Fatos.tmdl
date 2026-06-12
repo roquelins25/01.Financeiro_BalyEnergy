@@ -59,6 +59,11 @@ table TB_Fatos
 		summarizeBy: none
 		sourceColumn: emissao
 
+		variation Variation
+			isDefault
+			relationship: e0045a2f-b3da-4472-bcaa-f557fea6c083
+			defaultHierarchy: LocalDateTable_bf4a9a26-ee88-4118-b07b-73c8daa82f9a.'Hierarquia de datas'
+
 		annotation SummarizationSetBy = Automatic
 
 	column portador
@@ -103,11 +108,6 @@ table TB_Fatos
 		lineageTag: 3f012a07-a454-44e1-bd29-19e818d02e2c
 		summarizeBy: none
 		sourceColumn: vencimento
-
-		variation Variation
-			isDefault
-			relationship: b301cb96-b784-4fca-8daa-2b2ce1a8aa91
-			defaultHierarchy: LocalDateTable_94f95f41-5bd0-41bb-9594-393ed2d3271c.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -193,9 +193,10 @@ table TB_Fatos
 
 	partition TB_Fatos = m
 		mode: import
+		queryGroup: _Fatos
 		source =
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="select #(lf)#(tab)codemp empresa,#(lf)#(tab)codfil filial,#(lf)#(tab)numtit titulo,#(lf)#(tab)codtpt tipo,#(lf)#(tab)sittit sit,#(lf)#(tab)codcli codcliente,#(lf)#(tab)datemi emissao,#(lf)#(tab)codpor portador,#(lf)#(tab)datent DataEntrada,#(lf)#(tab)vctori VenctOri,#(lf)#(tab)vctpro vencimento,#(lf)#(tab)codrep codrep,#(lf)#(tab)obstcr observacao,#(lf)#(tab)codfpg codpagamento,#(lf)#(tab)numnfv numnota,#(lf)#(tab)numped numpedido,#(tab)#(lf)#(tab)vlrori valorOri,#(lf)#(tab)vlrabe valorAberto,#(lf)#(tab)codcrt carteira,#(lf)#(tab)codfrj ForReaj#(lf)from sapiens_producao.E301TCR #(lf)where sittit = 'AB'"])
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="select #(lf)#(tab)codemp empresa,#(lf)#(tab)codfil filial,#(lf)#(tab)numtit titulo,#(lf)#(tab)codtpt tipo,#(lf)#(tab)sittit sit,#(lf)#(tab)codcli codcliente,#(lf)#(tab)datemi emissao,#(lf)#(tab)codpor portador,#(lf)#(tab)datent DataEntrada,#(lf)#(tab)vctori VenctOri,#(lf)#(tab)vctpro vencimento,#(lf)#(tab)codrep codrep,#(lf)#(tab)obstcr observacao,#(lf)#(tab)codfpg codpagamento,#(lf)#(tab)numnfv numnota,#(lf)#(tab)numped numpedido,#(tab)#(lf)#(tab)vlrori valorOri,#(lf)#(tab)vlrabe valorAberto,#(lf)#(tab)codcrt carteira,#(lf)#(tab)CASE #(lf)#(tab)#(tab)WHEN codfrj is null THEN '00' #(lf)#(tab)#(tab)WHEN codfrj = '' THEN '00'#(lf)#(tab)#(tab)ELSE codfrj#(lf)#(tab)END as ForReaj#(lf)#(tab)#(lf)from sapiens_producao.E301TCR #(lf)where sittit = 'AB'"])
 				in
 				  Origem
 

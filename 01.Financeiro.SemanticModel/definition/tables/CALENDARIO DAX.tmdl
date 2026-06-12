@@ -47,6 +47,7 @@ table 'CALENDARIO DAX'
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Nome do Mês]
+		sortByColumn: Mês
 
 		annotation SummarizationSetBy = Automatic
 
@@ -55,6 +56,7 @@ table 'CALENDARIO DAX'
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Mês Abrev]
+		sortByColumn: Mês
 
 		annotation SummarizationSetBy = Automatic
 
@@ -112,6 +114,7 @@ table 'CALENDARIO DAX'
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Ano-Mes]
+		sortByColumn: OrderBy
 
 		annotation SummarizationSetBy = Automatic
 
