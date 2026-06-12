@@ -1,0 +1,108 @@
+table TB_REP
+	lineageTag: 86af5e2e-ba01-4167-80a1-3391d231bfc5
+
+	column codrep
+		dataType: string
+		lineageTag: cdee7453-13e5-41e9-98d0-8343bb4c4240
+		summarizeBy: none
+		sourceColumn: codrep
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomrep
+		dataType: string
+		lineageTag: 623f5ac2-fd2e-4036-ae70-dc6b5ce53224
+		summarizeBy: none
+		sourceColumn: nomrep
+
+		annotation SummarizationSetBy = Automatic
+
+	column aperep
+		dataType: string
+		lineageTag: 87425243-a3af-4b43-9807-535f062c63db
+		summarizeBy: none
+		sourceColumn: aperep
+
+		annotation SummarizationSetBy = Automatic
+
+	column tiprep
+		dataType: string
+		lineageTag: 2e8d88d9-909f-44d7-978e-2981e484ca12
+		summarizeBy: none
+		sourceColumn: tiprep
+
+		annotation SummarizationSetBy = Automatic
+
+	column cidrep
+		dataType: string
+		lineageTag: 1895b0d3-6070-4ffc-b7c7-84585d3384eb
+		summarizeBy: none
+		sourceColumn: cidrep
+
+		annotation SummarizationSetBy = Automatic
+
+	column sigufs
+		dataType: string
+		lineageTag: 0b37f49e-abfe-40f3-82b3-4af12310f9f8
+		summarizeBy: none
+		sourceColumn: sigufs
+
+		annotation SummarizationSetBy = Automatic
+
+	column fonrep
+		dataType: string
+		lineageTag: e0fb40c9-a5b2-4a9f-b4bb-3294155cab20
+		summarizeBy: none
+		sourceColumn: fonrep
+
+		annotation SummarizationSetBy = Automatic
+
+	column sitrep
+		dataType: string
+		lineageTag: 70410fe6-0bba-4041-9a57-f1d68b7315a9
+		summarizeBy: none
+		sourceColumn: sitrep
+
+		annotation SummarizationSetBy = Automatic
+
+	column repsup
+		dataType: int64
+		formatString: 0
+		lineageTag: 65d724b2-141e-4a9b-a2da-44e2bd622ccb
+		summarizeBy: sum
+		sourceColumn: repsup
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomsup
+		dataType: string
+		lineageTag: e812c144-4698-421c-b621-b89d47166bc5
+		summarizeBy: none
+		sourceColumn: nomsup
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rep_concat
+		dataType: int64
+		formatString: 0
+		lineageTag: 0fda607b-292f-494e-bb69-550d00ca770f
+		summarizeBy: sum
+		sourceColumn: Rep_concat
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_REP = m
+		mode: import
+		queryGroup: _Dim
+		source =
+				let
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
+				  #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "usu_view090rep"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Navegação 1",{{"codrep", type text}})
+				in
+				  #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

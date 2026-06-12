@@ -1,0 +1,210 @@
+table TB_Fatos
+	lineageTag: 91b2cd6d-2aeb-4b40-9da8-5b165d22c130
+
+	column empresa
+		dataType: int64
+		formatString: 0
+		lineageTag: 7327ceac-a4ae-4ab9-9116-39f7830d028d
+		summarizeBy: sum
+		sourceColumn: empresa
+
+		annotation SummarizationSetBy = Automatic
+
+	column filial
+		dataType: int64
+		formatString: 0
+		lineageTag: 2338607c-4a74-4691-af6c-9a15f4400201
+		summarizeBy: sum
+		sourceColumn: filial
+
+		annotation SummarizationSetBy = Automatic
+
+	column titulo
+		dataType: string
+		lineageTag: 6ec793cb-1f28-4db3-ada4-59e74ad2a7f0
+		summarizeBy: none
+		sourceColumn: titulo
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo
+		dataType: string
+		lineageTag: e33d7786-46fd-4d27-800d-3b5944e6d53d
+		summarizeBy: none
+		sourceColumn: tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column sit
+		dataType: string
+		lineageTag: a53db463-70cf-4b88-bcd3-c91fd37e4e96
+		summarizeBy: none
+		sourceColumn: sit
+
+		annotation SummarizationSetBy = Automatic
+
+	column codcliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 5994515a-79b4-4169-8972-69093183d59d
+		summarizeBy: sum
+		sourceColumn: codcliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column emissao
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 030a3648-d916-4167-b2c6-b0306585341d
+		summarizeBy: none
+		sourceColumn: emissao
+
+		variation Variation
+			isDefault
+			relationship: 0c4854b9-d50d-4ec1-ae41-1761cbff4120
+			defaultHierarchy: LocalDateTable_5d4c7abc-85ee-4f2b-b116-9c456cff4ce5.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column portador
+		dataType: string
+		lineageTag: 12ffd98e-bf11-43e9-94ae-25340b5bed45
+		summarizeBy: none
+		sourceColumn: portador
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataEntrada
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 27666a63-9bcc-4626-9239-2df48731c259
+		summarizeBy: none
+		sourceColumn: DataEntrada
+
+		variation Variation
+			isDefault
+			relationship: b844cb2f-ff56-43c2-bcf5-da815a2c9b9b
+			defaultHierarchy: LocalDateTable_583a235a-7d12-49c2-8072-ab5c4665e829.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column VenctOri
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b246477e-2154-4e31-bf85-ad03a3112c9c
+		summarizeBy: none
+		sourceColumn: VenctOri
+
+		variation Variation
+			isDefault
+			relationship: 0b015b73-5233-4e77-80f5-fd3ce15ff67a
+			defaultHierarchy: LocalDateTable_5299a92e-7ead-441a-934f-081ca3824f8b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column vencimento
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3f012a07-a454-44e1-bd29-19e818d02e2c
+		summarizeBy: none
+		sourceColumn: vencimento
+
+		variation Variation
+			isDefault
+			relationship: b301cb96-b784-4fca-8daa-2b2ce1a8aa91
+			defaultHierarchy: LocalDateTable_94f95f41-5bd0-41bb-9594-393ed2d3271c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column codrep
+		dataType: int64
+		formatString: 0
+		lineageTag: 4bcdf1c1-e9db-405b-8f26-37bb7489ebea
+		summarizeBy: sum
+		sourceColumn: codrep
+
+		annotation SummarizationSetBy = Automatic
+
+	column observacao
+		dataType: string
+		lineageTag: 13f9b845-1ef5-4ff4-a67a-d816ec36e772
+		summarizeBy: none
+		sourceColumn: observacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column codpagamento
+		dataType: int64
+		formatString: 0
+		lineageTag: a809108e-6a50-4120-8507-6c69f28b369c
+		summarizeBy: sum
+		sourceColumn: codpagamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column numnota
+		dataType: int64
+		formatString: 0
+		lineageTag: acb07a31-7e38-489a-8e2d-7aca541fc3dd
+		summarizeBy: sum
+		sourceColumn: numnota
+
+		annotation SummarizationSetBy = Automatic
+
+	column numpedido
+		dataType: int64
+		formatString: 0
+		lineageTag: a70b02dc-049a-463b-9599-b01a5459e2db
+		summarizeBy: sum
+		sourceColumn: numpedido
+
+		annotation SummarizationSetBy = Automatic
+
+	column valorOri
+		dataType: double
+		lineageTag: 08ce4e0e-1aad-441f-9c3f-f05c7af42f95
+		summarizeBy: sum
+		sourceColumn: valorOri
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valorAberto
+		dataType: double
+		lineageTag: 1f4cb762-876b-47bb-83e0-5635b52ccd73
+		summarizeBy: sum
+		sourceColumn: valorAberto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column carteira
+		dataType: string
+		lineageTag: fe068681-99d4-470d-b8c5-afe83074887a
+		summarizeBy: none
+		sourceColumn: carteira
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForReaj
+		dataType: string
+		lineageTag: 12ee3185-3702-43c9-8442-244f15620e61
+		summarizeBy: none
+		sourceColumn: ForReaj
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_Fatos = m
+		mode: import
+		source =
+				let
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="select #(lf)#(tab)codemp empresa,#(lf)#(tab)codfil filial,#(lf)#(tab)numtit titulo,#(lf)#(tab)codtpt tipo,#(lf)#(tab)sittit sit,#(lf)#(tab)codcli codcliente,#(lf)#(tab)datemi emissao,#(lf)#(tab)codpor portador,#(lf)#(tab)datent DataEntrada,#(lf)#(tab)vctori VenctOri,#(lf)#(tab)vctpro vencimento,#(lf)#(tab)codrep codrep,#(lf)#(tab)obstcr observacao,#(lf)#(tab)codfpg codpagamento,#(lf)#(tab)numnfv numnota,#(lf)#(tab)numped numpedido,#(tab)#(lf)#(tab)vlrori valorOri,#(lf)#(tab)vlrabe valorAberto,#(lf)#(tab)codcrt carteira,#(lf)#(tab)codfrj ForReaj#(lf)from sapiens_producao.E301TCR #(lf)where sittit = 'AB'"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

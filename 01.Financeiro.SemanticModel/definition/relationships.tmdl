@@ -1,0 +1,25 @@
+relationship a1e2672a-1c56-4674-b30b-d37836518f36
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_CLI.datcad
+	toColumn: LocalDateTable_9b806f60-4aa9-4692-b2d1-3455339e17ac.Date
+
+relationship 0c4854b9-d50d-4ec1-ae41-1761cbff4120
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos.emissao
+	toColumn: LocalDateTable_5d4c7abc-85ee-4f2b-b116-9c456cff4ce5.Date
+
+relationship b844cb2f-ff56-43c2-bcf5-da815a2c9b9b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos.DataEntrada
+	toColumn: LocalDateTable_583a235a-7d12-49c2-8072-ab5c4665e829.Date
+
+relationship 0b015b73-5233-4e77-80f5-fd3ce15ff67a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos.VenctOri
+	toColumn: LocalDateTable_5299a92e-7ead-441a-934f-081ca3824f8b.Date
+
+relationship b301cb96-b784-4fca-8daa-2b2ce1a8aa91
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos.vencimento
+	toColumn: LocalDateTable_94f95f41-5bd0-41bb-9594-393ed2d3271c.Date
+
