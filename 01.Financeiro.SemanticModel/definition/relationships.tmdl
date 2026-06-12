@@ -1,0 +1,53 @@
+relationship a1e2672a-1c56-4674-b30b-d37836518f36
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_CLI.datcad
+	toColumn: LocalDateTable_9b806f60-4aa9-4692-b2d1-3455339e17ac.Date
+
+relationship b844cb2f-ff56-43c2-bcf5-da815a2c9b9b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos.DataEntrada
+	toColumn: LocalDateTable_583a235a-7d12-49c2-8072-ab5c4665e829.Date
+
+relationship 0b015b73-5233-4e77-80f5-fd3ce15ff67a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos.VenctOri
+	toColumn: LocalDateTable_5299a92e-7ead-441a-934f-081ca3824f8b.Date
+
+relationship bfc688e5-f1e4-40dc-bab1-9c28a80ab528
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'CALENDARIO DAX'.Date
+	toColumn: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.Date
+
+relationship 5f19a329-5d45-e780-d9cb-80872eb853a0
+	fromColumn: TB_Fatos.portador
+	toColumn: TB_Apoio.potador
+
+relationship 28a64a0d-40f9-e793-09e1-b123463a8fb0
+	fromColumn: TB_Fatos.codpagamento
+	toColumn: TB_PGT.codfpg
+
+relationship 7c389492-2cca-bceb-ee7d-84dad5b5326a
+	fromColumn: TB_Fatos.codrep
+	toColumn: TB_REP.codrep
+
+relationship e4da44a8-8818-e647-b781-c3aced512313
+	fromColumn: TB_CLI.codgre
+	toColumn: TB_Rede.codgre
+
+relationship 39258a9a-76e8-bcc9-7c81-de4d56b02592
+	fromColumn: TB_Fatos.codcliente
+	toColumn: TB_CLI.codcli
+
+relationship 1e8fb941-c637-fc73-454c-331f525dd34b
+	fromColumn: TB_Fatos.ForReaj
+	toColumn: TB_FRJ.codfrj
+
+relationship e0045a2f-b3da-4472-bcaa-f557fea6c083
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos.emissao
+	toColumn: LocalDateTable_bf4a9a26-ee88-4118-b07b-73c8daa82f9a.Date
+
+relationship 522d0779-174c-46fa-36d1-7c1229ac0b7a
+	fromColumn: TB_Fatos.vencimento
+	toColumn: 'CALENDARIO DAX'.Date
+

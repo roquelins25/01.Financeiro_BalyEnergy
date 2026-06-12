@@ -1,0 +1,62 @@
+table TB_FRJ
+	lineageTag: f91fd509-d40c-4b14-bdfd-59918a7d7723
+
+	column codfrj
+		dataType: string
+		lineageTag: 918fc7b3-04b9-4f93-9e83-06b8b55d9e61
+		summarizeBy: none
+		sourceColumn: codfrj
+
+		annotation SummarizationSetBy = Automatic
+
+	column desfrj
+		dataType: string
+		lineageTag: 75d768b6-91dc-436d-a029-f354920a1679
+		summarizeBy: none
+		sourceColumn: desfrj
+
+		annotation SummarizationSetBy = Automatic
+
+	column xTipo
+		dataType: string
+		lineageTag: 15859bc7-b34b-4c5a-9b7e-74094cdfc24a
+		summarizeBy: none
+		sourceColumn: xTipo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_FRJ = m
+		mode: import
+		queryGroup: _Dim
+		source = ```
+				let
+				    Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
+				    sapiens_producao_e037frj = Fonte{[Schema="sapiens_producao",Item="e037frj"]}[Data],
+				    #"Outras Colunas Removidas" = Table.SelectColumns(sapiens_producao_e037frj,{"codfrj", "desfrj"}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Outras Colunas Removidas", "xTipo", each 
+				        if [codfrj] = "910" then "Global" else 
+				        if [codfrj] = "600" then "Verba" else
+				        if [codfrj] = "980" then "Inadimplencia" else 
+				        if [codfrj] = "JUR" then "Juridico" else
+				        if [codfrj] = "500" then "Negociando" else
+					    if [codfrj] = "700" then "Devolucao" else
+					    if [codfrj] = "940" then "Não entregue" else
+					    if [codfrj] = "SIN" then "Sinistro" else
+					    if [codfrj] = "900" then "Resolução Interna" else
+					    if [codfrj] = "400" then "Erro Digitacao" else
+					    if [codfrj] = "300" then "Data Especifica" else
+					    if [codfrj] = "800" then "Exportacao" else
+					    if [codfrj] = "FUN" then "Funcionario" else
+					    if [codfrj] = "100" then "Prorogacao Atraso na entrega" else
+					    if [codfrj] = "CER" then "Cervejaria" 
+				        else [desfrj]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Coluna Condicional Adicionada",{{"xTipo", type text}}),
+				    #"LinhaBlanck" = Table.InsertRows(#"Tipo Alterado", 0, {[codfrj = "00", desfrj = "Nao Classificado", xTipo = "Sem Classificacao"]} )
+				in
+				    #"LinhaBlanck"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

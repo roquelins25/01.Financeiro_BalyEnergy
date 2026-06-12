@@ -1,0 +1,50 @@
+table TB_Apoio
+	lineageTag: 53a96aa3-334b-435a-9fd8-446c402e9f68
+
+	column potador
+		dataType: string
+		lineageTag: 864ca48f-d0d9-4e91-afb2-bed4747f1810
+		summarizeBy: none
+		sourceColumn: potador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'apoio para a view'
+		dataType: string
+		lineageTag: 69defa47-d5ea-4c61-a392-ac12bc457833
+		summarizeBy: none
+		sourceColumn: apoio para a view
+
+		annotation SummarizationSetBy = Automatic
+
+	column descrição
+		dataType: string
+		lineageTag: b9c94965-0202-44a2-91fd-b4532e2e58ac
+		summarizeBy: none
+		sourceColumn: descrição
+
+		annotation SummarizationSetBy = Automatic
+
+	column Carteira
+		dataType: string
+		lineageTag: 0740718b-2c40-4c7d-b6d9-870db27ddbcf
+		summarizeBy: none
+		sourceColumn: Carteira
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_Apoio = m
+		mode: import
+		queryGroup: _Dim
+		source =
+				let
+				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("pdVBz4IgGAfwr+I817XtPT4IWpuSQ3JrroOvcaCZubQ+f9QlOcafK+w3+PPw0DQxK8p4FSvTmX/7NHaK1tF4v13M3J5bN8EfY2+7dm6nKOmtGWbzXsHN1N2Gz5LTqom3JHFE8RQ2SONGRrXANyI1juxLofBYBcdPw/TvRmWvY2+mD8DpiO9ipwlHmOIVjJR5wrBAMibBSBNSqCD1FhNIZgFVvhT+3MAEJQJazxKoUsKrO8EEV9oHTGAq5HF4OVBa/y7Uduge/fd1UUAD9g2XxQY13I3AZ6l2aUD39Y18rwO6jW+UShSoURzygBr3DVGH/EYL4/QC", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [potador = _t, #"apoio para a view" = _t, descrição = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Origem,{{"potador", type text}, {"apoio para a view", type text}, {"descrição", type text}}),
+				    #"Texto Inserido Após o Delimitador" = Table.AddColumn(#"Tipo Alterado", "Carteira", each Text.AfterDelimiter([descrição], "- "), type text)
+				in
+				  #"Texto Inserido Após o Delimitador"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,42 @@
+table TB_Rede
+	lineageTag: be5ca997-a178-48ac-8763-cfc7d006db9b
+
+	column codgre
+		dataType: string
+		lineageTag: 114a05b6-1057-43da-a4c6-2fbba6171869
+		summarizeBy: none
+		sourceColumn: codgre
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomgre
+		dataType: string
+		lineageTag: 84450c20-7bba-46ef-88e9-aeefcb08c2e9
+		summarizeBy: none
+		sourceColumn: nomgre
+
+		annotation SummarizationSetBy = Automatic
+
+	column siggre
+		dataType: string
+		lineageTag: 0a1dc13f-3e96-4cc8-9395-df29a8126720
+		summarizeBy: none
+		sourceColumn: siggre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_Rede = m
+		mode: import
+		queryGroup: _Dim
+		source =
+				let
+				    Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
+				    sapiens_producao_usu_view069gre = Fonte{[Schema="sapiens_producao",Item="usu_view069gre"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(sapiens_producao_usu_view069gre,{{"codgre", type text}, {"nomgre", type text}, {"siggre", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

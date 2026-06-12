@@ -1,0 +1,114 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "a4b26398c12144b2029e",
+  "position": {
+    "x": 601.697848530223,
+    "y": 103.29576798802113,
+    "z": 5,
+    "height": 267.27779966900465,
+    "width": 677.87847742138865
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_FRJ"
+                    }
+                  },
+                  "Property": "xTipo"
+                }
+              },
+              "queryRef": "TB_FRJ.xTipo",
+              "nativeQueryRef": "xTipo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. Valor Aberto"
+                }
+              },
+              "queryRef": "_Medidas.01. Valor Aberto",
+              "nativeQueryRef": "01. Valor Aberto"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "02. Quantidade Titulos"
+                }
+              },
+              "queryRef": "_Medidas.02. Quantidade Titulos",
+              "nativeQueryRef": "02. Quantidade Titulos"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "TB_FRJ"
+                  }
+                },
+                "Property": "xTipo"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "edef647521cb5e217e07",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_FRJ"
+              }
+            },
+            "Property": "xTipo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dcc60c640ae143107e0e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. Valor Aberto"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

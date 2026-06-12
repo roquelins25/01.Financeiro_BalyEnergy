@@ -1,0 +1,41 @@
+table TB_AUXtempo
+	lineageTag: 12a8b3a6-b32c-438d-a0f0-937b4732c8ca
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: b4547133-5f75-4817-9e06-89e9c7e66b41
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESC
+		dataType: string
+		lineageTag: 2e54b8b1-bcf4-4459-8f02-70e91f1b3172
+		summarizeBy: none
+		sourceColumn: DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo
+		dataType: string
+		lineageTag: 1e60e70c-dc19-4942-a527-12f532617952
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_AUXtempo = m
+		mode: import
+		source =
+				let
+				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("fZAxC8IwEEb/ypG5Q65pkgZEECyIi5tL6RC0QxcH+//BL0goep5Tjve9LG8cDVtr2TRmR5GOS15xXufHbbnjnJr33gJGysReVRwg5kzOqk4HiDlT0B0PGIqTdCcApuJwr0sRcP/X6AFPl/NQn8rTZ40DlZ/zs+5sRQ2hsKwhnFbWEI6TNYTT/aghJP9dYzOmFw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [ID = _t, DESC = _t, Tipo = _t]),
+				  #"Tipo de coluna alterado" = Table.TransformColumnTypes(Origem, {{"ID", Int64.Type}, {"DESC", type text}, {"Tipo", type text}})
+				in
+				  #"Tipo de coluna alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

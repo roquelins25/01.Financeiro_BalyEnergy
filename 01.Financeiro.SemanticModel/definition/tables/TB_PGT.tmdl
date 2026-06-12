@@ -1,0 +1,43 @@
+table TB_PGT
+	lineageTag: 9e5c01df-4d39-4a8c-8bde-7274a7f26aa1
+
+	column codfpg
+		dataType: string
+		lineageTag: 5e87f525-8381-4a2a-b68b-1a0560dbd9ae
+		summarizeBy: none
+		sourceColumn: codfpg
+
+		annotation SummarizationSetBy = Automatic
+
+	column desfpg
+		dataType: string
+		lineageTag: bfa456ec-6837-4d6d-8b6e-09e2dbdcb2bc
+		summarizeBy: none
+		sourceColumn: desfpg
+
+		annotation SummarizationSetBy = Automatic
+
+	column abrfpg
+		dataType: string
+		lineageTag: d02e2c0a-48b7-4647-9487-54964692cf68
+		summarizeBy: none
+		sourceColumn: abrfpg
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_PGT = m
+		mode: import
+		queryGroup: _Dim
+		source =
+				let
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
+				  #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "e066fpg"]}[Data],
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"codfpg", "desfpg", "abrfpg"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Outras Colunas Removidas",{{"codfpg", type text}})
+				in
+				  #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
