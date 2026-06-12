@@ -47,7 +47,7 @@ table TB_Fatos
 		dataType: int64
 		formatString: 0
 		lineageTag: 5994515a-79b4-4169-8972-69093183d59d
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: codcliente
 
 		annotation SummarizationSetBy = Automatic
@@ -58,11 +58,6 @@ table TB_Fatos
 		lineageTag: 030a3648-d916-4167-b2c6-b0306585341d
 		summarizeBy: none
 		sourceColumn: emissao
-
-		variation Variation
-			isDefault
-			relationship: 0c4854b9-d50d-4ec1-ae41-1761cbff4120
-			defaultHierarchy: LocalDateTable_5d4c7abc-85ee-4f2b-b116-9c456cff4ce5.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -120,7 +115,7 @@ table TB_Fatos
 		dataType: int64
 		formatString: 0
 		lineageTag: 4bcdf1c1-e9db-405b-8f26-37bb7489ebea
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: codrep
 
 		annotation SummarizationSetBy = Automatic
@@ -137,7 +132,7 @@ table TB_Fatos
 		dataType: int64
 		formatString: 0
 		lineageTag: a809108e-6a50-4120-8507-6c69f28b369c
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: codpagamento
 
 		annotation SummarizationSetBy = Automatic

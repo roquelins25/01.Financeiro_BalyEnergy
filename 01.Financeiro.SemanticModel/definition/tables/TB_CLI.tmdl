@@ -54,7 +54,7 @@ table TB_CLI
 		dataType: int64
 		formatString: 0
 		lineageTag: 9a33043e-ecdc-4cd0-bb9d-b00e2441fe83
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: codgre
 
 		annotation SummarizationSetBy = Automatic

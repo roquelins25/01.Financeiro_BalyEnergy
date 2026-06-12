@@ -69,7 +69,7 @@ table TB_REP
 		dataType: int64
 		formatString: 0
 		lineageTag: 65d724b2-141e-4a9b-a2da-44e2bd622ccb
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: repsup
 
 		annotation SummarizationSetBy = Automatic
@@ -86,7 +86,7 @@ table TB_REP
 		dataType: int64
 		formatString: 0
 		lineageTag: 0fda607b-292f-494e-bb69-550d00ca770f
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Rep_concat
 
 		annotation SummarizationSetBy = Automatic

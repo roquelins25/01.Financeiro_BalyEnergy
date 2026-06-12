@@ -1,4 +1,4 @@
-table 'sapiens_producao usu_view069gre'
+table TB_Rede
 	lineageTag: be5ca997-a178-48ac-8763-cfc7d006db9b
 
 	column codgre
@@ -25,7 +25,7 @@ table 'sapiens_producao usu_view069gre'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'sapiens_producao usu_view069gre' = m
+	partition TB_Rede = m
 		mode: import
 		queryGroup: _Dim
 		source =
