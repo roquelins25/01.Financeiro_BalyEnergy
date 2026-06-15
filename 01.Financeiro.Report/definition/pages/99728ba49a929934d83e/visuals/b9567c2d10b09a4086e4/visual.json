@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "04bff107d0360a5cccbb",
+  "name": "b9567c2d10b09a4086e4",
   "position": {
-    "x": 0,
-    "y": 102.96593408624609,
-    "z": 1,
-    "height": 616.28139960444355,
-    "width": 271.04267943291251
+    "x": 497.5963624373058,
+    "y": 359.69108484753821,
+    "z": 6,
+    "height": 355.42597316950418,
+    "width": 280.07566685756927
   },
   "visual": {
     "visualType": "pivotTable",
@@ -22,11 +22,11 @@
                       "Entity": "CALENDARIO DAX"
                     }
                   },
-                  "Property": "Ano-Mes"
+                  "Property": "Ano"
                 }
               },
-              "queryRef": "CALENDARIO DAX.Ano-Mes",
-              "nativeQueryRef": "Ano-Mes",
+              "queryRef": "CALENDARIO DAX.Ano",
+              "nativeQueryRef": "Soma de Ano",
               "active": true
             },
             {
@@ -37,27 +37,12 @@
                       "Entity": "CALENDARIO DAX"
                     }
                   },
-                  "Property": "Dia"
+                  "Property": "Ano-Mes"
                 }
               },
-              "queryRef": "CALENDARIO DAX.Dia",
-              "nativeQueryRef": "Dia",
+              "queryRef": "CALENDARIO DAX.Ano-Mes",
+              "nativeQueryRef": "Ano-Mes",
               "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_Fatos"
-                    }
-                  },
-                  "Property": "titulo"
-                }
-              },
-              "queryRef": "TB_Fatos.titulo",
-              "nativeQueryRef": "titulo",
-              "active": false
             }
           ]
         },
@@ -84,16 +69,21 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "CALENDARIO DAX"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "CALENDARIO DAX"
+                      }
+                    },
+                    "Property": "Ano"
                   }
                 },
-                "Property": "Ano-Mes"
+                "Function": 0
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -106,7 +96,7 @@
         "levels": [
           {
             "queryRefs": [
-              "CALENDARIO DAX.Ano-Mes"
+              "CALENDARIO DAX.Ano"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -117,7 +107,7 @@
                       "Entity": "CALENDARIO DAX"
                     }
                   },
-                  "Property": "Ano-Mes"
+                  "Property": "Ano"
                 }
               }
             ],
@@ -125,14 +115,7 @@
           },
           {
             "queryRefs": [
-              "CALENDARIO DAX.Dia"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_Fatos.titulo"
+              "CALENDARIO DAX.Ano-Mes"
             ],
             "isCollapsed": true,
             "isPinned": true
@@ -144,7 +127,17 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'jun-26'"
+                    "Value": "2026L"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "2027L"
                   }
                 }
               ],
@@ -155,51 +148,5 @@
       }
     ],
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "132fea9046d238d36683",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CALENDARIO DAX"
-              }
-            },
-            "Property": "Ano-Mes"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "9c9e23c693280c6642c8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor Aberto"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "bb9b7ec206bd0209d87d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CALENDARIO DAX"
-              }
-            },
-            "Property": "Dia"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -5,7 +5,7 @@ table TB_AUXtempo
 		dataType: int64
 		formatString: 0
 		lineageTag: b4547133-5f75-4817-9e06-89e9c7e66b41
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: ID
 
 		annotation SummarizationSetBy = Automatic
@@ -15,6 +15,9 @@ table TB_AUXtempo
 		lineageTag: 2e54b8b1-bcf4-4459-8f02-70e91f1b3172
 		summarizeBy: none
 		sourceColumn: DESC
+		sortByColumn: ID
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
@@ -30,7 +33,7 @@ table TB_AUXtempo
 		mode: import
 		source =
 				let
-				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("fZAxC8IwEEb/ypG5Q65pkgZEECyIi5tL6RC0QxcH+//BL0goep5Tjve9LG8cDVtr2TRmR5GOS15xXufHbbnjnJr33gJGysReVRwg5kzOqk4HiDlT0B0PGIqTdCcApuJwr0sRcP/X6AFPl/NQn8rTZ40DlZ/zs+5sRQ2hsKwhnFbWEI6TNYTT/aghJP9dYzOmFw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [ID = _t, DESC = _t, Tipo = _t]),
+				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jdAxC8IwEIbhv3JkUqxw1zRJMwoK4uLmUjuEmqFLB4v/34uSxSTEKfDycJBvGAQhohGNuL8Q5QQGjrNbYQN72HK9+WWaH24VY/OlmqMBB6QqUHFk5EBiRXYcGTnQNSk56iBtTbYcbZDU1yjFz/s/cM/xfL2c4hO7zSy4+5w4QDjin5ESJgsWIKULFmSbLliQmQULssssWKAqu+AvHt8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [ID = _t, DESC = _t, Tipo = _t]),
 				  #"Tipo de coluna alterado" = Table.TransformColumnTypes(Origem, {{"ID", Int64.Type}, {"DESC", type text}, {"Tipo", type text}})
 				in
 				  #"Tipo de coluna alterado"

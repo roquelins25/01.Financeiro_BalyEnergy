@@ -13,11 +13,6 @@ relationship 0b015b73-5233-4e77-80f5-fd3ce15ff67a
 	fromColumn: TB_Fatos.VenctOri
 	toColumn: LocalDateTable_5299a92e-7ead-441a-934f-081ca3824f8b.Date
 
-relationship bfc688e5-f1e4-40dc-bab1-9c28a80ab528
-	joinOnDateBehavior: datePartOnly
-	fromColumn: 'CALENDARIO DAX'.Date
-	toColumn: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.Date
-
 relationship 5f19a329-5d45-e780-d9cb-80872eb853a0
 	fromColumn: TB_Fatos.portador
 	toColumn: TB_Apoio.potador
@@ -47,7 +42,22 @@ relationship e0045a2f-b3da-4472-bcaa-f557fea6c083
 	fromColumn: TB_Fatos.emissao
 	toColumn: LocalDateTable_bf4a9a26-ee88-4118-b07b-73c8daa82f9a.Date
 
+relationship 4b04a64b-b9d5-b250-37ca-c16e65f7a521
+	fromColumn: TB_Fatos.'03. Aux Dias_'
+	toColumn: TB_AUXtempo.ID
+
+relationship a29ef21d-46f0-42bd-85ae-3f70058bd348
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'CALENDARIO DAX'.Date
+	toColumn: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.Date
+
 relationship 522d0779-174c-46fa-36d1-7c1229ac0b7a
 	fromColumn: TB_Fatos.vencimento
 	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: TB_AUXtempo.Tipo
+	toColumn: 'CALENDARIO DAX'.Vencidos?
 

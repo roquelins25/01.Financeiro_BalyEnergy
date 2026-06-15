@@ -1,36 +1,18 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "cfba4ed08308c0062226",
+  "name": "206d39eda82adbbc4549",
   "position": {
-    "x": 601.13935047411314,
-    "y": 370.98020369309251,
-    "z": 3,
-    "height": 348.26712999759707,
-    "width": 678.36380103879776
+    "x": 228.08173281109904,
+    "y": 466.47224450631558,
+    "z": 10,
+    "height": 253.85368002139273,
+    "width": 637.85569345476847,
+    "tabOrder": 3
   },
   "visual": {
     "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Columns": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_FRJ"
-                    }
-                  },
-                  "Property": "xTipo"
-                }
-              },
-              "queryRef": "TB_FRJ.xTipo",
-              "nativeQueryRef": "xTipo",
-              "active": true
-            }
-          ]
-        },
         "Rows": {
           "projections": [
             {
@@ -38,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "TB_Rede"
                     }
                   },
-                  "Property": "Ano-Mes"
+                  "Property": "nomgre"
                 }
               },
-              "queryRef": "CALENDARIO DAX.Ano-Mes",
-              "nativeQueryRef": "Ano-Mes",
+              "queryRef": "TB_Rede.nomgre",
+              "nativeQueryRef": "nomgre",
               "active": true
             },
             {
@@ -56,11 +38,11 @@
                       "Entity": "TB_Fatos"
                     }
                   },
-                  "Property": "titulo"
+                  "Property": "observacao"
                 }
               },
-              "queryRef": "TB_Fatos.titulo",
-              "nativeQueryRef": "titulo",
+              "queryRef": "TB_Fatos.observacao",
+              "nativeQueryRef": "observacao",
               "active": false
             }
           ]
@@ -88,13 +70,13 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "CALENDARIO DAX"
+                    "Entity": "_Medidas"
                   }
                 },
-                "Property": "Ano-Mes"
+                "Property": "01. Valor Aberto"
               }
             },
             "direction": "Descending"
@@ -110,7 +92,7 @@
         "levels": [
           {
             "queryRefs": [
-              "CALENDARIO DAX.Ano-Mes"
+              "TB_Rede.nomgre"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -118,10 +100,10 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "TB_Rede"
                     }
                   },
-                  "Property": "Ano-Mes"
+                  "Property": "nomgre"
                 }
               }
             ],
@@ -129,7 +111,7 @@
           },
           {
             "queryRefs": [
-              "TB_Fatos.titulo"
+              "TB_Fatos.observacao"
             ],
             "isCollapsed": true,
             "isPinned": true

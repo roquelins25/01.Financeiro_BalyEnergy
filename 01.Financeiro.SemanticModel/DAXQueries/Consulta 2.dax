@@ -1,0 +1,6 @@
+EVALUATE
+SUMMARIZE(
+    TB_AUXtempo,
+    TB_AUXtempo[DESC],
+    "QtdIDs", DISTINCTCOUNT(TB_AUXtempo[ID])
+)

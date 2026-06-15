@@ -191,12 +191,47 @@ table TB_Fatos
 
 		annotation SummarizationSetBy = Automatic
 
+	column '03. Aux Dias_' = ```
+			
+			VAR _dias = 
+			DATEDIFF( TODAY(), TB_Fatos[vencimento], DAY )
+			
+			VAR vRESULT = 
+			SWITCH(
+			    TRUE(),
+			    _dias = 0  , 10008,
+			    
+			    _dias < 0 && _dias >= -7 , 10007 ,
+			    _dias >= -15 && _dias < -7, 10006,
+			    _dias >= -30 && _dias < -15, 10005,
+			    _dias >= -60 && _dias < -30, 10004,
+			    _dias >= -90 && _dias < -60, 10003,
+			    _dias >= -180 && _dias < -90, 10002,
+			    _dias < -180, 10001,
+			
+			    _dias > 0 && _dias <= 7, 10009,
+			    _dias > 7 && _dias <= 15, 10010,
+			    _dias > 15 && _dias <= 30, 10011,
+			    _dias > 30 && _dias <= 60, 10012,
+			    _dias > 60 && _dias <= 90, 10013,
+			    _dias > 90 && _dias <= 120, 10014,
+			    _dias > 120 , 10015
+			    )
+			RETURN
+			vRESULT
+			```
+		formatString: 0
+		lineageTag: 3ca4f9aa-b407-4df0-83e6-e3a00929b45b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_Fatos = m
 		mode: import
 		queryGroup: _Fatos
 		source =
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="select #(lf)#(tab)codemp empresa,#(lf)#(tab)codfil filial,#(lf)#(tab)numtit titulo,#(lf)#(tab)codtpt tipo,#(lf)#(tab)sittit sit,#(lf)#(tab)codcli codcliente,#(lf)#(tab)datemi emissao,#(lf)#(tab)codpor portador,#(lf)#(tab)datent DataEntrada,#(lf)#(tab)vctori VenctOri,#(lf)#(tab)vctpro vencimento,#(lf)#(tab)codrep codrep,#(lf)#(tab)obstcr observacao,#(lf)#(tab)codfpg codpagamento,#(lf)#(tab)numnfv numnota,#(lf)#(tab)numped numpedido,#(tab)#(lf)#(tab)vlrori valorOri,#(lf)#(tab)vlrabe valorAberto,#(lf)#(tab)codcrt carteira,#(lf)#(tab)CASE #(lf)#(tab)#(tab)WHEN codfrj is null THEN '00' #(lf)#(tab)#(tab)WHEN codfrj = '' THEN '00'#(lf)#(tab)#(tab)ELSE codfrj#(lf)#(tab)END as ForReaj#(lf)#(tab)#(lf)from sapiens_producao.E301TCR #(lf)where sittit = 'AB'"])
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="select #(lf)#(tab)tcr.codemp empresa,#(lf)#(tab)tcr.codfil filial,#(lf)#(tab)tcr.numtit titulo,#(lf)#(tab)tcr.codtpt tipo,#(lf)#(tab)tcr.sittit sit,#(lf)#(tab)tcr.codcli codcliente,#(lf)#(tab)tcr.datemi emissao,#(lf)#(tab)tcr.codpor portador,#(lf)#(tab)tcr.datent DataEntrada,#(lf)#(tab)tcr.vctori VenctOri,#(lf)#(tab)tcr.vctpro vencimento,#(lf)#(tab)tcr.codrep codrep,#(lf)#(tab)tcr.obstcr observacao,#(lf)#(tab)tcr.codfpg codpagamento,#(lf)#(tab)tcr.numnfv numnota,#(lf)#(tab)tcr.numped numpedido,#(tab)#(lf)#(tab)tcr.vlrori valorOri,#(lf)#(tab)tcr.vlrabe valorAberto,#(lf)#(tab)tcr.codcrt carteira,#(lf)#(tab)CASE #(lf)#(tab)#(tab)WHEN codfrj is null THEN '00' #(lf)#(tab)#(tab)WHEN codfrj = '' THEN '00'#(lf)#(tab)#(tab)ELSE codfrj#(lf)#(tab)END as ForReaj#(lf)#(tab)#(lf)from sapiens_producao.E301TCR tcr#(lf)left join sapiens_producao.e085cli cli ON cli.codcli = tcr.codcli#(lf)left join sapiens_producao.e069gre gre ON cli.codgre = gre.codgre#(lf)where sittit = 'AB' AND gre.codgre not in ( 55 )#(lf)"])
 				in
 				  Origem
 
