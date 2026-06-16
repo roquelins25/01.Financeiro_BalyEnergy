@@ -4,3 +4,5 @@
 *.xls
 *.xlsx
 */Dados
+*/Dados/*
+*/Dados/**/*
