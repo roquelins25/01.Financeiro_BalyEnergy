@@ -17,17 +17,25 @@ table TB_OPUf
 
 		annotation SummarizationSetBy = Automatic
 
+	column LV1
+		dataType: string
+		lineageTag: 6b165acf-be7b-4e27-9983-eb10aea271af
+		summarizeBy: none
+		sourceColumn: LV1
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_OPUf = m
 		mode: import
 		queryGroup: _DimPlan
 		source =
 				let
-				  Origem = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1esuc7Rg7pQNpYThQFH_4EQYL1KOAQrYqz8CK-wnHWIU/edit?gid=1377226161#gid=1377226161"),
+				  Origem = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1W7t0zQmOFSGaJ2TIPSu9Qzf25r-HM-jsxHviWFavDV0/edit?gid=1377226161#gid=1377226161"),
 				  #"Navegação 1" = Origem{[name = "Base", ItemKind = "Table"]}[Data],
-				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"Column7", "Column8"}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"Column8", "Column9","Column10"}),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Outras Colunas Removidas", [PromoteAllScalars=true]),
 				    #"Linhas Filtradas" = Table.SelectRows(#"Cabeçalhos Promovidos", each ([CODOP] <> "")),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"CODOP", type text}, {"UF", type text}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"CODOP", type text}, {"UF", type text}, {"LV1", type text}})
 				in
 				    #"Tipo Alterado"
 

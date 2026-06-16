@@ -1,38 +1,37 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "f6c762639be096c46100",
+  "name": "1ed5419760be514ebc0d",
   "position": {
-    "x": 740.70772808524669,
-    "y": 136.48357369708958,
-    "z": 11,
-    "height": 412.29412887662482,
-    "width": 538.82577532496828
+    "x": 604.35216208138672,
+    "y": 327.30372957072973,
+    "z": 15,
+    "height": 319.57214540764159,
+    "width": 675.22501690969432
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "pivotTable",
     "autoSelectVisualType": true,
     "query": {
       "queryState": {
-        "Category": {
+        "Rows": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_FRJ"
+                      "Entity": "TB_Operacao"
                     }
                   },
-                  "Property": "xTipo"
+                  "Property": "OP"
                 }
               },
-              "queryRef": "TB_FRJ.xTipo",
-              "nativeQueryRef": "xTipo",
-              "active": true
+              "queryRef": "TB_Operacao.OP",
+              "nativeQueryRef": "OP"
             }
           ]
         },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,11 +41,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "01. Valor Aberto"
+                  "Property": "01. Valor AB Operacao"
                 }
               },
-              "queryRef": "_Medidas.01. Valor Aberto",
-              "nativeQueryRef": "01. Valor Aberto"
+              "queryRef": "_Medidas.01. Valor AB Operacao",
+              "nativeQueryRef": "01. Valor AB Operacao"
             }
           ]
         }
@@ -61,7 +60,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "01. Valor Aberto"
+                "Property": "01. Valor AB Operacao"
               }
             },
             "direction": "Descending"

@@ -1,13 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "206d39eda82adbbc4549",
+  "name": "1ae1c9c252d6202067c5",
   "position": {
-    "x": 318.28354804712694,
+    "x": 604.35216208138672,
     "y": 103.08778884117471,
-    "z": 10,
-    "height": 543.78808613719661,
-    "width": 242.25630377676057,
-    "tabOrder": 3
+    "z": 13,
+    "height": 194.57820143771727,
+    "width": 300.24318499992137
   },
   "visual": {
     "visualType": "pivotTable",
@@ -20,14 +19,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_CLI"
+                      "Entity": "TB_Operacao"
                     }
                   },
-                  "Property": "sigufs"
+                  "Property": "OP"
                 }
               },
-              "queryRef": "TB_CLI.sigufs",
-              "nativeQueryRef": "sigufs",
+              "queryRef": "TB_Operacao.OP",
+              "nativeQueryRef": "OP",
               "active": true
             },
             {
@@ -35,15 +34,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_OPRede"
                     }
                   },
-                  "Property": "observacao"
+                  "Property": "codgre"
                 }
               },
-              "queryRef": "TB_Fatos.observacao",
-              "nativeQueryRef": "observacao",
-              "active": false
+              "queryRef": "TB_OPRede.codgre",
+              "nativeQueryRef": "codgre",
+              "active": true
             }
           ]
         },
@@ -70,16 +69,16 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Medidas"
+                    "Entity": "TB_OPRede"
                   }
                 },
-                "Property": "01. Valor Aberto"
+                "Property": "codgre"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -92,7 +91,7 @@
         "levels": [
           {
             "queryRefs": [
-              "TB_CLI.sigufs"
+              "TB_Operacao.OP"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -100,10 +99,10 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_CLI"
+                      "Entity": "TB_Operacao"
                     }
                   },
-                  "Property": "sigufs"
+                  "Property": "OP"
                 }
               }
             ],
@@ -111,13 +110,26 @@
           },
           {
             "queryRefs": [
-              "TB_Fatos.observacao"
+              "TB_OPRede.codgre"
             ],
             "isCollapsed": true,
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação RJ e SP'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "drillFilterOtherVisuals": true

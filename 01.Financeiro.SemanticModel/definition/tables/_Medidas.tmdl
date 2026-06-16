@@ -901,6 +901,17 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure '01. Valor AB Operacao' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    ALL( TB_OPUf ),
+			    VALUES( TB_Operacao[CODOP] )
+			)
+		lineageTag: fb79b868-7dae-47d5-acc6-ff637d577546
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition _Medidas = m
 		mode: import
 		source =

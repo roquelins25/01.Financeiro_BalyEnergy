@@ -17,16 +17,24 @@ table TB_OPRede
 
 		annotation SummarizationSetBy = Automatic
 
+	column LV1
+		dataType: string
+		lineageTag: 0323587b-7ee2-4a5c-90db-c916bc75e7ed
+		summarizeBy: none
+		sourceColumn: LV1
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_OPRede = m
 		mode: import
 		queryGroup: _DimPlan
 		source =
 				let
-				  Origem = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1esuc7Rg7pQNpYThQFH_4EQYL1KOAQrYqz8CK-wnHWIU/edit?gid=1377226161#gid=1377226161"),
+				  Origem = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1W7t0zQmOFSGaJ2TIPSu9Qzf25r-HM-jsxHviWFavDV0/edit?gid=1377226161#gid=1377226161"),
 				  #"Navegação 1" = Origem{[name = "Base", ItemKind = "Table"]}[Data],
-				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"Column1", "Column2"}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"Column1", "Column2", "Column3"}),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Outras Colunas Removidas", [PromoteAllScalars=true]),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"CODOP", type text}, {"codgre", type text}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"CODOP", type text}, {"codgre", type text}, {"LV1", type text}})
 				in
 				  #"Tipo Alterado"
 

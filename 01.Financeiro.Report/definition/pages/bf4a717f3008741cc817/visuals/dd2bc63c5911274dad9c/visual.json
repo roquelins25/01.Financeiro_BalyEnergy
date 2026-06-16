@@ -1,13 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "206d39eda82adbbc4549",
+  "name": "dd2bc63c5911274dad9c",
   "position": {
-    "x": 318.28354804712694,
-    "y": 103.08778884117471,
-    "z": 10,
-    "height": 543.78808613719661,
-    "width": 242.25630377676057,
-    "tabOrder": 3
+    "x": 904.59534708130809,
+    "y": 113.39656772529219,
+    "z": 14,
+    "height": 197.15539615874664,
+    "width": 300.24318499992137
   },
   "visual": {
     "visualType": "pivotTable",
@@ -20,14 +19,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_CLI"
+                      "Entity": "TB_Operacao"
                     }
                   },
-                  "Property": "sigufs"
+                  "Property": "OP"
                 }
               },
-              "queryRef": "TB_CLI.sigufs",
-              "nativeQueryRef": "sigufs",
+              "queryRef": "TB_Operacao.OP",
+              "nativeQueryRef": "OP",
               "active": true
             },
             {
@@ -35,14 +34,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_OPUf"
                     }
                   },
-                  "Property": "observacao"
+                  "Property": "UF"
                 }
               },
-              "queryRef": "TB_Fatos.observacao",
-              "nativeQueryRef": "observacao",
+              "queryRef": "TB_OPUf.UF",
+              "nativeQueryRef": "UF",
               "active": false
             }
           ]
@@ -65,23 +64,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Medidas"
-                  }
-                },
-                "Property": "01. Valor Aberto"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "expansionStates": [
@@ -92,7 +74,7 @@
         "levels": [
           {
             "queryRefs": [
-              "TB_CLI.sigufs"
+              "TB_Operacao.OP"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -100,10 +82,10 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_CLI"
+                      "Entity": "TB_Operacao"
                     }
                   },
-                  "Property": "sigufs"
+                  "Property": "OP"
                 }
               }
             ],
@@ -111,7 +93,7 @@
           },
           {
             "queryRefs": [
-              "TB_Fatos.observacao"
+              "TB_OPUf.UF"
             ],
             "isCollapsed": true,
             "isPinned": true
