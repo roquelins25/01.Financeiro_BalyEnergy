@@ -1,0 +1,37 @@
+table TB_OPUf
+	lineageTag: 52c75ef7-daec-4d54-b7bd-1e8ea43b38e5
+
+	column CODOP
+		dataType: string
+		lineageTag: e2bca558-596c-4d9d-bfb7-730b12c1a7d8
+		summarizeBy: none
+		sourceColumn: CODOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: 19bf79d6-cef3-4b6f-ac20-9c1ef8c2bcb9
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_OPUf = m
+		mode: import
+		queryGroup: _DimPlan
+		source =
+				let
+				  Origem = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1esuc7Rg7pQNpYThQFH_4EQYL1KOAQrYqz8CK-wnHWIU/edit?gid=1377226161#gid=1377226161"),
+				  #"Navegação 1" = Origem{[name = "Base", ItemKind = "Table"]}[Data],
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"Column7", "Column8"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Outras Colunas Removidas", [PromoteAllScalars=true]),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Cabeçalhos Promovidos", each ([CODOP] <> "")),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"CODOP", type text}, {"UF", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

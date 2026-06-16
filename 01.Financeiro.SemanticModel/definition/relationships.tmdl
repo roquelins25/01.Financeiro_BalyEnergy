@@ -61,3 +61,17 @@ relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
 	fromColumn: TB_AUXtempo.Tipo
 	toColumn: 'CALENDARIO DAX'.Vencidos?
 
+relationship AutoDetected_7747c16d-b651-45f5-8ad6-6983391389c6
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: TB_OPRede.codgre
+	toColumn: TB_Rede.codgre
+
+relationship AutoDetected_8015f117-5f5c-42f3-843d-31143dcc9d71
+	fromColumn: TB_OPRede.CODOP
+	toColumn: TB_Operacao.CODOP
+
+relationship AutoDetected_8ca19542-9c91-4303-a002-c4fd4483f8d8
+	fromColumn: TB_OPUf.CODOP
+	toColumn: TB_Operacao.CODOP
+
