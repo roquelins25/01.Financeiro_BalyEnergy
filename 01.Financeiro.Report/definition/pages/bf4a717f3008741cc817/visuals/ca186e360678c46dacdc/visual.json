@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "ca186e360678c46dacdc",
   "position": {
-    "x": 961.52011977597454,
+    "x": 771.86981894829569,
     "y": 0,
     "z": 7,
-    "height": 74.1960407386185,
-    "width": 299.81257278054011
+    "height": 74.738646909851667,
+    "width": 190.71240935617323
   },
   "visual": {
     "visualType": "slicer",
@@ -83,7 +83,7 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "'ata'"
+                            "Value": "'rj'"
                           }
                         }
                       }
@@ -125,7 +125,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Atacadão'"
+                                "Value": "'RJ Distribuidora'"
                               }
                             }
                           ]

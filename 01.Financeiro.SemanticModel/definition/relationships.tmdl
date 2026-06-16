@@ -61,29 +61,24 @@ relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
 	fromColumn: TB_AUXtempo.Tipo
 	toColumn: 'CALENDARIO DAX'.Vencidos?
 
-relationship AutoDetected_7747c16d-b651-45f5-8ad6-6983391389c6
-	crossFilteringBehavior: bothDirections
-	fromColumn: TB_OPRede.codgre
-	toColumn: TB_Rede.codgre
-
-relationship AutoDetected_8015f117-5f5c-42f3-843d-31143dcc9d71
+relationship c8fe91f8-0be8-2cd8-b407-53e9dd402f22
 	fromColumn: TB_OPRede.CODOP
-	toColumn: TB_Operacao.CODOP
+	toColumn: TB_Lvel.CODOP
 
-relationship AutoDetected_8ca19542-9c91-4303-a002-c4fd4483f8d8
+relationship 2188a873-6286-35a6-eb53-7d5c83f951f6
 	fromColumn: TB_OPUf.CODOP
+	toColumn: TB_Lvel.CODOP
+
+relationship bda595e0-fe4b-cba0-9632-867ebd958db5
+	fromColumn: TB_Lvel.LV1
 	toColumn: TB_Operacao.CODOP
 
-relationship 9aee5a9d-024e-6584-3b21-4e0f7441deff
+relationship 55aef0f6-494c-db91-bde2-d7729a4b36ce
 	isActive: false
 	fromColumn: TB_CLI.sigufs
 	toColumn: TB_OPUf.UF
 
-relationship AutoDetected_17ab7307-245e-4827-82f3-cbbdc75c9804
-	fromColumn: TB_OPRede.LV1
-	toColumn: TB_Lvel.LV1
-
-relationship AutoDetected_423caece-7cf1-4f7f-8d86-1b31f9987cc2
-	fromColumn: TB_OPUf.LV1
-	toColumn: TB_Lvel.LV1
+relationship 2d323a38-1e2d-e32c-f683-dd063c4d37c2
+	fromColumn: TB_OPRede.codgre
+	toColumn: TB_Rede.codgre
 

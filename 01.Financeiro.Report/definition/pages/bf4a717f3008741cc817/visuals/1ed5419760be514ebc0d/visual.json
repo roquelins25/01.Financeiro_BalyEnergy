@@ -2,15 +2,14 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "1ed5419760be514ebc0d",
   "position": {
-    "x": 604.35216208138672,
-    "y": 327.30372957072973,
+    "x": 0,
+    "y": 101.79919148066003,
     "z": 15,
-    "height": 319.57214540764159,
-    "width": 675.22501690969432
+    "height": 516.72754156638825,
+    "width": 755.1180532616047
   },
   "visual": {
     "visualType": "pivotTable",
-    "autoSelectVisualType": true,
     "query": {
       "queryState": {
         "Rows": {
@@ -27,7 +26,53 @@
                 }
               },
               "queryRef": "TB_Operacao.OP",
-              "nativeQueryRef": "OP"
+              "nativeQueryRef": "OP",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Lvel"
+                    }
+                  },
+                  "Property": "Desc"
+                }
+              },
+              "queryRef": "TB_Lvel.Desc",
+              "nativeQueryRef": "Desc",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "xREDE"
+                }
+              },
+              "queryRef": "TB_CLI.Coluna",
+              "nativeQueryRef": "xREDE",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "nomcli"
+                }
+              },
+              "queryRef": "TB_CLI.nomcli",
+              "nativeQueryRef": "nomcli",
+              "active": false
             }
           ]
         },
@@ -65,10 +110,118 @@
             },
             "direction": "Descending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "TB_Operacao.OP"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Operacao"
+                    }
+                  },
+                  "Property": "OP"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_Lvel.Desc"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Lvel"
+                    }
+                  },
+                  "Property": "Desc"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_CLI.Coluna"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "xREDE"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_CLI.nomcli"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação RJ e SP'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação PR e Norte'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Outros Clientes ( UF )'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
     "drillFilterOtherVisuals": true
   }
 }

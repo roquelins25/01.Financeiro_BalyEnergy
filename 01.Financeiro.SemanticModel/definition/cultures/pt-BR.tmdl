@@ -3456,7 +3456,7 @@ cultureInfo pt-BR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "MES ANTERIOR"
+			          "ConceptualProperty": "UF"
 			        }
 			      },
 			      "State": "Generated",

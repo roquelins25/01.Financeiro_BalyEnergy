@@ -160,18 +160,19 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'MES ANTERIOR' =
+	measure UF =
 			
-			VAR DataLimite =
-			    EDATE(MAX('CALENDARIO DAX'[Date]), -3)
-			
-			RETURN
 			CALCULATE(
 			    [01. Valor Aberto],
+			    USERELATIONSHIP(
+			        TB_OPUf[UF],
+			        TB_CLI[sigufs]
+			    ),
+			    KEEPFILTERS(
 			    FILTER(
-			        ALL('CALENDARIO DAX'),
-			        'CALENDARIO DAX'[Date] <= EOMONTH(DataLimite, 0)
-			    )
+			        ALL(TB_CLI),
+			        NOT TB_CLI[codgre] IN ALL(TB_OPRede[codgre])
+			    ) )
 			)
 		lineageTag: 5617b1ec-4ced-4817-9f93-58b88fde30df
 
@@ -901,16 +902,63 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure '01. Valor AB Operacao' =
+	measure '01. Valor AB Operacao' = ```
 			
+			VAR vREDE = 
+			CALCULATE( [01. Valor Aberto], CROSSFILTER( TB_OPRede[codgre], TB_Rede[codgre], Both ) )
+			
+			VAR vUF = 
 			CALCULATE(
 			    [01. Valor Aberto],
-			    ALL( TB_OPUf ),
-			    VALUES( TB_Operacao[CODOP] )
+			    USERELATIONSHIP(
+			        TB_OPUf[UF],
+			        TB_CLI[sigufs]
+			    ),
+			    KEEPFILTERS(
+			    FILTER(
+			        ALL(TB_CLI),
+			        NOT TB_CLI[codgre] IN ALL(TB_OPRede[codgre])
+			    ) )
 			)
+			
+			VAR vTOTAL = 
+			SWITCH(
+			    TRUE(),
+			    ISINSCOPE( TB_Operacao[OP] ), vUF + vREDE ,
+			    [01. Valor Aberto])
+			
+			RETURN
+			vTOTAL
+			```
 		lineageTag: fb79b868-7dae-47d5-acc6-ff637d577546
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '02. Qtde AB Operacao' = ```
+			
+			VAR vREDE = 
+			CALCULATE( [02. Quantidade Titulos], CROSSFILTER( TB_OPRede[codgre], TB_Rede[codgre], Both ) )
+			
+			VAR vUF = 
+			CALCULATE(
+			    [02. Quantidade Titulos],
+			    USERELATIONSHIP(
+			        TB_OPUf[UF],
+			        TB_CLI[sigufs]
+			    ),
+			    KEEPFILTERS(
+			    FILTER(
+			        ALL(TB_CLI),
+			        NOT TB_CLI[codgre] IN ALL(TB_OPRede[codgre])
+			    ) )
+			)
+			
+			RETURN
+			vREDE + vUF
+			```
+		formatString: 0
+		displayFolder: 02. Quantidade
+		lineageTag: ad460ad4-04da-4293-9808-7bd70ad69976
 
 	partition _Medidas = m
 		mode: import

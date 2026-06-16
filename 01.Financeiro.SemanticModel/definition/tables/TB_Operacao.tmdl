@@ -24,7 +24,7 @@ table TB_Operacao
 				let
 				  Origem = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1W7t0zQmOFSGaJ2TIPSu9Qzf25r-HM-jsxHviWFavDV0/edit?gid=1377226161#gid=1377226161"),
 				  #"Navegação 1" = Origem{[name = "Base", ItemKind = "Table"]}[Data],
-				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"Column5", "Column6"}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"Column4", "Column5"}),
 				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Outras Colunas Removidas", [PromoteAllScalars=true]),
 				    #"Linhas Filtradas" = Table.SelectRows(#"Cabeçalhos Promovidos", each ([CODOP] <> "")),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"CODOP", type text}, {"OP", type text}})
