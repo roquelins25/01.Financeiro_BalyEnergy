@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "7d3a9430a7106bb47d1e",
+  "name": "f6c762639be096c46100",
   "position": {
-    "x": 917.48132068645486,
-    "y": 346.63268997844995,
-    "z": 9,
-    "height": 372.40463718874366,
-    "width": 360.80726094411148,
-    "tabOrder": 2
+    "x": 740.70772808524669,
+    "y": 136.48357369708958,
+    "z": 11,
+    "height": 412.29412887662482,
+    "width": 538.82577532496828
   },
   "visual": {
-    "visualType": "donutChart",
+    "visualType": "clusteredBarChart",
+    "autoSelectVisualType": true,
     "query": {
       "queryState": {
         "Category": {
@@ -42,11 +42,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "02. Quantidade Titulos"
+                  "Property": "01. Valor Aberto"
                 }
               },
-              "queryRef": "_Medidas.02. Quantidade Titulos",
-              "nativeQueryRef": "02. Quantidade Titulos"
+              "queryRef": "_Medidas.01. Valor Aberto",
+              "nativeQueryRef": "01. Valor Aberto"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "02. Quantidade Titulos"
+                "Property": "01. Valor Aberto"
               }
             },
             "direction": "Descending"
@@ -69,21 +69,6 @@
         ],
         "isDefaultSort": true
       }
-    },
-    "objects": {
-      "labels": [
-        {
-          "properties": {
-            "labelStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Percent of total'"
-                }
-              }
-            }
-          }
-        }
-      ]
     },
     "drillFilterOtherVisuals": true
   }

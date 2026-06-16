@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "98bfda7000002735470a",
   "position": {
-    "x": 1110.9123089300081,
-    "y": 569.6669348350764,
+    "x": 290.58823529411768,
+    "y": 65.882352941176478,
     "z": 4,
-    "height": 75.378921962992763,
-    "width": 169.29364440868866
+    "height": 50,
+    "width": 212.94117647058823
   },
   "visual": {
     "visualType": "slicer",
@@ -26,8 +26,9 @@
                 }
               },
               "queryRef": "TB_FRJ.desfrj",
-              "nativeQueryRef": "desfrj",
-              "active": true
+              "nativeQueryRef": "Descrição Conta",
+              "active": true,
+              "displayName": "Descrição Conta"
             }
           ]
         }
@@ -112,6 +113,94 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

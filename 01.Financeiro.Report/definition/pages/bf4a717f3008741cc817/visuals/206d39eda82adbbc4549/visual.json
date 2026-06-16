@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "206d39eda82adbbc4549",
   "position": {
-    "x": 228.08173281109904,
-    "y": 466.47224450631558,
+    "x": 760.61158258273883,
+    "y": 369.64301209628434,
     "z": 10,
-    "height": 253.85368002139273,
-    "width": 637.85569345476847,
+    "height": 351.16086149147009,
+    "width": 520.343624720154,
     "tabOrder": 3
   },
   "visual": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Rede"
+                      "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "nomgre"
+                  "Property": "sigufs"
                 }
               },
-              "queryRef": "TB_Rede.nomgre",
-              "nativeQueryRef": "nomgre",
+              "queryRef": "TB_CLI.sigufs",
+              "nativeQueryRef": "sigufs",
               "active": true
             },
             {
@@ -92,7 +92,7 @@
         "levels": [
           {
             "queryRefs": [
-              "TB_Rede.nomgre"
+              "TB_CLI.sigufs"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -100,10 +100,10 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Rede"
+                      "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "nomgre"
+                  "Property": "sigufs"
                 }
               }
             ],

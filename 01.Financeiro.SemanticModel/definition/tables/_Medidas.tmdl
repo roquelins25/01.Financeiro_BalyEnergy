@@ -16,7 +16,7 @@ table _Medidas
 			DISTINCTCOUNT( 
 			    TB_Fatos[titulo] )
 			```
-		formatString: 0
+		formatString: #,0
 		displayFolder: 02. Quantidade
 		lineageTag: b31ae0f3-2543-4db5-acc3-ba0c993c5445
 
@@ -356,7 +356,7 @@ table _Medidas
 			      <!-- FRENTE -->
 			      <div class='face front'>
 			        <div class='header'>
-			          <span class='title'>INADIMPLÊNCIA GERAL</span>
+			          <span class='title'>CONTAS A RECEBER</span>
 			        </div>
 			        <div class='main-value'>"&fxFORMAT(_TOTALGERAL,4)&"</div>
 			        <hr class='divider'>
@@ -889,6 +889,17 @@ table _Medidas
 			```
 		displayFolder: 05. HTML
 		lineageTag: 15316810-1a59-48d4-9a17-7069c0e9927c
+
+	measure '01. Valor Aberto Ano Anterior' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    SAMEPERIODLASTYEAR( 'CALENDARIO DAX'[Date] )
+			)
+		displayFolder: 01. Valores Totais
+		lineageTag: 5210bd54-30f9-46e6-be2a-4f82ca9d1fee
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition _Medidas = m
 		mode: import
