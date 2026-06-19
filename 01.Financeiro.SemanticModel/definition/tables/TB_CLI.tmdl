@@ -241,6 +241,14 @@ table TB_CLI
 
 		annotation SummarizationSetBy = Automatic
 
+	column xLocalizacao =
+			
+			TB_CLI[nompai] & "-" & TB_CLI[sigufs]
+		lineageTag: 1fe2846a-c296-4625-8c03-a6b543a6a549
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_CLI = m
 		mode: import
 		queryGroup: _Dim

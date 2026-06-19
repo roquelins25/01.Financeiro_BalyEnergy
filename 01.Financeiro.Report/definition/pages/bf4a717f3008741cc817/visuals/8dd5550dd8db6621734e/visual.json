@@ -1,0 +1,197 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "8dd5550dd8db6621734e",
+  "position": {
+    "x": 92.67900241351569,
+    "y": 533.8310539018504,
+    "z": 6002,
+    "height": 177.94368463395014,
+    "width": 637.631536604988
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "xREDE"
+                }
+              },
+              "queryRef": "TB_CLI.xREDE",
+              "nativeQueryRef": "xREDE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos"
+                    }
+                  },
+                  "Property": "titulo"
+                }
+              },
+              "queryRef": "TB_Fatos.titulo",
+              "nativeQueryRef": "titulo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. Valor AB Total Vencidas"
+                }
+              },
+              "queryRef": "_Medidas.01. Valor AB Total Vencidas",
+              "nativeQueryRef": "01. Valor AB Total Vencidas"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos"
+                    }
+                  },
+                  "Property": "emissao"
+                }
+              },
+              "queryRef": "TB_Fatos.emissao",
+              "nativeQueryRef": "Data Emissao",
+              "displayName": "Data Emissao"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos"
+                    }
+                  },
+                  "Property": "vencimento"
+                }
+              },
+              "queryRef": "TB_Fatos.vencimento",
+              "nativeQueryRef": "Data Vencimento",
+              "displayName": "Data Vencimento"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "03. Dias"
+                }
+              },
+              "queryRef": "_Medidas.03. Dias",
+              "nativeQueryRef": "Dias Vencidos",
+              "displayName": "Dias Vencidos"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_FRJ"
+                    }
+                  },
+                  "Property": "xTipo"
+                }
+              },
+              "queryRef": "TB_FRJ.xTipo",
+              "nativeQueryRef": "xTipo"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'wf_standard-font, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "61.020174872655105D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "TB_Fatos.titulo"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

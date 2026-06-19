@@ -40,7 +40,8 @@
     ]
   },
   "publicCustomVisuals": [
-    "htmlContent443BE3AD55E043BF878BED274D3A6855"
+    "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "MapBySquillion"
   ],
   "resourcePackages": [
     {
@@ -61,6 +62,11 @@
         {
           "name": "Fundo3127829885792692.png",
           "path": "Fundo3127829885792692.png",
+          "type": "Image"
+        },
+        {
+          "name": "homme_234029901355629977.png",
+          "path": "homme_234029901355629977.png",
           "type": "Image"
         }
       ]

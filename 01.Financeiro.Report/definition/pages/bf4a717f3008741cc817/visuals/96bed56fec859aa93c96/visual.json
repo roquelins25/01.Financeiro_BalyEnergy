@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "56fcb05a09211bec1db0",
+  "name": "96bed56fec859aa93c96",
   "position": {
-    "x": 503.52941176470591,
-    "y": 65.882352941176478,
-    "z": 1000,
-    "height": 50,
-    "width": 212.94117647058823,
-    "tabOrder": 2000
+    "x": 730.63470341182574,
+    "y": 64.4298680257342,
+    "z": 6001,
+    "height": 50.255297060072671,
+    "width": 189.42381199565853,
+    "tabOrder": 6001
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "tipo"
+                  "Property": "sigufs"
                 }
               },
-              "queryRef": "TB_Fatos.tipo",
-              "nativeQueryRef": "tipo",
+              "queryRef": "TB_CLI.sigufs",
+              "nativeQueryRef": "sigufs",
               "active": true
             }
           ]
@@ -51,42 +51,46 @@
       "general": [
         {
           "properties": {
-            "filter": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "selfFilter": {
               "filter": {
                 "Version": 2,
                 "From": [
                   {
                     "Name": "t",
-                    "Entity": "TB_Fatos",
+                    "Entity": "TB_CLI",
                     "Type": 0
                   }
                 ],
                 "Where": [
                   {
                     "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "t"
-                                }
-                              },
-                              "Property": "tipo"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'01'"
+                      "Contains": {
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "t"
                               }
-                            }
-                          ]
-                        ]
+                            },
+                            "Property": "sigufs"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'sc'"
+                          }
+                        }
                       }
+                    },
+                    "Annotations": {
+                      "PowerBI.MParameterBehavior": 1
                     }
                   }
                 ]
@@ -198,7 +202,7 @@
       ]
     },
     "syncGroup": {
-      "groupName": "tipo",
+      "groupName": "sigufs",
       "fieldChanges": true,
       "filterChanges": true
     },

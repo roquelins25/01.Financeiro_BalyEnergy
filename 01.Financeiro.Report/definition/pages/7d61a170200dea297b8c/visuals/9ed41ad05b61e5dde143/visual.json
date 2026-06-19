@@ -1,0 +1,358 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "9ed41ad05b61e5dde143",
+  "position": {
+    "x": 91.798982846306359,
+    "y": 139.81691233514351,
+    "z": 5,
+    "height": 329.06404620291352,
+    "width": 485.828463063529
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Operacao"
+                    }
+                  },
+                  "Property": "OP"
+                }
+              },
+              "queryRef": "TB_Operacao.OP",
+              "nativeQueryRef": "OP",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Lvel"
+                    }
+                  },
+                  "Property": "Desc"
+                }
+              },
+              "queryRef": "TB_Lvel.Desc",
+              "nativeQueryRef": "Desc",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "xREDE"
+                }
+              },
+              "queryRef": "TB_CLI.xREDE",
+              "nativeQueryRef": "xREDE",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos"
+                    }
+                  },
+                  "Property": "titulo"
+                }
+              },
+              "queryRef": "TB_Fatos.titulo",
+              "nativeQueryRef": "titulo",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. Valor AB Operacao"
+                }
+              },
+              "queryRef": "_Medidas.01. Valor AB Operacao",
+              "nativeQueryRef": "01. Valor AB Operacao"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "02. QTD titulos s\\ Cod"
+                }
+              },
+              "queryRef": "_Medidas.02. QTD titulos s\\ Cod",
+              "nativeQueryRef": "02. QTD titulos s\\ Cod"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "02. QTD titulos s\\ Cod"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "TB_Operacao.OP"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Operacao"
+                    }
+                  },
+                  "Property": "OP"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_Lvel.Desc"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Lvel"
+                    }
+                  },
+                  "Property": "Desc"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_CLI.xREDE"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "xREDE"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_Fatos.titulo"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação Central'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Grandes Redes'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação RJ e SP'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação RS'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação PR e Norte'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação Ex'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e1611d32101ee60d00a2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_Operacao"
+              }
+            },
+            "Property": "OP"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9ff9121c010005238567",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_Lvel"
+              }
+            },
+            "Property": "Desc"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5c4e46d1319c7ec6b70a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_CLI"
+              }
+            },
+            "Property": "xREDE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "aaef83d40ce3d8d1684e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_Fatos"
+              }
+            },
+            "Property": "titulo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9faf6b14a900a06c8415",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. Valor AB Operacao"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b2961bcbc314ecde2289",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "02. QTD titulos s\\ Cod"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

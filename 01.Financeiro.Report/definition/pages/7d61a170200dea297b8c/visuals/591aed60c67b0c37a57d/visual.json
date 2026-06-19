@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "18f3cd89db490bd0d2a7",
+  "name": "591aed60c67b0c37a57d",
   "position": {
-    "x": 78,
-    "y": 65.652173913043484,
-    "z": 0,
+    "x": 92.00487731295253,
+    "y": 63.180733848683069,
+    "z": 1,
     "height": 50,
     "width": 212.60869565217394,
-    "tabOrder": 1000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "slicer",
@@ -331,5 +331,37 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "dd0c89548512d253e143",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CALENDARIO DAX"
+              }
+            },
+            "Property": "Ano"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "92e560952e235633640e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CALENDARIO DAX"
+              }
+            },
+            "Property": "Ano-Mes"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

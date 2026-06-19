@@ -32,3 +32,38 @@ DEFINE
 // Format
     FUNCTION fxFORMAT = ( xNumber: EXPR , xsell : INT64) =>
         FORMAT( xNumber , fxFormatNumber( xNumber, xsell ), "pt-BR" )
+
+
+// fx calcula por UF
+    FUNCTION fxUFValorAberto = ( xNumber: EXPR, xUF: STRING ) =>
+        CALCULATE( xNumber, TB_CLI[sigufs] = xUF )
+
+
+// fx Color UF conforme o Acumulado
+    FUNCTION fxColorHTMLMapa = ( xUF: STRING ) =>
+            VAR _TABELA =
+            ADDCOLUMNS(
+                VALUES(TB_CLI[sigufs]),
+                "@Total", [01. % Acumulado UF]
+            )
+            VAR _RESULT = 
+            MAXX(
+                FILTER(
+                    _TABELA,
+                    [sigufs] = xUF
+                ),
+                [@Total]
+            )
+            VAR _RETURNCOLOR = 
+            SWITCH(
+                TRUE(),
+                _RESULT <= 0.3, 0,
+                _RESULT > 0.3 && _RESULT <= 0.5, 24,
+                _RESULT > 0.5 && _RESULT <= 0.8, 48,
+                _RESULT > 0.8 && _RESULT <= 0.9, 72,
+                _RESULT > 0.9 && _RESULT <= 0.95, 96,
+                _RESULT > 0.95, 120 )
+
+            RETURN _RETURNCOLOR
+
+

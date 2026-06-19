@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "56fcb05a09211bec1db0",
+  "name": "277003874dac2a7e7e51",
   "position": {
-    "x": 503.52941176470591,
-    "y": 65.882352941176478,
-    "z": 1000,
-    "height": 50,
-    "width": 212.94117647058823,
-    "tabOrder": 2000
+    "x": 1085.0312686932405,
+    "y": 115.26891076186851,
+    "z": 7,
+    "height": 48.86399477948774,
+    "width": 195.45597911795096,
+    "tabOrder": 5
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "tipo"
+                  "Property": "xREDE"
                 }
               },
-              "queryRef": "TB_Fatos.tipo",
-              "nativeQueryRef": "tipo",
+              "queryRef": "TB_CLI.xREDE",
+              "nativeQueryRef": "xREDE",
               "active": true
             }
           ]
@@ -51,45 +51,11 @@
       "general": [
         {
           "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "t",
-                    "Entity": "TB_Fatos",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "t"
-                                }
-                              },
-                              "Property": "tipo"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'01'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
               }
             }
           }
@@ -196,11 +162,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "tipo",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

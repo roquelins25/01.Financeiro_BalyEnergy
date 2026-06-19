@@ -1,6 +1,5 @@
 EVALUATE
-SUMMARIZE(
-    TB_AUXtempo,
-    TB_AUXtempo[DESC],
-    "QtdIDs", DISTINCTCOUNT(TB_AUXtempo[ID])
-)
+    ADDCOLUMNS(
+        VALUES(TB_CLI[sigufs]),
+        "@Total", [01. % Acumulado UF]
+    )

@@ -1,10 +1,10 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "56fcb05a09211bec1db0",
+  "name": "cbcd275d604415907050",
   "position": {
-    "x": 503.52941176470591,
-    "y": 65.882352941176478,
-    "z": 1000,
+    "x": 304.59311260707022,
+    "y": 63.410912876816063,
+    "z": 5000,
     "height": 50,
     "width": 212.94117647058823,
     "tabOrder": 2000
@@ -20,15 +20,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_FRJ"
                     }
                   },
-                  "Property": "tipo"
+                  "Property": "desfrj"
                 }
               },
-              "queryRef": "TB_Fatos.tipo",
-              "nativeQueryRef": "tipo",
-              "active": true
+              "queryRef": "TB_FRJ.desfrj",
+              "nativeQueryRef": "Descrição Conta",
+              "active": true,
+              "displayName": "Descrição Conta"
             }
           ]
         }
@@ -44,6 +45,13 @@
                   "Value": "'Dropdown'"
                 }
               }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -57,35 +65,39 @@
                 "From": [
                   {
                     "Name": "t",
-                    "Entity": "TB_Fatos",
+                    "Entity": "TB_FRJ",
                     "Type": 0
                   }
                 ],
                 "Where": [
                   {
                     "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "t"
+                      "Not": {
+                        "Expression": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "t"
+                                    }
+                                  },
+                                  "Property": "desfrj"
                                 }
-                              },
-                              "Property": "tipo"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'01'"
                               }
-                            }
-                          ]
-                        ]
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'GlobalNet'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
                       }
                     }
                   }
@@ -108,26 +120,6 @@
           }
         }
       ],
-      "header": [
-        {
-          "properties": {
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "italic": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
       "items": [
         {
           "properties": {
@@ -139,6 +131,26 @@
               }
             },
             "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "italic": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -198,7 +210,7 @@
       ]
     },
     "syncGroup": {
-      "groupName": "tipo",
+      "groupName": "desfrj",
       "fieldChanges": true,
       "filterChanges": true
     },

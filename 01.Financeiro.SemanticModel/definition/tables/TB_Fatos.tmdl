@@ -54,7 +54,7 @@ table TB_Fatos
 
 	column emissao
 		dataType: dateTime
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: 030a3648-d916-4167-b2c6-b0306585341d
 		summarizeBy: none
 		sourceColumn: emissao
@@ -76,7 +76,7 @@ table TB_Fatos
 
 	column DataEntrada
 		dataType: dateTime
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: 27666a63-9bcc-4626-9239-2df48731c259
 		summarizeBy: none
 		sourceColumn: DataEntrada
@@ -104,7 +104,7 @@ table TB_Fatos
 
 	column vencimento
 		dataType: dateTime
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: 3f012a07-a454-44e1-bd29-19e818d02e2c
 		summarizeBy: none
 		sourceColumn: vencimento
@@ -222,6 +222,12 @@ table TB_Fatos
 			```
 		formatString: 0
 		lineageTag: 3ca4f9aa-b407-4df0-83e6-e3a00929b45b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coluna = RELATED( TB_CLI[xREDE] )
+		lineageTag: 3cfba829-91b4-42c8-a793-344c598746b1
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic

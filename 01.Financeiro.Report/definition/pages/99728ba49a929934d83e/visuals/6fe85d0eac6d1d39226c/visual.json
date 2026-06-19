@@ -4,9 +4,10 @@
   "position": {
     "x": 90.201815236027869,
     "y": 275.75983515014235,
-    "z": 10,
+    "z": 3000,
     "height": 441.98889465653656,
-    "width": 1189.3753637550533
+    "width": 1189.3753637550533,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -72,11 +73,11 @@
                       "Entity": "TB_Fatos"
                     }
                   },
-                  "Property": "titulo"
+                  "Property": "observacao"
                 }
               },
-              "queryRef": "TB_Fatos.titulo",
-              "nativeQueryRef": "titulo",
+              "queryRef": "TB_Fatos.observacao",
+              "nativeQueryRef": "observacao",
               "active": false
             },
             {
@@ -87,11 +88,11 @@
                       "Entity": "TB_Fatos"
                     }
                   },
-                  "Property": "observacao"
+                  "Property": "titulo"
                 }
               },
-              "queryRef": "TB_Fatos.observacao",
-              "nativeQueryRef": "observacao",
+              "queryRef": "TB_Fatos.titulo",
+              "nativeQueryRef": "titulo",
               "active": false
             }
           ]
@@ -179,6 +180,25 @@
           },
           {
             "queryRefs": [
+              "TB_Fatos.observacao"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos"
+                    }
+                  },
+                  "Property": "observacao"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
               "TB_Fatos.titulo"
             ],
             "isCollapsed": true,
@@ -195,81 +215,9 @@
               }
             ],
             "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_Fatos.observacao"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Atacadão'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'SP'"
-                      }
-                    }
-                  ],
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'947972\\1'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    },
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'952663\\1'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    },
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'952668\\1'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    },
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'952671\\1'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {

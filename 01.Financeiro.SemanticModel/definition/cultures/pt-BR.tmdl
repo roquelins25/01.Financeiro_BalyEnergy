@@ -1398,6 +1398,16 @@ cultureInfo pt-BR
 			            "State": "Generated",
 			            "Weight": 0.7
 			          }
+			        },
+			        {
+			          "Data Emissao": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ],
 			      "SemanticType": "Time"
@@ -2402,6 +2412,16 @@ cultureInfo pt-BR
 			            "State": "Generated",
 			            "Weight": 0.7
 			          }
+			        },
+			        {
+			          "Data Vencimento": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ],
 			      "SemanticType": "Time"
@@ -3377,6 +3397,16 @@ cultureInfo pt-BR
 			          "03. dias": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Dias Vencidos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -3452,7 +3482,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "entity__medida.mes_anterior": {
+			    "entity__medida.uf": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
@@ -3462,7 +3492,7 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "mes anterior": {
+			          "uf": {
 			            "State": "Generated"
 			          }
 			        }
@@ -4075,9 +4105,513 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "tb_cli.x_REDE": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_CLI",
+			          "ConceptualProperty": "xREDE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "x REDE": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "xREDE": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "tb_cli.x_localizacao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_CLI",
+			          "ConceptualProperty": "xLocalizacao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "x localizacao": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "xLocalizacao": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_fato.coluna": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Fatos",
+			          "ConceptualProperty": "Coluna"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "coluna": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__valor_AB_operacao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. Valor AB Operacao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. valor AB operacao": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_02__qtde_AB_operacao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "02. Qtde AB Operacao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "02. qtde AB operacao": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_02__QTD_titulos_s_OBS": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "02. QTD titulos s\\ OBS"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "02. QTD titulos s\\ OBS": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_02__QTD_titulos_s_cod": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "02. QTD titulos s\\ Cod"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "02. QTD titulos s\\ cod": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_05__html_mapa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "05. HTML MAPA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "05. html mapa": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01___acumulado_UF": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. % Acumulado UF"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. % acumulado UF": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "01. percentage acumulado uf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "01. pct acumulado uf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01___valor_total_UF": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. % Valor Total UF"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. % valor total UF": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.medida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Medida"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "medida": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_OP_rede": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_OPRede"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB OP rede": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB_OPRede": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_OP_rede.codop": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_OPRede",
+			          "ConceptualProperty": "CODOP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "codop": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_OP_rede.codgre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_OPRede",
+			          "ConceptualProperty": "codgre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "codgre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_operacao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Operacao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB operacao": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB_Operacao": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_operacao.codop": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Operacao",
+			          "ConceptualProperty": "CODOP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "codop": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_operacao.op": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Operacao",
+			          "ConceptualProperty": "OP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "op": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_OP_uf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_OPUf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB OP uf": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB_OPUf": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_OP_uf.codop": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_OPUf",
+			          "ConceptualProperty": "CODOP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "codop": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_OP_uf.uf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_OPUf",
+			          "ConceptualProperty": "UF"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "uf": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_lvel": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Lvel"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB lvel": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB_Lvel": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_lvel.lv_1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Lvel",
+			          "ConceptualProperty": "LV1"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "lv 1": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "LV1": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_lvel.desc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Lvel",
+			          "ConceptualProperty": "Desc"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "desc": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "description": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        }
+			      ]
+			    },
+			    "TB_lvel.codop": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Lvel",
+			          "ConceptualProperty": "CODOP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "codop": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			          }
+			        },
+			        "calendario_dax.date.mê": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_mê"
+			        }
+			      ]
+			    },
 			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_trimestre": {
 			      "Binding": {
 			        "ConceptualEntity": "CALENDARIO DAX"
@@ -4437,7 +4971,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê"
+			          "ID": "hierarquia_de_data_have_mê1"
 			        }
 			      ]
 			    },
@@ -4800,7 +5334,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê1"
+			          "ID": "hierarquia_de_data_have_mê2"
 			        }
 			      ]
 			    },
@@ -5163,7 +5697,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê2"
+			          "ID": "hierarquia_de_data_have_mê3"
 			        }
 			      ]
 			    },
@@ -5526,7 +6060,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê3"
+			          "ID": "hierarquia_de_data_have_mê4"
 			        }
 			      ]
 			    },
@@ -5626,6 +6160,197 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "datcads_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
+			    "TB_lvel_has_TB_operacao": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Lvel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_lvel": {
+			          "Target": {
+			            "Entity": "TB_lvel"
+			          }
+			        },
+			        "TB_operacao": {
+			          "Target": {
+			            "Entity": "TB_operacao"
+			          },
+			          "Nouns": [
+			            {
+			              "lv 1": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_lvel"
+			            },
+			            "Object": {
+			              "Role": "TB_operacao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_lvels_have_TB_operacaos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_operacao"
+			            },
+			            "Object": {
+			              "Role": "TB_lvel"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_operacaos_have_TB_lvels"
+			        }
+			      ]
+			    },
+			    "TB_OP_uf_has_TB_lvel": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_OPUf"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_OP_uf": {
+			          "Target": {
+			            "Entity": "TB_OP_uf"
+			          }
+			        },
+			        "TB_lvel": {
+			          "Target": {
+			            "Entity": "TB_lvel"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_OP_uf"
+			            },
+			            "Object": {
+			              "Role": "TB_lvel"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_OP_ufs_have_TB_lvels"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_lvel"
+			            },
+			            "Object": {
+			              "Role": "TB_OP_uf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_lvels_have_TB_OP_ufs"
+			        }
+			      ]
+			    },
+			    "TB_OP_rede_has_TB_rede": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_OPRede"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_OP_rede": {
+			          "Target": {
+			            "Entity": "TB_OP_rede"
+			          }
+			        },
+			        "TB_rede": {
+			          "Target": {
+			            "Entity": "TB_rede"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_OP_rede"
+			            },
+			            "Object": {
+			              "Role": "TB_rede"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_OP_redes_have_TB_redes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_rede"
+			            },
+			            "Object": {
+			              "Role": "TB_OP_rede"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_redes_have_TB_OP_redes"
+			        }
+			      ]
+			    },
+			    "TB_OP_rede_has_TB_lvel": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_OPRede"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_OP_rede": {
+			          "Target": {
+			            "Entity": "TB_OP_rede"
+			          }
+			        },
+			        "TB_lvel": {
+			          "Target": {
+			            "Entity": "TB_lvel"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_OP_rede"
+			            },
+			            "Object": {
+			              "Role": "TB_lvel"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_OP_redes_have_TB_lvels"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_lvel"
+			            },
+			            "Object": {
+			              "Role": "TB_OP_rede"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_lvels_have_TB_OP_redes"
 			        }
 			      ]
 			    },
@@ -5935,6 +6660,600 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_redes_have_tb_clis"
+			        }
+			      ]
+			    },
+			    "TB_lvel_has_codop": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Lvel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_lvel": {
+			          "Target": {
+			            "Entity": "TB_lvel"
+			          }
+			        },
+			        "TB_lvel.codop": {
+			          "Target": {
+			            "Entity": "TB_lvel.codop"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_lvel"
+			            },
+			            "Object": {
+			              "Role": "TB_lvel.codop"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_lvels_have_codops"
+			        }
+			      ]
+			    },
+			    "TB_lvel_has_desc": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Lvel"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_lvel": {
+			          "Target": {
+			            "Entity": "TB_lvel"
+			          }
+			        },
+			        "TB_lvel.desc": {
+			          "Target": {
+			            "Entity": "TB_lvel.desc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_lvel"
+			            },
+			            "Object": {
+			              "Role": "TB_lvel.desc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_lvels_have_descs"
+			        }
+			      ]
+			    },
+			    "TB_OP_uf_has_uf": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_OPUf"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_OP_uf": {
+			          "Target": {
+			            "Entity": "TB_OP_uf"
+			          }
+			        },
+			        "TB_OP_uf.uf": {
+			          "Target": {
+			            "Entity": "TB_OP_uf.uf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_OP_uf"
+			            },
+			            "Object": {
+			              "Role": "TB_OP_uf.uf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_OP_ufs_have_ufs"
+			        }
+			      ]
+			    },
+			    "TB_operacao_has_op": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Operacao"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_operacao": {
+			          "Target": {
+			            "Entity": "TB_operacao"
+			          }
+			        },
+			        "TB_operacao.op": {
+			          "Target": {
+			            "Entity": "TB_operacao.op"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_operacao"
+			            },
+			            "Object": {
+			              "Role": "TB_operacao.op"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_operacaos_have_ops"
+			        }
+			      ]
+			    },
+			    "TB_operacao_has_codop": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Operacao"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_operacao": {
+			          "Target": {
+			            "Entity": "TB_operacao"
+			          }
+			        },
+			        "TB_operacao.codop": {
+			          "Target": {
+			            "Entity": "TB_operacao.codop"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_operacao"
+			            },
+			            "Object": {
+			              "Role": "TB_operacao.codop"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_operacaos_have_codops"
+			        }
+			      ]
+			    },
+			    "entity__medida_has_medida": {
+			      "Binding": {
+			        "ConceptualEntity": "_Medidas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__medida": {
+			          "Target": {
+			            "Entity": "entity__medida"
+			          }
+			        },
+			        "entity__medida.medida": {
+			          "Target": {
+			            "Entity": "entity__medida.medida"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__medida"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.medida"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_medidas_have_medida"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01___valor_total_UF": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01___valor_total_UF": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01___valor_total_UF"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01___valor_total_UF"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01___valor_total_UF"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01___acumulado_UF": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01___acumulado_UF": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01___acumulado_UF"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01___acumulado_UF"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01___acumulado_UF"
+			        }
+			      ]
+			    },
+			    "tb_cli_has_entity__medida_entity_01___acumulado_UF": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_CLI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tb_cli": {
+			          "Target": {
+			            "Entity": "tb_cli"
+			          }
+			        },
+			        "entity__medida.entity_01___acumulado_UF": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01___acumulado_UF"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_cli"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01___acumulado_UF"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_clis_have_01___acumulado_UF"
+			        }
+			      ]
+			    },
+			    "entity__medida_has_entity_05__html_mapa": {
+			      "Binding": {
+			        "ConceptualEntity": "_Medidas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__medida": {
+			          "Target": {
+			            "Entity": "entity__medida"
+			          }
+			        },
+			        "entity__medida.entity_05__html_mapa": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_05__html_mapa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__medida"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_05__html_mapa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_medidas_have_05__html_mapa"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_02__QTD_titulos_s_cod": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_02__QTD_titulos_s_cod": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_02__QTD_titulos_s_cod"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_02__QTD_titulos_s_cod"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_02__QTD_titulos_s_cod"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_02__QTD_titulos_s_OBS": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_02__QTD_titulos_s_OBS": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_02__QTD_titulos_s_OBS"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_02__QTD_titulos_s_OBS"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_02__QTD_titulos_s_OBS"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_02__qtde_AB_operacao": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_02__qtde_AB_operacao": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_02__qtde_AB_operacao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_02__qtde_AB_operacao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_02__qtde_AB_operacao"
+			        }
+			      ]
+			    },
+			    "TB_operacao_has_entity__medida_entity_01__valor_AB_operacao": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Operacao"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_operacao": {
+			          "Target": {
+			            "Entity": "TB_operacao"
+			          }
+			        },
+			        "entity__medida.entity_01__valor_AB_operacao": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__valor_AB_operacao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_operacao"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__valor_AB_operacao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_operacaos_have_01__valor_AB_operacao"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01__valor_AB_operacao": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01__valor_AB_operacao": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__valor_AB_operacao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__valor_AB_operacao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01__valor_AB_operacao"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_coluna": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "TB_fato.coluna": {
+			          "Target": {
+			            "Entity": "TB_fato.coluna"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "TB_fato.coluna"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_colunas"
+			        }
+			      ]
+			    },
+			    "tb_cli_has_x_localizacao": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_CLI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tb_cli": {
+			          "Target": {
+			            "Entity": "tb_cli"
+			          }
+			        },
+			        "tb_cli.x_localizacao": {
+			          "Target": {
+			            "Entity": "tb_cli.x_localizacao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_cli"
+			            },
+			            "Object": {
+			              "Role": "tb_cli.x_localizacao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_clis_have_x_localizacaos"
+			        }
+			      ]
+			    },
+			    "tb_cli_has_x_REDE": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_CLI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tb_cli": {
+			          "Target": {
+			            "Entity": "tb_cli"
+			          }
+			        },
+			        "tb_cli.x_REDE": {
+			          "Target": {
+			            "Entity": "tb_cli.x_REDE"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_cli"
+			            },
+			            "Object": {
+			              "Role": "tb_cli.x_REDE"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_clis_have_x_REDEs"
 			        }
 			      ]
 			    },
@@ -6578,7 +7897,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fato_has_entity__medida_mes_anterior": {
+			    "TB_fato_has_entity__medida_uf": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Fatos"
 			      },
@@ -6589,9 +7908,9 @@ cultureInfo pt-BR
 			            "Entity": "TB_fato"
 			          }
 			        },
-			        "entity__medida.mes_anterior": {
+			        "entity__medida.uf": {
 			          "Target": {
-			            "Entity": "entity__medida.mes_anterior"
+			            "Entity": "entity__medida.uf"
 			          }
 			        }
 			      },
@@ -6602,12 +7921,12 @@ cultureInfo pt-BR
 			              "Role": "TB_fato"
 			            },
 			            "Object": {
-			              "Role": "entity__medida.mes_anterior"
+			              "Role": "entity__medida.uf"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "TB_fatos_have_mes_anterior"
+			          "ID": "TB_fatos_have_uf"
 			        }
 			      ]
 			    },
@@ -9433,39 +10752,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_apoios_have_potadors"
-			        }
-			      ]
-			    },
-			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_mê": {
-			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario_dax.date.hierarquia_de_data": {
-			          "Target": {
-			            "Entity": "calendario_dax.date.hierarquia_de_data"
-			          }
-			        },
-			        "calendario_dax.date.mê": {
-			          "Target": {
-			            "Entity": "calendario_dax.date.mê"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario_dax.date.hierarquia_de_data"
-			            },
-			            "Object": {
-			              "Role": "calendario_dax.date.mê"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê4"
 			        }
 			      ]
 			    },
