@@ -43,7 +43,7 @@
               },
               "queryRef": "CALENDARIO DAX.Ano-Mes",
               "nativeQueryRef": "Ano-Mes",
-              "active": true
+              "active": false
             }
           ]
         }
@@ -82,20 +82,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2026L"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {
@@ -108,147 +95,20 @@
                   "Value": "'Dropdown'"
                 }
               }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
       ],
       "general": [
         {
-          "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "c",
-                    "Entity": "CALENDARIO DAX",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "c"
-                                }
-                              },
-                              "Property": "Ano"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "2025L"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "2026L"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "2024L"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    },
-                    "Annotations": {
-                      "filterExpressionMetadata": {
-                        "expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "CALENDARIO DAX"
-                                }
-                              },
-                              "Property": "Ano"
-                            }
-                          }
-                        ],
-                        "decomposedIdentities": {
-                          "values": [
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2025L"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2024L"
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
-                          ],
-                          "columns": [
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "CALENDARIO DAX"
-                                    }
-                                  },
-                                  "Property": "Ano"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "valueMap": [
-                          {
-                            "0": "2025"
-                          },
-                          {
-                            "0": "2026"
-                          },
-                          {
-                            "0": "2024"
-                          }
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [

@@ -59,6 +59,13 @@
       "general": [
         {
           "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "filter": {
               "filter": {
                 "Version": 2,
@@ -102,13 +109,6 @@
                     }
                   }
                 ]
-              }
-            },
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
               }
             }
           }
