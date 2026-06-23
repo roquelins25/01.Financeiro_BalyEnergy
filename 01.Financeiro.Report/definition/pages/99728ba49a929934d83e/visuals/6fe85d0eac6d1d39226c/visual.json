@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "6fe85d0eac6d1d39226c",
   "position": {
-    "x": 90.201815236027869,
-    "y": 275.75983515014235,
-    "z": 3000,
-    "height": 441.98889465653656,
-    "width": 1189.3753637550533,
+    "x": 63.021721641190673,
+    "y": 150.75784392598553,
+    "z": 1000,
+    "height": 567.195494770716,
+    "width": 1217.184231697506,
     "tabOrder": 4000
   },
   "visual": {
@@ -217,7 +217,31 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'TIELI'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'SC'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
       }
     ],
     "objects": {
@@ -261,6 +285,25 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
@@ -336,7 +379,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "291.1898918962939D"
+                  "Value": "347.8133643999425D"
                 }
               }
             }
@@ -550,8 +593,156 @@
             "metadata": "_Medidas.04. Valor Aberto"
           }
         }
+      ],
+      "values": [
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "_Medidas.04. Valor Aberto"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "04. Cor"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Medidas.04. Valor Aberto"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "653a7226e66cd03e4ac0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "xCalendarioTable"
+              }
+            },
+            "Property": "Periodo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0c95a0e1e146bec61a91",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_Rede"
+              }
+            },
+            "Property": "nomgre"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fa8543edd347ba710b32",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_CLI"
+              }
+            },
+            "Property": "sigufs"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4be57e3cc3a43b6aaa9e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_Fatos"
+              }
+            },
+            "Property": "observacao"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a9300756d184300cc480",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_Fatos"
+              }
+            },
+            "Property": "titulo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a82a1458055040c97109",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "04. Valor Aberto"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

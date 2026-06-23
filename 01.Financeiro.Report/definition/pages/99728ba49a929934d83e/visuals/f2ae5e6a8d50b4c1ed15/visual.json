@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "f2ae5e6a8d50b4c1ed15",
   "position": {
-    "x": 967.64705882352939,
-    "y": 121.76470588235294,
-    "z": 5000,
-    "height": 56.470588235294116,
-    "width": 312.35294117647061,
+    "x": 415.2019308125503,
+    "y": 44.485921158487535,
+    "z": 3000,
+    "height": 29.65728077232502,
+    "width": 311.40144810941274,
     "tabOrder": 5000
   },
   "visual": {
-    "visualType": "advancedSlicerVisual",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
@@ -20,47 +20,38 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_AUXtempo"
+                      "Entity": "CALENDARIO DAX"
                     }
                   },
-                  "Property": "Tipo"
+                  "Property": "Vencidos?"
                 }
               },
-              "queryRef": "TB_AUXtempo.Tipo",
-              "nativeQueryRef": "Tipo"
+              "queryRef": "CALENDARIO DAX.Vencidos?",
+              "nativeQueryRef": "Vencidos?",
+              "active": true
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "TB_AUXtempo"
-                  }
-                },
-                "Property": "Tipo"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "objects": {
       "general": [
         {
           "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
             "filter": {
               "filter": {
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "t",
-                    "Entity": "TB_AUXtempo",
+                    "Name": "c",
+                    "Entity": "CALENDARIO DAX",
                     "Type": 0
                   }
                 ],
@@ -73,10 +64,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "t"
+                                  "Source": "c"
                                 }
                               },
-                              "Property": "Tipo"
+                              "Property": "Vencidos?"
                             }
                           }
                         ],
@@ -97,22 +88,53 @@
             }
           }
         }
-      ]
-    },
-    "visualContainerObjects": {
-      "title": [
+      ],
+      "data": [
         {
           "properties": {
-            "show": {
+            "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Basic'"
                 }
               }
             }
           }
         }
       ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'F_Vencidas'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'List'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "syncGroup": {
+      "groupName": "Vencidos?",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

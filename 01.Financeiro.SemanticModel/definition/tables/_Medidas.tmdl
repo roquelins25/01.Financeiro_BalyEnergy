@@ -4,21 +4,23 @@ table _Medidas
 	measure '01. Valor Aberto' =
 			
 			// Soma o valor em aberto .
-			SUM( TB_Fatos[valorAberto] )
-		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais
+			    CALCULATE(
+			        [01. Valor Geral],
+			        KEEPFILTERS( TB_Fatos[sit] = "AB" )
+			        )
+		displayFolder: 01. Valores Totais\Auxiliares
 		lineageTag: a5e1faf0-be2a-4d62-bfb1-9168eece8a21
 
-		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure '02. Quantidade Titulos' = ```
+	measure '02. Quantidade Titulos AB' =
 			
 			// Calcula a Quantidade de Titulos na Base
-			DISTINCTCOUNT( 
-			    TB_Fatos[titulo] )
-			```
+			CALCULATE(
+			    [02. Qtde Titulos],
+			    TB_Fatos[sit] = "AB" )
 		formatString: #,0
-		displayFolder: 02. Quantidade
+		displayFolder: 02. Quantidade\Auxiliares
 		lineageTag: b31ae0f3-2543-4db5-acc3-ba0c993c5445
 
 	measure '03. Aux Dias' = ```
@@ -106,7 +108,7 @@ table _Medidas
 			vRESULT
 			```
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: 01. Valores Totais
+		displayFolder: 01. Valores Totais\%
 		lineageTag: b3c7a197-2a20-49b0-82bf-35cb9fe4b422
 
 	measure '04. Valor Aberto' = ```
@@ -122,13 +124,27 @@ table _Medidas
 			        MONTH ( EDATE ( vUltimaData,- vSELECTMESES ) ),
 			        1
 			    )
-			
-			VAR vMeses=
-			    CALCULATE(
-			        [01. Valor Aberto],
-			        DATESBETWEEN( 'CALENDARIO DAX'[Date], vPrimeiraData, vUltimaData ),
-			        TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[Ano-Mes] )
+			VAR vPimeiraDataPositivo = 
+			    DATE (
+			        YEAR ( EDATE ( vUltimaData, + vSELECTMESES ) ),
+			        MONTH ( EDATE ( vUltimaData,+ vSELECTMESES ) ),
+			        1
 			    )
+			VAR vMeses=
+			    VAR vNegativo =
+			        CALCULATE(
+			            [01. Valor Aberto],
+			            DATESBETWEEN( 'CALENDARIO DAX'[Date], vPrimeiraData, vUltimaData ),
+			            TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[Ano-Mes] )
+			        )
+			    VAR vPositivo =
+			        CALCULATE(
+			            [01. Valor Aberto],
+			            DATESBETWEEN( 'CALENDARIO DAX'[Date], vUltimaData, vPimeiraDataPositivo  ),
+			            TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[Ano-Mes] )
+			        )
+			    RETURN
+			        IF( SELECTEDVALUE( 'CALENDARIO DAX'[Vencidos?] ) = "Vencidas", vNegativo, vPositivo )
 			------------------------------ ANO --------------------
 			
 			VAR vGeralAno = 
@@ -164,23 +180,11 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure UF =
+	measure '01. Valor AB/LQ Original' =
 			
-			CALCULATE(
-			    [01. Valor Aberto],
-			    USERELATIONSHIP(
-			        TB_OPUf[UF],
-			        TB_CLI[sigufs]
-			    ),
-			    KEEPFILTERS(
-			    FILTER(
-			        ALL(TB_CLI),
-			        NOT TB_CLI[codgre] IN ALL(TB_OPRede[codgre])
-			    ) )
-			)
+			CALCULATE( [01. Valor Original], KEEPFILTERS( TB_Fatos[sit] IN{"LQ","AB"} ) )
+		formatString: #,0.00
 		lineageTag: 5617b1ec-4ced-4817-9f93-58b88fde30df
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '05.HTML CARD GERAL' =
 			
@@ -192,7 +196,7 @@ table _Medidas
 			VAR _TOTALMESSELECT = [01. Valor Aberto]
 			VAR _TOTALMESANTSELECT = CALCULATE( [01. Valor Aberto], DATEADD( 'CALENDARIO DAX'[Date], -1, MONTH ) )
 			
-			VAR _QTDTitulos = CALCULATE( [02. Quantidade Titulos], ALL( 'CALENDARIO DAX' ) )
+			VAR _QTDTitulos = CALCULATE( [02. Quantidade Titulos AB], ALL( 'CALENDARIO DAX' ) )
 			
 			VAR _PROXIMOSANOS = CALCULATE( [01. Valor Aberto],ALL('CALENDARIO DAX'), 'CALENDARIO DAX'[Ano] >  vANO )
 			VAR _ANOATUAL = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano] = vANO )
@@ -901,7 +905,7 @@ table _Medidas
 			    [01. Valor Aberto],
 			    SAMEPERIODLASTYEAR( 'CALENDARIO DAX'[Date] )
 			)
-		displayFolder: 01. Valores Totais
+		displayFolder: 01. Valores Totais\Auxiliares
 		lineageTag: 5210bd54-30f9-46e6-be2a-4f82ca9d1fee
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -934,6 +938,7 @@ table _Medidas
 			RETURN
 			vTOTAL
 			```
+		displayFolder: 01. Valores Totais\Auxiliares
 		lineageTag: fb79b868-7dae-47d5-acc6-ff637d577546
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -941,11 +946,11 @@ table _Medidas
 	measure '02. Qtde AB Operacao' = ```
 			
 			VAR vREDE = 
-			CALCULATE( [02. Quantidade Titulos], CROSSFILTER( TB_OPRede[codgre], TB_Rede[codgre], Both ) )
+			CALCULATE( [02. Quantidade Titulos AB], CROSSFILTER( TB_OPRede[codgre], TB_Rede[codgre], Both ) )
 			
 			VAR vUF = 
 			CALCULATE(
-			    [02. Quantidade Titulos],
+			    [02. Quantidade Titulos AB],
 			    USERELATIONSHIP(
 			        TB_OPUf[UF],
 			        TB_CLI[sigufs]
@@ -961,7 +966,7 @@ table _Medidas
 			vREDE + vUF
 			```
 		formatString: 0
-		displayFolder: 02. Quantidade
+		displayFolder: 02. Quantidade\Auxiliares
 		lineageTag: ad460ad4-04da-4293-9808-7bd70ad69976
 
 	measure '02. QTD titulos s\ OBS' = ```
@@ -972,16 +977,17 @@ table _Medidas
 			)
 			```
 		formatString: 0
+		displayFolder: 02. Quantidade\Auxiliares
 		lineageTag: a6424748-c66b-4d20-b30e-2091584b795a
 
-	measure '02. QTD titulos s\ Cod' = ```
+	measure '02. QTD titulos s\ Cod' =
 			
 			CALCULATE(
 			    [02. Qtde AB Operacao],
-			    TB_Fatos[ForReaj] = "00"  && TB_Fatos[observacao] =  BLANK() || TB_Fatos[observacao] = "" 
+			    TB_Fatos[ForReaj] = "00"  && (TB_Fatos[observacao] =  BLANK() || TB_Fatos[observacao] = "" )
 			)
-			```
 		formatString: 0
+		displayFolder: 02. Quantidade\Auxiliares
 		lineageTag: 08de0e27-5f6a-4722-a309-cae6299ac85e
 
 	measure '05. HTML MAPA' = ```
@@ -1513,6 +1519,7 @@ table _Medidas
 			    [01. % Valor Total UF]
 			)
 		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 01. Valores Totais\%
 		lineageTag: 1e7c7f87-5434-4723-95a3-4ca5ccce9a46
 
 	measure '01. % Valor Total UF' = ```
@@ -1525,13 +1532,16 @@ table _Medidas
 			) )
 			```
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: 01. Valores Totais
+		displayFolder: 01. Valores Totais\%
 		lineageTag: 5f7b01ee-f43e-4d28-9df7-7aa0cf55310c
 
-	measure Medida =
+	measure '.....Titulo_ext' =
 			
-			fxColorHTMLMapa( "SP" )
-		formatString: #,0
+			"Dimensões X Métricas - "
+			    & FORMAT(
+			        UTCNOW() - TIME(3,0,0),
+			        "dd.MM.yyyy HH.mm.ss"
+			    )
 		lineageTag: 42018b38-dfb6-491b-b812-906b31b863d3
 
 	measure '01. Valor AB Total Vencidas' =
@@ -1541,7 +1551,7 @@ table _Medidas
 			    ALL( 'CALENDARIO DAX' ),
 			    'CALENDARIO DAX'[Vencidos?] = "Vencidas" )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais
+		displayFolder: 01. Valores Totais\Auxiliares
 		lineageTag: 02602ccf-407e-410b-ae48-e1b764c5ff8c
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -1549,16 +1559,128 @@ table _Medidas
 	measure '01. Valor Original' =
 			
 			SUM( TB_Fatos[valorOri] )
-		displayFolder: 01. Valores Totais
+		displayFolder: 01. Valores Totais\Geral
 		lineageTag: 3b6cc0d9-83e5-4b2f-8b6f-59d926582bd7
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure Saldo =
+	measure '01 % Indice Inadimplencia' =
 			
-			[01. Valor Original] - [01. Valor Aberto]
-		displayFolder: 01. Valores Totais
+			DIVIDE( [01. Valor AB/LQ aberto], [01. Valor AB/LQ Original], 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 01. Valores Totais\%
 		lineageTag: afc645fc-8c43-4a77-8087-37cf5810ef2b
+
+	measure '01. Valor Geral' =
+			
+			SUM( TB_Fatos[valorAberto] )
+		displayFolder: 01. Valores Totais\Geral
+		lineageTag: ad6bc90c-fb92-4060-9dab-83a27a7e8aee
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '02. Qtde Titulos' =
+			
+			DISTINCTCOUNT(
+			    TB_Fatos[titulo] )
+		formatString: 0
+		displayFolder: 02. Quantidade\Geral
+		lineageTag: 432cdc15-1e51-4f22-b3e6-c25abe06c628
+
+	measure '01. % Indice Inadimplencia Operacao' = ```
+			
+			VAR vREDE = 
+			CALCULATE( [01 % Indice Inadimplencia], CROSSFILTER( TB_OPRede[codgre], TB_Rede[codgre], Both ) )
+			
+			VAR vUF = 
+			CALCULATE(
+			    [01 % Indice Inadimplencia],
+			    USERELATIONSHIP(
+			        TB_OPUf[UF],
+			        TB_CLI[sigufs]
+			    ),
+			    KEEPFILTERS(
+			    FILTER(
+			        ALL(TB_CLI),
+			        NOT TB_CLI[codgre] IN ALL(TB_OPRede[codgre])
+			    ) )
+			)
+			
+			VAR vTOTAL = 
+			SWITCH(
+			    TRUE(),
+			    ISINSCOPE( TB_Operacao[OP] ), vUF + vREDE ,
+			    [01 % Indice Inadimplencia])
+			
+			RETURN
+			vTOTAL
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 01. Valores Totais\%
+		lineageTag: fb26498a-db58-4336-b0ab-ca422899fb85
+
+	measure '04. Cor' = ```
+			
+			VAR vMesSelect = CALCULATE( SELECTEDVALUE( 'CALENDARIO DAX'[Ano-Mes] ), 'CALENDARIO DAX'[MesAtual] = "S" )
+			VAR vAnoSelect = SELECTEDVALUE( 'CALENDARIO DAX'[Ano] )
+			VAR vReturn = 
+			SWITCH(
+			    TRUE(),
+			    SELECTEDVALUE( xCalendarioTable[Cod. Periodo] ) = 1, "#F5F5F5",
+			    SELECTEDVALUE( xCalendarioTable[Cod. Periodo] ) = 4 && SELECTEDVALUE( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ) = vMesSelect, "#F5F5F5",
+			    BLANK() )
+			RETURN
+			vReturn
+			```
+		displayFolder: 04. DRE
+		lineageTag: bd271968-ce0d-4829-8e35-33dff45cbb9b
+
+	measure '01. Valor AB Total' =
+			
+			CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ) )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares
+		lineageTag: 3bc8228f-0127-4c0a-8ae8-cd3fc43c46f9
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Valor AB a Vencer' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    ALL( 'CALENDARIO DAX' ),
+			    'CALENDARIO DAX'[Vencidos?] = "A Vencer" )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares
+		lineageTag: 5e39f12e-ba09-4605-90e4-08ea34f21645
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '02. Qtde Clientes' =
+			
+			DISTINCTCOUNT( TB_CLI[xREDE] )
+		formatString: 0
+		displayFolder: 02. Quantidade\Geral
+		lineageTag: b1c682cc-83fb-4e76-8b50-3ea5e96c8542
+
+	measure '02. Qtde Clientes Titulos AB' =
+			
+			CALCULATE(
+			    [02. Qtde Clientes],
+			    TB_Fatos[sit] = "AB" )
+		formatString: #,0
+		displayFolder: 02. Quantidade\Auxiliares
+		lineageTag: e7f3aaab-8a00-4692-98f7-0071cc4f5ec7
+
+	measure '01. Valor AB/LQ aberto' =
+			
+			// Soma o valor em aberto .
+			    CALCULATE(
+			        [01. Valor Geral],
+			        KEEPFILTERS( TB_Fatos[sit] IN {"AB","LQ"}  )
+			        )
+		displayFolder: 01. Valores Totais\Auxiliares
+		lineageTag: c6918ab7-b6f2-4975-8b29-c602b58c95b5
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "18f3cd89db490bd0d2a7",
   "position": {
-    "x": 78,
-    "y": 65.652173913043484,
+    "x": 837.1366594360087,
+    "y": 41.648590021691973,
     "z": 0,
-    "height": 50,
-    "width": 212.60869565217394,
+    "height": 29.154013015184383,
+    "width": 297.09327548806942,
     "tabOrder": 1000
   },
   "visual": {
@@ -139,28 +139,27 @@
                               },
                               "Property": "Ano"
                             }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "c"
-                                }
-                              },
-                              "Property": "Ano-Mes"
-                            }
                           }
                         ],
                         "Values": [
                           [
                             {
                               "Literal": {
-                                "Value": "2026L"
+                                "Value": "2025L"
                               }
-                            },
+                            }
+                          ],
+                          [
                             {
                               "Literal": {
-                                "Value": "'jun-26'"
+                                "Value": "2026L"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "2024L"
                               }
                             }
                           ]
@@ -179,16 +178,6 @@
                               },
                               "Property": "Ano"
                             }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "CALENDARIO DAX"
-                                }
-                              },
-                              "Property": "Ano-Mes"
-                            }
                           }
                         ],
                         "decomposedIdentities": {
@@ -198,16 +187,29 @@
                                 "0": [
                                   {
                                     "Literal": {
+                                      "Value": "2025L"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
                                       "Value": "2026L"
                                     }
                                   }
                                 ]
-                              },
+                              }
+                            ],
+                            [
                               {
-                                "1": [
+                                "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'jun-26'"
+                                      "Value": "2024L"
                                     }
                                   }
                                 ]
@@ -226,25 +228,18 @@
                                   "Property": "Ano"
                                 }
                               }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "CALENDARIO DAX"
-                                    }
-                                  },
-                                  "Property": "Ano-Mes"
-                                }
-                              }
                             }
                           ]
                         },
                         "valueMap": [
                           {
-                            "0": "2026",
-                            "1": "jun-26"
+                            "0": "2025"
+                          },
+                          {
+                            "0": "2026"
+                          },
+                          {
+                            "0": "2024"
                           }
                         ]
                       }
@@ -318,6 +313,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'F_Data'"
                 }
               }
             }

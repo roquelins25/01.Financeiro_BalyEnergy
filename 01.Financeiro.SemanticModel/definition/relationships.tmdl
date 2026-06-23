@@ -46,21 +46,6 @@ relationship 4b04a64b-b9d5-b250-37ca-c16e65f7a521
 	fromColumn: TB_Fatos.'03. Aux Dias_'
 	toColumn: TB_AUXtempo.ID
 
-relationship a29ef21d-46f0-42bd-85ae-3f70058bd348
-	joinOnDateBehavior: datePartOnly
-	fromColumn: 'CALENDARIO DAX'.Date
-	toColumn: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.Date
-
-relationship 522d0779-174c-46fa-36d1-7c1229ac0b7a
-	fromColumn: TB_Fatos.vencimento
-	toColumn: 'CALENDARIO DAX'.Date
-
-relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
-	crossFilteringBehavior: bothDirections
-	toCardinality: many
-	fromColumn: TB_AUXtempo.Tipo
-	toColumn: 'CALENDARIO DAX'.Vencidos?
-
 relationship c8fe91f8-0be8-2cd8-b407-53e9dd402f22
 	fromColumn: TB_OPRede.CODOP
 	toColumn: TB_Lvel.CODOP
@@ -79,6 +64,26 @@ relationship 55aef0f6-494c-db91-bde2-d7729a4b36ce
 	toColumn: TB_OPUf.UF
 
 relationship 2d323a38-1e2d-e32c-f683-dd063c4d37c2
+	crossFilteringBehavior: bothDirections
 	fromColumn: TB_OPRede.codgre
 	toColumn: TB_Rede.codgre
+
+relationship fcc3d1e2-6a83-4691-bc06-aa39b5dcc174
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'CALENDARIO DAX'.Date
+	toColumn: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.Date
+
+relationship 522d0779-174c-46fa-36d1-7c1229ac0b7a
+	fromColumn: TB_Fatos.vencimento
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: TB_AUXtempo.Tipo
+	toColumn: 'CALENDARIO DAX'.Vencidos?
+
+relationship 511f1a36-ef59-6c29-ada6-b0e2bd2dfa55
+	fromColumn: TB_CLI.sigufs
+	toColumn: xUF_Regiao.UF
 

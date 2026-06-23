@@ -256,9 +256,11 @@ table TB_CLI
 				let
 				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
 				  #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "usu_view085cli"]}[Data],
-				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Navegação 1",{{"codcli", type text}, {"codrep", type text}, {"codgre", type text}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Navegação 1",{{"codcli", type text}, {"codrep", type text}, {"codgre", type text}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado",null,"7",Replacer.ReplaceValue,{"usu_codram"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído",null,"NÃO CLASSIFICADO",Replacer.ReplaceValue,{"usu_desram"})
 				in
-				  #"Tipo Alterado"
+				    #"Valor Substituído1"
 
 	annotation PBI_NavigationStepName = Navegação
 

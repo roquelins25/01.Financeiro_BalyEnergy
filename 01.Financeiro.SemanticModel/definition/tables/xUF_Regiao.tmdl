@@ -1,0 +1,40 @@
+table xUF_Regiao
+	lineageTag: da0d35cb-9135-442f-b134-6435a1a121d8
+
+	column UF
+		dataType: string
+		lineageTag: ca23a298-ba7d-4437-b1cf-b8ae2bea39fd
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column Região/Grupo
+		dataType: string
+		lineageTag: 69509ec2-fe75-48c3-9bf7-061fe5afd25d
+		summarizeBy: none
+		sourceColumn: Região/Grupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID
+		dataType: string
+		lineageTag: 3aacb9ed-fd4a-4886-83fb-b05c75d7ace1
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition xUF_Regiao = m
+		mode: import
+		source =
+				let
+				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jZJRDoMgDIbv4rM7BCAzW4Y0BRMT4/2vsZbiRtkefCH9Pz5ro933Iblh/BzHuA+AVJ8HgwR8uU4+Zc8VFBpmRSkyxaeiFJn6pCjF4jI9j9KSa+eXjPEWq6siS9P9ghTyBWmOFyR4EF0inrNTLi8wGlNm7LzGTprYzrZim5fGlMsruyZQJ7EdtvJ3OjuJjYvGlEuTOol0qGO4hhlZAowNo1C80HpBPGw92ZfcPvvzQQ20XWSX/MZbsQHRb8EXK/67ON4=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [UF = _t, #"Região/Grupo" = _t, ID = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Origem,{{"UF", type text}, {"Região/Grupo", type text}, {"ID", type text}})
+				in
+				  #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
