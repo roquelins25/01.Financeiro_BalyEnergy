@@ -1,0 +1,72 @@
+function fxFormatNumber = ```
+		( xNumber: expr, xSell : int64 ) =>
+		        VAR _Formato = 
+		        SWITCH(
+		            TRUE(),
+		            ABS( xNumber ) >= 1000000, "R$ #,#0,,M",
+		            ABS( xNumber ) >= 1000, "R$ #,#0,K",
+		            "R$ #,#0.00" )
+		        VAR _Formato2 = 
+		        SWITCH(
+		            TRUE(),
+		            ABS( xNumber ) >= 1000000, "#,#0,,.00M;-#,#0,,M",
+		            ABS( xNumber ) >= 1000, "#,#0,.00K;-#,#0,K",
+		            "#,#0.00;-#,#0.00" )
+		        VAR _Formato3 =   "R$ #.##"
+		        VAR _Formato4 = "R$ #,##0"
+		
+		        VAR _Formato5 = "#,#0;-#,#0"
+		
+		        VAR _ForPercent = "0.0%"
+		        RETURN
+		        SWITCH( 
+		            TRUE(), 
+		            xSell = 1, _Formato, 
+		            xSell = 2, _Formato2,
+		            xSell = 3, _Formato3,
+		            xSell = 4, _Formato4,
+		            xSell = 5, _ForPercent,
+		            xSell = 6 , _Formato5
+		            )
+		```
+	lineageTag: 318458cd-fd43-4795-87d9-08d382daab0c
+
+function fxFORMAT =
+		( xNumber: EXPR , xsell : INT64) =>
+		        FORMAT( xNumber , fxFormatNumber( xNumber, xsell ), "pt-BR" )
+	lineageTag: 79e820b7-bc43-49d4-a3c5-1fd7d1524b86
+
+function fxUFValorAberto =
+		( xNumber: EXPR, xUF: STRING ) =>
+		        CALCULATE( xNumber, TB_CLI[sigufs] = xUF )
+	lineageTag: 8993a2b8-0c1d-4c74-b70d-61e6134ca0f0
+
+function fxColorHTMLMapa = ```
+		( xUF: STRING ) =>
+		            VAR _TABELA =
+		            ADDCOLUMNS(
+		                VALUES(TB_CLI[sigufs]),
+		                "@Total", [01. % Acumulado UF]
+		            )
+		            VAR _RESULT = 
+		            MAXX(
+		                FILTER(
+		                    _TABELA,
+		                    [sigufs] = xUF
+		                ),
+		                [@Total]
+		            )
+		            VAR _RETURNCOLOR = 
+		            SWITCH(
+		                TRUE(),
+		                _RESULT <= 0.3, 0,
+		                _RESULT > 0.3 && _RESULT <= 0.5, 24,
+		                _RESULT > 0.5 && _RESULT <= 0.8, 48,
+		                _RESULT > 0.8 && _RESULT <= 0.9, 72,
+		                _RESULT > 0.9 && _RESULT <= 0.95, 96,
+		                _RESULT > 0.95, 120 )
+		
+		            RETURN _RETURNCOLOR
+		```
+	lineageTag: d3d5d36d-c6b8-4688-afb1-6828cfc08c10
+

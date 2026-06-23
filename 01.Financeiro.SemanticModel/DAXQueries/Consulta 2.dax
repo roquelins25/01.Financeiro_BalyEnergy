@@ -1,0 +1,5 @@
+EVALUATE
+    ADDCOLUMNS(
+        VALUES(TB_CLI[sigufs]),
+        "@Total", [01. % Acumulado UF]
+    )

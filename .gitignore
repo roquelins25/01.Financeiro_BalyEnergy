@@ -3,3 +3,7 @@
 *.excel
 *.xls
 *.xlsx
+*/Dados
+*/Dados/*
+*/Dados/**/*
+Dados/

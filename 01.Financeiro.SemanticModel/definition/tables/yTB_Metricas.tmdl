@@ -1,0 +1,56 @@
+table yTB_Metricas
+	lineageTag: 125319ef-8be2-4abc-8d6b-f63edc75666a
+
+	column yTB_Metricas
+		lineageTag: 72d45b5d-8216-4b3d-a738-e5892032dfb2
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'yTB_Metricas Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'yTB_Metricas Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'yTB_Metricas Campos'
+		isHidden
+		lineageTag: 3bc05d3e-1684-4b0c-be26-2ff74833fe67
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'yTB_Metricas Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'yTB_Metricas Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: beaad5d4-5679-4cba-b801-80cdf3819968
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition yTB_Metricas = calculated
+		mode: import
+		source =
+				{
+				    ("01. Valor Aberto", NAMEOF('_Medidas'[01. Valor Aberto]), 0),
+				    ("01. Valor AB Total", NAMEOF('_Medidas'[01. Valor AB Total]), 1),
+				    ("01. Valor AB Total Vencidas", NAMEOF('_Medidas'[01. Valor AB Total Vencidas]), 2),
+				    ("01. Valor AB a Vencer", NAMEOF('_Medidas'[01. Valor AB a Vencer]), 3),
+				    ("01 % Indice Inadimplencia", NAMEOF('_Medidas'[01 % Indice Inadimplencia]), 4),
+				    ("02. Qtde Titulos", NAMEOF('_Medidas'[02. Qtde Titulos]), 5),
+				    ("02. QTD titulos s\ Cod", NAMEOF('_Medidas'[02. QTD titulos s\ Cod]), 6),
+				    ("02. QTD titulos s\ OBS", NAMEOF('_Medidas'[02. QTD titulos s\ OBS]), 7),
+				    ("02. Quantidade Titulos AB", NAMEOF('_Medidas'[02. Quantidade Titulos AB]), 8),
+				    ("01. Valor Original", NAMEOF([01. Valor Original]), 9)
+				}
+
+	annotation PBI_Id = 4f69ac7f65b6419f893b51993afc3c40
+

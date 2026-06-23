@@ -1,0 +1,116 @@
+table xCalendarioTable
+	lineageTag: 10ae34d8-6a34-4b4d-a989-7031ff9e501f
+
+	column Periodo
+		lineageTag: fe80be35-13f4-46fc-85d3-0a59279f42f1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Periodo]
+		sortByColumn: 'CALENDARIO DAX_AnoMesOrdem'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cod. Periodo'
+		formatString: 0
+		lineageTag: ccd88251-e61a-47e9-b2b7-2e15fdbef59a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Cod. Periodo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CALENDARIO DAX_Ano-Mes'
+		lineageTag: ba9d1f85-e058-4050-9dc9-b5c4e5c73278
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: CALENDARIO DAX[Ano-Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CALENDARIO DAX_Mês Abrev'
+		lineageTag: dcb878bd-5a70-4fcb-88a0-392cc3ad1a43
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: CALENDARIO DAX[Mês Abrev]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CALENDARIO DAX_AnoMesOrdem'
+		formatString: 0
+		lineageTag: da5e1b0f-ce09-42ee-b4d3-9647409cdeb0
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: CALENDARIO DAX[AnoMesOrdem]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition xCalendarioTable = calculated
+		mode: import
+		source = ```
+				
+				VAR _TotalGeral = 
+				ROW(
+				    "Ano-Mes", BLANK(),
+				    "Mês Abrev", BLANK(),
+				    "Mês", 1 ,
+				    "Periodo", "Total Geral",
+				    "Cod. Periodo", 1 )
+				
+				VAR _TotalPercent = 
+				ROW(
+				    "Ano-Mes", BLANK(),
+				    "Mês Abrev", BLANK(),
+				    "Mês", 2 ,
+				    "Periodo", "% Total",
+				    "Cod. Periodo", 2 )
+				
+				VAR _TotalAcum = 
+				ROW(
+				    "Ano-Mes", BLANK(),
+				    "Mês Abrev", BLANK(),
+				    "Mês", 3 ,
+				    "Periodo", "% Acum.",
+				    "Cod. Periodo", 3 )
+				
+				VAR _MES = 
+				ADDCOLUMNS(
+				    DISTINCT(
+				    SELECTCOLUMNS(
+				        'CALENDARIO DAX',
+				        'CALENDARIO DAX'[Ano-Mes],
+				        'CALENDARIO DAX'[Mês Abrev],
+				        'CALENDARIO DAX'[AnoMesOrdem] ) ),
+				    "Periodo", 'CALENDARIO DAX'[Ano-Mes] ,
+				    "Cod. Periodo", 4 )
+				
+				VAR _ANO =
+				    VAR Anos =
+				        DISTINCT(
+				            SELECTCOLUMNS(
+				                'CALENDARIO DAX',
+				                "Ano", 'CALENDARIO DAX'[Ano]
+				            )
+				        )
+				    RETURN
+				        ADDCOLUMNS(
+				            Anos,
+				            "Mês Abrev", BLANK(),
+				            "Mês",
+				                99999990 +
+				                RANKX(
+				                    Anos,
+				                    [Ano],
+				                    ,
+				                    DESC,
+				                    DENSE
+				                ),
+				            "Periodo", [Ano],
+				            "Cod. Periodo", 5
+				        )
+				RETURN
+				UNION(_MES,_ANO,_TotalGeral,_TotalPercent,_TotalAcum )
+				
+				```
+
+	annotation PBI_Id = 2cbb8927136348aa9806b6ff860b352a
+

@@ -1,0 +1,45 @@
+table TB_Lvel
+	lineageTag: cc5c3993-2888-44df-bb85-0fb07a367705
+
+	column LV1
+		dataType: string
+		lineageTag: c1c3a90a-d827-41c5-bfd3-35976242343b
+		summarizeBy: none
+		sourceColumn: LV1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Desc
+		dataType: string
+		lineageTag: 510e09b5-ccca-4c73-b98e-504e03b3faea
+		summarizeBy: none
+		sourceColumn: Desc
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODOP
+		dataType: string
+		lineageTag: 3ed4ed6a-64f1-4ff4-b31f-1f335a8265bc
+		summarizeBy: none
+		sourceColumn: CODOP
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_Lvel = m
+		mode: import
+		queryGroup: _DimPlan
+		source =
+				let
+				  Origem = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1W7t0zQmOFSGaJ2TIPSu9Qzf25r-HM-jsxHviWFavDV0/edit?gid=1377226161#gid=1377226161"),
+				  #"Navegação 1" = Origem{[name = "Base", ItemKind = "Table"]}[Data],
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"Column10", "Column11","Column12"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Outras Colunas Removidas", [PromoteAllScalars=true]),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Cabeçalhos Promovidos", each ([LV1] <> "")),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"LV1", type text}, {"Desc", type text}, {"CODOP", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

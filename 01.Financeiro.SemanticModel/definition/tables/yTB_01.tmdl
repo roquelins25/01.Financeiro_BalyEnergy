@@ -1,0 +1,26 @@
+table yTB_01
+	lineageTag: bef9b51d-4035-4c25-847f-f71743a73033
+
+	measure 'Valor yTB_01' = SELECTEDVALUE('yTB_01'[yTB_01], 0)
+		formatString: 0
+		lineageTag: cdee1e5b-8606-4be9-a5d4-e1030564a67a
+
+	column yTB_01
+		formatString: 0
+		lineageTag: f2cc8cba-645c-4204-b312-be3dfd4e8caa
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition yTB_01 = calculated
+		mode: import
+		source = GENERATESERIES(1, 12, 1)
+
+	annotation PBI_Id = ec7dd20399b747a5820ebdf04c92f915
+

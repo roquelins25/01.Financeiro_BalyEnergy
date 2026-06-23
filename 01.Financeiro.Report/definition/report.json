@@ -2,13 +2,22 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
   "themeCollection": {
     "baseTheme": {
-      "name": "CY26SU05",
+      "name": "Fluent2-CY26SU05",
       "reportVersionAtImport": {
         "visual": "2.9.0",
         "report": "3.3.0",
         "page": "2.3.1"
       },
       "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Power_BI_Theme_Generator_-_BIB1325801594451954.json",
+      "reportVersionAtImport": {
+        "visual": "2.10.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
     }
   },
   "objects": {
@@ -39,15 +48,66 @@
       }
     ]
   },
+  "publicCustomVisuals": [
+    "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "MapBySquillion"
+  ],
   "resourcePackages": [
     {
       "name": "SharedResources",
       "type": "SharedResources",
       "items": [
         {
-          "name": "CY26SU05",
-          "path": "BaseThemes/CY26SU05.json",
+          "name": "Fluent2-CY26SU05",
+          "path": "BaseThemes/Fluent2-CY26SU05.json",
           "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "__Ina527673166903114.png",
+          "path": "__Ina527673166903114.png",
+          "type": "Image"
+        },
+        {
+          "name": "Clientes5215586664137711.png",
+          "path": "Clientes5215586664137711.png",
+          "type": "Image"
+        },
+        {
+          "name": "Filters20189975972110985.png",
+          "path": "Filters20189975972110985.png",
+          "type": "Image"
+        },
+        {
+          "name": "homme_119049726718193372.png",
+          "path": "homme_119049726718193372.png",
+          "type": "Image"
+        },
+        {
+          "name": "Power_BI_Theme_Generator_-_BIB1325801594451954.json",
+          "path": "Power_BI_Theme_Generator_-_BIB1325801594451954.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "Table36111711811913305.png",
+          "path": "Table36111711811913305.png",
+          "type": "Image"
+        }
+      ]
+    },
+    {
+      "name": "brazilMapVisual5B5DD37DD18C45B1B3C7DD73C184549D",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "brazilMapVisual5B5DD37DD18C45B1B3C7DD73C184549D.pbiviz.json",
+          "path": "brazilMapVisual5B5DD37DD18C45B1B3C7DD73C184549D.pbiviz.json",
+          "type": "CustomVisualMetadata"
         }
       ]
     }
@@ -55,9 +115,13 @@
   "settings": {
     "useStylableVisualContainerHeader": true,
     "exportDataMode": "AllowSummarized",
+    "defaultFilterActionIsDataFilter": true,
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
     "useEnhancedTooltips": true,
-    "useDefaultAggregateDisplayName": true
+    "useDefaultAggregateDisplayName": true,
+    "queryLimitOption": "None",
+    "customMemoryLimit": "1048576",
+    "customTimeoutLimit": "225"
   }
 }

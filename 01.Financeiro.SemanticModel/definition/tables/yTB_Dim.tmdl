@@ -1,0 +1,65 @@
+table yTB_Dim
+	lineageTag: 488d8b9f-3c11-4778-af1b-34a4756ad568
+
+	column yTB_Dim
+		lineageTag: 6f8a690f-1eac-438c-ac53-62a20fd4aef1
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'yTB_Dim Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'yTB_Dim Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'yTB_Dim Campos'
+		isHidden
+		lineageTag: b13938a4-ac0d-4e34-9175-4b6d6ef82910
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'yTB_Dim Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'yTB_Dim Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: c571ac21-dfc9-471c-820e-ddd871031e5f
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition yTB_Dim = calculated
+		mode: import
+		source =
+				{
+				    ("Ano", NAMEOF('CALENDARIO DAX'[Ano]), 0),
+				    ("Ano-Mes", NAMEOF('CALENDARIO DAX'[Ano-Mes]), 1),
+				    ("Nome do Mês", NAMEOF('CALENDARIO DAX'[Nome do Mês]), 2),
+				    ("Vencidos?", NAMEOF('CALENDARIO DAX'[Vencidos?]), 3),
+				    ("xREDE", NAMEOF('TB_CLI'[xREDE]), 4),
+				    ("Nome Cliente", NAMEOF('TB_CLI'[nomcli]), 5),
+				    ("UF", NAMEOF('xUF_Regiao'[UF]), 6),
+				    ("Região/Grupo", NAMEOF('xUF_Regiao'[Região/Grupo]), 7),
+				    ("Descricao Conta", NAMEOF('TB_FRJ'[xTipo]), 8),
+				    ("portador", NAMEOF('TB_Fatos'[portador]), 9),
+				    ("tipo", NAMEOF('TB_Fatos'[tipo]), 10),
+				    ("titulo", NAMEOF('TB_Fatos'[titulo]), 11),
+				    ("situacao", NAMEOF('TB_Fatos'[sit]), 12),
+				    ("numnota", NAMEOF('TB_Fatos'[numnota]), 13),
+				    ("observacao", NAMEOF('TB_Fatos'[observacao]), 14),
+				    ("emissao", NAMEOF('TB_Fatos'[emissao]), 15),
+				    ("vencimento", NAMEOF('TB_Fatos'[vencimento]), 16),
+				    ("codpagamento", NAMEOF('TB_Fatos'[codpagamento]), 17),
+				    ("Representante", NAMEOF('TB_REP'[nomrep]), 18)
+				}
+
+	annotation PBI_Id = 7ac42367b93e4983a72f18b309072a63
+

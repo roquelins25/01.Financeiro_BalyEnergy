@@ -1,0 +1,36 @@
+table TB_OPRede
+	lineageTag: f8e8b7bd-79df-4b17-8567-acfa99f000fa
+
+	column CODOP
+		dataType: string
+		lineageTag: 372c9529-d31e-44cd-bcd4-eb127149ca37
+		summarizeBy: none
+		sourceColumn: CODOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column codgre
+		dataType: string
+		lineageTag: 0dc4fb89-3ef2-4438-9e48-e04780ca0b55
+		summarizeBy: none
+		sourceColumn: codgre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_OPRede = m
+		mode: import
+		queryGroup: _DimPlan
+		source =
+				let
+				  Origem = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1W7t0zQmOFSGaJ2TIPSu9Qzf25r-HM-jsxHviWFavDV0/edit?gid=1377226161#gid=1377226161"),
+				  #"Navegação 1" = Origem{[name = "Base", ItemKind = "Table"]}[Data],
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"Column1", "Column2"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Outras Colunas Removidas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"CODOP", type text}, {"codgre", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

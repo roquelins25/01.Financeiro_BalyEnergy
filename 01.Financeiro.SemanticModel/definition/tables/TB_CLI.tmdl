@@ -51,8 +51,7 @@ table TB_CLI
 		annotation SummarizationSetBy = Automatic
 
 	column codgre
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: 9a33043e-ecdc-4cd0-bb9d-b00e2441fe83
 		summarizeBy: none
 		sourceColumn: codgre
@@ -236,6 +235,20 @@ table TB_CLI
 
 		annotation SummarizationSetBy = Automatic
 
+	column xREDE = RELATED(TB_Rede[codgre]) &" - "& RELATED(TB_Rede[nomgre])
+		lineageTag: 084b93f3-51e1-4472-b80b-e182883402ed
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column xLocalizacao =
+			
+			TB_CLI[nompai] & "-" & TB_CLI[sigufs]
+		lineageTag: 1fe2846a-c296-4625-8c03-a6b543a6a549
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_CLI = m
 		mode: import
 		queryGroup: _Dim
@@ -243,9 +256,11 @@ table TB_CLI
 				let
 				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
 				  #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "usu_view085cli"]}[Data],
-				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Navegação 1",{{"codcli", type text}, {"codrep", type text}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Navegação 1",{{"codcli", type text}, {"codrep", type text}, {"codgre", type text}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado",null,"7",Replacer.ReplaceValue,{"usu_codram"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído",null,"NÃO CLASSIFICADO",Replacer.ReplaceValue,{"usu_desram"})
 				in
-				  #"Tipo Alterado"
+				    #"Valor Substituído1"
 
 	annotation PBI_NavigationStepName = Navegação
 
