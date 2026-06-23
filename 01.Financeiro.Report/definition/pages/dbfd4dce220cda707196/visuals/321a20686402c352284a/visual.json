@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "321a20686402c352284a",
   "position": {
-    "x": 87.6246205149985,
-    "y": 88.913217875513183,
-    "z": 4000,
-    "height": 631.41270665219508,
-    "width": 1191.9525584760825,
-    "tabOrder": 2007
+    "x": 71.67176186645213,
+    "y": 74.143201930812552,
+    "z": 3000,
+    "height": 646.28157683024938,
+    "width": 1207.2984714400643
   },
   "visualGroup": {
     "displayName": "Operacao",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }

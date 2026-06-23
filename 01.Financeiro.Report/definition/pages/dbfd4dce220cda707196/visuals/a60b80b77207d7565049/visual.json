@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "a60b80b77207d7565049",
   "position": {
-    "x": 556.79360876637224,
-    "y": 0,
-    "z": 1000,
-    "height": 417.5055448067576,
-    "width": 659.76184858351814,
-    "tabOrder": 1000
+    "x": 556.45129273912551,
+    "y": 33.563162858146583,
+    "z": 2000,
+    "height": 407.21716513259815,
+    "width": 659.35622780881772
   },
   "visual": {
     "visualType": "brazilMapVisual5B5DD37DD18C45B1B3C7DD73C184549D",
@@ -315,9 +314,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#FFCD00'"
                     }
                   }
                 }
@@ -328,10 +326,23 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
+                      "ColorId": 1,
                       "Percent": 0
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "customizeSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

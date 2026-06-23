@@ -43,7 +43,7 @@
               },
               "queryRef": "CALENDARIO DAX.Nome do Mês",
               "nativeQueryRef": "Nome do Mês",
-              "active": true,
+              "active": false,
               "displayName": "Nome do Mês"
             },
             {
@@ -237,20 +237,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2010L"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {

@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0a16619a12b59c7a630a",
   "position": {
-    "x": 0.11954902402883505,
-    "y": 0,
-    "z": 0,
-    "height": 418.79414216727224,
-    "width": 556.67405974234339,
-    "tabOrder": 0
+    "x": 0.11947552543559968,
+    "y": 33.563162858146583,
+    "z": 1000,
+    "height": 408.47400823485918,
+    "width": 556.33181721368987
   },
   "visual": {
     "visualType": "barChart",
@@ -288,7 +287,7 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
+                      "ColorId": 1,
                       "Percent": 0
                     }
                   }
@@ -299,9 +298,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#FFCD00'"
                     }
                   }
                 }
@@ -341,6 +339,19 @@
         {
           "properties": {
             "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "customizeSpacing": {
               "expr": {
                 "Literal": {
                   "Value": "false"
