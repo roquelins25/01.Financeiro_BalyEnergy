@@ -19,15 +19,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_FRJ"
+                      "Entity": "TB_Fatos"
                     }
                   },
-                  "Property": "xTipo"
+                  "Property": "portador"
                 }
               },
-              "queryRef": "TB_FRJ.xTipo",
-              "nativeQueryRef": "Descricao Conta",
-              "displayName": "Descricao Conta"
+              "queryRef": "TB_Fatos.portador",
+              "nativeQueryRef": "portador",
+              "active": true,
+              "displayName": "portador"
             }
           ],
           "fieldParameters": [
