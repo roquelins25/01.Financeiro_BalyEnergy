@@ -189,6 +189,16 @@
                 }
               ],
               "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'23 - Condor'"
+                  }
+                }
+              ],
+              "isToggled": true
             }
           ]
         }

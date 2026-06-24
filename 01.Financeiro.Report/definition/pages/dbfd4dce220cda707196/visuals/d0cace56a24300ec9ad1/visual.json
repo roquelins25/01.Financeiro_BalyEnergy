@@ -1,19 +1,18 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "9fc42ea830ca5aabcc9e",
+  "name": "d0cace56a24300ec9ad1",
   "position": {
-    "x": 1253.75,
-    "y": 66.25,
-    "z": 3002,
-    "height": 38.75,
-    "width": 442.5,
-    "tabOrder": 6
+    "x": 622.3925251285923,
+    "y": 411.06255800418415,
+    "z": 2000,
+    "height": 297.66599027889197,
+    "width": 657.18465386248874
   },
   "visual": {
-    "visualType": "slicer",
+    "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Values": {
+        "Columns": {
           "projections": [
             {
               "field": {
@@ -43,73 +42,87 @@
               },
               "queryRef": "CALENDARIO DAX.Ano-Mes",
               "nativeQueryRef": "Ano-Mes",
-              "active": true
+              "active": false
             }
           ]
-        }
-      }
-    },
-    "expansionStates": [
-      {
-        "roles": [
-          "Values"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "CALENDARIO DAX.Ano"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Ano"
+                  "Property": "01. Valor AB Operacao"
                 }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "CALENDARIO DAX.Ano-Mes"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {
-          "children": [
+              },
+              "queryRef": "_Medidas.01. Valor AB Operacao",
+              "nativeQueryRef": "01. Valor AB Operacao"
+            },
             {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2026L"
-                  }
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "02. QTD titulos s\\ Cod"
                 }
-              ],
-              "isToggled": true
+              },
+              "queryRef": "_Medidas.02. QTD titulos s\\ Cod",
+              "nativeQueryRef": "02. QTD titulos s\\ Cod"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CALENDARIO DAX"
+                  }
+                },
+                "Property": "Ano"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
-    ],
+    },
     "objects": {
-      "data": [
+      "columnHeaders": [
         {
           "properties": {
-            "mode": {
+            "autoSizeColumnWidth": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "true"
                 }
               }
             },
-            "isInvertedSelectionMode": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'fitToContent'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "autoExpand": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -119,15 +132,17 @@
           }
         }
       ],
-      "general": [
-        {
-          "properties": {}
-        }
-      ],
-      "selection": [
+      "rowHeaders": [
         {
           "properties": {
-            "selectAllCheckboxEnabled": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "autoExpand": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -137,37 +152,10 @@
           }
         }
       ],
-      "items": [
+      "values": [
         {
           "properties": {
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9D"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "textSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
-                }
-              }
-            },
-            "italic": {
+            "valuesOnRow": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -179,7 +167,7 @@
       ]
     },
     "visualContainerObjects": {
-      "background": [
+      "title": [
         {
           "properties": {
             "show": {
@@ -191,25 +179,7 @@
             }
           }
         }
-      ],
-      "title": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'F_Data'"
-                }
-              }
-            }
-          }
-        }
       ]
-    },
-    "syncGroup": {
-      "groupName": "Ano",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }
