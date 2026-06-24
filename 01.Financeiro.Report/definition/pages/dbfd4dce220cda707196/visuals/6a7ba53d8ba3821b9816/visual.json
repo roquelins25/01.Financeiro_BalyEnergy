@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "6a7ba53d8ba3821b9816",
   "position": {
-    "x": 549.5485967029116,
-    "y": 31.210564769070547,
+    "x": 551.53674478932385,
+    "y": 33.187483374313693,
     "z": 2000,
-    "height": 615.07101206117886,
-    "width": 657.74987473715282
+    "height": 303.98712791633147,
+    "width": 656.16733708769107
   },
   "visual": {
     "visualType": "pivotTable",
@@ -198,7 +198,86 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação PR e Norte'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Outros Clientes ( UF )'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'1477 - POLYBALAS DISTRIBUIDORA E LOGISTICA LTDA'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    },
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'1078 - João Roberto Stresser Neto & Cia Ltda'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação RS'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Outros Clientes ( UF )'"
+                      }
+                    }
+                  ],
+                  "isToggled": true,
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "'997 - Comercial Zaffari'"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
       }
     ],
     "objects": {
