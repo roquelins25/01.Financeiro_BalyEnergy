@@ -194,6 +194,7 @@ table _Medidas
 			
 			CALCULATE( [01. Valor Original], KEEPFILTERS( TB_Fatos[sit] IN{"LQ","AB"} ) )
 		formatString: #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares
 		lineageTag: 5617b1ec-4ced-4817-9f93-58b88fde30df
 
 	measure '05.HTML CARD GERAL' =
@@ -1693,6 +1694,40 @@ table _Medidas
 		lineageTag: c6918ab7-b6f2-4975-8b29-c602b58c95b5
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '05.Operacao Valor AB' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    USERELATIONSHIP( TB_CLI[xOperacao], TB_Lvel[CODOP] )
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: f8b187aa-c373-4ee3-8bdb-4ed9562b0759
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '05.Operacao vlr Ori' =
+			
+			CALCULATE(
+			    [01. Valor Original],
+			    USERELATIONSHIP( TB_CLI[xOperacao], TB_Lvel[CODOP] )
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 8564c169-971d-4c51-bfc4-22c6429e582e
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '05. % geral' =
+			
+			DIVIDE( [05.Operacao Valor AB] - [05.Operacao vlr Ori], [05.Operacao vlr Ori],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b7ff6ed0-dc00-4edd-9814-dc4e35149e82
+
+	measure '05. % Vencidos' =
+			
+			DIVIDE( COALESCE( [05.Operacao Valor AB] , 0 ) , [05.Operacao vlr Ori] , 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9205f657-e725-4604-9ed8-a9b244afc1b2
 
 	partition _Medidas = m
 		mode: import

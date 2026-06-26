@@ -196,6 +196,16 @@ cultureInfo pt-BR
 			          "codcli": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Cod. Cliente": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -639,6 +649,16 @@ cultureInfo pt-BR
 			        {
 			          "nomrep": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Representante": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -1090,6 +1110,16 @@ cultureInfo pt-BR
 			        {
 			          "siguf": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "UF": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -5418,42 +5448,1438 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
-			    }
-			  },
-			  "Relationships": {
-			    "calendario_dax_date_has_hierarquia_de_data": {
-			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario_dax.date": {
-			          "Target": {
-			            "Entity": "calendario_dax.date"
-			          }
-			        },
-			        "calendario_dax.date.hierarquia_de_data": {
-			          "Target": {
-			            "Entity": "calendario_dax.date.hierarquia_de_data"
-			          }
+			    },
+			    "tb_cli.x_operacao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_CLI",
+			          "ConceptualProperty": "xOperacao"
 			        }
 			      },
-			      "Phrasings": [
+			      "State": "Generated",
+			      "Terms": [
 			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario_dax.date"
-			            },
-			            "Object": {
-			              "Role": "calendario_dax.date.hierarquia_de_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dates_have_hierarquia_de_data"
+			          "x operacao": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "xOperacao": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
 			        }
 			      ]
 			    },
+			    "entity__medida.entity_05_operacao_valor_AB": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "05.Operacao Valor AB"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "05.operacao valor AB": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Valor Ab.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_05_operacao_vlr_ori": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "05.Operacao vlr Ori"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "05.operacao vlr ori": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Valor Ori.": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_05___geral": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "05. % geral"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "05. % geral": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "05. percentage geral": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "05. pct geral": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB faturamento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB_Faturamento": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0nfvcodcli": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvcodcli"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvcodcli": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvcodcli": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_07_5procodori": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e075procodori"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 07 5procodori": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e075procodori": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvvlrcom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvvlrcom"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvvlrcom": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvvlrcom": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0nfvcodemp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvcodemp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvcodemp": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvcodemp": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0nfvcodfil": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvcodfil"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvcodfil": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvcodfil": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0nfvcodsnf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvcodsnf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvcodsnf": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvcodsnf": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0nfvnumnfv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvnumnfv"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvnumnfv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvnumnfv": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvnumped": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvnumped"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvnumped": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvnumped": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0nfvdatemi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvdatemi"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvdatemi": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvdatemi": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "TB_faturamento.e_14_0nfvcodrep": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvcodrep"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvcodrep": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvcodrep": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.codrep_cad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "codrep_cad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "codrep cad": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "codrep_cad": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "codrep scoundrel": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "codrep rascal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "codrep scalawag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "codrep rogue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "codrep rake": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "codrep blackguard": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.codven_cad": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "codven_cad"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "codven cad": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "codven_cad": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "codven scoundrel": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "codven rascal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "codven scalawag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "codven rogue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "codven rake": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "codven blackguard": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvcodemp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvcodemp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvcodemp": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvcodemp": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvcodfil": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvcodfil"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvcodfil": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvcodfil": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvcodsnf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvcodsnf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvcodsnf": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvcodsnf": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvnumnfv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvnumnfv"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvnumnfv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvnumnfv": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvseqipv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvseqipv"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvseqipv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvseqipv": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvcodpro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvcodpro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvcodpro": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvcodpro": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvtnspro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvtnspro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvtnspro": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvtnspro": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvqtdfat": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvqtdfat"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvqtdfat": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvqtdfat": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvqtddev": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvqtddev"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvqtddev": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvqtddev": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvpreuni": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvpreuni"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvpreuni": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvpreuni": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvvlrliq": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvvlrliq"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvvlrliq": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvvlrliq": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvvlrfin": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvvlrfin"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvvlrfin": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvvlrfin": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvcodtpr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvcodtpr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvcodtpr": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvcodtpr": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.usu_tcanaisusu_desram": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "usu_tcanaisusu_desram"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "usu tcanaisusu desram": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "usu_tcanaisusu_desram": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvvlrdev": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvvlrdev"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvvlrdev": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvvlrdev": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvvlrdevbon": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvvlrdevbon"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvvlrdevbon": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvvlrdevbon": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_07_5procodemp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e075procodemp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 07 5procodemp": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e075procodemp": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_07_5procodpro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e075procodpro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 07 5procodpro": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e075procodpro": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_07_5procodfam": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e075procodfam"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 07 5procodfam": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e075procodfam": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_07_5prousu_claman": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e075prousu_claman"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 07 5prousu claman": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e075prousu_claman": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_08_5clicodcli": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e085clicodcli"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 08 5clicodcli": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e085clicodcli": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_08_5clisiguf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e085clisigufs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 08 5clisiguf": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e085clisigufs": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvvlrbco": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvvlrbco"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvvlrbco": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvvlrbco": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0nfvsitnfv": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvsitnfv"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvsitnfv": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvsitnfv": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0nfvtipnf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvtipnfs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvtipnf": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvtipnfs": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_08_5clicodgre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e085clicodgre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 08 5clicodgre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e085clicodgre": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_06_9grenomgre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e069grenomgre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 06 9grenomgre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e069grenomgre": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0nfvcodfpg": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140nfvcodfpg"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0nfvcodfpg": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140nfvcodfpg": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_06_6fpgdesfpg": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e066fpgdesfpg"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 06 6fpgdesfpg": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e066fpgdesfpg": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_02_8cpgcodcpg": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e028cpgcodcpg"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 02 8cpgcodcpg": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e028cpgcodcpg": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_02_8cpgabrcpg": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e028cpgabrcpg"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 02 8cpgabrcpg": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e028cpgabrcpg": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_02_8cpgprzmed": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e028cpgprzmed"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 02 8cpgprzmed": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e028cpgprzmed": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.vlrmar": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "vlrmar"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vlrmar": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.e_14_0ipvvlric": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "e140ipvvlrics"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "e 14 0ipvvlric": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "e140ipvvlrics": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.E075PROUSU_per_tol": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "E075PROUSU_PerTol"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "E075PROUSU per tol": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "E075PROUSU_PerTol": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.numane": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "numane"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "numane": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_faturamento.valor_margem_geral": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Faturamento",
+			          "ConceptualProperty": "VALOR_MARGEM_GERAL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "valor margem geral": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VALOR_MARGEM_GERAL": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_05___vencidos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "05. % Vencidos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "05. % vencidos": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "05. percentage vencido": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "05. pct vencido": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
 			    "TB_fato_venct_ori_mê_has_TB_fato_venct_ori_dia": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Fatos"
@@ -6906,6 +8332,52 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "TB_faturamento_has_calendario_dax": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "calendario_dax": {
+			          "Target": {
+			            "Entity": "calendario_dax"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_calendario_dax"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendario_dax_have_TB_faturamentos"
+			        }
+			      ]
+			    },
 			    "TB_lvel_has_TB_operacao": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Lvel"
@@ -7449,6 +8921,1788 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_redes_have_tb_clis"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_05___vencidos": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_05___vencidos": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_05___vencidos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_05___vencidos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_05___vencidos"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_valor_margem_geral": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.valor_margem_geral": {
+			          "Target": {
+			            "Entity": "TB_faturamento.valor_margem_geral"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.valor_margem_geral"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_valor_margem_gerals"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_numane": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.numane": {
+			          "Target": {
+			            "Entity": "TB_faturamento.numane"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.numane"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_numanes"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_E075PROUSU_per_tol": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.E075PROUSU_per_tol": {
+			          "Target": {
+			            "Entity": "TB_faturamento.E075PROUSU_per_tol"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.E075PROUSU_per_tol"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_E075PROUSU_per_tol"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvvlric": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvvlric": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvvlric"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvvlric"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvvlrics"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_vlrmar": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.vlrmar": {
+			          "Target": {
+			            "Entity": "TB_faturamento.vlrmar"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.vlrmar"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_vlrmars"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_02_8cpgprzmed": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_02_8cpgprzmed": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_02_8cpgprzmed"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_02_8cpgprzmed"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_02_8cpgprzmeds"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_02_8cpgabrcpg": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_02_8cpgabrcpg": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_02_8cpgabrcpg"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_02_8cpgabrcpg"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_02_8cpgabrcpgs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_02_8cpgcodcpg": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_02_8cpgcodcpg": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_02_8cpgcodcpg"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_02_8cpgcodcpg"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_02_8cpgcodcpgs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_06_6fpgdesfpg": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_06_6fpgdesfpg": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_06_6fpgdesfpg"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_06_6fpgdesfpg"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_06_6fpgdesfpgs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvcodfpg": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvcodfpg": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvcodfpg"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvcodfpg"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvcodfpgs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_06_9grenomgre": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_06_9grenomgre": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_06_9grenomgre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_06_9grenomgre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_06_9grenomgres"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_08_5clicodgre": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_08_5clicodgre": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_08_5clicodgre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_08_5clicodgre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_08_5clicodgres"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvtipnf": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvtipnf": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvtipnf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvtipnf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvtipnfs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvsitnfv": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvsitnfv": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvsitnfv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvsitnfv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvsitnfvs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvvlrbco": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvvlrbco": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvvlrbco"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvvlrbco"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvvlrbcos"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_08_5clisiguf": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_08_5clisiguf": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_08_5clisiguf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_08_5clisiguf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_08_5clisigufs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_08_5clicodcli": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_08_5clicodcli": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_08_5clicodcli"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_08_5clicodcli"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_08_5clicodclis"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_07_5prousu_claman": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_07_5prousu_claman": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_07_5prousu_claman"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_07_5prousu_claman"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_07_5prousu_clamans"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_07_5procodfam": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_07_5procodfam": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_07_5procodfam"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_07_5procodfam"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_07_5procodfams"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_07_5procodpro": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_07_5procodpro": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_07_5procodpro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_07_5procodpro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_07_5procodpros"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_07_5procodemp": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_07_5procodemp": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_07_5procodemp"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_07_5procodemp"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_07_5procodemps"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvvlrdevbon": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvvlrdevbon": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvvlrdevbon"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvvlrdevbon"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvvlrdevbons"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvvlrdev": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvvlrdev": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvvlrdev"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvvlrdev"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvvlrdevs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_usu_tcanaisusu_desram": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.usu_tcanaisusu_desram": {
+			          "Target": {
+			            "Entity": "TB_faturamento.usu_tcanaisusu_desram"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.usu_tcanaisusu_desram"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_usu_tcanaisusu_desrams"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvcodtpr": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvcodtpr": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvcodtpr"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvcodtpr"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvcodtprs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvvlrfin": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvvlrfin": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvvlrfin"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvvlrfin"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvvlrfins"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvvlrliq": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvvlrliq": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvvlrliq"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvvlrliq"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvvlrliqs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvpreuni": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvpreuni": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvpreuni"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvpreuni"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvpreunis"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvqtddev": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvqtddev": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvqtddev"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvqtddev"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvqtddevs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvqtdfat": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvqtdfat": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvqtdfat"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvqtdfat"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvqtdfats"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvtnspro": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvtnspro": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvtnspro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvtnspro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvtnspros"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvcodpro": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvcodpro": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvcodpro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvcodpro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvcodpros"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvseqipv": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvseqipv": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvseqipv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvseqipv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvseqipvs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvnumnfv": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvnumnfv": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvnumnfv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvnumnfv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvnumnfvs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvcodsnf": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvcodsnf": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvcodsnf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvcodsnf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvcodsnfs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvcodfil": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvcodfil": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvcodfil"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvcodfil"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvcodfils"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvcodemp": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvcodemp": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvcodemp"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvcodemp"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvcodemps"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_codven_cad": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.codven_cad": {
+			          "Target": {
+			            "Entity": "TB_faturamento.codven_cad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.codven_cad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_codven_cads"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_codrep_cad": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.codrep_cad": {
+			          "Target": {
+			            "Entity": "TB_faturamento.codrep_cad"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.codrep_cad"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_codrep_cads"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvcodrep": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvcodrep": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvcodrep"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvcodrep"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvcodreps"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvdatemi": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvdatemi": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvdatemi"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvdatemi"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvdatemis"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvnumped": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvnumped": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvnumped"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvnumped"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvnumpeds"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvnumnfv": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvnumnfv": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvnumnfv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvnumnfv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvnumnfvs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvcodsnf": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvcodsnf": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvcodsnf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvcodsnf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvcodsnfs"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvcodfil": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvcodfil": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvcodfil"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvcodfil"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvcodfils"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvcodemp": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvcodemp": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvcodemp"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvcodemp"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvcodemps"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0ipvvlrcom": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0ipvvlrcom": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0ipvvlrcom"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0ipvvlrcom"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0ipvvlrcoms"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_07_5procodori": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_07_5procodori": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_07_5procodori"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_07_5procodori"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_07_5procodoris"
+			        }
+			      ]
+			    },
+			    "TB_faturamento_has_e_14_0nfvcodcli": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Faturamento"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_faturamento": {
+			          "Target": {
+			            "Entity": "TB_faturamento"
+			          }
+			        },
+			        "TB_faturamento.e_14_0nfvcodcli": {
+			          "Target": {
+			            "Entity": "TB_faturamento.e_14_0nfvcodcli"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_faturamento"
+			            },
+			            "Object": {
+			              "Role": "TB_faturamento.e_14_0nfvcodcli"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_faturamentos_have_e_14_0nfvcodclis"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_05___geral": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_05___geral": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_05___geral"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_05___geral"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_05___geral"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_05_operacao_vlr_ori": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_05_operacao_vlr_ori": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_05_operacao_vlr_ori"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_05_operacao_vlr_ori"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_05_operacao_vlr_ori"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_05_operacao_valor_AB": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_05_operacao_valor_AB": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_05_operacao_valor_AB"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_05_operacao_valor_AB"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_05_operacao_valor_AB"
+			        }
+			      ]
+			    },
+			    "tb_cli_has_x_operacao": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_CLI"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tb_cli": {
+			          "Target": {
+			            "Entity": "tb_cli"
+			          }
+			        },
+			        "tb_cli.x_operacao": {
+			          "Target": {
+			            "Entity": "tb_cli.x_operacao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_cli"
+			            },
+			            "Object": {
+			              "Role": "tb_cli.x_operacao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_clis_have_x_operacaos"
 			        }
 			      ]
 			    },
@@ -12207,6 +15461,39 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_apoios_have_potadors"
+			        }
+			      ]
+			    },
+			    "calendario_dax_date_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date": {
+			          "Target": {
+			            "Entity": "calendario_dax.date"
+			          }
+			        },
+			        "calendario_dax.date.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dates_have_hierarquia_de_data"
 			        }
 			      ]
 			    },

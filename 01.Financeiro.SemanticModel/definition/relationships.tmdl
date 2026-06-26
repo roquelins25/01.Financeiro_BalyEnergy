@@ -87,3 +87,12 @@ relationship 511f1a36-ef59-6c29-ada6-b0e2bd2dfa55
 	fromColumn: TB_CLI.sigufs
 	toColumn: xUF_Regiao.UF
 
+relationship 7f290005-0750-bdd1-7e1e-54e4c76b615f
+	fromColumn: TB_Faturamento.e140nfvdatemi
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 3148fec8-9d92-382d-06b9-57c3865ca295
+	isActive: false
+	fromColumn: TB_CLI.xOperacao
+	toColumn: TB_Lvel.CODOP
+

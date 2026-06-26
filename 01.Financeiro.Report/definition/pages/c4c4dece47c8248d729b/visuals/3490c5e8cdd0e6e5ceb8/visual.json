@@ -4,9 +4,10 @@
   "position": {
     "x": 784.22535211267609,
     "y": 494.48692152917505,
-    "z": 5,
+    "z": 4000,
     "height": 571.7505030181087,
-    "width": 745.59356136820929
+    "width": 745.59356136820929,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "tableEx",
@@ -107,65 +108,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f976f47db77d93e532bc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_FRJ"
-              }
-            },
-            "Property": "xTipo"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ac26b902112d41b79711",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor AB/LQ Original"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6e052600d946c7687201",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor AB/LQ aberto"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a0befb3021071d3430b8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01 % Indice Inadimplencia"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

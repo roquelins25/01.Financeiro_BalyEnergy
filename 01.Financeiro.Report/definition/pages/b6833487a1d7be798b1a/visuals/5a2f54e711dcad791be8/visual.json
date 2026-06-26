@@ -6,7 +6,8 @@
     "y": 271.89404306859831,
     "z": 0,
     "height": 448.43188145911,
-    "width": 578.58021487109306
+    "width": 578.58021487109306,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -458,76 +459,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "c2ba1edb9051067adbda",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_CLI"
-              }
-            },
-            "Property": "sigufs"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ccb8f837d321556546c6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_CLI"
-              }
-            },
-            "Property": "xREDE"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "e6908613b888788ee390",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor Geral"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6d1a13161dc51e640309",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01 % Indice Inadimplencia"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "22874cd0c7153998d768",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor AB/LQ Original"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

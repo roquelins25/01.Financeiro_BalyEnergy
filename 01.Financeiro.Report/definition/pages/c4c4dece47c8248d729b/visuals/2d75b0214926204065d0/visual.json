@@ -4,10 +4,10 @@
   "position": {
     "x": 784.22535211267609,
     "y": 115.89537223340041,
-    "z": 2,
+    "z": 2000,
     "height": 378.59154929577466,
     "width": 745.59356136820929,
-    "tabOrder": 1001
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -375,104 +375,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "331873d0d14e458019c8",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CALENDARIO DAX"
-              }
-            },
-            "Property": "Ano"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "017a4770dd3b2b6857c9",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_CLI"
-              }
-            },
-            "Property": "sigufs"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "bb135ba93e107d0e7a60",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_CLI"
-              }
-            },
-            "Property": "xREDE"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "47651503818d9428b5a2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CALENDARIO DAX"
-              }
-            },
-            "Property": "Ano-Mes"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d84b267490a70339eb8e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01 % Indice Inadimplencia"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "072d938904dd474a608b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor AB/LQ Original"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d9bfd75b8872eb9c0430",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor Aberto"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

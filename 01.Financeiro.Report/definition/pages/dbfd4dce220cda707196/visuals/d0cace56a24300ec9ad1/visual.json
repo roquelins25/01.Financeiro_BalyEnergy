@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d0cace56a24300ec9ad1",
   "position": {
-    "x": 622.3925251285923,
-    "y": 411.06255800418415,
-    "z": 2000,
-    "height": 297.66599027889197,
-    "width": 657.18465386248874
+    "x": 552.36685438455356,
+    "y": 348.473049074819,
+    "z": 500,
+    "height": 297.80852775543042,
+    "width": 656.16733708769107,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "pivotTable",
@@ -78,23 +79,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "CALENDARIO DAX"
-                  }
-                },
-                "Property": "Ano"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {
@@ -182,5 +166,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "321a20686402c352284a"
 }

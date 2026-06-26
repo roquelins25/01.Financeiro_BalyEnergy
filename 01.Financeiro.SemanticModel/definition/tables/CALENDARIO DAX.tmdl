@@ -2,7 +2,7 @@ table 'CALENDARIO DAX'
 	lineageTag: 0f262f67-91ee-4dcb-a1e3-7e780a60d1c9
 
 	column Date
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: 24ef7b87-b9a8-4fd6-9fa2-33ecb48d21bc
 		summarizeBy: none
 		isNameInferred
