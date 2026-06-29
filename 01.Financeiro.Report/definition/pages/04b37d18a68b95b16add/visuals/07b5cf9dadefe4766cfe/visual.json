@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "07b5cf9dadefe4766cfe",
   "position": {
-    "x": 88.971842316975057,
-    "y": 613.53499597747384,
+    "x": 90.394676064530472,
+    "y": 212.32237866319949,
     "z": 4000,
-    "height": 46.339501206757845,
-    "width": 354.03378921962991,
+    "height": 46.248438916736525,
+    "width": 355.2720989512942,
     "tabOrder": 0
   },
   "visual": {
@@ -43,47 +43,6 @@
                 "Literal": {
                   "Value": "1D"
                 }
-              }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "c",
-                    "Entity": "CALENDARIO DAX",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "c"
-                                }
-                              },
-                              "Property": "Vencidos?"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Vencidas'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
               }
             }
           }

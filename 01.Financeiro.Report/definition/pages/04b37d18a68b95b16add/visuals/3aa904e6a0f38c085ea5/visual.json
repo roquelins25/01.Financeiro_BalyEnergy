@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "3aa904e6a0f38c085ea5",
   "position": {
-    "x": 88.9132178755132,
-    "y": 485.1569062337785,
+    "x": 94.519099951711155,
+    "y": 536.06719046794262,
     "z": 6000,
     "height": 54.121089141616729,
     "width": 355.65287150205279,
@@ -44,13 +44,6 @@
                   "Value": "'Dropdown'"
                 }
               }
-            },
-            "isInvertedSelectionMode": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
             }
           }
         }
@@ -78,39 +71,28 @@
                 "Where": [
                   {
                     "Condition": {
-                      "Not": {
-                        "Expression": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "t"
-                                    }
-                                  },
-                                  "Property": "tipo"
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "t"
                                 }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'01'"
-                                  }
-                                }
-                              ],
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'03'"
-                                  }
-                                }
-                              ]
-                            ]
+                              },
+                              "Property": "tipo"
+                            }
                           }
-                        }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'ADT'"
+                              }
+                            }
+                          ]
+                        ]
                       }
                     }
                   }

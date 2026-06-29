@@ -96,3 +96,21 @@ relationship 3148fec8-9d92-382d-06b9-57c3865ca295
 	fromColumn: TB_CLI.xOperacao
 	toColumn: TB_Lvel.CODOP
 
+relationship 62c7807f-5c86-41e7-9b04-0f7b77f705aa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Verbas.datger
+	toColumn: LocalDateTable_a76563a1-919f-4a9b-b34c-54968ffaf289.Date
+
+relationship 8d5be41e-19a2-411b-9b67-5cfddb87833b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Verbas.usu_datalt
+	toColumn: LocalDateTable_0f711601-5541-4b8f-b357-24aaae26d81c.Date
+
+relationship 2d175b07-d2a6-cd0c-29a5-c2676a3b5ec4
+	fromColumn: TB_Verbas.vctpro
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 38e77eb2-9e66-8b90-bfdc-7ca97eb9f68a
+	fromColumn: TB_Verbas.codfor
+	toColumn: TB_CLI.codcli
+

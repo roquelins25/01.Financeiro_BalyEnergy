@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "148937fbc65fe2812308",
+  "position": {
+    "x": 460,
+    "y": 136.66666666666669,
+    "z": 11000,
+    "height": 918.69457159485933,
+    "width": 1434.2381199565853,
+    "tabOrder": 10001
+  },
+  "visualGroup": {
+    "displayName": "Devolucao para Abatimento",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}

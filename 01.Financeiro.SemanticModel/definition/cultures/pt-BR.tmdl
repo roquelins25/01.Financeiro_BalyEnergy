@@ -5495,6 +5495,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Valor Aberto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6877,9 +6887,1464 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "TB_verba": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "TB verba": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB_Verbas": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "Tipo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.data_BI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "Data_BI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "data BI": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Data_BI": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "BI": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "information bi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "fact bi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "info bi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "statistic bi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "document bi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "figure bi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "record bi": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.numtit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "numtit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "numtit": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.codtpt": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "codtpt"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "codtpt": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.datger": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "datger"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "datger": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "TB_verba.datger.hierarquia_de_data": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "datger",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hierarquia de data": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hierarquia de information": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de fact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de info": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de statistic": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de document": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de figure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de record": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.datger.ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "datger",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "datger ano": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.datger.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "datger",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "datger trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.datger.mê": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "datger",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Mês"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mê": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "datger mê": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.datger.dia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "datger",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Dia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "datger dia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.vctpro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "vctpro"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vctpro": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "TB_verba.vlrabe": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "vlrabe"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vlrabe": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.sittit": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "sittit"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sittit": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.codtn": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "codtns"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "codtn": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.usu_datalt": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "usu_datalt"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "usu datalt": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "usu_datalt": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "TB_verba.usu_datalt.hierarquia_de_data": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "usu_datalt",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hierarquia de data": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hierarquia de information": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de fact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de info": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de statistic": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "hierarquia de document": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de figure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "hierarquia de record": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.usu_datalt.ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "usu_datalt",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "usu datalt ano": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.usu_datalt.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "usu_datalt",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "usu datalt trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.usu_datalt.mê": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "usu_datalt",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Mês"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mê": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "usu datalt mê": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.usu_datalt.dia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "VariationSource": "usu_datalt",
+			          "VariationSet": "Variation",
+			          "Hierarchy": "Hierarquia de datas",
+			          "HierarchyLevel": "Dia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "usu datalt dia": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.vlrori": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "vlrori"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vlrori": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_verba.codfor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Verbas",
+			          "ConceptualProperty": "codfor"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "codfor": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "TB_verba_usu_datalt_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.usu_datalt": {
+			          "Target": {
+			            "Entity": "TB_verba.usu_datalt"
+			          }
+			        },
+			        "TB_verba.usu_datalt.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "TB_verba.usu_datalt.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.usu_datalt"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.usu_datalt.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "usu_datalts_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
+			    "TB_verba_datger_mê_has_TB_verba_datger_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.datger.mê": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.mê"
+			          }
+			        },
+			        "TB_verba.datger.dia": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.mê"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_dias"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.dia"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_have_mê"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.dia"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "TB_verba.datger.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_are_in_mê5"
+			        }
+			      ]
+			    },
+			    "TB_verba_datger_trimestre_has_TB_verba_datger_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.datger.trimestre": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.trimestre"
+			          }
+			        },
+			        "TB_verba.datger.mê": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.trimestre"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_mê"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.mê"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_trimestres"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.mê"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "TB_verba.datger.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_are_in_trimestres5"
+			        }
+			      ]
+			    },
+			    "TB_verba_datger_ano_has_TB_verba_datger_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.datger.ano": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.ano"
+			          }
+			        },
+			        "TB_verba.datger.trimestre": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.ano"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "anos_have_trimestres"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.trimestre"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_anos"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "TB_verba.datger.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_anos5"
+			        }
+			      ]
+			    },
+			    "TB_verba_datger_hierarquia_de_data_has_TB_verba_datger_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.datger.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.hierarquia_de_data"
+			          }
+			        },
+			        "TB_verba.datger.dia": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_dias"
+			        }
+			      ]
+			    },
+			    "TB_verba_datger_hierarquia_de_data_has_TB_verba_datger_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.datger.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.hierarquia_de_data"
+			          }
+			        },
+			        "TB_verba.datger.mê": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_mê"
+			        }
+			      ]
+			    },
+			    "TB_verba_datger_hierarquia_de_data_has_TB_verba_datger_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.datger.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.hierarquia_de_data"
+			          }
+			        },
+			        "TB_verba.datger.trimestre": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_trimestres"
+			        }
+			      ]
+			    },
+			    "TB_verba_datger_hierarquia_de_data_has_TB_verba_datger_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.datger.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.hierarquia_de_data"
+			          }
+			        },
+			        "TB_verba.datger.ano": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_anos"
+			        }
+			      ]
+			    },
+			    "TB_verba_datger_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.datger": {
+			          "Target": {
+			            "Entity": "TB_verba.datger"
+			          }
+			        },
+			        "TB_verba.datger.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "TB_verba.datger.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.datger"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "datgers_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
+			    "calendario_dax_date_mê_has_calendario_dax_date_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date.mê": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.mê"
+			          }
+			        },
+			        "calendario_dax.date.dia": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.mê"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_dias1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.dia"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_have_mê1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.dia"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario_dax.date.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dias_are_in_mê4"
+			        }
+			      ]
+			    },
+			    "calendario_dax_date_trimestre_has_calendario_dax_date_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date.trimestre": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.trimestre"
+			          }
+			        },
+			        "calendario_dax.date.mê": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.trimestre"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_mê1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.mê"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_trimestres1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.mê"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario_dax.date.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_are_in_trimestres4"
+			        }
+			      ]
+			    },
+			    "calendario_dax_date_ano_has_calendario_dax_date_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date.ano": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.ano"
+			          }
+			        },
+			        "calendario_dax.date.trimestre": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.ano"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "anos_have_trimestres1"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.trimestre"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_anos1"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "calendario_dax.date.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_anos4"
+			        }
+			      ]
+			    },
+			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			          }
+			        },
+			        "calendario_dax.date.dia": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_dias1"
+			        }
+			      ]
+			    },
+			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			          }
+			        },
+			        "calendario_dax.date.mê": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_mê1"
+			        }
+			      ]
+			    },
+			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			          }
+			        },
+			        "calendario_dax.date.trimestre": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_trimestres1"
+			        }
+			      ]
+			    },
+			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			          }
+			        },
+			        "calendario_dax.date.ano": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date.hierarquia_de_data"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "hierarquia_de_data_have_anos1"
+			        }
+			      ]
+			    },
+			    "calendario_dax_date_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax.date": {
+			          "Target": {
+			            "Entity": "calendario_dax.date"
+			          }
+			        },
+			        "calendario_dax.date.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax.date"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax.date.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dates_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
 			    "TB_fato_venct_ori_mê_has_TB_fato_venct_ori_dia": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Fatos"
@@ -6909,7 +8374,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_dias"
+			          "ID": "mê_have_dias2"
 			        },
 			        {
 			          "Attribute": {
@@ -6922,7 +8387,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_have_mê"
+			          "ID": "dias_have_mê2"
 			        },
 			        {
 			          "Preposition": {
@@ -6975,7 +8440,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê"
+			          "ID": "trimestres_have_mê2"
 			        },
 			        {
 			          "Attribute": {
@@ -6988,7 +8453,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres"
+			          "ID": "mê_have_trimestres2"
 			        },
 			        {
 			          "Preposition": {
@@ -7041,7 +8506,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "anos_have_trimestres"
+			          "ID": "anos_have_trimestres2"
 			        },
 			        {
 			          "Attribute": {
@@ -7054,7 +8519,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_anos"
+			          "ID": "trimestres_have_anos2"
 			        },
 			        {
 			          "Preposition": {
@@ -7107,7 +8572,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias"
+			          "ID": "hierarquia_de_data_have_dias2"
 			        }
 			      ]
 			    },
@@ -7140,7 +8605,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê"
+			          "ID": "hierarquia_de_data_have_mê2"
 			        }
 			      ]
 			    },
@@ -7173,7 +8638,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_trimestres"
+			          "ID": "hierarquia_de_data_have_trimestres2"
 			        }
 			      ]
 			    },
@@ -7206,7 +8671,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_anos"
+			          "ID": "hierarquia_de_data_have_anos2"
 			        }
 			      ]
 			    },
@@ -7272,7 +8737,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_dias1"
+			          "ID": "mê_have_dias3"
 			        },
 			        {
 			          "Attribute": {
@@ -7285,7 +8750,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_have_mê1"
+			          "ID": "dias_have_mê3"
 			        },
 			        {
 			          "Preposition": {
@@ -7338,7 +8803,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê1"
+			          "ID": "trimestres_have_mê3"
 			        },
 			        {
 			          "Attribute": {
@@ -7351,7 +8816,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres1"
+			          "ID": "mê_have_trimestres3"
 			        },
 			        {
 			          "Preposition": {
@@ -7404,7 +8869,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "anos_have_trimestres1"
+			          "ID": "anos_have_trimestres3"
 			        },
 			        {
 			          "Attribute": {
@@ -7417,7 +8882,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_anos1"
+			          "ID": "trimestres_have_anos3"
 			        },
 			        {
 			          "Preposition": {
@@ -7470,7 +8935,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias1"
+			          "ID": "hierarquia_de_data_have_dias3"
 			        }
 			      ]
 			    },
@@ -7503,7 +8968,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê1"
+			          "ID": "hierarquia_de_data_have_mê3"
 			        }
 			      ]
 			    },
@@ -7536,7 +9001,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_trimestres1"
+			          "ID": "hierarquia_de_data_have_trimestres3"
 			        }
 			      ]
 			    },
@@ -7569,7 +9034,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_anos1"
+			          "ID": "hierarquia_de_data_have_anos3"
 			        }
 			      ]
 			    },
@@ -7635,7 +9100,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_dias2"
+			          "ID": "mê_have_dias4"
 			        },
 			        {
 			          "Attribute": {
@@ -7648,7 +9113,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_have_mê2"
+			          "ID": "dias_have_mê4"
 			        },
 			        {
 			          "Preposition": {
@@ -7701,7 +9166,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê2"
+			          "ID": "trimestres_have_mê4"
 			        },
 			        {
 			          "Attribute": {
@@ -7714,7 +9179,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres2"
+			          "ID": "mê_have_trimestres4"
 			        },
 			        {
 			          "Preposition": {
@@ -7767,7 +9232,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "anos_have_trimestres2"
+			          "ID": "anos_have_trimestres4"
 			        },
 			        {
 			          "Attribute": {
@@ -7780,7 +9245,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_anos2"
+			          "ID": "trimestres_have_anos4"
 			        },
 			        {
 			          "Preposition": {
@@ -7833,7 +9298,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias2"
+			          "ID": "hierarquia_de_data_have_dias4"
 			        }
 			      ]
 			    },
@@ -7866,7 +9331,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê2"
+			          "ID": "hierarquia_de_data_have_mê4"
 			        }
 			      ]
 			    },
@@ -7899,7 +9364,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_trimestres2"
+			          "ID": "hierarquia_de_data_have_trimestres4"
 			        }
 			      ]
 			    },
@@ -7932,7 +9397,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_anos2"
+			          "ID": "hierarquia_de_data_have_anos4"
 			        }
 			      ]
 			    },
@@ -7998,7 +9463,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_dias3"
+			          "ID": "mê_have_dias5"
 			        },
 			        {
 			          "Attribute": {
@@ -8011,7 +9476,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_have_mê3"
+			          "ID": "dias_have_mê5"
 			        },
 			        {
 			          "Preposition": {
@@ -8064,7 +9529,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê3"
+			          "ID": "trimestres_have_mê5"
 			        },
 			        {
 			          "Attribute": {
@@ -8077,7 +9542,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres3"
+			          "ID": "mê_have_trimestres5"
 			        },
 			        {
 			          "Preposition": {
@@ -8130,7 +9595,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "anos_have_trimestres3"
+			          "ID": "anos_have_trimestres5"
 			        },
 			        {
 			          "Attribute": {
@@ -8143,7 +9608,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_anos3"
+			          "ID": "trimestres_have_anos5"
 			        },
 			        {
 			          "Preposition": {
@@ -8196,7 +9661,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias3"
+			          "ID": "hierarquia_de_data_have_dias5"
 			        }
 			      ]
 			    },
@@ -8229,7 +9694,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê3"
+			          "ID": "hierarquia_de_data_have_mê5"
 			        }
 			      ]
 			    },
@@ -8262,7 +9727,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_trimestres3"
+			          "ID": "hierarquia_de_data_have_trimestres5"
 			        }
 			      ]
 			    },
@@ -8295,7 +9760,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_anos3"
+			          "ID": "hierarquia_de_data_have_anos5"
 			        }
 			      ]
 			    },
@@ -8329,6 +9794,98 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "datcads_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_tb_cli": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "tb_cli": {
+			          "Target": {
+			            "Entity": "tb_cli"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "tb_cli"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_tb_clis"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_cli"
+			            },
+			            "Object": {
+			              "Role": "TB_verba"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_clis_have_TB_verbas"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_calendario_dax": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "calendario_dax": {
+			          "Target": {
+			            "Entity": "calendario_dax"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "calendario_dax"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_calendario_dax"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax"
+			            },
+			            "Object": {
+			              "Role": "TB_verba"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendario_dax_have_TB_verbas"
 			        }
 			      ]
 			    },
@@ -8921,6 +10478,369 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_redes_have_tb_clis"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_vlrori": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.vlrori": {
+			          "Target": {
+			            "Entity": "TB_verba.vlrori"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.vlrori"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_vlroris"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_usu_datalt": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.usu_datalt": {
+			          "Target": {
+			            "Entity": "TB_verba.usu_datalt"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.usu_datalt"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_usu_datalts"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_codtn": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.codtn": {
+			          "Target": {
+			            "Entity": "TB_verba.codtn"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.codtn"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_codtns"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_sittit": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.sittit": {
+			          "Target": {
+			            "Entity": "TB_verba.sittit"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.sittit"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_sittits"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_vlrabe": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.vlrabe": {
+			          "Target": {
+			            "Entity": "TB_verba.vlrabe"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.vlrabe"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_vlrabes"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_vctpro": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.vctpro": {
+			          "Target": {
+			            "Entity": "TB_verba.vctpro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.vctpro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_vctpros"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_datger": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.datger": {
+			          "Target": {
+			            "Entity": "TB_verba.datger"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.datger"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_datgers"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_codtpt": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.codtpt": {
+			          "Target": {
+			            "Entity": "TB_verba.codtpt"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.codtpt"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_codtpts"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_numtit": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.numtit": {
+			          "Target": {
+			            "Entity": "TB_verba.numtit"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.numtit"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_numtits"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_data_BI": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.data_BI": {
+			          "Target": {
+			            "Entity": "TB_verba.data_BI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.data_BI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_data_BI"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_tipo": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "TB_verba.tipo": {
+			          "Target": {
+			            "Entity": "TB_verba.tipo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_tipos"
 			        }
 			      ]
 			    },
@@ -15464,20 +17384,20 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "calendario_dax_date_has_hierarquia_de_data": {
+			    "TB_verba_usu_datalt_hierarquia_de_data_has_TB_verba_usu_datalt_ano": {
 			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
+			        "ConceptualEntity": "TB_Verbas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "calendario_dax.date": {
+			        "TB_verba.usu_datalt.hierarquia_de_data": {
 			          "Target": {
-			            "Entity": "calendario_dax.date"
+			            "Entity": "TB_verba.usu_datalt.hierarquia_de_data"
 			          }
 			        },
-			        "calendario_dax.date.hierarquia_de_data": {
+			        "TB_verba.usu_datalt.ano": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			            "Entity": "TB_verba.usu_datalt.ano"
 			          }
 			        }
 			      },
@@ -15485,32 +17405,32 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date"
+			              "Role": "TB_verba.usu_datalt.hierarquia_de_data"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.hierarquia_de_data"
+			              "Role": "TB_verba.usu_datalt.ano"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dates_have_hierarquia_de_data"
+			          "ID": "hierarquia_de_data_have_anos6"
 			        }
 			      ]
 			    },
-			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_ano": {
+			    "TB_verba_usu_datalt_hierarquia_de_data_has_TB_verba_usu_datalt_trimestre": {
 			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
+			        "ConceptualEntity": "TB_Verbas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "calendario_dax.date.hierarquia_de_data": {
+			        "TB_verba.usu_datalt.hierarquia_de_data": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			            "Entity": "TB_verba.usu_datalt.hierarquia_de_data"
 			          }
 			        },
-			        "calendario_dax.date.ano": {
+			        "TB_verba.usu_datalt.trimestre": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.ano"
+			            "Entity": "TB_verba.usu_datalt.trimestre"
 			          }
 			        }
 			      },
@@ -15518,32 +17438,32 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.hierarquia_de_data"
+			              "Role": "TB_verba.usu_datalt.hierarquia_de_data"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.ano"
+			              "Role": "TB_verba.usu_datalt.trimestre"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_anos4"
+			          "ID": "hierarquia_de_data_have_trimestres6"
 			        }
 			      ]
 			    },
-			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_trimestre": {
+			    "TB_verba_usu_datalt_hierarquia_de_data_has_TB_verba_usu_datalt_mê": {
 			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
+			        "ConceptualEntity": "TB_Verbas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "calendario_dax.date.hierarquia_de_data": {
+			        "TB_verba.usu_datalt.hierarquia_de_data": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			            "Entity": "TB_verba.usu_datalt.hierarquia_de_data"
 			          }
 			        },
-			        "calendario_dax.date.trimestre": {
+			        "TB_verba.usu_datalt.mê": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.trimestre"
+			            "Entity": "TB_verba.usu_datalt.mê"
 			          }
 			        }
 			      },
@@ -15551,32 +17471,32 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.hierarquia_de_data"
+			              "Role": "TB_verba.usu_datalt.hierarquia_de_data"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.trimestre"
+			              "Role": "TB_verba.usu_datalt.mê"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_trimestres4"
+			          "ID": "hierarquia_de_data_have_mê6"
 			        }
 			      ]
 			    },
-			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_mê": {
+			    "TB_verba_usu_datalt_hierarquia_de_data_has_TB_verba_usu_datalt_dia": {
 			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
+			        "ConceptualEntity": "TB_Verbas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "calendario_dax.date.hierarquia_de_data": {
+			        "TB_verba.usu_datalt.hierarquia_de_data": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			            "Entity": "TB_verba.usu_datalt.hierarquia_de_data"
 			          }
 			        },
-			        "calendario_dax.date.mê": {
+			        "TB_verba.usu_datalt.dia": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.mê"
+			            "Entity": "TB_verba.usu_datalt.dia"
 			          }
 			        }
 			      },
@@ -15584,32 +17504,32 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.hierarquia_de_data"
+			              "Role": "TB_verba.usu_datalt.hierarquia_de_data"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.mê"
+			              "Role": "TB_verba.usu_datalt.dia"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_mê4"
+			          "ID": "hierarquia_de_data_have_dias6"
 			        }
 			      ]
 			    },
-			    "calendario_dax_date_hierarquia_de_data_has_calendario_dax_date_dia": {
+			    "TB_verba_usu_datalt_ano_has_TB_verba_usu_datalt_trimestre": {
 			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
+			        "ConceptualEntity": "TB_Verbas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "calendario_dax.date.hierarquia_de_data": {
+			        "TB_verba.usu_datalt.ano": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.hierarquia_de_data"
+			            "Entity": "TB_verba.usu_datalt.ano"
 			          }
 			        },
-			        "calendario_dax.date.dia": {
+			        "TB_verba.usu_datalt.trimestre": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.dia"
+			            "Entity": "TB_verba.usu_datalt.trimestre"
 			          }
 			        }
 			      },
@@ -15617,66 +17537,33 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.hierarquia_de_data"
+			              "Role": "TB_verba.usu_datalt.ano"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.dia"
+			              "Role": "TB_verba.usu_datalt.trimestre"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "hierarquia_de_data_have_dias4"
-			        }
-			      ]
-			    },
-			    "calendario_dax_date_ano_has_calendario_dax_date_trimestre": {
-			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario_dax.date.ano": {
-			          "Target": {
-			            "Entity": "calendario_dax.date.ano"
-			          }
-			        },
-			        "calendario_dax.date.trimestre": {
-			          "Target": {
-			            "Entity": "calendario_dax.date.trimestre"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario_dax.date.ano"
-			            },
-			            "Object": {
-			              "Role": "calendario_dax.date.trimestre"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "anos_have_trimestres4"
+			          "ID": "anos_have_trimestres6"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.trimestre"
+			              "Role": "TB_verba.usu_datalt.trimestre"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.ano"
+			              "Role": "TB_verba.usu_datalt.ano"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_anos4"
+			          "ID": "trimestres_have_anos6"
 			        },
 			        {
 			          "Preposition": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.trimestre"
+			              "Role": "TB_verba.usu_datalt.trimestre"
 			            },
 			            "Prepositions": [
 			              {
@@ -15686,29 +17573,29 @@ cultureInfo pt-BR
 			              }
 			            ],
 			            "Object": {
-			              "Role": "calendario_dax.date.ano"
+			              "Role": "TB_verba.usu_datalt.ano"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_are_in_anos4"
+			          "ID": "trimestres_are_in_anos6"
 			        }
 			      ]
 			    },
-			    "calendario_dax_date_trimestre_has_calendario_dax_date_mê": {
+			    "TB_verba_usu_datalt_trimestre_has_TB_verba_usu_datalt_mê": {
 			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
+			        "ConceptualEntity": "TB_Verbas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "calendario_dax.date.trimestre": {
+			        "TB_verba.usu_datalt.trimestre": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.trimestre"
+			            "Entity": "TB_verba.usu_datalt.trimestre"
 			          }
 			        },
-			        "calendario_dax.date.mê": {
+			        "TB_verba.usu_datalt.mê": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.mê"
+			            "Entity": "TB_verba.usu_datalt.mê"
 			          }
 			        }
 			      },
@@ -15716,33 +17603,33 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.trimestre"
+			              "Role": "TB_verba.usu_datalt.trimestre"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.mê"
+			              "Role": "TB_verba.usu_datalt.mê"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê4"
+			          "ID": "trimestres_have_mê6"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.mê"
+			              "Role": "TB_verba.usu_datalt.mê"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.trimestre"
+			              "Role": "TB_verba.usu_datalt.trimestre"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres4"
+			          "ID": "mê_have_trimestres6"
 			        },
 			        {
 			          "Preposition": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.mê"
+			              "Role": "TB_verba.usu_datalt.mê"
 			            },
 			            "Prepositions": [
 			              {
@@ -15752,29 +17639,29 @@ cultureInfo pt-BR
 			              }
 			            ],
 			            "Object": {
-			              "Role": "calendario_dax.date.trimestre"
+			              "Role": "TB_verba.usu_datalt.trimestre"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_are_in_trimestres4"
+			          "ID": "mê_are_in_trimestres6"
 			        }
 			      ]
 			    },
-			    "calendario_dax_date_mê_has_calendario_dax_date_dia": {
+			    "TB_verba_usu_datalt_mê_has_TB_verba_usu_datalt_dia": {
 			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
+			        "ConceptualEntity": "TB_Verbas"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "calendario_dax.date.mê": {
+			        "TB_verba.usu_datalt.mê": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.mê"
+			            "Entity": "TB_verba.usu_datalt.mê"
 			          }
 			        },
-			        "calendario_dax.date.dia": {
+			        "TB_verba.usu_datalt.dia": {
 			          "Target": {
-			            "Entity": "calendario_dax.date.dia"
+			            "Entity": "TB_verba.usu_datalt.dia"
 			          }
 			        }
 			      },
@@ -15782,33 +17669,33 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.mê"
+			              "Role": "TB_verba.usu_datalt.mê"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.dia"
+			              "Role": "TB_verba.usu_datalt.dia"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_dias4"
+			          "ID": "mê_have_dias6"
 			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.dia"
+			              "Role": "TB_verba.usu_datalt.dia"
 			            },
 			            "Object": {
-			              "Role": "calendario_dax.date.mê"
+			              "Role": "TB_verba.usu_datalt.mê"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_have_mê4"
+			          "ID": "dias_have_mê6"
 			        },
 			        {
 			          "Preposition": {
 			            "Subject": {
-			              "Role": "calendario_dax.date.dia"
+			              "Role": "TB_verba.usu_datalt.dia"
 			            },
 			            "Prepositions": [
 			              {
@@ -15818,12 +17705,12 @@ cultureInfo pt-BR
 			              }
 			            ],
 			            "Object": {
-			              "Role": "calendario_dax.date.mê"
+			              "Role": "TB_verba.usu_datalt.mê"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dias_are_in_mê4"
+			          "ID": "dias_are_in_mê6"
 			        }
 			      ]
 			    }

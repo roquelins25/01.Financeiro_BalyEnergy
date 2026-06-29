@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "fa8dd7defc7828e92258",
   "position": {
-    "x": 88.9132178755132,
-    "y": 216.48435656646691,
+    "x": 94.519099951711155,
+    "y": 267.394640800632,
     "z": 9000,
     "height": 204.88698032183476,
     "width": 355.65287150205279,
@@ -67,49 +67,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "t",
-                    "Entity": "TB_Operacao",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "t"
-                                }
-                              },
-                              "Property": "OP"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Operação RJ e SP'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [

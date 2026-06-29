@@ -5,7 +5,7 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 75.4763569564389
+        "y": 0
       },
       "nodes": [
         {
@@ -75,8 +75,8 @@
         },
         {
           "location": {
-            "x": 721.26727951243777,
-            "y": 884.26563323091011
+            "x": 542.507486720872,
+            "y": 888.23807307072263
           },
           "nodeIndex": "CALENDARIO DAX",
           "nodeLineageTag": "0f262f67-91ee-4dcb-a1e3-7e780a60d1c9",
@@ -140,8 +140,8 @@
         },
         {
           "location": {
-            "x": 1064.1275390607943,
-            "y": 803.15720834286446
+            "x": 813.86382915260219,
+            "y": 888.56466489883474
           },
           "nodeIndex": "xCalendarioTable",
           "nodeLineageTag": "10ae34d8-6a34-4b4d-a989-7031ff9e501f",
@@ -153,8 +153,8 @@
         },
         {
           "location": {
-            "x": 1660.1332160413083,
-            "y": 951.68950178474688
+            "x": 2859.8100476647051,
+            "y": 721.28799107561758
           },
           "nodeIndex": "yTB_01",
           "nodeLineageTag": "bef9b51d-4035-4c25-847f-f71743a73033",
@@ -267,6 +267,19 @@
             "width": 234
           },
           "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 1272.6120429564724
+          },
+          "nodeIndex": "TB_Verbas",
+          "nodeLineageTag": "a8b0478a-8d20-45c9-8de2-475b7140a57a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 21
         }
       ],
       "name": "Todas as tabelas",
