@@ -1,5 +1,6 @@
 EVALUATE
+FILTER(
     ADDCOLUMNS(
-        VALUES(TB_CLI[sigufs]),
-        "@Total", [01. % Acumulado UF]
-    )
+        TB_Verbas,
+        "@redes", RELATED( TB_CLI[codgre] )
+    ), [@redes] = "463" )
