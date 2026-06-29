@@ -4,7 +4,7 @@
   "position": {
     "x": 94.519099951711155,
     "y": 267.394640800632,
-    "z": 9000,
+    "z": 10000,
     "height": 204.88698032183476,
     "width": 355.65287150205279,
     "tabOrder": 6000
@@ -59,6 +59,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Basic'"
+                }
+              }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

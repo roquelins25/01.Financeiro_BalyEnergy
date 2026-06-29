@@ -41,11 +41,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "01. Valor Aberto"
+                  "Property": "05.Operacao Valor AB"
                 }
               },
-              "queryRef": "_Medidas.01. Valor Aberto",
-              "nativeQueryRef": "01. Valor Aberto"
+              "queryRef": "_Medidas.05.Operacao Valor AB",
+              "nativeQueryRef": "05.Operacao Valor AB"
             }
           ]
         }
@@ -60,12 +60,13 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "01. Valor Aberto"
+                "Property": "05.Operacao Valor AB"
               }
             },
             "direction": "Descending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {

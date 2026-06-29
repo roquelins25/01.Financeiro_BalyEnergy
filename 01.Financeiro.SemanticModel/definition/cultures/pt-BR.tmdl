@@ -7583,42 +7583,35 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "entity__medida.entity_05_operacao_valor_AB_verbas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "05.Operacao Valor AB Verbas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "05.operacao valor AB verbas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Valor Aberto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "TB_verba_usu_datalt_has_hierarquia_de_data": {
-			      "Binding": {
-			        "ConceptualEntity": "TB_Verbas"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "TB_verba.usu_datalt": {
-			          "Target": {
-			            "Entity": "TB_verba.usu_datalt"
-			          }
-			        },
-			        "TB_verba.usu_datalt.hierarquia_de_data": {
-			          "Target": {
-			            "Entity": "TB_verba.usu_datalt.hierarquia_de_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "TB_verba.usu_datalt"
-			            },
-			            "Object": {
-			              "Role": "TB_verba.usu_datalt.hierarquia_de_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "usu_datalts_have_hierarquia_de_data"
-			        }
-			      ]
-			    },
 			    "TB_verba_datger_mê_has_TB_verba_datger_dia": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Verbas"
@@ -10478,6 +10471,39 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_redes_have_tb_clis"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_entity__medida_entity_05_operacao_valor_AB_verbas": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "entity__medida.entity_05_operacao_valor_AB_verbas": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_05_operacao_valor_AB_verbas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_05_operacao_valor_AB_verbas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_05_operacao_valor_AB_verbas"
 			        }
 			      ]
 			    },
@@ -17381,6 +17407,39 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_apoios_have_potadors"
+			        }
+			      ]
+			    },
+			    "TB_verba_usu_datalt_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.usu_datalt": {
+			          "Target": {
+			            "Entity": "TB_verba.usu_datalt"
+			          }
+			        },
+			        "TB_verba.usu_datalt.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "TB_verba.usu_datalt.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.usu_datalt"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.usu_datalt.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "usu_datalts_have_hierarquia_de_data"
 			        }
 			      ]
 			    },

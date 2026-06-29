@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "a7bffaa3e4d9982d3b1e",
+  "name": "81e2cad484355625c855",
   "position": {
-    "x": 778.98636213486861,
-    "y": 0.56895222814716817,
+    "x": 784.84152202971143,
+    "y": 0,
     "z": 1000,
     "height": 918.12561936671227,
     "width": 655.25175782171675
@@ -41,11 +41,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "05.Operacao Valor AB"
+                  "Property": "05.Operacao Valor AB Verbas"
                 }
               },
-              "queryRef": "_Medidas.05.Operacao Valor AB",
-              "nativeQueryRef": "05.Operacao Valor AB"
+              "queryRef": "_Medidas.05.Operacao Valor AB Verbas",
+              "nativeQueryRef": "05.Operacao Valor AB Verbas"
             }
           ]
         }
@@ -60,7 +60,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "05.Operacao Valor AB"
+                "Property": "05.Operacao Valor AB Verbas"
               }
             },
             "direction": "Descending"
@@ -138,7 +138,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Devolução para Abatimento'"
+                  "Value": "'Verbas para Abatimento'"
                 }
               }
             },
@@ -179,5 +179,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "148937fbc65fe2812308"
+  "parentGroupName": "0d181f5b69a2df835de5"
 }

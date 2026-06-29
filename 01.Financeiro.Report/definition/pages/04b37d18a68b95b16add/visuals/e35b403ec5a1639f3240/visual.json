@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "e35b403ec5a1639f3240",
   "position": {
-    "x": 463.39501206757842,
-    "y": 137.1649235720032,
+    "x": 0,
+    "y": 463.89504978528623,
     "z": 0,
-    "height": 932.35076427996785,
-    "width": 468.95575221238937,
+    "height": 461.96215374451418,
+    "width": 467.76084186683028,
     "tabOrder": 10000
   },
   "visual": {
@@ -537,7 +537,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Encontros de Lançamento aguardando '"
+                  "Value": "'Encontros de Lançamento aguardando - Todos Anos'"
                 }
               }
             },
@@ -685,6 +685,7 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "4ab796c58947acf1f7c6",
   "filterConfig": {
     "filters": [
       {

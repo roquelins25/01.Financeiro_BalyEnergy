@@ -4,7 +4,7 @@
   "position": {
     "x": 931.65589165211645,
     "y": 137.23561889481385,
-    "z": 10000,
+    "z": 11000,
     "height": 923.92430748902837,
     "width": 966.448020386013,
     "tabOrder": 7000
@@ -746,7 +746,7 @@
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "5D"
                 }
               }
             },
@@ -769,6 +769,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "isHidden": true
+  }
 }

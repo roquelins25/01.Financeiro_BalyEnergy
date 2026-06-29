@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "148937fbc65fe2812308",
+  "name": "4ab796c58947acf1f7c6",
   "position": {
-    "x": 460,
-    "y": 136.66666666666669,
-    "z": 2250,
-    "height": 918.69457159485933,
-    "width": 1434.2381199565853,
+    "x": 463.89504978528623,
+    "y": 135.3027228540418,
+    "z": 2500,
+    "height": 925.85720352980047,
+    "width": 467.76084186683022,
     "tabOrder": 10001
   },
   "visualGroup": {
-    "displayName": "Devolucao para Abatimento",
+    "displayName": "Encontros de lançamentos ",
     "groupMode": "ScaleMode"
   },
   "isHidden": true

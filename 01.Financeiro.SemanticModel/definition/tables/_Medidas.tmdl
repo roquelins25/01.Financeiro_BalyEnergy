@@ -1729,6 +1729,17 @@ table _Medidas
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 9205f657-e725-4604-9ed8-a9b244afc1b2
 
+	measure '05.Operacao Valor AB Verbas' =
+			
+			CALCULATE(
+			    SUM( TB_Verbas[vlrabe] ),
+			    USERELATIONSHIP( TB_CLI[xOperacao], TB_Lvel[CODOP] )
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: b25f16ae-641c-403b-8210-2ca79eea5f11
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
 	partition _Medidas = m
 		mode: import
 		source =

@@ -1,15 +1,15 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "11d431ebe246995f6b9a",
+  "name": "0d181f5b69a2df835de5",
   "position": {
-    "x": 465.88441759858517,
-    "y": 136.1358933856398,
-    "z": 2000,
+    "x": 465.82794582605811,
+    "y": 139.16851493558588,
+    "z": 2375,
     "height": 918.12561936671227,
-    "width": 1430.4287996475682
+    "width": 1440.0932798514282
   },
   "visualGroup": {
-    "displayName": "ADT para Abatimento",
+    "displayName": "Verbas para Abatimento",
     "groupMode": "ScaleMode"
   },
   "isHidden": true
