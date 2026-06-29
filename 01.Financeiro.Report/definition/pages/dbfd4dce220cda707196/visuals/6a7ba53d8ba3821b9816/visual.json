@@ -106,6 +106,20 @@
               },
               "queryRef": "_Medidas.02. QTD titulos s\\ Cod",
               "nativeQueryRef": "02. QTD titulos s\\ Cod"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "02. QTD titulos s\\ OBS"
+                }
+              },
+              "queryRef": "_Medidas.02. QTD titulos s\\ OBS",
+              "nativeQueryRef": "02. QTD titulos s\\ OBS"
             }
           ]
         }
@@ -120,7 +134,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "02. QTD titulos s\\ Cod"
+                "Property": "02. QTD titulos s\\ OBS"
               }
             },
             "direction": "Descending"
@@ -199,7 +213,31 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Operação RJ e SP'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Outros Clientes ( UF )'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
       }
     ],
     "objects": {
@@ -249,7 +287,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "301.6105023604524D"
+                  "Value": "178.11950922735488D"
                 }
               }
             }

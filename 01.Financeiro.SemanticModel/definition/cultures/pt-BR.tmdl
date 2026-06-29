@@ -222,6 +222,16 @@ cultureInfo pt-BR
 			          "nomcli": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Cliente": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -3356,6 +3366,16 @@ cultureInfo pt-BR
 			          "01. valor aberto": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Total Geral": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -4295,22 +4315,6 @@ cultureInfo pt-BR
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fato.coluna": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos",
-			          "ConceptualProperty": "Coluna"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "coluna": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -7609,9 +7613,339 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "TB_apoio.x_CODCART": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Apoio",
+			          "ConceptualProperty": "xCODCART"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "x CODCART": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "xCODCART": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__AB_descontada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. AB Descontada"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. AB descontada": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Descontada": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__AB_simples": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. AB Simples"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. AB simples": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Simples": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__AB_vinculada": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. AB Vinculada"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. AB vinculada": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Vinculada": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__AB_rec__judicial": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. AB Rec. Judicial"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. AB rec. judicial": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Rec. Judicial": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01___AB_total": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. % AB Total"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. % AB total": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "01. % ab aggregate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "01. % ab overall": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.757
+			          }
+			        },
+			        {
+			          "01. percentage ab total": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "01. pct ab total": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__AB_verbas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. AB Verbas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. AB verbas": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Verbas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__AB_inadimplente": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. AB Inadimplente"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. AB inadimplente": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Inad": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__AB_entrega_pendente": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. AB Entrega Pendente"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. AB entrega pendente": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Entrega Pendente": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__AB_DataEspecifica": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. AB DataEspecifica"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. AB DataEspecifica": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Data Especifica": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "TB_verba_usu_datalt_has_hierarquia_de_data": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba.usu_datalt": {
+			          "Target": {
+			            "Entity": "TB_verba.usu_datalt"
+			          }
+			        },
+			        "TB_verba.usu_datalt.hierarquia_de_data": {
+			          "Target": {
+			            "Entity": "TB_verba.usu_datalt.hierarquia_de_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba.usu_datalt"
+			            },
+			            "Object": {
+			              "Role": "TB_verba.usu_datalt.hierarquia_de_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "usu_datalts_have_hierarquia_de_data"
+			        }
+			      ]
+			    },
 			    "TB_verba_datger_mê_has_TB_verba_datger_dia": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Verbas"
@@ -10471,6 +10805,336 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_redes_have_tb_clis"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01__AB_DataEspecifica": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01__AB_DataEspecifica": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__AB_DataEspecifica"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__AB_DataEspecifica"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01__AB_DataEspecifica"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01__AB_entrega_pendente": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01__AB_entrega_pendente": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__AB_entrega_pendente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__AB_entrega_pendente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01__AB_entrega_pendente"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01__AB_inadimplente": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01__AB_inadimplente": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__AB_inadimplente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__AB_inadimplente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01__AB_inadimplente"
+			        }
+			      ]
+			    },
+			    "TB_verba_has_entity__medida_entity_01__AB_verbas": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "entity__medida.entity_01__AB_verbas": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__AB_verbas"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__AB_verbas"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_01__AB_verbas"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01___AB_total": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01___AB_total": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01___AB_total"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01___AB_total"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01___AB_total"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01__AB_rec__judicial": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01__AB_rec__judicial": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__AB_rec__judicial"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__AB_rec__judicial"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01__AB_rec__judicial"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01__AB_vinculada": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01__AB_vinculada": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__AB_vinculada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__AB_vinculada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01__AB_vinculada"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01__AB_simples": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01__AB_simples": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__AB_simples"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__AB_simples"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01__AB_simples"
+			        }
+			      ]
+			    },
+			    "TB_fato_has_entity__medida_entity_01__AB_descontada": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fato": {
+			          "Target": {
+			            "Entity": "TB_fato"
+			          }
+			        },
+			        "entity__medida.entity_01__AB_descontada": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__AB_descontada"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fato"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__AB_descontada"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_have_01__AB_descontada"
+			        }
+			      ]
+			    },
+			    "TB_apoio_has_x_CODCART": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Apoio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_apoio": {
+			          "Target": {
+			            "Entity": "TB_apoio"
+			          }
+			        },
+			        "TB_apoio.x_CODCART": {
+			          "Target": {
+			            "Entity": "TB_apoio.x_CODCART"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_apoio"
+			            },
+			            "Object": {
+			              "Role": "TB_apoio.x_CODCART"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_apoios_have_x_CODCARTs"
 			        }
 			      ]
 			    },
@@ -13810,39 +14474,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_fatos_have_01__valor_AB_operacao"
-			        }
-			      ]
-			    },
-			    "TB_fato_has_coluna": {
-			      "Binding": {
-			        "ConceptualEntity": "TB_Fatos"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "TB_fato": {
-			          "Target": {
-			            "Entity": "TB_fato"
-			          }
-			        },
-			        "TB_fato.coluna": {
-			          "Target": {
-			            "Entity": "TB_fato.coluna"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "TB_fato"
-			            },
-			            "Object": {
-			              "Role": "TB_fato.coluna"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "TB_fatos_have_colunas"
 			        }
 			      ]
 			    },
@@ -17407,39 +18038,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_apoios_have_potadors"
-			        }
-			      ]
-			    },
-			    "TB_verba_usu_datalt_has_hierarquia_de_data": {
-			      "Binding": {
-			        "ConceptualEntity": "TB_Verbas"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "TB_verba.usu_datalt": {
-			          "Target": {
-			            "Entity": "TB_verba.usu_datalt"
-			          }
-			        },
-			        "TB_verba.usu_datalt.hierarquia_de_data": {
-			          "Target": {
-			            "Entity": "TB_verba.usu_datalt.hierarquia_de_data"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "TB_verba.usu_datalt"
-			            },
-			            "Object": {
-			              "Role": "TB_verba.usu_datalt.hierarquia_de_data"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "usu_datalts_have_hierarquia_de_data"
 			        }
 			      ]
 			    },

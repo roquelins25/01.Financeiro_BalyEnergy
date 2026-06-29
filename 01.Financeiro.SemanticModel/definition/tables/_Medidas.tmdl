@@ -1740,6 +1740,108 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
+	measure '01. AB Descontada' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    TB_Apoio[xCODCART] = 100001 )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais
+		lineageTag: a0a8b6bc-e4eb-454d-abbe-2ae28f649410
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. AB Simples' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    TB_Apoio[xCODCART] = 100002 )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais
+		lineageTag: 33d0cc13-4163-4ada-baeb-4e4ab7c0b03f
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. AB Vinculada' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    TB_Apoio[xCODCART] = 100003 )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais
+		lineageTag: 113804dc-6f0b-41a5-a906-0d8ca90f5ecb
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. AB Rec. Judicial' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    TB_Apoio[xCODCART] = 100004 )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais
+		lineageTag: 0f62e35b-b415-4d6b-8a9d-d2baccce2ffe
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. % AB Total' =
+			
+			VAR vTOTAL = CALCULATE( [01. Valor Aberto], ALL( TB_CLI ) )
+			
+			VAR vRESULT = DIVIDE( [01. Valor Aberto], vTOTAL, 0 )
+			RETURN
+			vRESULT
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 01. Valores Totais\%
+		lineageTag: b6e88d88-12ca-40ec-b319-a05f83701f12
+
+	measure '01. AB Verbas' =
+			
+			[05.Operacao Valor AB Verbas]
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais
+		lineageTag: b277f886-3214-46fc-a776-731534994b5a
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. AB Inadimplente' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    TB_FRJ[codfrj] = "980" )
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: 01. Valores Totais
+		lineageTag: 30391636-3826-493b-8f1c-48623f941fed
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. AB Entrega Pendente' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    TB_FRJ[codfrj] = "940" )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais
+		lineageTag: c610aa98-b386-43f9-9d2d-54fa30ecfbe2
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. AB DataEspecifica' =
+			
+			CALCULATE(
+			    [01. Valor Aberto],
+			    TB_FRJ[codfrj] = "940" )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais
+		lineageTag: 3d36e53e-34cd-4c37-9a52-de9a3d0a15bb
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '.....Titulo_Table_Diario' =
+			
+			"Filtro de Data Aplicado : " & FORMAT( SELECTEDVALUE( 'CALENDARIO DAX'[Date] ), "" )
+		lineageTag: 728bfead-923c-4c77-993f-c62910be3a25
+
 	partition _Medidas = m
 		mode: import
 		source =

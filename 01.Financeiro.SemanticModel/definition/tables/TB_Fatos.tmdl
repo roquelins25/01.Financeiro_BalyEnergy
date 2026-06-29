@@ -226,18 +226,12 @@ table TB_Fatos
 
 		annotation SummarizationSetBy = Automatic
 
-	column Coluna = RELATED( TB_CLI[xREDE] )
-		lineageTag: 3cfba829-91b4-42c8-a793-344c598746b1
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
 	partition TB_Fatos = m
 		mode: import
 		queryGroup: _Fatos
 		source =
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="select #(lf)#(tab)tcr.codemp empresa,#(lf)#(tab)tcr.codfil filial,#(lf)#(tab)tcr.numtit titulo,#(lf)#(tab)tcr.codtpt tipo,#(lf)#(tab)tcr.sittit sit,#(lf)#(tab)tcr.codcli codcliente,#(lf)#(tab)tcr.datemi emissao,#(lf)#(tab)tcr.codpor portador,#(lf)#(tab)tcr.datent DataEntrada,#(lf)#(tab)tcr.vctori VenctOri,#(lf)#(tab)tcr.vctpro vencimento,#(lf)#(tab)tcr.codrep codrep,#(lf)#(tab)tcr.obstcr observacao,#(lf)#(tab)tcr.codfpg codpagamento,#(lf)#(tab)tcr.numnfv numnota,#(lf)#(tab)tcr.numped numpedido,#(tab)#(lf)#(tab)tcr.vlrori valorOri,#(lf)#(tab)tcr.vlrabe valorAberto,#(lf)#(tab)tcr.codcrt carteira,#(lf)#(tab)CASE #(lf)#(tab)#(tab)WHEN codfrj is null THEN '00' #(lf)#(tab)#(tab)WHEN codfrj = '' THEN '00'#(lf)#(tab)#(tab)ELSE codfrj#(lf)#(tab)END as ForReaj#(lf)#(tab)#(lf)from sapiens_producao.E301TCR tcr#(lf)left join sapiens_producao.e085cli cli ON cli.codcli = tcr.codcli#(lf)left join sapiens_producao.e069gre gre ON cli.codgre = gre.codgre#(lf)where gre.codgre <> '55' and tcr.datemi >= '20210101'"])
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="select #(lf)#(tab)tcr.codemp empresa,#(lf)#(tab)tcr.codfil filial,#(lf)#(tab)tcr.numtit titulo,#(lf)#(tab)tcr.codtpt tipo,#(lf)#(tab)tcr.sittit sit,#(lf)#(tab)tcr.codcli codcliente,#(lf)#(tab)tcr.datemi emissao,#(lf)#(tab)tcr.codpor portador,#(lf)#(tab)tcr.datent DataEntrada,#(lf)#(tab)tcr.vctori VenctOri,#(lf)#(tab)tcr.vctpro vencimento,#(lf)#(tab)tcr.codrep codrep,#(lf)#(tab)tcr.obstcr observacao,#(lf)#(tab)tcr.codfpg codpagamento,#(lf)#(tab)tcr.numnfv numnota,#(lf)#(tab)tcr.numped numpedido,#(tab)#(lf)#(tab)tcr.vlrori valorOri,#(lf)#(tab)tcr.vlrabe valorAberto,#(lf)#(tab)tcr.codcrt carteira,#(lf)#(tab)CASE #(lf)#(tab)#(tab)WHEN codfrj is null THEN '00' #(lf)#(tab)#(tab)WHEN codfrj = '' THEN '00'#(lf)#(tab)#(tab)ELSE codfrj#(lf)#(tab)END as ForReaj#(lf)#(tab)#(lf)from sapiens_producao.E301TCR tcr#(lf)join sapiens_producao.e085cli cli ON cli.codcli = tcr.codcli#(lf)where cli.codgre <> '55' and tcr.datemi >= '20210101'"])
 				in
 				  Origem
 

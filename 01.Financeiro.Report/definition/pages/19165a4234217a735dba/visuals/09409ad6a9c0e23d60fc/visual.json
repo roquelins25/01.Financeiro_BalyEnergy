@@ -1,0 +1,478 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "09409ad6a9c0e23d60fc",
+  "position": {
+    "x": 463.39501206757842,
+    "y": 140.87208366854384,
+    "z": 7,
+    "height": 913.81496379726468,
+    "width": 1430.9637972646822
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "nomcli"
+                }
+              },
+              "queryRef": "TB_CLI.nomcli",
+              "nativeQueryRef": "Cliente",
+              "displayName": "Cliente"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Descontada"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Descontada",
+              "nativeQueryRef": "Descontada",
+              "displayName": "Descontada"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Simples"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Simples",
+              "nativeQueryRef": "Simples",
+              "displayName": "Simples"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Vinculada"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Vinculada",
+              "nativeQueryRef": "Vinculada",
+              "displayName": "Vinculada"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Rec. Judicial"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Rec. Judicial",
+              "nativeQueryRef": "Rec. Judicial",
+              "displayName": "Rec. Judicial"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. Valor Aberto"
+                }
+              },
+              "queryRef": "_Medidas.01. Valor Aberto",
+              "nativeQueryRef": "Total Geral",
+              "displayName": "Total Geral"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. % AB Total"
+                }
+              },
+              "queryRef": "_Medidas.01. % AB Total",
+              "nativeQueryRef": "%",
+              "displayName": "%"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Verbas"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Verbas",
+              "nativeQueryRef": "Verbas",
+              "displayName": "Verbas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Inadimplente"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Inadimplente",
+              "nativeQueryRef": "Inad",
+              "displayName": "Inad"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Entrega Pendente"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Entrega Pendente",
+              "nativeQueryRef": "Entrega Pendente",
+              "displayName": "Entrega Pendente"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB DataEspecifica"
+                }
+              },
+              "queryRef": "_Medidas.01. AB DataEspecifica",
+              "nativeQueryRef": "Data Especifica",
+              "displayName": "Data Especifica"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "01. Valor Aberto"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridVerticalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": ".....Titulo_Table_Diario"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4efe21f31e13b7b7b36c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. AB Descontada"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "07b7bd068130f5fb1b1f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. AB Simples"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b1b2651ac4660925cd7c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. AB Vinculada"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a737e3f68966a711a5bf",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. AB Rec. Judicial"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9c47389e6cf0e70336ea",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. % AB Total"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "93d0efb1c3252f1f5e84",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. AB Verbas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "370771499fb5e517e6f6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. AB Inadimplente"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e4bbc03193e9d25adf4b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. Valor Aberto"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3ac8ee5f08ddfe3eefaa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_CLI"
+              }
+            },
+            "Property": "nomcli"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1f068719fb188017ea06",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. AB Entrega Pendente"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

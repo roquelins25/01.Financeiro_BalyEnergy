@@ -42,11 +42,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "02. QTD titulos s\\ Cod"
+                  "Property": "02. QTD titulos s\\ OBS"
                 }
               },
-              "queryRef": "_Medidas.02. QTD titulos s\\ Cod",
-              "nativeQueryRef": "02. QTD titulos s\\ Cod"
+              "queryRef": "_Medidas.02. QTD titulos s\\ OBS",
+              "nativeQueryRef": "02. QTD titulos s\\ OBS"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "02. QTD titulos s\\ Cod"
+                "Property": "02. QTD titulos s\\ OBS"
               }
             },
             "direction": "Descending"
