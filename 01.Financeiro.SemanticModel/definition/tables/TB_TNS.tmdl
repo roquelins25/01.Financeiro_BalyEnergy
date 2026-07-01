@@ -1,0 +1,34 @@
+table TB_TNS
+	lineageTag: 8f2b86db-5d4c-42e0-9ae2-a48c6825c526
+
+	column codtns
+		dataType: string
+		lineageTag: 807c0caf-8319-477d-a1ea-052373078685
+		summarizeBy: none
+		sourceColumn: codtns
+
+		annotation SummarizationSetBy = Automatic
+
+	column destns
+		dataType: string
+		lineageTag: faacb6d7-7167-44f9-accb-1804d127481d
+		summarizeBy: none
+		sourceColumn: destns
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_TNS = m
+		mode: import
+		queryGroup: _Dim
+		source =
+				let
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
+				  #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "e001tns"]}[Data],
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"codtns", "destns"})
+				in
+				    #"Outras Colunas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

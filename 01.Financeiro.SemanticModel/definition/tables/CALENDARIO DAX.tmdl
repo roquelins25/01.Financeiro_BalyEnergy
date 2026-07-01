@@ -10,7 +10,7 @@ table 'CALENDARIO DAX'
 
 		variation Variation
 			isDefault
-			relationship: fcc3d1e2-6a83-4691-bc06-aa39b5dcc174
+			relationship: 283ad6bb-7303-419c-9772-53929cad4ea2
 			defaultHierarchy: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
@@ -127,12 +127,21 @@ table 'CALENDARIO DAX'
 
 		annotation SummarizationSetBy = Automatic
 
+	column DiaMES
+		lineageTag: 093c345e-10d4-4526-94ee-cbe3ce16d11a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DiaMES]
+		sortByColumn: Dia
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'CALENDARIO DAX' = calculated
 		mode: import
 		source =
 				
-				var minAno = YEAR(MIN(TB_Fatos[emissao]))
-				var MaxAno = YEAR(MAX(TB_Fatos[vencimento]))
+				var minAno = YEAR(MIN(TB_Fatos_CR[emissao]))
+				var MaxAno = YEAR(MAX(TB_Fatos_CR[vencimento]))
 				return
 				ADDCOLUMNS(
 				    FILTER(
@@ -159,7 +168,8 @@ table 'CALENDARIO DAX'
 				        "AnoMesOrdem", YEAR( [Date] )*100 + MONTH([Date]),
 				        "MesAtual", IF( YEAR( [Date] ) = YEAR( TODAY() ) && MONTH( [Date] ) = MONTH( TODAY() ), "S", "N" ),
 				        "AnoTEXT", FORMAT( YEAR( [Date] ), "" ),
-				        "Vencidos?", IF( [Date] < TODAY() - 3, "Vencidas", "A Vencer" )
+				        "Vencidos?", IF( [Date] < TODAY() - 3, "Vencidas", "A Vencer" ),
+				        "DiaMES", FORMAT([Date],"dd","PT-BR")&"-"&FORMAT([Date],"mmm","PT-BR")
 				        )
 
 	annotation PBI_Id = 70c714a6d9dd46e697057a3dbd334d70

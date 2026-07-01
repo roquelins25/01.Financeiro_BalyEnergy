@@ -65,7 +65,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "titulo"

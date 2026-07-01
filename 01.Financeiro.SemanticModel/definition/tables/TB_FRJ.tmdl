@@ -25,6 +25,58 @@ table TB_FRJ
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"TB_FRJ","TableItemName":"xTipo (grupos)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column 'xTipo (grupos)' =
+			SWITCH(
+				TRUE,
+				ISBLANK('TB_FRJ'[xTipo]),
+				"(Em branco)",
+				'TB_FRJ'[xTipo] IN {"Data Especifica"},
+				"Data Especifica",
+				'TB_FRJ'[xTipo] IN {"Devolucao"},
+				"Devolucao",
+				'TB_FRJ'[xTipo] IN {"Não entregue"},
+				"Entrega Pendente",
+				'TB_FRJ'[xTipo] IN {"Inadimplencia"},
+				"Inadimplencia",
+				'TB_FRJ'[xTipo] IN {"Negociando"},
+				"Negociando",
+				'TB_FRJ'[xTipo] IN {"Prorogacao Atraso na entrega",
+					"Prorrog. Erro Boleto / Subst.",
+					"Prorrog. Fat. Antec. +7D",
+					"Prorrog. Fluxo Pgto Cliente"},
+				"Prorrogacao",
+				'TB_FRJ'[xTipo] IN {"Sem Classificacao"},
+				"Sem Classificacao",
+				'TB_FRJ'[xTipo] IN {"Verba"},
+				"Verba",
+				"Demais Classif."
+			)
+		lineageTag: 324daf7f-08fc-48bf-a093-0077bfa47270
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "TB_FRJ"
+				          }
+				        },
+				        "Property": "xTipo"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"TB_FRJ"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"xTipo"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"Data Especifica","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"xTipo"}}],"Values":[[{"Literal":{"Value":"'Data Especifica'"}}]]}}},{"DisplayName":"Devolucao","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"xTipo"}}],"Values":[[{"Literal":{"Value":"'Devolucao'"}}]]}}},{"DisplayName":"Entrega Pendente","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"xTipo"}}],"Values":[[{"Literal":{"Value":"'Não entregue'"}}]]}}},{"DisplayName":"Inadimplencia","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"xTipo"}}],"Values":[[{"Literal":{"Value":"'Inadimplencia'"}}]]}}},{"DisplayName":"Negociando","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"xTipo"}}],"Values":[[{"Literal":{"Value":"'Negociando'"}}]]}}},{"DisplayName":"Prorrogacao","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"xTipo"}}],"Values":[[{"Literal":{"Value":"'Prorogacao Atraso na entrega'"}}],[{"Literal":{"Value":"'Prorrog. Erro Boleto / Subst.'"}}],[{"Literal":{"Value":"'Prorrog. Fat. Antec. +7D'"}}],[{"Literal":{"Value":"'Prorrog. Fluxo Pgto Cliente'"}}]]}}},{"DisplayName":"Sem Classificacao","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"xTipo"}}],"Values":[[{"Literal":{"Value":"'Sem Classificacao'"}}]]}}},{"DisplayName":"Verba","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"xTipo"}}],"Values":[[{"Literal":{"Value":"'Verba'"}}]]}}},{"DisplayName":"Demais Classif."}]}
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_FRJ = m
 		mode: import
 		queryGroup: _Dim

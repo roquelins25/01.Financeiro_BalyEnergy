@@ -42,7 +42,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "05.Operacao vlr Ori"
+                  "Property": "06.Operacao vlr Ori"
                 }
               },
               "queryRef": "_Medidas.05.Operacao vlr Ori",
@@ -57,7 +57,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "05.Operacao Valor AB"
+                  "Property": "06.Operacao Valor AB"
                 }
               },
               "queryRef": "_Medidas.05.Operacao",
@@ -72,7 +72,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "05. % Vencidos"
+                  "Property": "06. % Vencidos"
                 }
               },
               "queryRef": "_Medidas.05. % Vencidos",
@@ -214,7 +214,7 @@
                                       "Entity": "_Medidas"
                                     }
                                   },
-                                  "Property": "05. % geral"
+                                  "Property": "06. % geral"
                                 }
                               },
                               "Right": {
@@ -241,7 +241,7 @@
                                       "Entity": "_Medidas"
                                     }
                                   },
-                                  "Property": "05. % geral"
+                                  "Property": "06. % geral"
                                 }
                               },
                               "Right": {
@@ -307,7 +307,7 @@
                                       "Entity": "_Medidas"
                                     }
                                   },
-                                  "Property": "05. % Vencidos"
+                                  "Property": "06. % Vencidos"
                                 }
                               },
                               "Right": {
@@ -334,7 +334,7 @@
                                       "Entity": "_Medidas"
                                     }
                                   },
-                                  "Property": "05. % Vencidos"
+                                  "Property": "06. % Vencidos"
                                 }
                               },
                               "Right": {

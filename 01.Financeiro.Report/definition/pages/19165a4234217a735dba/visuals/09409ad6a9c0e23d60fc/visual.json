@@ -3,10 +3,11 @@
   "name": "09409ad6a9c0e23d60fc",
   "position": {
     "x": 463.39501206757842,
-    "y": 140.87208366854384,
-    "z": 7,
-    "height": 913.81496379726468,
-    "width": 1430.9637972646822
+    "y": 135.31134352373289,
+    "z": 0,
+    "height": 904.547063555913,
+    "width": 1430.9637972646822,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
@@ -161,8 +162,8 @@
                 }
               },
               "queryRef": "_Medidas.01. AB Entrega Pendente",
-              "nativeQueryRef": "Entrega Pendente",
-              "displayName": "Entrega Pendente"
+              "nativeQueryRef": "Ent. Pendente",
+              "displayName": "Ent. Pendente"
             },
             {
               "field": {
@@ -178,6 +179,95 @@
               "queryRef": "_Medidas.01. AB DataEspecifica",
               "nativeQueryRef": "Data Especifica",
               "displayName": "Data Especifica"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Devolucao"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Devolucao",
+              "nativeQueryRef": "Devolucao",
+              "displayName": "Devolucao"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Negociando"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Negociando",
+              "nativeQueryRef": "Negociando",
+              "displayName": "Negociando"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Prorogacao"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Prorogacao",
+              "nativeQueryRef": "Prorogacao",
+              "displayName": "Prorogacao"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Sem Classif."
+                }
+              },
+              "queryRef": "_Medidas.01. AB Sem Classif.",
+              "nativeQueryRef": "Sem Classif.",
+              "displayName": "Sem Classif."
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. AB Demais Classif"
+                }
+              },
+              "queryRef": "_Medidas.01. AB Demais Classif",
+              "nativeQueryRef": "Demais Classif",
+              "displayName": "Demais Classif"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_FRJ"
+                    }
+                  },
+                  "Property": "xTipo"
+                }
+              },
+              "queryRef": "TB_FRJ.xTipo",
+              "nativeQueryRef": "xTipo"
             }
           ]
         }
@@ -243,6 +333,13 @@
                   "Value": "'growToFit'"
                 }
               }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -275,6 +372,271 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 1,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "TB_FRJ.xTipo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "405.0622228016558D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "TB_CLI.nomcli"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "_Medidas"
+                            }
+                          },
+                          "Property": "01. % AB Total"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#00FF66'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#FF4141'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "_Medidas.01. % AB Total"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "_Medidas"
+                            }
+                          },
+                          "Property": "01. AB Sem Classif."
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#FF3434'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#FF3434'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'noColor'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "_Medidas.01. AB Sem Classif."
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.01. Valor Aberto"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "_Medidas.01. % AB Total"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
                       "Percent": 0.6
                     }
                   }
@@ -327,152 +689,56 @@
             }
           }
         }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Default'"
+                }
+              }
+            },
+            "showActionsInTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "sentenceTemplate": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            },
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'7e6dd1385ea8595e17b3'"
+                }
+              }
+            },
+            "showSentenceFormat": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4efe21f31e13b7b7b36c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. AB Descontada"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "07b7bd068130f5fb1b1f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. AB Simples"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b1b2651ac4660925cd7c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. AB Vinculada"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a737e3f68966a711a5bf",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. AB Rec. Judicial"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9c47389e6cf0e70336ea",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. % AB Total"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "93d0efb1c3252f1f5e84",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. AB Verbas"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "370771499fb5e517e6f6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. AB Inadimplente"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e4bbc03193e9d25adf4b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor Aberto"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3ac8ee5f08ddfe3eefaa",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_CLI"
-              }
-            },
-            "Property": "nomcli"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1f068719fb188017ea06",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. AB Entrega Pendente"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

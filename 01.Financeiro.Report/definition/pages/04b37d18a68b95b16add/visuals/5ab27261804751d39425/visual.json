@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "titulo"
@@ -35,7 +35,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "sit"
@@ -108,7 +108,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "tipo"
@@ -125,7 +125,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "05.Operacao vlr Ori"
+                  "Property": "06.Operacao vlr Ori"
                 }
               },
               "queryRef": "_Medidas.05.Operacao vlr Ori",
@@ -140,7 +140,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "05.Operacao Valor AB"
+                  "Property": "06.Operacao Valor AB"
                 }
               },
               "queryRef": "_Medidas.05.Operacao Valor AB",
@@ -152,7 +152,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "emissao"
@@ -167,7 +167,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "vencimento"
@@ -182,7 +182,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "observacao"
@@ -205,7 +205,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "05.Operacao Valor AB"
+                "Property": "06.Operacao Valor AB"
               }
             },
             "direction": "Descending"

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "787dea1ad1ccd3bdc862",
+  "position": {
+    "x": 1390.3527129804502,
+    "y": 0,
+    "z": 3,
+    "height": 217.43861977438621,
+    "width": 528.96125772038181,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_PGT"
+                    }
+                  },
+                  "Property": "abrfpg (grupos)"
+                }
+              },
+              "queryRef": "TB_PGT.abrfpg (grupos)",
+              "nativeQueryRef": "abrfpg (grupos)",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "DiaMES"
+                }
+              },
+              "queryRef": "CALENDARIO DAX.DiaMES",
+              "nativeQueryRef": "DiaMES",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "07. Total Faturado Geral"
+                }
+              },
+              "queryRef": "_Medidas.07. Total Faturado Geral",
+              "nativeQueryRef": "07. Total Faturado Geral"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CALENDARIO DAX"
+                  }
+                },
+                "Property": "DiaMES"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

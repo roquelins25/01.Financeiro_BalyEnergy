@@ -42,7 +42,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "05.Operacao Valor AB Verbas"
+                  "Property": "06.Operacao Valor AB Verbas"
                 }
               },
               "queryRef": "_Medidas.05.Operacao Valor AB Verbas",
@@ -61,7 +61,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "05.Operacao Valor AB Verbas"
+                "Property": "06.Operacao Valor AB Verbas"
               }
             },
             "direction": "Descending"

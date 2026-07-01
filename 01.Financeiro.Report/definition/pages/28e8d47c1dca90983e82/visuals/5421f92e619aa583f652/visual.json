@@ -7,7 +7,7 @@
     "z": 0,
     "height": 40.164583733897324,
     "width": 59.065564314554891,
-    "tabOrder": 15001
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "actionButton",
@@ -94,7 +94,7 @@
             "tooltip": {
               "expr": {
                 "Literal": {
-                  "Value": "'Inadimplência'"
+                  "Value": "'Operacao'"
                 }
               }
             }

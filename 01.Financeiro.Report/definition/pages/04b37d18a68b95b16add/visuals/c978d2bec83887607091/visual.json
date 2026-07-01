@@ -42,7 +42,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "05.Operacao Valor AB"
+                  "Property": "06.Operacao Valor AB"
                 }
               },
               "queryRef": "_Medidas.05.Operacao Valor AB",
@@ -62,7 +62,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "05.Operacao Valor AB"
+                "Property": "06.Operacao Valor AB"
               }
             },
             "direction": "Descending"

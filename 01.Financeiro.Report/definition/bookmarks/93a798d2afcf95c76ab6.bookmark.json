@@ -92,7 +92,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   },
                   "howCreated": 0
@@ -107,7 +107,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao vlr Ori"
+                      "Property": "06.Operacao vlr Ori"
                     }
                   },
                   "howCreated": 0
@@ -122,7 +122,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05. % geral"
+                      "Property": "06. % geral"
                     }
                   },
                   "howCreated": 0
@@ -382,7 +382,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -405,7 +405,7 @@
                             "From": [
                               {
                                 "Name": "t",
-                                "Entity": "TB_Fatos",
+                                "Entity": "TB_Fatos_CR",
                                 "Type": 0
                               }
                             ],
@@ -482,7 +482,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -840,7 +840,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "titulo"
@@ -915,7 +915,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -933,7 +933,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao vlr Ori"
+                      "Property": "06.Operacao vlr Ori"
                     }
                   },
                   "howCreated": 0
@@ -948,7 +948,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   },
                   "howCreated": 0
@@ -960,7 +960,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "vencimento"
@@ -975,7 +975,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "observacao"
@@ -990,7 +990,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "emissao"
@@ -1005,7 +1005,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "sit"
@@ -1028,7 +1028,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   }
                 }
@@ -1063,7 +1063,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   },
                   "howCreated": 0
@@ -1078,7 +1078,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao vlr Ori"
+                      "Property": "06.Operacao vlr Ori"
                     }
                   },
                   "howCreated": 0
@@ -1093,7 +1093,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05. % Vencidos"
+                      "Property": "06. % Vencidos"
                     }
                   },
                   "howCreated": 0
@@ -1195,7 +1195,7 @@
                                     "Source": "_"
                                   }
                                 },
-                                "Property": "05.Operacao vlr Ori"
+                                "Property": "06.Operacao vlr Ori"
                               }
                             },
                             "Right": {
@@ -1215,7 +1215,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao vlr Ori"
+                      "Property": "06.Operacao vlr Ori"
                     }
                   },
                   "howCreated": 0
@@ -1230,7 +1230,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   },
                   "howCreated": 0
@@ -1245,7 +1245,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05. % Vencidos"
+                      "Property": "06. % Vencidos"
                     }
                   },
                   "howCreated": 0
@@ -1257,7 +1257,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -1291,7 +1291,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -1328,7 +1328,7 @@
                                     "Source": "_"
                                   }
                                 },
-                                "Property": "05.Operacao vlr Ori"
+                                "Property": "06.Operacao vlr Ori"
                               }
                             },
                             "Right": {
@@ -1348,7 +1348,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao vlr Ori"
+                      "Property": "06.Operacao vlr Ori"
                     }
                   },
                   "howCreated": 0
@@ -1363,7 +1363,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   },
                   "howCreated": 0
@@ -1378,7 +1378,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05. % Vencidos"
+                      "Property": "06. % Vencidos"
                     }
                   },
                   "howCreated": 0
@@ -1390,7 +1390,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -1413,7 +1413,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05. % Vencidos"
+                      "Property": "06. % Vencidos"
                     }
                   }
                 }
@@ -1424,7 +1424,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -1462,7 +1462,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   },
                   "howCreated": 0
@@ -1482,7 +1482,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   }
                 }
@@ -1531,7 +1531,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   },
                   "howCreated": 0
@@ -1551,7 +1551,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   }
                 }
@@ -1600,7 +1600,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   },
                   "howCreated": 0
@@ -1620,7 +1620,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   }
                 }
@@ -1669,7 +1669,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   },
                   "howCreated": 0
@@ -1689,7 +1689,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB"
+                      "Property": "06.Operacao Valor AB"
                     }
                   }
                 }
@@ -1738,7 +1738,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB Verbas"
+                      "Property": "06.Operacao Valor AB Verbas"
                     }
                   },
                   "howCreated": 0
@@ -1758,7 +1758,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB Verbas"
+                      "Property": "06.Operacao Valor AB Verbas"
                     }
                   }
                 }
@@ -1807,7 +1807,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB Verbas"
+                      "Property": "06.Operacao Valor AB Verbas"
                     }
                   },
                   "howCreated": 0
@@ -1827,7 +1827,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "05.Operacao Valor AB Verbas"
+                      "Property": "06.Operacao Valor AB Verbas"
                     }
                   }
                 }

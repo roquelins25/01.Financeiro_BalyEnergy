@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "tipo"
@@ -64,7 +64,7 @@
                 "From": [
                   {
                     "Name": "t",
-                    "Entity": "TB_Fatos",
+                    "Entity": "TB_Fatos_CR",
                     "Type": 0
                   }
                 ],

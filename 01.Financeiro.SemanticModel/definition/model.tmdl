@@ -23,7 +23,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop","DaxQueryView_Desktop"]
 
-annotation PBI_QueryOrder = ["TB_Apoio","TB_PGT","TB_CLI","TB_REP","TB_Rede","TB_Fatos","_Medidas","TB_FRJ","TB_AUXtempo","TB_OPRede","TB_OPUf","TB_Operacao","TB_Lvel","xUF_Regiao","TB_Faturamento","TB_Verbas"]
+annotation PBI_QueryOrder = ["TB_Apoio","TB_PGT","TB_CLI","TB_REP","TB_Rede","TB_RTerceiros","TB_Fatos_CR","_Medidas","TB_FRJ","TB_AUXtempo","TB_OPRede","TB_OPUf","TB_Operacao","TB_Lvel","xUF_Regiao","TB_Verbas","TB_Fat","TB_TNS"]
 
 ref table TB_Apoio
 ref table TB_PGT
@@ -32,13 +32,12 @@ ref table TB_CLI
 ref table LocalDateTable_9b806f60-4aa9-4692-b2d1-3455339e17ac
 ref table TB_REP
 ref table TB_Rede
-ref table TB_Fatos
+ref table TB_Fatos_CR
 ref table LocalDateTable_583a235a-7d12-49c2-8072-ab5c4665e829
 ref table LocalDateTable_5299a92e-7ead-441a-934f-081ca3824f8b
 ref table 'CALENDARIO DAX'
 ref table _Medidas
 ref table TB_FRJ
-ref table LocalDateTable_bf4a9a26-ee88-4118-b07b-73c8daa82f9a
 ref table TB_AUXtempo
 ref table xCalendarioTable
 ref table yTB_01
@@ -46,14 +45,18 @@ ref table TB_OPRede
 ref table TB_Operacao
 ref table TB_OPUf
 ref table TB_Lvel
-ref table LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae
 ref table xUF_Regiao
 ref table yTB_Dim
 ref table yTB_Metricas
-ref table TB_Faturamento
 ref table TB_Verbas
 ref table LocalDateTable_a76563a1-919f-4a9b-b34c-54968ffaf289
 ref table LocalDateTable_0f711601-5541-4b8f-b357-24aaae26d81c
+ref table TB_Fat
+ref table LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae
+ref table TB_NUMNFV
+ref table TB_TNS
+ref table TB_RTerceiros
+ref table LocalDateTable_e1818cb6-7a01-4b3a-bf73-12cddf23d5b5
 
 ref cultureInfo pt-BR
 

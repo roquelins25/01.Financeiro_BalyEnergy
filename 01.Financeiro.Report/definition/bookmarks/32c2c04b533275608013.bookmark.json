@@ -215,7 +215,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "titulo"
@@ -232,7 +232,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "TB_Fatos"
+                              "Entity": "TB_Fatos_CR"
                             }
                           },
                           "Property": "emissao"
@@ -252,7 +252,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "TB_Fatos"
+                              "Entity": "TB_Fatos_CR"
                             }
                           },
                           "Property": "vencimento"
@@ -299,7 +299,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "titulo"
@@ -759,7 +759,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "titulo"
@@ -1247,7 +1247,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -1270,7 +1270,7 @@
                             "From": [
                               {
                                 "Name": "t",
-                                "Entity": "TB_Fatos",
+                                "Entity": "TB_Fatos_CR",
                                 "Type": 0
                               }
                             ],
@@ -1364,7 +1364,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"

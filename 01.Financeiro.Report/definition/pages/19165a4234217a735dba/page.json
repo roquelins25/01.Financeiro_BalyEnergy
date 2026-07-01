@@ -23,7 +23,7 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "CR_Diario17742084817756942.png"
+                    "ItemName": "CR_Diario6974953415116328.png"
                   }
                 }
               },
@@ -33,6 +33,19 @@
                     "Value": "'Fit'"
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "190L"
               }
             }
           }

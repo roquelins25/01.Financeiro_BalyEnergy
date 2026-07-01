@@ -70,7 +70,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "observacao"
@@ -85,7 +85,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "titulo"
@@ -188,7 +188,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "observacao"
@@ -207,7 +207,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "titulo"

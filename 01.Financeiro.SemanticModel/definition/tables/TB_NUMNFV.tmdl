@@ -1,0 +1,34 @@
+table TB_NUMNFV
+	lineageTag: f196fbec-a0fc-4564-bcac-195d16f3e711
+
+	column Nota
+		formatString: 0
+		lineageTag: 3b3d18b0-3b50-41e8-a9dd-c01e788a4968
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nota]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_NUMNFV = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    UNION(
+				        SELECTCOLUMNS(
+				            TB_Fat,
+				            "Nota", TB_Fat[numnfv]
+				        ),
+				        SELECTCOLUMNS(
+				            FILTER(
+				                TB_Fatos_CR,
+				                NOT ISBLANK(TB_Fatos_CR[numnota])
+				            ),
+				            "Nota", TB_Fatos_CR[numnota]
+				        )
+				    )
+				)
+
+	annotation PBI_Id = b08f60f64944422b851a50a5ca49a208
+
