@@ -16,11 +16,6 @@ table TB_RTerceiros
 		summarizeBy: none
 		sourceColumn: Atributo
 
-		variation Variation
-			isDefault
-			relationship: d29593df-2f68-4402-b559-659b9af27a06
-			defaultHierarchy: LocalDateTable_e1818cb6-7a01-4b3a-bf73-12cddf23d5b5.'Hierarquia de datas'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -34,6 +29,30 @@ table TB_RTerceiros
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column xIDTerceiros
+		dataType: string
+		lineageTag: ccd3612b-205b-4efd-8fde-de4b34893025
+		summarizeBy: none
+		sourceColumn: xIDTerceiros
+
+		annotation SummarizationSetBy = Automatic
+
+	column codBanco
+		dataType: string
+		lineageTag: 92f0f3ac-1a8c-45fb-92ac-5f73929db706
+		summarizeBy: none
+		sourceColumn: codBanco
+
+		annotation SummarizationSetBy = Automatic
+
+	column Banco
+		dataType: string
+		lineageTag: 26676c69-6359-455f-812f-088d6d567bbb
+		summarizeBy: none
+		sourceColumn: Banco
+
+		annotation SummarizationSetBy = Automatic
 
 	partition TB_RTerceiros = m
 		mode: import
@@ -50,9 +69,14 @@ table TB_RTerceiros
 				    #"Outras Colunas Não Dinâmicas" = Table.UnpivotOtherColumns(#"Tipo Alterado", {"Contas"}, "Atributo", "Valor"),
 				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Outras Colunas Não Dinâmicas",{{"Valor", type number}, {"Atributo", type date}}),
 				    #"Linhas Filtradas1" = Table.SelectRows(#"Tipo Alterado1", each [Atributo] > #date(2026, 1, 1)),
-				    #"Valor Substituído" = Table.ReplaceValue(#"Linhas Filtradas1",null,0,Replacer.ReplaceValue,{"Valor"})
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Linhas Filtradas1", "xIDTerceiros", each if [Contas] = "BRADESCO" then "10001_01" else if [Contas] = "BRADESCO FINIM" then "10001_02" else if [Contas] = "BRADESCO GARANTIA" then "10001_03" else if [Contas] = "DAYC VINC" then "20001_02" else if [Contas] = "DAYCOVAL" then "20001_01" else if [Contas] = "ITAU" then "30001_01" else if [Contas] = "ITAU10917-0" then "30001_02" else if [Contas] = "SAFRA" then "40001_01" else if [Contas] = "SAFRA GARAN" then "40001_03" else if [Contas] = "SAFRA GARAN II" then "40001_03" else if [Contas] = "SAFRA GARAN I" then "40001_03" else if [Contas] = "SAFRA VINC" then "40001_02" else if [Contas] = "SAFRA - VINC" then "40001_02" else if [Contas] = "DAYCOVAL GAR I" then "20001_03" else if [Contas] = "DAYCOVAL GARAN" then "20001_03" else null),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Coluna Condicional Adicionada",0,null,Replacer.ReplaceValue,{"Valor"}),
+				    #"Linhas Filtradas2" = Table.SelectRows(#"Valor Substituído", each ([xIDTerceiros] <> null)),
+				    #"Texto Inserido Antes do Delimitador" = Table.AddColumn(#"Linhas Filtradas2", "codBanco", each Text.BeforeDelimiter([xIDTerceiros], "_"), type text),
+				    #"Coluna Condicional Adicionada1" = Table.AddColumn(#"Texto Inserido Antes do Delimitador", "Banco", each if [codBanco] = "10001" then "Bradesco" else if [codBanco] = "20001" then "Daycoval" else if [codBanco] = "30001" then "Itau" else if [codBanco] = "40001" then "Safra" else null),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Coluna Condicional Adicionada1",{{"xIDTerceiros", type text}, {"Banco", type text}})
 				in
-				  #"Valor Substituído"
+				    #"Tipo Alterado2"
 
 	annotation PBI_NavigationStepName = Navegação
 

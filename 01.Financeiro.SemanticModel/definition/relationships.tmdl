@@ -146,8 +146,7 @@ relationship de066b90-3cec-b29e-e337-09e26632cd52
 	fromColumn: TB_Fat.tnspro
 	toColumn: TB_TNS.codtns
 
-relationship d29593df-2f68-4402-b559-659b9af27a06
-	joinOnDateBehavior: datePartOnly
+relationship eaf82760-ca08-b277-b342-64ddc7c27a17
 	fromColumn: TB_RTerceiros.Atributo
-	toColumn: LocalDateTable_e1818cb6-7a01-4b3a-bf73-12cddf23d5b5.Date
+	toColumn: 'CALENDARIO DAX'.Date
 

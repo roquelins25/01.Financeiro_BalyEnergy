@@ -1936,68 +1936,132 @@ table _Medidas
 
 	measure '05. HTML SALDO DIA' = ```
 			
+			
 			VAR vDataSelect = SELECTEDVALUE( 'CALENDARIO DAX'[Date] )
 			
-			-- ================ TOTAIS ===============================
+			-- ===== FATURAMENTO ===== (sem mudança)
 			VAR vFaturamentoDiaAnterior = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY) ), 4 )
-			VAR vFaturamentoDoMes = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL( 'CALENDARIO DAX'[Dia]) ), 4 )
+			VAR vFaturamentoDoMes       = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]) ), 4 )
+			VAR vFaturamentoDiaAnteriorBOLETO   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY), TB_PGT[abrfpg (grupos)]="Boleto" ), 4 )
+			VAR vFaturamentoDiaAnteriorDEPOSITO = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY), TB_PGT[abrfpg (grupos)]="Depósito" ), 4 )
+			VAR vFaturamentoDiaAnteriorOUTROS   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY), TB_PGT[abrfpg (grupos)]="Outros" ), 4 )
+			VAR vFaturamentoDoMesBOLETO   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Boleto" ), 4 )
+			VAR vFaturamentoDoMesDEPOSITO = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Depósito" ), 4 )
+			VAR vFaturamentoDoMesOUTROS   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Outros" ), 4 )
+			-- ===== TOTAIS por BANCOS e CONTAS ==========
+			VAR tCorrente =
+			    CALCULATE(
+			        [08. Saldo Bancos],
+			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "01"
+			    )
+			VAR tGarantia =
+			    CALCULATE(
+			        [08. Saldo Bancos],
+			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "02"
+			    )
+			VAR tVinculada =
+			    CALCULATE(
+			        [08. Saldo Bancos],
+			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "03"
+			    )
+			VAR tTOTALGERAL = tCorrente + tGarantia + tVinculada
 			
-			-- ================ Variaveis ============================
-			VAR vFaturamentoDiaAnteriorBOLETO = 
-			fxFORMAT( 
-			    CALCULATE( [07. Total Faturado Geral], 
-			    DATEADD( 'CALENDARIO DAX'[Date], -1, DAY ), 
-			    TB_PGT[abrfpg (grupos)] = "Boleto" ), 4 )
-			
-			
-			VAR vFaturamentoDiaAnteriorDEPOSITO = 
-			fxFORMAT( 
-			    CALCULATE( [07. Total Faturado Geral], 
-			    DATEADD( 'CALENDARIO DAX'[Date], -1, DAY ), 
-			    TB_PGT[abrfpg (grupos)] = "Depósito" ), 4 )
-			
-			VAR vFaturamentoDiaAnteriorOUTROS = 
-			fxFORMAT( 
-			    CALCULATE( [07. Total Faturado Geral], 
-			    DATEADD( 'CALENDARIO DAX'[Date], -1, DAY ), 
-			    TB_PGT[abrfpg (grupos)] = "Outros" ), 4 )
-			
-			VAR vFaturamentoDoMesBOLETO = 
-			fxFORMAT( 
-			    CALCULATE( [07. Total Faturado Geral], 
-			    ALL( 'CALENDARIO DAX'[Dia] ), 
-			    TB_PGT[abrfpg (grupos)] = "Boleto" ), 4 )
-			
-			VAR vFaturamentoDoMesDEPOSITO = 
-			fxFORMAT( 
-			    CALCULATE( [07. Total Faturado Geral], 
-			    ALL( 'CALENDARIO DAX'[Dia] ), 
-			    TB_PGT[abrfpg (grupos)] = "Depósito" ), 4 )
-			
-			VAR vFaturamentoDoMesOUTROS = 
-			fxFORMAT( 
-			    CALCULATE( [07. Total Faturado Geral], 
-			    ALL( 'CALENDARIO DAX'[Dia] ), 
-			    TB_PGT[abrfpg (grupos)] = "Outros" ), 4 )
-			
-			--==================== Tabela =======================
-			VAR vTABELA = 
-			CONCATENATEX(
-			    VALUES(TB_PGT[abrfpg (grupos)]),
-			
-			    "<tr class='child-row saldo'>
-			        <td class='indent'>" & TB_PGT[abrfpg (grupos)] & "</td>
-			        <td class='num'>" & FORMAT([07. Total Faturado Geral], "R$ #,##0.00") & "</td>
-			        <td class='num'>" & FORMAT([07. Total Faturado Geral], "R$ #,##0.00") & "</td>
-			        <td class='num'>" & FORMAT([07. Total Faturado Geral], "R$ #,##0.00") & "</td>
-			        <td class='num'>" & FORMAT([07. Total Faturado Geral], "R$ #,##0.00") & "</td>
-			        <td class='pct'>" & FORMAT([07. Total Faturado Geral], "0%") & "</td>
-			    </tr>",
-			
-			    ""
+			-- ===== BANCOS e Contas =====
+			VAR Bancos =
+			SUMMARIZE(
+			    TB_RTerceiros,
+			    TB_RTerceiros[codBanco],
+			    TB_RTerceiros[Banco]
 			)
 			
-			    
+			VAR HTMLFinal =
+			
+			CONCATENATEX(
+			    Bancos,
+			    VAR BancoAtual = [codBanco]
+			        //---------------------------------------
+			        // Totais do banco
+			        //---------------------------------------
+			        VAR Corrente =
+			            CALCULATE(
+			                [08. Saldo Bancos],
+			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_01"
+			            )
+			        VAR Garantia =
+			            CALCULATE(
+			                [08. Saldo Bancos],
+			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_02"
+			            )
+			        VAR Vinculada =
+			            CALCULATE(
+			                [08. Saldo Bancos],
+			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_03"
+			            )
+			        VAR TOTAL = CALCULATE( [08. Saldo Bancos], ALL(TB_RTerceiros ), VALUES( 'CALENDARIO DAX'[Date])  )
+			
+			        VAR TOTAL_PERCENT = DIVIDE( ABS( Corrente + Garantia + Vinculada ), ABS( TOTAL ), 0 )
+			    //---------------------------------------
+			    // Contas do banco
+			    //---------------------------------------
+			
+			        VAR ContasBanco =
+			        CONCATENATEX(
+			            FILTER(
+			                TB_RTerceiros,
+			                TB_RTerceiros[codBanco] = BancoAtual
+			            ),
+			                VAR ContaAtual = TB_RTerceiros[xIDTerceiros]
+			
+			                VAR TipoConta = RIGHT( ContaAtual, 2 )
+			
+			                VAR SaldoConta =
+			                    CALCULATE(
+			                        [08. Saldo Bancos],
+			                          TB_RTerceiros[xIDTerceiros] = ContaAtual
+			                    ) 
+			                VAR vTOTALCONTA = CALCULATE( [08. Saldo Bancos], REMOVEFILTERS(TB_RTerceiros[xIDTerceiros]), KEEPFILTERS(TB_RTerceiros[codBanco] = BancoAtual) )
+			
+			                VAR vPERCENT = DIVIDE( ABS( SaldoConta ), ABS( Corrente+Garantia+Vinculada ), 0 )
+			            RETURN  
+			
+			            "<tr class='child-row Banco" & BancoAtual & "'>
+			                <td class='indent2'>" & TB_RTerceiros[Contas] & "</td>
+			                    <td class='num'>" & IF(TipoConta="01",fxFORMAT(SaldoConta,4),"") & "</td>
+			                    <td class='num'>" & IF(TipoConta="02",fxFORMAT(SaldoConta,4),"") & "</td>
+			                    <td class='num'>" & IF(TipoConta="03",fxFORMAT(SaldoConta,4),"") & "</td>
+			                    <td class='num'>" & fxFORMAT(vTOTALCONTA,4) & "</td>
+			                    <td class='pct'>" & fxFORMAT( vPERCENT, 5 ) &"</td>
+			            </tr>","" ,
+			                DIVIDE( ABS([08. Saldo Bancos]), ABS(Corrente + Garantia + Vinculada), 0 ),
+			            DESC
+			        )
+			                
+			    //---------------------------------------
+			    // Banco
+			    //---------------------------------------
+			
+			    RETURN
+			
+			        "<tr class='child-row saldo toggle-row nested' data-target='Banco" & BancoAtual & "'>
+			            <td class='indent'>" & [Banco] & "</td>
+			                <td class='num'>" & fxFORMAT(Corrente,4) & "</td>
+			                <td class='num'>" & fxFORMAT(Garantia,4) & "</td>
+			                <td class='num'>" & fxFORMAT(Vinculada,4) & "</td>
+			                <td class='num'>" & fxFORMAT(Corrente+Garantia+Vinculada,4) & "</td>
+			                <td>"& fxFORMAT( TOTAL_PERCENT , 5 ) &"</td>
+			        </tr>"
+			        &
+			        ContasBanco
+			)
+			
+			
+			
+			-- ============================ Entradas ===================================
+			VAR eCARTEIRA = [01. AB Simples]
+			VAR eVinculada = [01. AB Vinculada]
+			VAR eDescontada = [01. AB Descontada]
+			
+			VAR eEntradaTotal = ( eCARTEIRA + eVinculada + eDescontada )
 			RETURN
 			"<!DOCTYPE html>
 			<html lang='pt-BR'>
@@ -2006,116 +2070,42 @@ table _Medidas
 			<title>Controle de Caixa</title>
 			<style>
 			  :root{
-			    --azul:#1c3d6e;
-			    --azul-claro:#e8eef7;
-			    --verde:#e9f7ee;
-			    --amarelo:#fff200;
-			    --borda:#c9d2df;
-			    --vermelho:#b02a2a;
+			    --azul:#1c3d6e; --azul-claro:#e8eef7; --verde:#e9f7ee;
+			    --amarelo:#fff200; --borda:#c9d2df; --vermelho:#b02a2a;
 			  }
 			  *{box-sizing:border-box;}
-			  body{
-			    font-family:'Segoe UI', Arial, sans-serif;
-			    background:#f4f6f9;
-			    padding:24px;
-			    color:#1a1a1a;
-			    font-size:14px;
-			  }
-			  .sheet{
-			    max-width:900px;
-			    margin:0 auto;
-			    background:#fff;
-			    border:1px solid var(--borda);
-			    box-shadow:0 2px 8px rgba(0,0,0,.06);
-			  }
-			  table{
-			    width:100%;
-			    border-collapse:collapse;
-			  }
-			  td, th{
-			    padding:6px 10px;
-			    border:1px solid var(--borda);
-			    white-space:nowrap;
-			  }
-			  .dia-row td{
-			    font-weight:700;
-			    font-size:15px;
-			  }
-			  .header-row th{
-			    background:var(--azul);
-			    color:#fff;
-			    text-align:left;
-			    font-weight:600;
-			  }
-			  .section-title{
-			    background:var(--azul-claro);
-			    font-weight:700;
-			    font-size:15px;
-			    color:var(--azul);
-			    padding-top:14px;
-			  }
-			  .bold{ font-weight:700; }
-			  .num{ text-align:right; }
-			  .pct{ text-align:right; color:#555; }
-			  .indent{ padding-left:28px !important; }
-			  .indent2{ padding-left:56px !important; }
-			  .negativo{ color:var(--vermelho); }
-			  .saldo-dia td{
-			    background:var(--amarelo);
-			    font-weight:800;
-			    font-size:15px;
-			  }
-			
-			  /* Linhas expansíveis */
-			  .toggle-row{
-			    cursor:pointer;
-			    background:#fafbfd;
-			    user-select:none;
-			  }
-			  .toggle-row:hover{
-			    background:#eef2f8;
-			  }
-			  .toggle-row td:first-child::before{
-			    content:'▸';
-			    display:inline-block;
-			    margin-right:6px;
-			    transition:transform .15s ease;
-			    color:var(--azul);
-			    font-size:11px;
-			  }
-			  .toggle-row.open td:first-child::before{
-			    transform:rotate(90deg);
-			  }
-			  .child-row{
-			    display:none;
-			  }
-			  .child-row.show{
-			    display:table-row;
-			  }
-			  .total-strong td{
-			    background:var(--azul-claro);
-			    font-weight:700;
-			  }
+			  body{font-family:'Segoe UI', Arial, sans-serif; background:#f4f6f9; padding:24px; color:#1a1a1a; font-size:14px;}
+			  .sheet{max-width:900px; margin:0 auto; background:#fff; border:1px solid var(--borda); box-shadow:0 2px 8px rgba(0,0,0,.06);}
+			  table{width:100%; border-collapse:collapse;}
+			  td, th{padding:6px 10px; border:1px solid var(--borda); white-space:nowrap;}
+			  .dia-row td{font-weight:700; font-size:15px;}
+			  .header-row th{background:var(--azul); color:#fff; text-align:left; font-weight:600;}
+			  .section-title{background:var(--azul-claro); font-weight:700; font-size:15px; color:var(--azul); padding-top:14px;}
+			  .bold{font-weight:700;}
+			  .num{text-align:right;}
+			  .pct{text-align:right; color:#555;}
+			  .indent{padding-left:28px !important;}
+			  .indent2{padding-left:56px !important;}
+			  .negativo{color:var(--vermelho);}
+			  .saldo-dia td{background:var(--amarelo); font-weight:800; font-size:15px;}
+			  .toggle-row{cursor:pointer; background:#fafbfd; user-select:none;}
+			  .toggle-row:hover{background:#eef2f8;}
+			  .toggle-row td:first-child::before{content:'▸'; display:inline-block; margin-right:6px; transition:transform .15s ease; color:var(--azul); font-size:11px;}
+			  .toggle-row.open td:first-child::before{transform:rotate(90deg);}
+			  .child-row.saldo { display: table-row; }
+			  .child-row:not(.saldo) { display: none;}
+			  .child-row.show{display:table-row;}
+			  .total-strong td{background:var(--azul-claro); font-weight:700;}
 			</style>
 			</head>
 			<body>
-			
 			<div class='sheet'>
 			<table>
 			
-			  <!-- DIA -->
-			  <tr>
-			    <td class='bold'>DIA</td>
-			    <td colspan='2' class='bold'>"& vDataSelect &"</td>
-			    <td colspan='3'></td>
-			  </tr>
+			  <tr><td class='bold'>DIA</td><td colspan='2' class='bold'>"& vDataSelect &"</td><td colspan='3'></td></tr>
 			  <tr><td colspan='6' style='border:none;padding:4px;'></td></tr>
 			
-			  <!-- VENDAS -->
-			  <tr class='header-row'>
-			    <th>Vendas</th><th>Boleto</th><th>Depósito</th><th>Outros</th><th>Total</th><th>%</th>
-			  </tr>
-			  <tr>
+			  <tr class='header-row'><th>Vendas</th><th>Boleto</th><th>Depósito</th><th>Outros</th><th>Total</th><th>%</th></tr>
 			  <tr>
 			    <td class='bold'>Vendas dia Anterior</td>
 			    <td class='num bold'>"& vFaturamentoDiaAnteriorBOLETO &"</td>
@@ -2124,6 +2114,7 @@ table _Medidas
 			    <td class='num bold'>"& vFaturamentoDiaAnterior &"</td>
 			    <td></td>
 			  </tr>
+			  <tr>
 			    <td>Vendas Acumuladas Mês</td>
 			    <td class='num'>"& vFaturamentoDoMesBOLETO &"</td>
 			    <td class='num'>"& vFaturamentoDoMesDEPOSITO &"</td>
@@ -2133,138 +2124,55 @@ table _Medidas
 			  </tr>
 			
 			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
-			    <tr>
-			        <td class='section-title'>Valor de Título para troca</td>
-			        <td class='num bold'>"& vFaturamentoDiaAnteriorBOLETO &"</td>
-			    </tr>
+			  <tr><td class='section-title'>Valor de Título para troca</td><td class='num bold'>"& vFaturamentoDiaAnteriorBOLETO &"</td></tr>
 			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
 			
-			  <!-- SALDO EM CONTA -->
-			<!-- SALDO EM CONTA -->
 			
-			  <tr class='header-row'>
-			    <th>Saldo em conta</th><th>Corrente</th><th>Garantia</th><th>Vinculada</th><th>Total</th><th>%</th>
-			  </tr>
-			 
-			  <tr class='toggle-row total-strong' data-target='saldo'>
-			    <td>Total</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num'>R$ 1.284,00</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num'>R$ 2.268,00</td>
-			    <td class='pct'>100%</td>
-			  </tr>
-			 
-			  <tr class='child-row saldo toggle-row nested' data-target='Banco1' data-parent='saldo'>
-			    <td class='indent'>Bradesco</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num'>R$ 1.284,00</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num'>R$ 2.268,00</td>
-			    <td class='pct'>100%</td>
-			  </tr>
-			  <tr class='child-row Banco1'>
-			    <td class='indent2'>Daycoval</td>
-			    <td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td>
-			    <td class='num'>R$ 567,00</td><td class='pct'>25%</td>
-			  </tr>
-			  <tr class='child-row Banco1'>
-			    <td class='indent2'>Conta B</td>
-			    <td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td>
-			    <td class='num'>R$ 567,00</td><td class='pct'>25%</td>
-			  </tr>
-			 
-			  <tr class='child-row saldo toggle-row nested' data-target='Banco2' data-parent='saldo'>
-			    <td class='indent'>Itau</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num'>R$ 1.284,00</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num'>R$ 2.268,00</td>
-			    <td class='pct'>100%</td>
-			  </tr>
-			  <tr class='child-row Banco2'>
-			    <td class='indent2'>Conta C</td>
-			    <td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td>
-			    <td class='num'>R$ 567,00</td><td class='pct'>25%</td>
-			  </tr>
-			 
-			  <tr class='child-row saldo toggle-row nested' data-target='Banco3' data-parent='saldo'>
-			    <td class='indent'>Safra</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num'>R$ 1.284,00</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num'>R$ 2.268,00</td>
-			    <td class='pct'>100%</td>
-			  </tr>
-			  <tr class='child-row Banco3'>
-			    <td class='indent2'>Conta D</td>
-			    <td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td>
-			    <td class='num'>R$ 567,00</td><td class='pct'>25%</td>
-			  </tr>
-			 
-			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
-			
-			  <!-- SAÍDAS -->
-			  <tr class='header-row'>
-			    <th>saídas</th><th>Projetado</th><th>Acumulado Mês</th><th>Dia</th><th>Total</th><th>%</th>
-			  </tr>
+			        <!-- Saldo Conta -->
+			  <tr class='header-row'><th>Saldo em conta</th><th>Corrente</th><th>Garantia</th><th>Vinculada</th><th>Total</th><th>%</th></tr>
 			  <tr class='total-strong'>
-			    <td></td><td></td><td></td><td></td>
-			    <td class='num negativo'>-R$ 3.656,00</td><td></td>
+			    <td>Total</td>
+			    <td class='num'>"& fxFORMAT(tCorrente,4) & "</td>
+			    <td class='num'>"& fxFORMAT(tGarantia,4) & "</td>
+			    <td class='num'>"& fxFORMAT(tVinculada,4) & "</td>
+			    <td class='num'>"& fxFORMAT(tTOTALGERAL,4) &"</td>
+			    <td class='pct'></td>
 			  </tr>
-			
-			  <tr class='toggle-row total-strong' data-target='grassi'>
-			    <td>( + ) Grassi</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num'>R$ 1.284,00</td>
-			    <td class='num'>R$ 492,00</td>
-			    <td class='num negativo'>-R$ 2.268,00</td>
-			    <td class='pct'>62%</td>
-			  </tr>
-			  <tr class='child-row grassi'>
-			    <td class='indent'>tipo 1</td>
-			    <td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td>
-			    <td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td>
-			  </tr>
-			  <tr class='child-row grassi'>
-			    <td class='indent'>tipo 2</td>
-			    <td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td>
-			    <td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td>
-			  </tr>
-			  <tr class='child-row grassi'>
-			    <td class='indent'>tipo 3</td>
-			    <td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td>
-			    <td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td>
-			  </tr>
-			  <tr class='child-row grassi'>
-			    <td class='indent'>tipo 4</td>
-			    <td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td>
-			    <td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td>
-			  </tr>
-			
-			  <tr>
-			    <td>fruts dia</td><td></td><td></td><td></td>
-			    <td class='num negativo'>-R$ 435,00</td><td class='pct'>12%</td>
-			  </tr>
-			  <tr>
-			    <td>fruts atrasada</td><td></td><td></td><td></td>
-			    <td class='num negativo'>-R$ 230,00</td><td class='pct'>6%</td>
-			  </tr>
-			  <tr>
-			    <td>dubai</td><td></td><td></td><td></td>
-			    <td class='num negativo'>-R$ 400,00</td><td class='pct'>11%</td>
-			  </tr>
-			  <tr>
-			    <td>girassol</td><td></td><td></td><td></td>
-			    <td class='num negativo'>-R$ 323,00</td><td class='pct'>9%</td>
-			  </tr>
+			    "& HTMLFinal &"
 			
 			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
 			
-			  <tr class='saldo-dia'>
-			    <td>saldo dia</td><td></td><td></td><td></td>
-			    <td class='num negativo'>-R$ 1.656,00</td><td></td>
+			    <!-- Entradas -->
+			  <tr class='header-row'>
+			    <th>Entradas</th><th>Carteira</th><th>Vinculada</th><th>Antecipada/Descontada</th><th>Total</th><th>%</th>
 			  </tr>
+			     <td class='bold'>Projeçao de Contas a Receber</td>
+			        <td class='num bold'>"& fxFORMAT(eCARTEIRA,4) & "</td>
+			        <td class='num bold'>"& fxFORMAT(eVinculada,4) & "</td>
+			        <td class='num bold'>"& fxFORMAT(eDescontada,4) & "</td>
+			        <td class='num bold'>"& fxFORMAT(eEntradaTotal,4) & "</td>
+			        <td class='pct'></td>
+			  </tr>
+			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
+			
+			    <!-- Saidas -->
+			  <tr class='header-row'><th>saídas</th><th>Projetado</th><th>Acumulado Mês</th><th>Dia</th><th>Total</th><th>%</th></tr>
+			  <tr class='toggle-row total-strong' data-target='grassi'>
+			    <td>( + ) Grassi</td><td class='num'>R$ 492,00</td><td class='num'>R$ 1.284,00</td><td class='num'>R$ 492,00</td>
+			    <td class='num negativo'>-R$ 2.268,00</td><td class='pct'>62%</td>
+			  </tr>
+			  <tr class='child-row grassi'><td class='indent'>tipo 1</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
+			  <tr class='child-row grassi'><td class='indent'>tipo 2</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
+			  <tr class='child-row grassi'><td class='indent'>tipo 3</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
+			  <tr class='child-row grassi'><td class='indent'>tipo 4</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
+			
+			  <tr><td>fruts dia</td><td></td><td></td><td></td><td class='num negativo'>-R$ 435,00</td><td class='pct'>12%</td></tr>
+			  <tr><td>fruts atrasada</td><td></td><td></td><td></td><td class='num negativo'>-R$ 230,00</td><td class='pct'>6%</td></tr>
+			  <tr><td>dubai</td><td></td><td></td><td></td><td class='num negativo'>-R$ 400,00</td><td class='pct'>11%</td></tr>
+			  <tr><td>girassol</td><td></td><td></td><td></td><td class='num negativo'>-R$ 323,00</td><td class='pct'>9%</td></tr>
+			
+			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
+			  <tr class='saldo-dia'><td>saldo dia</td><td></td><td></td><td></td><td class='num negativo'>-R$ 1.656,00</td><td></td></tr>
 			
 			</table>
 			</div>
@@ -2278,25 +2186,269 @@ table _Medidas
 			  });
 			});
 			</script>
-			
 			</body>
-			"
+			</html>"
 			```
 		displayFolder: 05. HTML
 		lineageTag: 6b11a18f-3abe-4743-a506-549e7c85aff0
 
-	measure Medida =
+	measure '08. Saldo Bancos' =
 			
-			VAR vDataSelect = SELECTEDVALUE( 'CALENDARIO DAX'[Date] )
-			VAR vFaturamentoDiaAnterior = CALCULATE( [07. Total Faturado Geral], DATEADD( 'CALENDARIO DAX'[Date], -1, DAY) )
-			VAR vFaturamentoDoMes = CALCULATE( [07. Total Faturado Geral], ALL( 'CALENDARIO DAX'[Dia]) )
-			
-			
-			RETURN
-			vFaturamentoDoMes
+			SUM( TB_RTerceiros[Valor] )
 		lineageTag: e5c4667b-f0e1-42ec-87b5-b924d7d16c66
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Medida = ```
+			
+			VAR vDataSelect = SELECTEDVALUE( 'CALENDARIO DAX'[Date] )
+			
+			-- ===== FATURAMENTO ===== (sem mudança)
+			VAR vFaturamentoDiaAnterior = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY) ), 4 )
+			VAR vFaturamentoDoMes       = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]) ), 4 )
+			VAR vFaturamentoDiaAnteriorBOLETO   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY), TB_PGT[abrfpg (grupos)]="Boleto" ), 4 )
+			VAR vFaturamentoDiaAnteriorDEPOSITO = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY), TB_PGT[abrfpg (grupos)]="Depósito" ), 4 )
+			VAR vFaturamentoDiaAnteriorOUTROS   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY), TB_PGT[abrfpg (grupos)]="Outros" ), 4 )
+			VAR vFaturamentoDoMesBOLETO   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Boleto" ), 4 )
+			VAR vFaturamentoDoMesDEPOSITO = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Depósito" ), 4 )
+			VAR vFaturamentoDoMesOUTROS   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Outros" ), 4 )
+			-- ===== TOTAIS por BANCOS e CONTAS ==========
+			VAR tCorrente =
+			    CALCULATE(
+			        [08. Saldo Bancos],
+			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "01"
+			    )
+			VAR tGarantia =
+			    CALCULATE(
+			        [08. Saldo Bancos],
+			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "02"
+			    )
+			VAR tVinculada =
+			    CALCULATE(
+			        [08. Saldo Bancos],
+			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "03"
+			    )
+			VAR tTOTALGERAL = tCorrente + tGarantia + tVinculada
+			
+			-- ===== BANCOS e Contas =====
+			VAR Bancos =
+			SUMMARIZE(
+			    TB_RTerceiros,
+			    TB_RTerceiros[codBanco],
+			    TB_RTerceiros[Banco]
+			)
+			
+			VAR HTMLFinal =
+			
+			CONCATENATEX(
+			    Bancos,
+			    VAR BancoAtual = [codBanco]
+			        //---------------------------------------
+			        // Totais do banco
+			        //---------------------------------------
+			        VAR Corrente =
+			            CALCULATE(
+			                [08. Saldo Bancos],
+			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_01"
+			            )
+			        VAR Garantia =
+			            CALCULATE(
+			                [08. Saldo Bancos],
+			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_02"
+			            )
+			        VAR Vinculada =
+			            CALCULATE(
+			                [08. Saldo Bancos],
+			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_03"
+			            )
+			        VAR TOTAL = CALCULATE( [08. Saldo Bancos], ALL(TB_RTerceiros ), VALUES( 'CALENDARIO DAX'[Date])  )
+			
+			        VAR TOTAL_PERCENT = DIVIDE( ABS( Corrente + Garantia + Vinculada ), ABS( TOTAL ), 0 )
+			    //---------------------------------------
+			    // Contas do banco
+			    //---------------------------------------
+			
+			        VAR ContasBanco =
+			        CONCATENATEX(
+			            FILTER(
+			                TB_RTerceiros,
+			                TB_RTerceiros[codBanco] = BancoAtual
+			            ),
+			                VAR ContaAtual = TB_RTerceiros[xIDTerceiros]
+			
+			                VAR TipoConta = RIGHT( ContaAtual, 2 )
+			
+			                VAR SaldoConta =
+			                    CALCULATE(
+			                        [08. Saldo Bancos],
+			                          TB_RTerceiros[xIDTerceiros] = ContaAtual
+			                    ) 
+			                VAR vTOTALCONTA = CALCULATE( [08. Saldo Bancos], REMOVEFILTERS(TB_RTerceiros[xIDTerceiros]), KEEPFILTERS(TB_RTerceiros[codBanco] = BancoAtual) )
+			
+			                VAR vPERCENT = DIVIDE( ABS( SaldoConta ), ABS( Corrente+Garantia+Vinculada ), 0 )
+			            RETURN  
+			
+			            "<tr class='child-row Banco" & BancoAtual & "'>
+			                <td class='indent2'>" & TB_RTerceiros[Contas] & "</td>
+			                    <td class='num'>" & IF(TipoConta="01",fxFORMAT(SaldoConta,4),"") & "</td>
+			                    <td class='num'>" & IF(TipoConta="02",fxFORMAT(SaldoConta,4),"") & "</td>
+			                    <td class='num'>" & IF(TipoConta="03",fxFORMAT(SaldoConta,4),"") & "</td>
+			                    <td class='num'>" & fxFORMAT(vTOTALCONTA,4) & "</td>
+			                    <td class='pct'>" & fxFORMAT( vPERCENT, 5 ) &"</td>
+			            </tr>","" ,
+			                DIVIDE( ABS([08. Saldo Bancos]), ABS(Corrente + Garantia + Vinculada), 0 ),
+			            DESC
+			        )
+			                
+			    //---------------------------------------
+			    // Banco
+			    //---------------------------------------
+			
+			    RETURN
+			
+			        "<tr class='child-row saldo toggle-row nested' data-target='Banco" & BancoAtual & "'>
+			            <td class='indent'>" & [Banco] & "</td>
+			                <td class='num'>" & fxFORMAT(Corrente,4) & "</td>
+			                <td class='num'>" & fxFORMAT(Garantia,4) & "</td>
+			                <td class='num'>" & fxFORMAT(Vinculada,4) & "</td>
+			                <td class='num'>" & fxFORMAT(Corrente+Garantia+Vinculada,4) & "</td>
+			                <td>"& fxFORMAT( TOTAL_PERCENT , 5 ) &"</td>
+			        </tr>"
+			        &
+			        ContasBanco
+			)
+			    
+			RETURN
+			"<!DOCTYPE html>
+			<html lang='pt-BR'>
+			<head>
+			<meta charset='UTF-8'>
+			<title>Controle de Caixa</title>
+			<style>
+			  :root{
+			    --azul:#1c3d6e; --azul-claro:#e8eef7; --verde:#e9f7ee;
+			    --amarelo:#fff200; --borda:#c9d2df; --vermelho:#b02a2a;
+			  }
+			  *{box-sizing:border-box;}
+			  body{font-family:'Segoe UI', Arial, sans-serif; background:#f4f6f9; padding:24px; color:#1a1a1a; font-size:14px;}
+			  .sheet{max-width:900px; margin:0 auto; background:#fff; border:1px solid var(--borda); box-shadow:0 2px 8px rgba(0,0,0,.06);}
+			  table{width:100%; border-collapse:collapse;}
+			  td, th{padding:6px 10px; border:1px solid var(--borda); white-space:nowrap;}
+			  .dia-row td{font-weight:700; font-size:15px;}
+			  .header-row th{background:var(--azul); color:#fff; text-align:left; font-weight:600;}
+			  .section-title{background:var(--azul-claro); font-weight:700; font-size:15px; color:var(--azul); padding-top:14px;}
+			  .bold{font-weight:700;}
+			  .num{text-align:right;}
+			  .pct{text-align:right; color:#555;}
+			  .indent{padding-left:28px !important;}
+			  .indent2{padding-left:56px !important;}
+			  .negativo{color:var(--vermelho);}
+			  .saldo-dia td{background:var(--amarelo); font-weight:800; font-size:15px;}
+			  .toggle-row{cursor:pointer; background:#fafbfd; user-select:none;}
+			  .toggle-row:hover{background:#eef2f8;}
+			  .toggle-row td:first-child::before{content:'▸'; display:inline-block; margin-right:6px; transition:transform .15s ease; color:var(--azul); font-size:11px;}
+			  .toggle-row.open td:first-child::before{transform:rotate(90deg);}
+			  .child-row.saldo { display: table-row; }
+			  .child-row:not(.saldo) { display: none;}
+			  .child-row.show{display:table-row;}
+			  .total-strong td{background:var(--azul-claro); font-weight:700;}
+			</style>
+			</head>
+			<body>
+			<div class='sheet'>
+			<table>
+			
+			  <tr><td class='bold'>DIA</td><td colspan='2' class='bold'>"& vDataSelect &"</td><td colspan='3'></td></tr>
+			  <tr><td colspan='6' style='border:none;padding:4px;'></td></tr>
+			
+			  <tr class='header-row'><th>Vendas</th><th>Boleto</th><th>Depósito</th><th>Outros</th><th>Total</th><th>%</th></tr>
+			  <tr>
+			    <td class='bold'>Vendas dia Anterior</td>
+			    <td class='num bold'>"& vFaturamentoDiaAnteriorBOLETO &"</td>
+			    <td class='num bold'>"& vFaturamentoDiaAnteriorDEPOSITO &"</td>
+			    <td class='num bold'>"& vFaturamentoDiaAnteriorOUTROS &"</td>
+			    <td class='num bold'>"& vFaturamentoDiaAnterior &"</td>
+			    <td></td>
+			  </tr>
+			  <tr>
+			    <td>Vendas Acumuladas Mês</td>
+			    <td class='num'>"& vFaturamentoDoMesBOLETO &"</td>
+			    <td class='num'>"& vFaturamentoDoMesDEPOSITO &"</td>
+			    <td class='num'>"& vFaturamentoDoMesOUTROS &"</td>
+			    <td class='num'>"& vFaturamentoDoMes &"</td>
+			    <td></td>
+			  </tr>
+			
+			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
+			  <tr><td class='section-title'>Valor de Título para troca</td><td class='num bold'>"& vFaturamentoDiaAnteriorBOLETO &"</td></tr>
+			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
+			
+			  <tr class='header-row'><th>Saldo em conta</th><th>Corrente</th><th>Garantia</th><th>Vinculada</th><th>Total</th><th>%</th></tr>
+			  <tr class='total-strong'>
+			    <td>Total</td>
+			    <td class='num'>"& fxFORMAT(tCorrente,4) & "</td>
+			    <td class='num'>"& fxFORMAT(tGarantia,4) & "</td>
+			    <td class='num'>"& fxFORMAT(tVinculada,4) & "</td>
+			    <td class='num'>"& fxFORMAT(tTOTALGERAL,4) &"</td>
+			    <td class='pct'></td>
+			  </tr>
+			    "& HTMLFinal &"
+			
+			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
+			
+			  <tr class='header-row'><th>saídas</th><th>Projetado</th><th>Acumulado Mês</th><th>Dia</th><th>Total</th><th>%</th></tr>
+			  <tr class='toggle-row total-strong' data-target='grassi'>
+			    <td>( + ) Grassi</td><td class='num'>R$ 492,00</td><td class='num'>R$ 1.284,00</td><td class='num'>R$ 492,00</td>
+			    <td class='num negativo'>-R$ 2.268,00</td><td class='pct'>62%</td>
+			  </tr>
+			  <tr class='child-row grassi'><td class='indent'>tipo 1</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
+			  <tr class='child-row grassi'><td class='indent'>tipo 2</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
+			  <tr class='child-row grassi'><td class='indent'>tipo 3</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
+			  <tr class='child-row grassi'><td class='indent'>tipo 4</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
+			
+			  <tr><td>fruts dia</td><td></td><td></td><td></td><td class='num negativo'>-R$ 435,00</td><td class='pct'>12%</td></tr>
+			  <tr><td>fruts atrasada</td><td></td><td></td><td></td><td class='num negativo'>-R$ 230,00</td><td class='pct'>6%</td></tr>
+			  <tr><td>dubai</td><td></td><td></td><td></td><td class='num negativo'>-R$ 400,00</td><td class='pct'>11%</td></tr>
+			  <tr><td>girassol</td><td></td><td></td><td></td><td class='num negativo'>-R$ 323,00</td><td class='pct'>9%</td></tr>
+			
+			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
+			  <tr class='saldo-dia'><td>saldo dia</td><td></td><td></td><td></td><td class='num negativo'>-R$ 1.656,00</td><td></td></tr>
+			
+			</table>
+			</div>
+			
+			<script>
+			document.querySelectorAll('.toggle-row').forEach(row=>{
+			  row.addEventListener('click',()=>{
+			    const target = row.dataset.target;
+			    row.classList.toggle('open');
+			    document.querySelectorAll('.'+target).forEach(r=>r.classList.toggle('show'));
+			  });
+			});
+			</script>
+			</body>
+			</html>"
+			```
+		lineageTag: 78c6a0fd-81e0-489b-a30f-a647e489fb0f
+
+	measure 'Medida 2' = ```
+			
+			                VAR ContaAtual = SELECTEDVALUE( TB_RTerceiros[xIDTerceiros] )
+			
+			                VAR TipoConta = RIGHT( ContaAtual, 2 )
+			
+			                VAR SaldoConta =
+			                    CALCULATE(
+			                        [08. Saldo Bancos],
+			                          TB_RTerceiros[xIDTerceiros] = ContaAtual
+			                    ) 
+			                VAR vTOTALCONTA = CALCULATE( [08. Saldo Bancos], ALL( TB_RTerceiros[Contas] ) )
+			                VAR vPERCENTE = fxFORMAT( DIVIDE(ABS( SaldoConta ), ABS( vTOTALCONTA ),0), 5 ) 
+			
+			RETURN
+			vPERCENTE
+			```
+		lineageTag: 0ea16332-c327-46ac-9328-4bc914b0c05b
 
 	partition _Medidas = m
 		mode: import
