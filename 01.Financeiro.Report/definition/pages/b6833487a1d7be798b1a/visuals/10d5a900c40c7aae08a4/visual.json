@@ -14,24 +14,7 @@
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_Fatos_CR"
-                    }
-                  },
-                  "Property": "portador"
-                }
-              },
-              "queryRef": "TB_Fatos.portador",
-              "nativeQueryRef": "portador",
-              "active": true,
-              "displayName": "portador"
-            }
-          ],
+          "projections": [],
           "fieldParameters": [
             {
               "parameterExpr": {
@@ -45,7 +28,7 @@
                 }
               },
               "index": 0,
-              "length": 1
+              "length": 0
             }
           ]
         },

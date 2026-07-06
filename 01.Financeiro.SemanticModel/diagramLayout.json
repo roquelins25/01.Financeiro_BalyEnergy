@@ -5,7 +5,7 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 54.250051323201205
+        "y": 393.27154414144485
       },
       "nodes": [
         {
@@ -315,6 +315,19 @@
           "nodeLineageTag": "74b93616-09f4-4cc7-a515-2997d00b3fdf",
           "size": {
             "height": 167.88975935925032,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3432.5473221841735,
+            "y": 823.63460793746174
+          },
+          "nodeIndex": "DataAtualizacao",
+          "nodeLineageTag": "977b1ef4-fbad-4547-bb9c-441470935c4c",
+          "size": {
+            "height": 128,
             "width": 234
           },
           "zIndex": 0

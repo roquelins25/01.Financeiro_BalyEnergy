@@ -23,7 +23,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop","DaxQueryView_Desktop"]
 
-annotation PBI_QueryOrder = ["TB_Apoio","TB_PGT","TB_CLI","TB_REP","TB_Rede","TB_RTerceiros","TB_Fatos_CR","_Medidas","TB_FRJ","TB_AUXtempo","TB_OPRede","TB_OPUf","TB_Operacao","TB_Lvel","xUF_Regiao","TB_Verbas","TB_Fat","TB_TNS"]
+annotation PBI_QueryOrder = ["TB_Apoio","TB_PGT","TB_CLI","TB_REP","TB_Rede","TB_RTerceiros","TB_Fatos_CR","_Medidas","TB_FRJ","TB_AUXtempo","TB_OPRede","TB_OPUf","TB_Operacao","TB_Lvel","xUF_Regiao","TB_Verbas","TB_Fat","TB_TNS","DataAtualizacao"]
 
 ref table TB_Apoio
 ref table TB_PGT
@@ -56,6 +56,8 @@ ref table LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae
 ref table TB_NUMNFV
 ref table TB_TNS
 ref table TB_RTerceiros
+ref table DataAtualizacao
+ref table LocalDateTable_19b0fe29-5ade-4445-bb3d-0a38db7daf25
 
 ref cultureInfo pt-BR
 

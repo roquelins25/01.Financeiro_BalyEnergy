@@ -12,5 +12,6 @@
   "visualGroup": {
     "displayName": "Verbas para Abatimento",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }

@@ -150,3 +150,8 @@ relationship eaf82760-ca08-b277-b342-64ddc7c27a17
 	fromColumn: TB_RTerceiros.Atributo
 	toColumn: 'CALENDARIO DAX'.Date
 
+relationship f5cf27ca-e25b-4769-b7da-66f21f71ae3b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DataAtualizacao.'data atualizada'
+	toColumn: LocalDateTable_19b0fe29-5ade-4445-bb3d-0a38db7daf25.Date
+
