@@ -5436,7 +5436,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "Valor Aberto": {
+			          "Valor AB.": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -5446,7 +5446,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "Valor Ab.": {
+			          "Valor Aberto": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -7330,38 +7330,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "entity__medida.medida": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "MEDIDA"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "medida": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "entity__medida.medida_2": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "Medida 2"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "medida 2": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "entity__medida.entity_01__valor_AB_CP": {
 			      "Definition": {
 			        "Binding": {
@@ -7374,28 +7342,6 @@ cultureInfo pt-BR
 			        {
 			          "01. valor AB CP": {
 			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "entity__medida.entity_01__valor_AB_CP__class__credito_": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "01. Valor AB CP ( Class. Credito )"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "01. valor AB CP ( class. credito )": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "01. valor AB CP": {
-			            "State": "Generated",
-			            "Weight": 0.75
 			          }
 			        }
 			      ]

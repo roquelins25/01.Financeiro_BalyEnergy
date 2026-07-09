@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "4e3fb0610737f3c707bc",
   "position": {
-    "x": 124.28005284015852,
-    "y": 697.49009247027743,
+    "x": 576,
+    "y": 129.42222222222222,
     "z": 2,
-    "height": 287.87318361955084,
-    "width": 565.60105680317042
+    "height": 839.11111111111109,
+    "width": 770.84444444444443
   },
   "visual": {
     "visualType": "pivotTable",
@@ -22,11 +22,11 @@
                       "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "DESCTA"
+                  "Property": "despar"
                 }
               },
-              "queryRef": "TB_Fatos_CP.DESCTA",
-              "nativeQueryRef": "DESCTA",
+              "queryRef": "TB_Fatos_CP.despar",
+              "nativeQueryRef": "despar",
               "active": true
             }
           ]
@@ -41,31 +41,16 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "01. Total AB CP"
+                  "Property": "01. Valor AB CP"
                 }
               },
-              "queryRef": "_Medidas.01. Total AB CP",
-              "nativeQueryRef": "01. Total AB CP"
+              "queryRef": "_Medidas.01. Valor AB CP",
+              "nativeQueryRef": "01. Valor AB CP"
             }
           ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Medidas"
-                  }
-                },
-                "Property": "01. Total AB CP"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },

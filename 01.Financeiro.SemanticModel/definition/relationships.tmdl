@@ -165,12 +165,11 @@ relationship 784047bd-e582-4790-9240-4c9eef32ec2e
 	fromColumn: TB_Fatos_CP.datent
 	toColumn: LocalDateTable_0b591359-c36d-48bb-9d45-b76a402bdc2e.Date
 
-relationship 6823341d-cd51-4b59-aff9-c72be96f2a57
-	joinOnDateBehavior: datePartOnly
-	fromColumn: TB_Fatos_CP.vctpro
-	toColumn: LocalDateTable_d72db5bb-7f3f-4110-98c3-89053b78d0a8.Date
-
 relationship AutoDetected_159158e8-1270-4645-9dc3-000f8e933ff8
 	fromColumn: TB_Fatos_CP.CODCLI
 	toColumn: TB_CLI.codcli
+
+relationship 2e2635fe-d041-5e55-40ff-04ab751f6a38
+	fromColumn: TB_Fatos_CP.vctpro
+	toColumn: 'CALENDARIO DAX'.Date
 
