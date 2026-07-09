@@ -155,3 +155,16 @@ relationship f5cf27ca-e25b-4769-b7da-66f21f71ae3b
 	fromColumn: DataAtualizacao.'data atualizada'
 	toColumn: LocalDateTable_19b0fe29-5ade-4445-bb3d-0a38db7daf25.Date
 
+relationship b3942648-074e-9339-0469-5992329d81ef
+	fromColumn: TB_Fatos_CP.Data_Vencimento
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 7422762c-ad1b-8e84-e9cc-de732889bad7
+	isActive: false
+	fromColumn: TB_Fatos_CP.Data_Emissao
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 7cfde3e7-ea82-2cce-4c3b-32dde2bf82b3
+	fromColumn: TB_Fatos_CP.Cod_Fornecedor
+	toColumn: TB_CLI.codcli
+

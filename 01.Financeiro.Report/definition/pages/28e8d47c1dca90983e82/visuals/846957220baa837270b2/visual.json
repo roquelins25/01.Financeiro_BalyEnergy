@@ -53,12 +53,12 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "xREDE"
+                  "Property": "nomcli"
                 }
               },
-              "queryRef": "TB_CLI.xREDE",
-              "nativeQueryRef": "xREDE",
-              "displayName": "xREDE"
+              "queryRef": "TB_CLI.nomcli",
+              "nativeQueryRef": "Nome Cliente",
+              "displayName": "Nome Cliente"
             },
             {
               "field": {

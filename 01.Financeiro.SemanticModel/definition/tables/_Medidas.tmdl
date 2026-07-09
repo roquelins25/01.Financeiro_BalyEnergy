@@ -5,7 +5,7 @@ table _Medidas
 			
 			// Soma o valor em aberto .
 			    CALCULATE(
-			        [01. Valor Geral],
+			        [01. Valor AB CR],
 			        KEEPFILTERS( TB_Fatos_CR[sit] = "AB" )
 			        )
 		displayFolder: 01. Valores Totais\Auxiliares
@@ -1582,13 +1582,14 @@ table _Medidas
 		displayFolder: 01. Valores Totais\%
 		lineageTag: afc645fc-8c43-4a77-8087-37cf5810ef2b
 
-	measure '01. Valor Geral' =
+	measure '01. Valor AB CR' =
 			
 			SUM( TB_Fatos_CR[valorAberto] )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 01. Valores Totais\Geral
 		lineageTag: ad6bc90c-fb92-4060-9dab-83a27a7e8aee
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure '02. Qtde Titulos' =
 			
@@ -1687,7 +1688,7 @@ table _Medidas
 			
 			// Soma o valor em aberto .
 			    CALCULATE(
-			        [01. Valor Geral],
+			        [01. Valor AB CR],
 			        KEEPFILTERS( TB_Fatos_CR[sit] IN {"AB","LQ"}  )
 			        )
 		displayFolder: 01. Valores Totais\Auxiliares
@@ -1868,9 +1869,10 @@ table _Medidas
 			    NOT TB_Fat[tnspro] IN{"5201O","6202Q","6201A","6201S","6201Z","51015"}
 			)
 			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		lineageTag: 1a012185-2e63-46ee-999f-af5647c56fd9
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure '01. AB Devolucao' =
 			
@@ -1925,9 +1927,10 @@ table _Medidas
 			    NOT TB_Fatos_CR[portador] IN{"ANTE"},
 			    USERELATIONSHIP( TB_Fatos_CR[emissao], 'CALENDARIO DAX'[Date] )
 			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		lineageTag: ef26a858-f6c3-42fb-a232-debaf88ffd4d
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure '07. Diff' = [07. Total Faturado Geral] - [07.  CR Valor Original FAT]
 		lineageTag: e33377c3-2828-483f-b6b7-4f0333d85dd0
@@ -1935,7 +1938,6 @@ table _Medidas
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '05. HTML SALDO DIA' = ```
-			
 			
 			VAR vDataSelect = SELECTEDVALUE( 'CALENDARIO DAX'[Date] )
 			
@@ -1949,121 +1951,279 @@ table _Medidas
 			VAR vFaturamentoDoMesDEPOSITO = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Depósito" ), 4 )
 			VAR vFaturamentoDoMesOUTROS   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Outros" ), 4 )
 			-- ===== TOTAIS por BANCOS e CONTAS ==========
-			VAR tCorrente =
-			    CALCULATE(
-			        [08. Saldo Bancos],
-			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "01"
-			    )
-			VAR tGarantia =
-			    CALCULATE(
-			        [08. Saldo Bancos],
-			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "02"
-			    )
-			VAR tVinculada =
-			    CALCULATE(
-			        [08. Saldo Bancos],
-			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "03"
-			    )
+			VAR tCorrente =CALCULATE([08. Saldo Bancos],RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "01")
+			VAR tGarantia =CALCULATE([08. Saldo Bancos],RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "03")
+			VAR tVinculada =CALCULATE([08. Saldo Bancos],RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "02")
 			VAR tTOTALGERAL = tCorrente + tGarantia + tVinculada
 			
 			-- ===== BANCOS e Contas =====
-			VAR Bancos =
-			SUMMARIZE(
-			    TB_RTerceiros,
-			    TB_RTerceiros[codBanco],
-			    TB_RTerceiros[Banco]
-			)
+			VAR Bancos =SUMMARIZE(TB_RTerceiros,TB_RTerceiros[codBanco],TB_RTerceiros[Banco])
 			
-			VAR HTMLFinal =
+			VAR HTMLEntrada =
 			
-			CONCATENATEX(
-			    Bancos,
+			CONCATENATEX(Bancos,
 			    VAR BancoAtual = [codBanco]
-			        //---------------------------------------
-			        // Totais do banco
-			        //---------------------------------------
-			        VAR Corrente =
-			            CALCULATE(
-			                [08. Saldo Bancos],
-			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_01"
-			            )
-			        VAR Garantia =
-			            CALCULATE(
-			                [08. Saldo Bancos],
-			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_02"
-			            )
-			        VAR Vinculada =
-			            CALCULATE(
-			                [08. Saldo Bancos],
-			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_03"
-			            )
-			        VAR TOTAL = CALCULATE( [08. Saldo Bancos], ALL(TB_RTerceiros ), VALUES( 'CALENDARIO DAX'[Date])  )
+			//---------------------------------------// Totais do banco//---------------------------------------
+			    VAR Corrente =  CALCULATE([08. Saldo Bancos],TB_RTerceiros[xIDTerceiros] = BancoAtual & "_01")
+			    VAR Garantia  = CALCULATE([08. Saldo Bancos],TB_RTerceiros[xIDTerceiros] = BancoAtual & "_03")
+			    VAR Vinculada = CALCULATE([08. Saldo Bancos],TB_RTerceiros[xIDTerceiros] = BancoAtual & "_02")
+			    VAR TOTAL = CALCULATE( [08. Saldo Bancos], ALL(TB_RTerceiros ), VALUES( 'CALENDARIO DAX'[Date])  )
 			
-			        VAR TOTAL_PERCENT = DIVIDE( ABS( Corrente + Garantia + Vinculada ), ABS( TOTAL ), 0 )
-			    //---------------------------------------
-			    // Contas do banco
-			    //---------------------------------------
+			    VAR TOTAL_PERCENT = DIVIDE( ABS( Corrente + Garantia + Vinculada ), ABS( TOTAL ), 0 )
+			//---------------------------------------
+			// Contas do banco
+			//---------------------------------------
 			
-			        VAR ContasBanco =
-			        CONCATENATEX(
-			            FILTER(
-			                TB_RTerceiros,
-			                TB_RTerceiros[codBanco] = BancoAtual
-			            ),
-			                VAR ContaAtual = TB_RTerceiros[xIDTerceiros]
+			    VAR ContasBanco =
+			    CONCATENATEX(
+			        FILTER(
+			            TB_RTerceiros,
+			            TB_RTerceiros[codBanco] = BancoAtual
+			        ),
+			            VAR ContaAtual = TB_RTerceiros[xIDTerceiros]
 			
-			                VAR TipoConta = RIGHT( ContaAtual, 2 )
+			            VAR TipoConta = RIGHT( ContaAtual, 2 )
 			
-			                VAR SaldoConta =
-			                    CALCULATE(
-			                        [08. Saldo Bancos],
-			                          TB_RTerceiros[xIDTerceiros] = ContaAtual
-			                    ) 
-			                VAR vTOTALCONTA = CALCULATE( [08. Saldo Bancos], REMOVEFILTERS(TB_RTerceiros[xIDTerceiros]), KEEPFILTERS(TB_RTerceiros[codBanco] = BancoAtual) )
+			            VAR SaldoConta =
+			                CALCULATE(
+			                    [08. Saldo Bancos],
+			                      TB_RTerceiros[xIDTerceiros] = ContaAtual
+			                ) 
+			            VAR vTOTALCONTA = CALCULATE( [08. Saldo Bancos], REMOVEFILTERS(TB_RTerceiros[xIDTerceiros]), KEEPFILTERS(TB_RTerceiros[codBanco] = BancoAtual) )
 			
-			                VAR vPERCENT = DIVIDE( ABS( SaldoConta ), ABS( Corrente+Garantia+Vinculada ), 0 )
+			            VAR vPERCENT = DIVIDE( ABS( SaldoConta ), ABS( Corrente+Garantia+Vinculada ), 0 )
 			            RETURN  
 			
 			            "<tr class='child-row Banco" & BancoAtual & "'>
 			                <td class='indent2'>" & TB_RTerceiros[Contas] & "</td>
 			                    <td class='num'>" & IF(TipoConta="01",fxFORMAT(SaldoConta,4),"") & "</td>
-			                    <td class='num'>" & IF(TipoConta="02",fxFORMAT(SaldoConta,4),"") & "</td>
 			                    <td class='num'>" & IF(TipoConta="03",fxFORMAT(SaldoConta,4),"") & "</td>
+			                    <td class='num'>" & IF(TipoConta="02",fxFORMAT(SaldoConta,4),"") & "</td>
 			                    <td class='num'>" & fxFORMAT(vTOTALCONTA,4) & "</td>
 			                    <td class='pct'>" & fxFORMAT( vPERCENT, 5 ) &"</td>
-			            </tr>","" ,
+			            </tr>", "" ,
 			                DIVIDE( ABS([08. Saldo Bancos]), ABS(Corrente + Garantia + Vinculada), 0 ),
 			            DESC
 			        )
-			                
-			    //---------------------------------------
-			    // Banco
-			    //---------------------------------------
+			            
+			//---------------------------------------
+			// Banco
+			//---------------------------------------
 			
-			    RETURN
+			RETURN
 			
-			        "<tr class='child-row saldo toggle-row nested' data-target='Banco" & BancoAtual & "'>
-			            <td class='indent'>" & [Banco] & "</td>
-			                <td class='num'>" & fxFORMAT(Corrente,4) & "</td>
-			                <td class='num'>" & fxFORMAT(Garantia,4) & "</td>
-			                <td class='num'>" & fxFORMAT(Vinculada,4) & "</td>
-			                <td class='num'>" & fxFORMAT(Corrente+Garantia+Vinculada,4) & "</td>
-			                <td>"& fxFORMAT( TOTAL_PERCENT , 5 ) &"</td>
-			        </tr>"
-			        &
-			        ContasBanco
+			    "<tr class='child-row saldo toggle-row nested' data-target='Banco" & BancoAtual & "'>
+			        <td class='indent'>" & [Banco] & "</td>
+			            <td class='num'>" & fxFORMAT(Corrente,4) & "</td>
+			            <td class='num'>" & fxFORMAT(Garantia,4) & "</td>
+			            <td class='num'>" & fxFORMAT(Vinculada,4) & "</td>
+			            <td class='num'>" & fxFORMAT(Corrente+Garantia+Vinculada,4) & "</td>
+			            <td>"& fxFORMAT( TOTAL_PERCENT , 5 ) &"</td>
+			    </tr>"
+			    &
+			    ContasBanco
+			
 			)
 			
+			-- ============================ SAIDAS ======================================
 			
+			VAR BaseCP =
+			CALCULATETABLE(
+			    TB_Fatos_CP,
+			        REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) ),
+			        TB_Fatos_CP[DESCRICAO_TIPO_AGP] <> "Class. Credito"
+			    )
 			
-			-- ============================ Entradas ===================================
+			-- Empresas
+			
+			VAR Empresas =
+			DATATABLE(
+			    "Empresa", 
+			    STRING,{
+			        { "( + ) Grassi" },
+			        { "Fruts Dia" },
+			        { "Fruts Atrasada" },
+			        { "Dubai" },
+			        { "Girassol" }
+			        })
+			VAR vHTMLSAIDAS = 
+			CONCATENATEX(
+			    Empresas,
+			    VAR EmpresaAtual = [Empresa]
+			    VAR EmpresaID =
+			        SWITCH(
+			            EmpresaAtual,
+			            "( + ) Grassi","grassi", 
+			            "Fruts Dia","frutsdia", 
+			            "Fruts Atrasada",
+			            "frutsatrasada", 
+			            "Dubai","dubai", 
+			            "Girassol","girassol" )
+			    VAR ProjetadoEmpresa = 0 
+			    VAR AcumuladoEmpresa = 
+			    SWITCH(
+			        EmpresaID,
+			            "Grassi", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                            REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+			                            ),
+			        0 )
+			    VAR DiaEmpresa = 
+			        SWITCH(
+			        EmpresaID,
+			            "Grassi",[01. Valor AB CP ( Class. Credito )] ,
+			        0 )
+			    VAR TotalEmpresa = DiaEmpresa 
+			    VAR PercentEmpresa = 0
+			-------- LV1
+			    VAR vTabelaAGP = 
+			    ADDCOLUMNS(
+			        SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[DESCRICAO_TIPO_AGP] ), 
+			        "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+			                        ),
+			        "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                )
+			    VAR AGPs = 
+			    CONCATENATEX(
+			        vTabelaAGP,
+			        VAR AGPID = TB_Fatos_CP[ID_AGP]
+			        VAR AGPAtual = TB_Fatos_CP[DESCRICAO_TIPO_AGP]
+			        VAR ValorAGP = [@Valor]
+			        VAR ValorDia = [@ValorDia]
+			-------------------- LV2
+			            VAR TabelaTipo =
+			                ADDCOLUMNS(
+			                    SUMMARIZE(
+			                        FILTER(
+			                            BaseCP,
+			                            TB_Fatos_CP[ID_AGP] = AGPID
+			                        ),
+			                        TB_Fatos_CP[ID_TIPO],
+			                        TB_Fatos_CP[DESCRICAO_TIPO]
+			                    ),
+			                    "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                                REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+			                                ),
+			                    "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                )
+			
+			            VAR Tipos =
+			                CONCATENATEX(
+			                    TabelaTipo,
+			
+			                    VAR TipoID = TB_Fatos_CP[ID_TIPO]
+			                    VAR TipoAtual = TB_Fatos_CP[DESCRICAO_TIPO]
+			                    VAR ValorTipo = [@Valor]
+			                    VAR ValorDia = [@ValorDia]
+			
+			------------------------------- LV3
+			                            VAR TabelaConta = 
+			                            ADDCOLUMNS(
+			                                SUMMARIZE(
+			                                    FILTER(
+			                                        BaseCP,
+			                                        TB_Fatos_CP[ID_AGP] = AGPID && TB_Fatos_CP[ID_TIPO] = TipoID
+			                                    ),
+			                                    TB_Fatos_CP[CTAFIN],
+			                                    TB_Fatos_CP[DESCTA] ),
+			                            "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+			                                        ),
+			                            "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                                     )
+			                            
+			                            VAR CONTAS = 
+			                            CONCATENATEX(
+			                                TabelaConta,
+			                                    VAR ContaID = TB_Fatos_CP[CTAFIN]
+			                                    VAR ContaAtual = TB_Fatos_CP[DESCTA]
+			                                    VAR ValorConta = [@Valor]
+			                                    VAR ValorDia = [@ValorDia]
+			                                    
+			                                    RETURN
+			                                        "<tr class='child-row TIPO" & TipoID & "'>
+			                                            <td class='indent3'>" & ContaAtual & "</td>
+			                                            <td></td>
+			                                            <td class='num'>" & fxFORMAT(ValorConta,4) & "</td>
+			                                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			                                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			                                            <td></td>
+			                                        </tr>",
+			
+			                                    "",
+			                                    [@Valor],
+			                                    DESC
+			                                )
+			------------------------------------------------------
+			                    RETURN
+			                        "<tr class='child-row AGP" & AGPID & " toggle-row nested'
+			                            data-target = 'TIPO"& TipoID &"'>
+			                            <td class='indent2'>" & TipoAtual & "</td>
+			                            <td></td>
+			                            <td class='num'>" & fxFORMAT(ValorTipo,4) & "</td>
+			                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			                            <td></td>
+			                        </tr>"
+			                        & CONTAS,
+			                    "",
+			                    [@Valor],
+			                    DESC
+			                )
+			----------------------------------------
+			        RETURN
+			        "<tr class='child-row saldo toggle-row nested'
+			            data-target='AGP" & AGPID & "'>
+			            <td class='indent'>" & AGPAtual & "</td>
+			            <td></td>
+			            <td class='num'>" & fxFORMAT(ValorAGP,4) & "</td>
+			            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			            <td></td>
+			        </tr>"
+			        &
+			        Tipos,
+			        "", [@Valor], DESC )
+			-------- SAIDA FINAL
+			RETURN
+			    "<tr class='bold child-row saldo  toggle-row nested'
+			        data-target='" & EmpresaID & "'>
+			        <td>" & EmpresaAtual & "</td>
+			        <td></td>
+			        <td class='num'>" & fxFORMAT(AcumuladoEmpresa,4) & "</td>
+			        <td class='num'>" & fxFORMAT(DiaEmpresa,4) & "</td>
+			        <td class='num'>" & fxFORMAT(TotalEmpresa,4) & "</td>
+			        <td></td>
+			    </tr>"
+			&
+			IF(
+			    EmpresaID = "grassi",
+			    AGPs,
+			    ""
+			) )
+			-- ============================ Entradas TOTAIS ===================================
 			VAR eCARTEIRA = [01. AB Simples]
 			VAR eVinculada = [01. AB Vinculada]
 			VAR eDescontada = [01. AB Descontada]
 			
 			VAR eEntradaTotal = ( eCARTEIRA + eVinculada + eDescontada )
+			
+			-- ========================== SAIDAS TOTAIS ======================================
+			VAR eSaidas = ( [01. Valor AB CP ( Class. Credito )] * -1 )
+			VAR SALDO = tTOTALGERAL + eSaidas
 			RETURN
 			"<!DOCTYPE html>
+			
 			<html lang='pt-BR'>
 			<head>
 			<meta charset='UTF-8'>
@@ -2086,6 +2246,7 @@ table _Medidas
 			  .pct{text-align:right; color:#555;}
 			  .indent{padding-left:28px !important;}
 			  .indent2{padding-left:56px !important;}
+			  .indent3{padding-left:76px !important;}
 			  .negativo{color:var(--vermelho);}
 			  .saldo-dia td{background:var(--amarelo); font-weight:800; font-size:15px;}
 			  .toggle-row{cursor:pointer; background:#fafbfd; user-select:none;}
@@ -2127,8 +2288,8 @@ table _Medidas
 			  <tr><td class='section-title'>Valor de Título para troca</td><td class='num bold'>"& vFaturamentoDiaAnteriorBOLETO &"</td></tr>
 			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
 			
+			    <!-- Saldo Conta -->
 			
-			        <!-- Saldo Conta -->
 			  <tr class='header-row'><th>Saldo em conta</th><th>Corrente</th><th>Garantia</th><th>Vinculada</th><th>Total</th><th>%</th></tr>
 			  <tr class='total-strong'>
 			    <td>Total</td>
@@ -2138,11 +2299,12 @@ table _Medidas
 			    <td class='num'>"& fxFORMAT(tTOTALGERAL,4) &"</td>
 			    <td class='pct'></td>
 			  </tr>
-			    "& HTMLFinal &"
+			    "& HTMLEntrada &"
 			
 			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
 			
-			    <!-- Entradas -->
+			<!-- Entradas -->
+			
 			  <tr class='header-row'>
 			    <th>Entradas</th><th>Carteira</th><th>Vinculada</th><th>Antecipada/Descontada</th><th>Total</th><th>%</th>
 			  </tr>
@@ -2155,25 +2317,13 @@ table _Medidas
 			  </tr>
 			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
 			
-			    <!-- Saidas -->
-			  <tr class='header-row'><th>saídas</th><th>Projetado</th><th>Acumulado Mês</th><th>Dia</th><th>Total</th><th>%</th></tr>
-			  <tr class='toggle-row total-strong' data-target='grassi'>
-			    <td>( + ) Grassi</td><td class='num'>R$ 492,00</td><td class='num'>R$ 1.284,00</td><td class='num'>R$ 492,00</td>
-			    <td class='num negativo'>-R$ 2.268,00</td><td class='pct'>62%</td>
-			  </tr>
-			  <tr class='child-row grassi'><td class='indent'>tipo 1</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
-			  <tr class='child-row grassi'><td class='indent'>tipo 2</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
-			  <tr class='child-row grassi'><td class='indent'>tipo 3</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
-			  <tr class='child-row grassi'><td class='indent'>tipo 4</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
+			<!-- Saidas -->
 			
-			  <tr><td>fruts dia</td><td></td><td></td><td></td><td class='num negativo'>-R$ 435,00</td><td class='pct'>12%</td></tr>
-			  <tr><td>fruts atrasada</td><td></td><td></td><td></td><td class='num negativo'>-R$ 230,00</td><td class='pct'>6%</td></tr>
-			  <tr><td>dubai</td><td></td><td></td><td></td><td class='num negativo'>-R$ 400,00</td><td class='pct'>11%</td></tr>
-			  <tr><td>girassol</td><td></td><td></td><td></td><td class='num negativo'>-R$ 323,00</td><td class='pct'>9%</td></tr>
+			  <tr class='bold header-row'><th>Saídas</th><th>Projetado</th><th>Acumulado Mês</th><th>Dia</th><th>Total</th><th>%</th></tr>
+			  <tr class='bold toggle-row total-strong' data-target='grassi'>
+			    " & vHTMLSAIDAS & "
 			
-			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
-			  <tr class='saldo-dia'><td>saldo dia</td><td></td><td></td><td></td><td class='num negativo'>-R$ 1.656,00</td><td></td></tr>
-			
+			  <tr class='saldo-dia'><td>Saldo dia</td><td></td><td></td><td></td><td class='num negativo'>"& fxFORMAT(SALDO,4) & "</td><td></td></tr>
 			</table>
 			</div>
 			
@@ -2186,6 +2336,7 @@ table _Medidas
 			  });
 			});
 			</script>
+			
 			</body>
 			</html>"
 			```
@@ -2199,7 +2350,7 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure Medida = ```
+	measure MEDIDA = ```
 			
 			VAR vDataSelect = SELECTEDVALUE( 'CALENDARIO DAX'[Date] )
 			
@@ -2213,79 +2364,47 @@ table _Medidas
 			VAR vFaturamentoDoMesDEPOSITO = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Depósito" ), 4 )
 			VAR vFaturamentoDoMesOUTROS   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Outros" ), 4 )
 			-- ===== TOTAIS por BANCOS e CONTAS ==========
-			VAR tCorrente =
-			    CALCULATE(
-			        [08. Saldo Bancos],
-			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "01"
-			    )
-			VAR tGarantia =
-			    CALCULATE(
-			        [08. Saldo Bancos],
-			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "02"
-			    )
-			VAR tVinculada =
-			    CALCULATE(
-			        [08. Saldo Bancos],
-			        RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "03"
-			    )
+			VAR tCorrente =CALCULATE([08. Saldo Bancos],RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "01")
+			VAR tGarantia =CALCULATE([08. Saldo Bancos],RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "02")
+			VAR tVinculada =CALCULATE([08. Saldo Bancos],RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "03")
 			VAR tTOTALGERAL = tCorrente + tGarantia + tVinculada
 			
 			-- ===== BANCOS e Contas =====
-			VAR Bancos =
-			SUMMARIZE(
-			    TB_RTerceiros,
-			    TB_RTerceiros[codBanco],
-			    TB_RTerceiros[Banco]
-			)
+			VAR Bancos =SUMMARIZE(TB_RTerceiros,TB_RTerceiros[codBanco],TB_RTerceiros[Banco])
 			
-			VAR HTMLFinal =
+			VAR HTMLEntrada =
 			
-			CONCATENATEX(
-			    Bancos,
+			CONCATENATEX(Bancos,
 			    VAR BancoAtual = [codBanco]
-			        //---------------------------------------
-			        // Totais do banco
-			        //---------------------------------------
-			        VAR Corrente =
-			            CALCULATE(
-			                [08. Saldo Bancos],
-			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_01"
-			            )
-			        VAR Garantia =
-			            CALCULATE(
-			                [08. Saldo Bancos],
-			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_02"
-			            )
-			        VAR Vinculada =
-			            CALCULATE(
-			                [08. Saldo Bancos],
-			                TB_RTerceiros[xIDTerceiros] = BancoAtual & "_03"
-			            )
-			        VAR TOTAL = CALCULATE( [08. Saldo Bancos], ALL(TB_RTerceiros ), VALUES( 'CALENDARIO DAX'[Date])  )
+			//---------------------------------------// Totais do banco//---------------------------------------
+			    VAR Corrente =CALCULATE([08. Saldo Bancos],TB_RTerceiros[xIDTerceiros] = BancoAtual & "_01")
+			    VAR Garantia =CALCULATE([08. Saldo Bancos],TB_RTerceiros[xIDTerceiros] = BancoAtual & "_02")
+			    VAR Vinculada =CALCULATE([08. Saldo Bancos],TB_RTerceiros[xIDTerceiros] = BancoAtual & "_03")
+			    VAR TOTAL = CALCULATE( [08. Saldo Bancos], ALL(TB_RTerceiros ), VALUES( 'CALENDARIO DAX'[Date])  )
 			
-			        VAR TOTAL_PERCENT = DIVIDE( ABS( Corrente + Garantia + Vinculada ), ABS( TOTAL ), 0 )
-			    //---------------------------------------
-			    // Contas do banco
-			    //---------------------------------------
+			    VAR TOTAL_PERCENT = DIVIDE( ABS( Corrente + Garantia + Vinculada ), ABS( TOTAL ), 0 )
+			//---------------------------------------
+			// Contas do banco
+			//---------------------------------------
 			
-			        VAR ContasBanco =
-			        CONCATENATEX(
-			            FILTER(
-			                TB_RTerceiros,
-			                TB_RTerceiros[codBanco] = BancoAtual
-			            ),
-			                VAR ContaAtual = TB_RTerceiros[xIDTerceiros]
+			    VAR ContasBanco =
+			    CONCATENATEX(
+			        FILTER(
+			            TB_RTerceiros,
+			            TB_RTerceiros[codBanco] = BancoAtual
+			        ),
+			            VAR ContaAtual = TB_RTerceiros[xIDTerceiros]
 			
-			                VAR TipoConta = RIGHT( ContaAtual, 2 )
+			            VAR TipoConta = RIGHT( ContaAtual, 2 )
 			
-			                VAR SaldoConta =
-			                    CALCULATE(
-			                        [08. Saldo Bancos],
-			                          TB_RTerceiros[xIDTerceiros] = ContaAtual
-			                    ) 
-			                VAR vTOTALCONTA = CALCULATE( [08. Saldo Bancos], REMOVEFILTERS(TB_RTerceiros[xIDTerceiros]), KEEPFILTERS(TB_RTerceiros[codBanco] = BancoAtual) )
+			            VAR SaldoConta =
+			                CALCULATE(
+			                    [08. Saldo Bancos],
+			                      TB_RTerceiros[xIDTerceiros] = ContaAtual
+			                ) 
+			            VAR vTOTALCONTA = CALCULATE( [08. Saldo Bancos], REMOVEFILTERS(TB_RTerceiros[xIDTerceiros]), KEEPFILTERS(TB_RTerceiros[codBanco] = BancoAtual) )
 			
-			                VAR vPERCENT = DIVIDE( ABS( SaldoConta ), ABS( Corrente+Garantia+Vinculada ), 0 )
+			            VAR vPERCENT = DIVIDE( ABS( SaldoConta ), ABS( Corrente+Garantia+Vinculada ), 0 )
 			            RETURN  
 			
 			            "<tr class='child-row Banco" & BancoAtual & "'>
@@ -2295,31 +2414,229 @@ table _Medidas
 			                    <td class='num'>" & IF(TipoConta="03",fxFORMAT(SaldoConta,4),"") & "</td>
 			                    <td class='num'>" & fxFORMAT(vTOTALCONTA,4) & "</td>
 			                    <td class='pct'>" & fxFORMAT( vPERCENT, 5 ) &"</td>
-			            </tr>","" ,
+			            </tr>", "" ,
 			                DIVIDE( ABS([08. Saldo Bancos]), ABS(Corrente + Garantia + Vinculada), 0 ),
 			            DESC
 			        )
-			                
-			    //---------------------------------------
-			    // Banco
-			    //---------------------------------------
+			            
+			//---------------------------------------
+			// Banco
+			//---------------------------------------
 			
-			    RETURN
+			RETURN
 			
-			        "<tr class='child-row saldo toggle-row nested' data-target='Banco" & BancoAtual & "'>
-			            <td class='indent'>" & [Banco] & "</td>
-			                <td class='num'>" & fxFORMAT(Corrente,4) & "</td>
-			                <td class='num'>" & fxFORMAT(Garantia,4) & "</td>
-			                <td class='num'>" & fxFORMAT(Vinculada,4) & "</td>
-			                <td class='num'>" & fxFORMAT(Corrente+Garantia+Vinculada,4) & "</td>
-			                <td>"& fxFORMAT( TOTAL_PERCENT , 5 ) &"</td>
+			    "<tr class='child-row saldo toggle-row nested' data-target='Banco" & BancoAtual & "'>
+			        <td class='indent'>" & [Banco] & "</td>
+			            <td class='num'>" & fxFORMAT(Corrente,4) & "</td>
+			            <td class='num'>" & fxFORMAT(Garantia,4) & "</td>
+			            <td class='num'>" & fxFORMAT(Vinculada,4) & "</td>
+			            <td class='num'>" & fxFORMAT(Corrente+Garantia+Vinculada,4) & "</td>
+			            <td>"& fxFORMAT( TOTAL_PERCENT , 5 ) &"</td>
+			    </tr>"
+			    &
+			    ContasBanco
+			
+			)
+			
+			-- ============================ SAIDAS ======================================
+			
+			VAR BaseCP =
+			CALCULATETABLE(
+			    TB_Fatos_CP,
+			        REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) ),
+			        TB_Fatos_CP[DESCRICAO_TIPO_AGP] <> "Class. Credito"
+			    )
+			
+			-- Empresas
+			
+			VAR Empresas =
+			DATATABLE(
+			    "Empresa", 
+			    STRING,{
+			        { "( + ) Grassi" },
+			        { "Fruts Dia" },
+			        { "Fruts Atrasada" },
+			        { "Dubai" },
+			        { "Girassol" }
+			        })
+			VAR vHTMLSAIDAS = 
+			CONCATENATEX(
+			    Empresas,
+			    VAR EmpresaAtual = [Empresa]
+			    VAR EmpresaID =
+			        SWITCH(
+			            EmpresaAtual,
+			            "( + ) Grassi","grassi", 
+			            "Fruts Dia","frutsdia", 
+			            "Fruts Atrasada",
+			            "frutsatrasada", 
+			            "Dubai","dubai", 
+			            "Girassol","girassol" )
+			    VAR ProjetadoEmpresa = 0 
+			    VAR AcumuladoEmpresa = 
+			    SWITCH(
+			        EmpresaID,
+			            "Grassi", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                            REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+			                            ),
+			        0 )
+			    VAR DiaEmpresa = 
+			        SWITCH(
+			        EmpresaID,
+			            "Grassi",[01. Valor AB CP ( Class. Credito )] ,
+			        0 )
+			    VAR TotalEmpresa = DiaEmpresa 
+			    VAR PercentEmpresa = 0
+			-------- LV1
+			    VAR vTabelaAGP = 
+			    ADDCOLUMNS(
+			        SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[DESCRICAO_TIPO_AGP] ), 
+			        "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+			                        ),
+			        "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                )
+			    VAR AGPs = 
+			    CONCATENATEX(
+			        vTabelaAGP,
+			        VAR AGPID = TB_Fatos_CP[ID_AGP]
+			        VAR AGPAtual = TB_Fatos_CP[DESCRICAO_TIPO_AGP]
+			        VAR ValorAGP = [@Valor]
+			        VAR ValorDia = [@ValorDia]
+			-------------------- LV2
+			            VAR TabelaTipo =
+			                ADDCOLUMNS(
+			                    SUMMARIZE(
+			                        FILTER(
+			                            BaseCP,
+			                            TB_Fatos_CP[ID_AGP] = AGPID
+			                        ),
+			                        TB_Fatos_CP[ID_TIPO],
+			                        TB_Fatos_CP[DESCRICAO_TIPO]
+			                    ),
+			                    "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                                REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+			                                ),
+			                    "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                )
+			
+			            VAR Tipos =
+			                CONCATENATEX(
+			                    TabelaTipo,
+			
+			                    VAR TipoID = TB_Fatos_CP[ID_TIPO]
+			                    VAR TipoAtual = TB_Fatos_CP[DESCRICAO_TIPO]
+			                    VAR ValorTipo = [@Valor]
+			                    VAR ValorDia = [@ValorDia]
+			
+			------------------------------- LV3
+			                            VAR TabelaConta = 
+			                            ADDCOLUMNS(
+			                                SUMMARIZE(
+			                                    FILTER(
+			                                        BaseCP,
+			                                        TB_Fatos_CP[ID_AGP] = AGPID && TB_Fatos_CP[ID_TIPO] = TipoID
+			                                    ),
+			                                    TB_Fatos_CP[CTAFIN],
+			                                    TB_Fatos_CP[DESCTA] ),
+			                            "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
+			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
+			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+			                                        ),
+			                            "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                                     )
+			                            
+			                            VAR CONTAS = 
+			                            CONCATENATEX(
+			                                TabelaConta,
+			                                    VAR ContaID = TB_Fatos_CP[CTAFIN]
+			                                    VAR ContaAtual = TB_Fatos_CP[DESCTA]
+			                                    VAR ValorConta = [@Valor]
+			                                    VAR ValorDia = [@ValorDia]
+			                                    
+			                                    RETURN
+			                                        "<tr class='child-row TIPO" & TipoID & "'>
+			                                            <td class='indent3'>" & ContaAtual & "</td>
+			                                            <td></td>
+			                                            <td class='num'>" & fxFORMAT(ValorConta,4) & "</td>
+			                                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			                                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			                                            <td></td>
+			                                        </tr>",
+			
+			                                    "",
+			                                    [@Valor],
+			                                    DESC
+			                                )
+			------------------------------------------------------
+			                    RETURN
+			                        "<tr class='child-row AGP" & AGPID & " toggle-row nested'
+			                            data-target = 'TIPO"& TipoID &"'>
+			                            <td class='indent2'>" & TipoAtual & "</td>
+			                            <td></td>
+			                            <td class='num'>" & fxFORMAT(ValorTipo,4) & "</td>
+			                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			                            <td></td>
+			                        </tr>"
+			                        & CONTAS,
+			                    "",
+			                    [@Valor],
+			                    DESC
+			                )
+			----------------------------------------
+			        RETURN
+			        "<tr class='child-row saldo toggle-row nested'
+			            data-target='AGP" & AGPID & "'>
+			            <td class='indent'>" & AGPAtual & "</td>
+			            <td></td>
+			            <td class='num'>" & fxFORMAT(ValorAGP,4) & "</td>
+			            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
+			            <td></td>
 			        </tr>"
 			        &
-			        ContasBanco
-			)
-			    
+			        Tipos,
+			        "", [@Valor], DESC )
+			-------- SAIDA FINAL
+			RETURN
+			    "<tr class='bold child-row saldo  toggle-row nested'
+			        data-target='" & EmpresaID & "'>
+			        <td>" & EmpresaAtual & "</td>
+			        <td></td>
+			        <td class='num'>" & fxFORMAT(AcumuladoEmpresa,4) & "</td>
+			        <td class='num'>" & fxFORMAT(DiaEmpresa,4) & "</td>
+			        <td class='num'>" & fxFORMAT(TotalEmpresa,4) & "</td>
+			        <td></td>
+			    </tr>"
+			&
+			IF(
+			    EmpresaID = "grassi",
+			    AGPs,
+			    ""
+			) )
+			-- ============================ Entradas TOTAIS ===================================
+			VAR eCARTEIRA = [01. AB Simples]
+			VAR eVinculada = [01. AB Vinculada]
+			VAR eDescontada = [01. AB Descontada]
+			
+			VAR eEntradaTotal = ( eCARTEIRA + eVinculada + eDescontada )
+			
+			-- ========================== SAIDAS TOTAIS ======================================
+			VAR eSaidas = ( [01. Valor AB CP ( Class. Credito )] * -1 )
+			VAR SALDO = tTOTALGERAL + eSaidas
 			RETURN
 			"<!DOCTYPE html>
+			
 			<html lang='pt-BR'>
 			<head>
 			<meta charset='UTF-8'>
@@ -2342,6 +2659,7 @@ table _Medidas
 			  .pct{text-align:right; color:#555;}
 			  .indent{padding-left:28px !important;}
 			  .indent2{padding-left:56px !important;}
+			  .indent3{padding-left:76px !important;}
 			  .negativo{color:var(--vermelho);}
 			  .saldo-dia td{background:var(--amarelo); font-weight:800; font-size:15px;}
 			  .toggle-row{cursor:pointer; background:#fafbfd; user-select:none;}
@@ -2383,6 +2701,8 @@ table _Medidas
 			  <tr><td class='section-title'>Valor de Título para troca</td><td class='num bold'>"& vFaturamentoDiaAnteriorBOLETO &"</td></tr>
 			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
 			
+			    <!-- Saldo Conta -->
+			
 			  <tr class='header-row'><th>Saldo em conta</th><th>Corrente</th><th>Garantia</th><th>Vinculada</th><th>Total</th><th>%</th></tr>
 			  <tr class='total-strong'>
 			    <td>Total</td>
@@ -2392,28 +2712,31 @@ table _Medidas
 			    <td class='num'>"& fxFORMAT(tTOTALGERAL,4) &"</td>
 			    <td class='pct'></td>
 			  </tr>
-			    "& HTMLFinal &"
+			    "& HTMLEntrada &"
 			
 			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
 			
-			  <tr class='header-row'><th>saídas</th><th>Projetado</th><th>Acumulado Mês</th><th>Dia</th><th>Total</th><th>%</th></tr>
-			  <tr class='toggle-row total-strong' data-target='grassi'>
-			    <td>( + ) Grassi</td><td class='num'>R$ 492,00</td><td class='num'>R$ 1.284,00</td><td class='num'>R$ 492,00</td>
-			    <td class='num negativo'>-R$ 2.268,00</td><td class='pct'>62%</td>
+			<!-- Entradas -->
+			
+			  <tr class='header-row'>
+			    <th>Entradas</th><th>Carteira</th><th>Vinculada</th><th>Antecipada/Descontada</th><th>Total</th><th>%</th>
 			  </tr>
-			  <tr class='child-row grassi'><td class='indent'>tipo 1</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
-			  <tr class='child-row grassi'><td class='indent'>tipo 2</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
-			  <tr class='child-row grassi'><td class='indent'>tipo 3</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
-			  <tr class='child-row grassi'><td class='indent'>tipo 4</td><td class='num'>R$ 123,00</td><td class='num'>R$ 321,00</td><td class='num'>R$ 123,00</td><td class='num negativo'>-R$ 567,00</td><td class='pct'>25%</td></tr>
-			
-			  <tr><td>fruts dia</td><td></td><td></td><td></td><td class='num negativo'>-R$ 435,00</td><td class='pct'>12%</td></tr>
-			  <tr><td>fruts atrasada</td><td></td><td></td><td></td><td class='num negativo'>-R$ 230,00</td><td class='pct'>6%</td></tr>
-			  <tr><td>dubai</td><td></td><td></td><td></td><td class='num negativo'>-R$ 400,00</td><td class='pct'>11%</td></tr>
-			  <tr><td>girassol</td><td></td><td></td><td></td><td class='num negativo'>-R$ 323,00</td><td class='pct'>9%</td></tr>
-			
+			     <td class='bold'>Projeçao de Contas a Receber</td>
+			        <td class='num bold'>"& fxFORMAT(eCARTEIRA,4) & "</td>
+			        <td class='num bold'>"& fxFORMAT(eVinculada,4) & "</td>
+			        <td class='num bold'>"& fxFORMAT(eDescontada,4) & "</td>
+			        <td class='num bold'>"& fxFORMAT(eEntradaTotal,4) & "</td>
+			        <td class='pct'></td>
+			  </tr>
 			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
-			  <tr class='saldo-dia'><td>saldo dia</td><td></td><td></td><td></td><td class='num negativo'>-R$ 1.656,00</td><td></td></tr>
 			
+			<!-- Saidas -->
+			
+			  <tr class='bold header-row'><th>Saídas</th><th>Projetado</th><th>Acumulado Mês</th><th>Dia</th><th>Total</th><th>%</th></tr>
+			  <tr class='bold toggle-row total-strong' data-target='grassi'>
+			    " & vHTMLSAIDAS & "
+			
+			  <tr class='saldo-dia'><td>Saldo dia</td><td></td><td></td><td></td><td class='num negativo'>"& fxFORMAT(SALDO,4) & "</td><td></td></tr>
 			</table>
 			</div>
 			
@@ -2426,29 +2749,80 @@ table _Medidas
 			  });
 			});
 			</script>
+			
 			</body>
 			</html>"
 			```
 		lineageTag: 78c6a0fd-81e0-489b-a30f-a647e489fb0f
 
-	measure 'Medida 2' = ```
+	measure 'Medida 2' =
 			
-			                VAR ContaAtual = SELECTEDVALUE( TB_RTerceiros[xIDTerceiros] )
-			
-			                VAR TipoConta = RIGHT( ContaAtual, 2 )
-			
-			                VAR SaldoConta =
-			                    CALCULATE(
-			                        [08. Saldo Bancos],
-			                          TB_RTerceiros[xIDTerceiros] = ContaAtual
-			                    ) 
-			                VAR vTOTALCONTA = CALCULATE( [08. Saldo Bancos], ALL( TB_RTerceiros[Contas] ) )
-			                VAR vPERCENTE = fxFORMAT( DIVIDE(ABS( SaldoConta ), ABS( vTOTALCONTA ),0), 5 ) 
-			
-			RETURN
-			vPERCENTE
-			```
+			CALCULATE(
+			    [01. Valor AB CP ( Class. Credito )],
+			    REMOVEFILTERS( 'CALENDARIO DAX' ),
+			    KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )),
+			    KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+			)
 		lineageTag: 0ea16332-c327-46ac-9328-4bc914b0c05b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '01. Valor AB CP' =
+			
+			SUM( TB_Fatos_CP[Valor_em_Aberto] )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Geral
+		lineageTag: 567240e9-4c89-49c9-a959-8f946f80200e
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Valor AB CP ( Class. Credito )' =
+			
+			CALCULATE(
+			    [01. Valor AB CP],
+			    KEEPFILTERS( TB_Fatos_CP[DESCRICAO_TIPO_AGP] <> "Class. Credito" )
+			)
+		displayFolder: 01. Valores Totais
+		lineageTag: c4fdd2c0-93d4-407d-89db-27c5a1cd1767
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '07. % FPG CR' = ```
+			
+			DIVIDE( 
+			    [07.  CR Valor Original FAT] ,
+			            CALCULATE(
+			                [07.  CR Valor Original FAT],
+			                ALLSELECTED( TB_PGT[desfpg] )
+			            )
+			)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 80fbd1ed-60c4-48ab-828e-417121b19895
+
+	measure '07. % FPG FAt' = ```
+			
+			DIVIDE( 
+			    [07. Total Faturado Geral] ,
+			            CALCULATE(
+			                [07. Total Faturado Geral],
+			                ALLSELECTED( TB_PGT[desfpg] )
+			            )
+			)
+			```
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		lineageTag: 62b3ca55-604f-4bdb-a337-bff5eaf98f32
+
+	measure '01. Total AB CP' =
+			
+			CALCULATE(
+			    [01. Valor AB CP],
+			    TB_Fatos_CP[Tipo_Calculo] = "Soma Duplicata"
+			    )
+		displayFolder: 01. Valores Totais\Geral
+		lineageTag: ff1b31a3-0ebc-4ac1-b2a0-c016c07ce46a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition _Medidas = m
 		mode: import

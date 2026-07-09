@@ -82,7 +82,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''TB_CLI''[xREDE]'"
+                                "Value": "'''TB_CLI''[nomcli]'"
                               }
                             }
                           ],
@@ -139,7 +139,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''TB_CLI''[xREDE]'"
+                                      "Value": "'''TB_CLI''[nomcli]'"
                                     }
                                   }
                                 ]
@@ -180,7 +180,7 @@
                             "0": "Nome do Mês"
                           },
                           {
-                            "0": "xREDE"
+                            "0": "Nome Cliente"
                           },
                           {
                             "0": "UF"

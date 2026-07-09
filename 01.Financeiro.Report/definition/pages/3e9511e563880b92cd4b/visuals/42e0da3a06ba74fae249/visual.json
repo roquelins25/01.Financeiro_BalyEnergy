@@ -1,0 +1,103 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "42e0da3a06ba74fae249",
+  "position": {
+    "x": 1334.1083223249668,
+    "y": 185.15191545574635,
+    "z": 4,
+    "height": 242.21928665785995,
+    "width": 585.891677675033
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_PGT"
+                    }
+                  },
+                  "Property": "desfpg"
+                }
+              },
+              "queryRef": "TB_PGT.desfpg",
+              "nativeQueryRef": "desfpg",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "07.  CR Valor Original FAT"
+                }
+              },
+              "queryRef": "_Medidas.07.  CR Valor Original FAT",
+              "nativeQueryRef": "07.  CR Valor Original FAT"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "07. Total Faturado Geral"
+                }
+              },
+              "queryRef": "_Medidas.07. Total Faturado Geral",
+              "nativeQueryRef": "07. Total Faturado Geral"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "07.  CR Valor Original FAT"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

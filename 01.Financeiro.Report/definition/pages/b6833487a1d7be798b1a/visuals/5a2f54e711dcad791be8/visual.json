@@ -72,7 +72,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "01. Valor Geral"
+                  "Property": "01. Valor AB CR"
                 }
               },
               "queryRef": "_Medidas.01. Valor Geral",

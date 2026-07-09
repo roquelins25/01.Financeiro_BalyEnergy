@@ -55,13 +55,13 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "xREDE"
+                  "Property": "nomcli"
                 }
               },
-              "queryRef": "TB_CLI.xREDE",
-              "nativeQueryRef": "xREDE",
+              "queryRef": "TB_CLI.nomcli",
+              "nativeQueryRef": "Nome Cliente",
               "active": false,
-              "displayName": "xREDE"
+              "displayName": "Nome Cliente"
             },
             {
               "field": {
@@ -197,45 +197,19 @@
               "CALENDARIO DAX.Nome do Mês"
             ],
             "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
-                    }
-                  },
-                  "Property": "Nome do Mês"
-                }
-              }
-            ],
             "isPinned": true
           },
           {
             "queryRefs": [
-              "TB_CLI.xREDE"
+              "TB_CLI.nomcli"
             ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_CLI"
-                    }
-                  },
-                  "Property": "xREDE"
-                }
-              }
-            ],
-            "isPinned": true
+            "isCollapsed": true
           },
           {
             "queryRefs": [
               "xUF_Regiao.UF"
             ],
-            "isCollapsed": true,
-            "isPinned": true
+            "isCollapsed": true
           }
         ],
         "root": {}

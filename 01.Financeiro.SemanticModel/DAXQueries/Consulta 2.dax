@@ -1,30 +1,7 @@
 EVALUATE
-VAR vBancosBase =
-    ADDCOLUMNS(
-        VALUES( TB_RTerceiros[codBanco] ),
-        "@NomeBanco", CALCULATE( VALUES( TB_RTerceiros[Banco] ) )
+CALCULATETABLE(
+    TB_Fatos_CP,
+    REMOVEFILTERS('CALENDARIO DAX'),
+    KEEPFILTERS(VALUES('CALENDARIO DAX'[Ano])),
+    KEEPFILTERS(VALUES('CALENDARIO DAX'[Mês]))
     )
-
-VAR vBancosFinal =
-    ADDCOLUMNS(
-        vBancosBase,
-        "@Corrente",
-            VAR vCod = TB_RTerceiros[codBanco]
-            RETURN CALCULATE( [08. Saldo Bancos], TB_RTerceiros[xIDTerceiros] = vCod & "_01" ),
-        "@Deposito",
-            VAR vCod = TB_RTerceiros[codBanco]
-            RETURN CALCULATE( [08. Saldo Bancos], TB_RTerceiros[xIDTerceiros] = vCod & "_02" ),
-        "@Vinculada",
-            VAR vCod = TB_RTerceiros[codBanco]
-            RETURN CALCULATE( [08. Saldo Bancos], TB_RTerceiros[xIDTerceiros] = vCod & "_03" )
-    )
-
--- @Total precisa estar em ADDCOLUMNS SEPARADO, nunca no mesmo bloco que cria @Corrente/@Deposito/@Vinculada
-VAR vBancosComTotal =
-    ADDCOLUMNS(
-        vBancosFinal,
-        "@Total", [@Corrente] + [@Deposito] + [@Vinculada]
-    )
-
-RETURN
-vBancosComTotal
