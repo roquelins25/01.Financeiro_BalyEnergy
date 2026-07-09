@@ -1,45 +1,12 @@
 table TB_Fatos_CP
 	lineageTag: 820916e0-9bc9-4d53-938e-57697026785a
 
-	column CODEMP
-		dataType: int64
-		formatString: 0
-		lineageTag: 54b4eb14-adfe-4cc4-bfb0-b7c05b9eb38a
-		summarizeBy: sum
-		sourceColumn: CODEMP
-
-		annotation SummarizationSetBy = Automatic
-
-	column NomEmp
-		dataType: string
-		lineageTag: 7044f8f7-7de2-4543-b4f8-4b90a0f34dfb
-		summarizeBy: none
-		sourceColumn: NomEmp
-
-		annotation SummarizationSetBy = Automatic
-
 	column CODCLI
 		dataType: int64
 		formatString: 0
 		lineageTag: 7719a265-33fe-4fc0-98ff-4828892933e2
 		summarizeBy: none
 		sourceColumn: CODCLI
-
-		annotation SummarizationSetBy = Automatic
-
-	column NOMCLI
-		dataType: string
-		lineageTag: 3368b56e-f5f6-435c-9766-b0a76303d2eb
-		summarizeBy: none
-		sourceColumn: NOMCLI
-
-		annotation SummarizationSetBy = Automatic
-
-	column NUMTIT
-		dataType: string
-		lineageTag: 13ff7abf-dea6-4778-a688-2728d2961000
-		summarizeBy: none
-		sourceColumn: NUMTIT
 
 		annotation SummarizationSetBy = Automatic
 
@@ -111,11 +78,6 @@ table TB_Fatos_CP
 		summarizeBy: none
 		sourceColumn: vctpro
 
-		variation Variation
-			isDefault
-			relationship: 6823341d-cd51-4b59-aff9-c72be96f2a57
-			defaultHierarchy: LocalDateTable_d72db5bb-7f3f-4110-98c3-89053b78d0a8.'Hierarquia de datas'
-
 		annotation SummarizationSetBy = Automatic
 
 	column VLRABE
@@ -144,12 +106,21 @@ table TB_Fatos_CP
 
 		annotation SummarizationSetBy = Automatic
 
+	column codemp
+		dataType: int64
+		formatString: 0
+		lineageTag: c4ecded5-d4de-436a-a148-0aecf5fe5857
+		summarizeBy: sum
+		sourceColumn: codemp
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_Fatos_CP = m
 		mode: import
 		queryGroup: _Fatos
 		source =
 				let
-				  Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP", [Query="select#(lf)*#(lf)from USU_VIEW_FluxoCaixa_Receber_Pagar#(lf)WHERE  #(lf)#(tab)   tipo = 'CP' AND #(lf)#(tab)   CODCLI NOT IN ('11143')", CommandTimeout=#duration(0, 2, 0, 0)])
+				  Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP", [Query="select#(lf)#(tab)tipo ,#(lf)#(tab)codemp ,#(lf)#(tab)CODCLI ,#(lf)#(tab)CodCcu ,#(lf)#(tab)DesCcu ,#(lf)#(tab)CtaFin ,#(lf)#(tab)DesCta ,#(lf)#(tab)CASE #(lf)#(tab)#(tab)WHEN ( despar = '' ) OR ( despar is null ) then 'Sem Classficacao'#(lf)#(tab)#(tab)ELSE despar#(lf)#(tab)END as despar,#(lf)#(tab)datemi ,#(lf)#(tab)datent ,#(lf)#(tab)vctpro ,#(lf)#(tab)VLRABE #(lf)from USU_VIEW_FluxoCaixa_Receber_Pagar#(lf)WHERE  tipo = 'CP' AND #(lf)#(tab)   CODCLI NOT IN ('11143')", CommandTimeout=#duration(0, 2, 0, 0)])
 				in
 				  Fonte
 
