@@ -6,7 +6,8 @@
     "y": 33.187483374313693,
     "z": 2000,
     "height": 303.98712791633147,
-    "width": 656.16733708769107
+    "width": 656.16733708769107,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -64,7 +65,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "titulo"
@@ -105,6 +106,20 @@
               },
               "queryRef": "_Medidas.02. QTD titulos s\\ Cod",
               "nativeQueryRef": "02. QTD titulos s\\ Cod"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "02. QTD titulos s\\ OBS"
+                }
+              },
+              "queryRef": "_Medidas.02. QTD titulos s\\ OBS",
+              "nativeQueryRef": "02. QTD titulos s\\ OBS"
             }
           ]
         }
@@ -119,7 +134,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "02. QTD titulos s\\ Cod"
+                "Property": "02. QTD titulos s\\ OBS"
               }
             },
             "direction": "Descending"
@@ -204,7 +219,7 @@
               "identityValues": [
                 {
                   "Literal": {
-                    "Value": "'Operação PR e Norte'"
+                    "Value": "'Operação RJ e SP'"
                   }
                 }
               ],
@@ -217,62 +232,7 @@
                       }
                     }
                   ],
-                  "isToggled": true,
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'1477 - POLYBALAS DISTRIBUIDORA E LOGISTICA LTDA'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    },
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'1078 - João Roberto Stresser Neto & Cia Ltda'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'Operação RS'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'Outros Clientes ( UF )'"
-                      }
-                    }
-                  ],
-                  "isToggled": true,
-                  "children": [
-                    {
-                      "identityValues": [
-                        {
-                          "Literal": {
-                            "Value": "'997 - Comercial Zaffari'"
-                          }
-                        }
-                      ],
-                      "isToggled": true
-                    }
-                  ]
+                  "isToggled": true
                 }
               ]
             }
@@ -327,7 +287,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "301.6105023604524D"
+                  "Value": "178.11950922735488D"
                 }
               }
             }

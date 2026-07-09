@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 55,
     "width": 300,
-    "tabOrder": 2000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "slicer",
@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "tipo"
@@ -57,7 +57,7 @@
                 "From": [
                   {
                     "Name": "t",
-                    "Entity": "TB_Fatos",
+                    "Entity": "TB_Fatos_CR",
                     "Type": 0
                   }
                 ],

@@ -6,7 +6,8 @@
     "y": 432.889593053922,
     "z": 3000,
     "height": 213.39198377632732,
-    "width": 533.76924358630072
+    "width": 533.76924358630072,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "funnel",
@@ -41,11 +42,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "02. QTD titulos s\\ Cod"
+                  "Property": "02. QTD titulos s\\ OBS"
                 }
               },
-              "queryRef": "_Medidas.02. QTD titulos s\\ Cod",
-              "nativeQueryRef": "02. QTD titulos s\\ Cod"
+              "queryRef": "_Medidas.02. QTD titulos s\\ OBS",
+              "nativeQueryRef": "02. QTD titulos s\\ OBS"
             }
           ]
         }
@@ -60,7 +61,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "02. QTD titulos s\\ Cod"
+                "Property": "02. QTD titulos s\\ OBS"
               }
             },
             "direction": "Descending"

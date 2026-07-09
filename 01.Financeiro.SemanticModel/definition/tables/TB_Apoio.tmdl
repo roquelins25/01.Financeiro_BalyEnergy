@@ -33,16 +33,31 @@ table TB_Apoio
 
 		annotation SummarizationSetBy = Automatic
 
+	column xCODCART
+		dataType: double
+		lineageTag: 0966cbef-4b84-4eec-abdd-b61d54b1b9fb
+		summarizeBy: none
+		sourceColumn: xCODCART
+		sortByColumn: Carteira
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition TB_Apoio = m
 		mode: import
 		queryGroup: _Dim
 		source =
 				let
-				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("pdVBz4IgGAfwr+I817XtPT4IWpuSQ3JrroOvcaCZubQ+f9QlOcafK+w3+PPw0DQxK8p4FSvTmX/7NHaK1tF4v13M3J5bN8EfY2+7dm6nKOmtGWbzXsHN1N2Gz5LTqom3JHFE8RQ2SONGRrXANyI1juxLofBYBcdPw/TvRmWvY2+mD8DpiO9ipwlHmOIVjJR5wrBAMibBSBNSqCD1FhNIZgFVvhT+3MAEJQJazxKoUsKrO8EEV9oHTGAq5HF4OVBa/y7Uduge/fd1UUAD9g2XxQY13I3AZ6l2aUD39Y18rwO6jW+UShSoURzygBr3DVGH/EYL4/QC", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [potador = _t, #"apoio para a view" = _t, descrição = _t]),
+				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("pdUxboMwFAbgqyDmpGOljjY2JBEQZBykCjE4xIMrCihALtShB8nF6qZSG2+Nfzbkp0/2z/OjrkOaFeEqFLrVR3PRZgrWwXge3vSsTsousGXsTKtmNQVRZ3Q/6+8Kpqd26G8lzaoONyTHEcFi2CASNxJScXwjucSRfcEFHitn+GmofNwozfvY6ekGMPKK72IrCY5QwUoYKdKIYoEkNAcjjYhAhVxuMIHkiUeX3wsv9sEEwT1Gzz1QxgTv7ggTbGsfMIEKn8vh5EDi6nGhMn27dH+3i3gMYNewWTyjhv0i8FnKbewxfV0j3UuPaeMaheAZamSH1KPHXYNXPn8j1xA82v0Yy6jP6vp5/RiC3XIyrVGdrbYLT7/v/y9smi8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [potador = _t, #"apoio para a view" = _t, descrição = _t]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(Origem,{{"potador", type text}, {"apoio para a view", type text}, {"descrição", type text}}),
-				    #"Texto Inserido Após o Delimitador" = Table.AddColumn(#"Tipo Alterado", "Carteira", each Text.AfterDelimiter([descrição], "- "), type text)
+				    #"Texto Inserido Após o Delimitador" = Table.AddColumn(#"Tipo Alterado", "Carteira", each Text.AfterDelimiter([descrição], "- "), type text),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Texto Inserido Após o Delimitador", "xCODCART", each if [Carteira] = "Descontada" then 100001 else if [Carteira] = "Simples" then 100002 else if [Carteira] = "Vinculada" then 100003 else if [Carteira] = "Rec. Judicial" then 100004 else 0),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Condicional Adicionada",{{"xCODCART", type number}})
 				in
-				  #"Texto Inserido Após o Delimitador"
+				  #"Tipo Alterado1"
 
 	annotation PBI_NavigationStepName = Navegação
 

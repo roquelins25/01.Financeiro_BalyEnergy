@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "5298e37612ef3d73fa28",
+  "position": {
+    "x": 1334.1083223249668,
+    "y": 15.217965653896961,
+    "z": 2,
+    "height": 164.86129458388373,
+    "width": 585.891677675033
+  },
+  "visual": {
+    "visualType": "multiRowCard",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "07. Total Faturado Geral"
+                }
+              },
+              "queryRef": "_Medidas.07. Total Faturado Geral",
+              "nativeQueryRef": "07. Total Faturado Geral"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "07.  CR Valor Original FAT"
+                }
+              },
+              "queryRef": "_Medidas.07.  CR Valor Original FAT",
+              "nativeQueryRef": "07.  CR Valor Original FAT"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "07. Total Faturado Geral"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,158 @@
+table TB_Fat
+	lineageTag: f690bb05-7765-459e-8c4c-96922f796680
+
+	column codemp
+		dataType: int64
+		formatString: 0
+		lineageTag: e8d90687-0d42-48cf-ba6a-6754bb0ded07
+		summarizeBy: sum
+		sourceColumn: codemp
+
+		annotation SummarizationSetBy = Automatic
+
+	column codfil
+		dataType: int64
+		formatString: 0
+		lineageTag: d55abaea-3aa2-4921-be41-f48dddbf91ae
+		summarizeBy: sum
+		sourceColumn: codfil
+
+		annotation SummarizationSetBy = Automatic
+
+	column datemi
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9f6a26c1-7cb7-4c83-804a-c78a93dc1f3b
+		summarizeBy: none
+		sourceColumn: datemi
+
+		annotation SummarizationSetBy = Automatic
+
+	column codsnf
+		dataType: string
+		lineageTag: 473d3cb0-d4bf-4c7b-ac0c-170efd76a873
+		summarizeBy: none
+		sourceColumn: codsnf
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipnfs
+		dataType: int64
+		formatString: 0
+		lineageTag: 9aa877aa-c40e-4d83-b7e1-b8b45e83eb3e
+		summarizeBy: sum
+		sourceColumn: tipnfs
+
+		annotation SummarizationSetBy = Automatic
+
+	column tnspro
+		dataType: string
+		lineageTag: eddcf6c5-936b-483d-9b21-40d5c640c0a6
+		summarizeBy: none
+		sourceColumn: tnspro
+
+		annotation SummarizationSetBy = Automatic
+
+	column codcli
+		dataType: int64
+		formatString: 0
+		lineageTag: 41765d43-b1ee-42bc-b114-ea8306262e2f
+		summarizeBy: none
+		sourceColumn: codcli
+
+		annotation SummarizationSetBy = Automatic
+
+	column codrep
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fd2d251-f459-4cc0-9595-5ec5c9ef62a1
+		summarizeBy: none
+		sourceColumn: codrep
+
+		annotation SummarizationSetBy = Automatic
+
+	column codcpg
+		dataType: string
+		lineageTag: 78704bf9-7239-4eb1-9314-f5eac706e07a
+		summarizeBy: none
+		sourceColumn: codcpg
+
+		annotation SummarizationSetBy = Automatic
+
+	column codfpg
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f04822b-e543-499f-a45e-3599a92786bc
+		summarizeBy: none
+		sourceColumn: codfpg
+
+		annotation SummarizationSetBy = Automatic
+
+	column sitnfv
+		dataType: string
+		lineageTag: 066ed1c9-b0d5-492c-9ff4-77a3d072e290
+		summarizeBy: none
+		sourceColumn: sitnfv
+
+		annotation SummarizationSetBy = Automatic
+
+	column numnfv
+		dataType: int64
+		formatString: 0
+		lineageTag: b06de60f-9572-4701-b87b-77fddd505ba5
+		summarizeBy: none
+		sourceColumn: numnfv
+
+		annotation SummarizationSetBy = Automatic
+
+	column codpro
+		dataType: string
+		lineageTag: 9d28b0ef-0def-4473-a6a5-a6485213e48b
+		summarizeBy: none
+		sourceColumn: codpro
+
+		annotation SummarizationSetBy = Automatic
+
+	column vlrliq
+		dataType: double
+		lineageTag: 771e5f1f-493c-455f-bc44-760674aa5a13
+		summarizeBy: sum
+		sourceColumn: vlrliq
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vlrfin
+		dataType: double
+		lineageTag: 343043b7-81ec-4ee9-865d-6c9fa2a23648
+		summarizeBy: sum
+		sourceColumn: vlrfin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column qtdfat
+		dataType: double
+		lineageTag: 025d6276-26f3-4edd-9dd6-78f9e0bdb1b8
+		summarizeBy: sum
+		sourceColumn: qtdfat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition TB_Fat = m
+		mode: import
+		queryGroup: _Fatos
+		source =
+				let
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="        SELECT #(lf)        #(tab)nfv.codemp codemp,#(lf)        #(tab)nfv.codfil codfil,#(lf)        #(tab)nfv.datemi datemi,#(lf)        #(tab)nfv.codsnf codsnf,#(lf)        #(tab)nfv.tipnfs tipnfs,#(lf)        #(tab)ipv.tnspro tnspro,#(lf)        #(tab)nfv.codcli codcli,#(lf)        #(tab)nfv.codrep codrep,#(lf)        #(tab)nfv.codcpg codcpg,#(lf)        #(tab)nfv.codfpg codfpg,#(lf)        #(tab)nfv.sitnfv sitnfv,#(lf)        #(tab)nfv.numnfv numnfv,#(lf)        #(tab)#(lf)        #(tab)ipv.codpro codpro,#(lf)        #(tab)ipv.vlrliq vlrliq,#(lf)        #(tab)ipv.vlrfin vlrfin,#(lf)        #(tab)ipv.qtdfat qtdfat#(lf)        #(tab)#(lf)        FROM e140nfv nfv       #(lf)        INNER JOIN e140ipv ipv ON nfv.codemp = ipv.codemp                                           #(lf)                              AND nfv.codfil = ipv.codfil                                            #(lf)                              AND nfv.codsnf = ipv.codsnf                                            #(lf)                              AND nfv.numnfv = ipv.numnfv                        #(lf)        INNER JOIN e140ide ide ON ide.codemp = nfv.codemp                                            #(lf)                              AND ide.codfil = nfv.codfil                                            #(lf)                              AND ide.codsnf = nfv.codsnf                                            #(lf)                              AND ide.numnfv = nfv.numnfv#(lf)        WHERE ide.SitDoe = 3  -- filtra retorno sefaz = Autorizada                        #(lf)          AND nfv.sitnfv = 2  -- filtra somente NF fechada#(lf)          AND (ipv.tnspro LIKE '5%' OR ipv.tnspro LIKE '6%' OR ipv.tnspro LIKE '7%') --Filtra Transacao de Venda                    #(lf)          AND nfv.datemi >= '20210101' -- retira Fruts#(lf)          AND nfv.codcli not in('11143','21982','17661','5517','2394','17935')"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

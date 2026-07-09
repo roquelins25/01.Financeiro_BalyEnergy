@@ -91,7 +91,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "sit"
@@ -139,7 +139,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "01. Valor Geral"
+                      "Property": "01. Valor AB CR"
                     }
                   },
                   "howCreated": 0
@@ -558,7 +558,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "sit"
@@ -1237,30 +1237,6 @@
               ]
             }
           },
-          "0fec067276d9ce1e2605": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "9ebb589b1d969a7a3552": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "dcb0ff614777977b8b95": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "8f9fe5c7dcd090b93960": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
           "418e2a9b760b4a3ae737": {
             "singleVisual": {
               "visualType": "actionButton",
@@ -1464,7 +1440,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -1487,7 +1463,7 @@
                             "From": [
                               {
                                 "Name": "t",
-                                "Entity": "TB_Fatos",
+                                "Entity": "TB_Fatos_CR",
                                 "Type": 0
                               }
                             ],
@@ -1581,7 +1557,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"

@@ -25,6 +25,45 @@ table TB_PGT
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"TB_PGT","TableItemName":"abrfpg (grupos)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column 'abrfpg (grupos)' =
+			SWITCH(
+				TRUE,
+				ISBLANK('TB_PGT'[abrfpg]),
+				"(Em branco)",
+				'TB_PGT'[abrfpg] IN {"Boleto"},
+				"Boleto",
+				'TB_PGT'[abrfpg] IN {"Dep. C/C",
+					"Dep. Conta",
+					"Deposito"},
+				"Depósito",
+				"Outros"
+			)
+		lineageTag: 0145786a-0a57-4298-99b2-6a181311192b
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "TB_PGT"
+				          }
+				        },
+				        "Property": "abrfpg"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"TB_PGT"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"abrfpg"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"Boleto","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"abrfpg"}}],"Values":[[{"Literal":{"Value":"'Boleto'"}}]]}}},{"DisplayName":"Depósito","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"abrfpg"}}],"Values":[[{"Literal":{"Value":"'Dep. C/C'"}}],[{"Literal":{"Value":"'Dep. Conta'"}}],[{"Literal":{"Value":"'Deposito'"}}]]}}},{"DisplayName":"Outros"}]}
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_PGT = m
 		mode: import
 		queryGroup: _Dim

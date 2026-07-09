@@ -225,7 +225,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "titulo"
@@ -242,7 +242,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "TB_Fatos"
+                              "Entity": "TB_Fatos_CR"
                             }
                           },
                           "Property": "emissao"
@@ -262,7 +262,7 @@
                         "Column": {
                           "Expression": {
                             "SourceRef": {
-                              "Entity": "TB_Fatos"
+                              "Entity": "TB_Fatos_CR"
                             }
                           },
                           "Property": "vencimento"
@@ -309,7 +309,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "titulo"
@@ -769,7 +769,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "titulo"
@@ -1042,30 +1042,6 @@
               }
             }
           },
-          "71c5f80d800dd05732b9": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "6cfcdebc2a22a0c296e0": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "4eeffac37649e0d3e370": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "49154d3eb200bb101286": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
           "0264470b4ba8d0a10e3c": {
             "singleVisual": {
               "visualType": "actionButton",
@@ -1281,7 +1257,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"
@@ -1304,7 +1280,7 @@
                             "From": [
                               {
                                 "Name": "t",
-                                "Entity": "TB_Fatos",
+                                "Entity": "TB_Fatos_CR",
                                 "Type": 0
                               }
                             ],
@@ -1398,7 +1374,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "tipo"

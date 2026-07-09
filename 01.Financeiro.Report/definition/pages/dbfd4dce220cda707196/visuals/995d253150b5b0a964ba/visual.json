@@ -6,7 +6,8 @@
     "y": 441.0011981960144,
     "z": 3000,
     "height": 208.51150298815108,
-    "width": 1216.4359083258616
+    "width": 1216.4359083258616,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -34,7 +35,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "titulo"
@@ -69,7 +70,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "emissao"
@@ -89,7 +90,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos"
+                          "Entity": "TB_Fatos_CR"
                         }
                       },
                       "Property": "vencimento"
@@ -158,7 +159,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "titulo"
@@ -185,16 +186,6 @@
                 {
                   "Literal": {
                     "Value": "'1255 - key Saint Barth'"
-                  }
-                }
-              ],
-              "isToggled": true
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'23 - Condor'"
                   }
                 }
               ],

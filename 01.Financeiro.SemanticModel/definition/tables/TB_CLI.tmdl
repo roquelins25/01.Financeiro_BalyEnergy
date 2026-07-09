@@ -2,7 +2,8 @@ table TB_CLI
 	lineageTag: 5f91deec-ad69-46b5-9dd2-57ff32ddb158
 
 	column codcli
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: cdbf2faa-56fc-4661-95dd-0760ae647143
 		summarizeBy: none
 		sourceColumn: codcli
@@ -122,9 +123,10 @@ table TB_CLI
 		annotation SummarizationSetBy = Automatic
 
 	column codrep
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: d8689090-1266-47b0-9e6e-4109fe22e497
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: codrep
 
 		annotation SummarizationSetBy = Automatic
@@ -249,18 +251,47 @@ table TB_CLI
 
 		annotation SummarizationSetBy = Automatic
 
+	column xOperacao
+		dataType: string
+		lineageTag: d9c287bd-1ae4-4b23-a13e-4a448d56b3e9
+		summarizeBy: none
+		sourceColumn: xOperacao
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_CLI = m
 		mode: import
 		queryGroup: _Dim
 		source =
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
-				  #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "usu_view085cli"]}[Data],
-				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Navegação 1",{{"codcli", type text}, {"codrep", type text}, {"codgre", type text}}),
-				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado",null,"7",Replacer.ReplaceValue,{"usu_codram"}),
-				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído",null,"NÃO CLASSIFICADO",Replacer.ReplaceValue,{"usu_desram"})
+				    Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
+				    #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "usu_view085cli"]}[Data],
+				
+				    #"Valor Substituído" = Table.ReplaceValue(
+				        #"Navegação 1",
+				        null,
+				        "7",
+				        Replacer.ReplaceValue,
+				        {"usu_codram"}
+				    ),
+				
+				    #"Valor Substituído1" = Table.ReplaceValue(
+				        #"Valor Substituído",
+				        null,
+				        "NÃO CLASSIFICADO",
+				        Replacer.ReplaceValue,
+				        {"usu_desram"}
+				    ),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Valor Substituído1",{{"codgre", type text}}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Tipo Alterado", {"codgre"}, TB_OPRede, {"codgre"}, "TB_OPRede", JoinKind.LeftOuter),
+				    #"TB_OPRede Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "TB_OPRede", {"CODOP"}, {"CODOP"}),
+				    #"Consultas Mescladas1" = Table.NestedJoin(#"TB_OPRede Expandido", {"sigufs"}, TB_OPUf, {"UF"}, "TB_OPUf", JoinKind.LeftOuter),
+				    #"TB_OPUf Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas1", "TB_OPUf", {"CODOP"}, {"CODOP.1"}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"TB_OPUf Expandido", "xOperacao", each if [CODOP] = null then [CODOP.1] else [CODOP]),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Coluna Condicional Adicionada",{"CODOP", "CODOP.1"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Colunas Removidas",{{"xOperacao", type text}})
 				in
-				    #"Valor Substituído1"
+				    #"Tipo Alterado1"
 
 	annotation PBI_NavigationStepName = Navegação
 

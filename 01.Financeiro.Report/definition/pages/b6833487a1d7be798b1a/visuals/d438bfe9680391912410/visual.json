@@ -6,7 +6,8 @@
     "y": 88.913217875513183,
     "z": 4000,
     "height": 198.44399351926131,
-    "width": 637.85569345476847
+    "width": 637.85569345476847,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -324,7 +325,7 @@
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "TB_Fatos"
+                "Entity": "TB_Fatos_CR"
               }
             },
             "Property": "sit"

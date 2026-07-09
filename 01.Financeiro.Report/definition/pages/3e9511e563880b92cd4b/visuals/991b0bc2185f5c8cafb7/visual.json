@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "991b0bc2185f5c8cafb7",
+  "position": {
+    "x": 395.21912350597609,
+    "y": 15.298804780876493,
+    "z": 0,
+    "height": 1064.5418326693227,
+    "width": 928.12749003984061,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "05. HTML SALDO DIA"
+                }
+              },
+              "queryRef": "_Medidas.HTML SALDO DIA",
+              "nativeQueryRef": "05. HTML SALDO DIA"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c6e5d091db57383bb4bb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "05. HTML SALDO DIA"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

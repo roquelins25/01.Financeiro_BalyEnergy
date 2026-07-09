@@ -1,5 +1,7 @@
 EVALUATE
-    ADDCOLUMNS(
-        VALUES(TB_CLI[sigufs]),
-        "@Total", [01. % Acumulado UF]
+CALCULATETABLE(
+    TB_Fatos_CP,
+    REMOVEFILTERS('CALENDARIO DAX'),
+    KEEPFILTERS(VALUES('CALENDARIO DAX'[Ano])),
+    KEEPFILTERS(VALUES('CALENDARIO DAX'[Mês]))
     )

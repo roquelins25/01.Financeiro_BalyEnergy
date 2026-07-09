@@ -6,7 +6,8 @@
     "y": 33.563162858146583,
     "z": 2000,
     "height": 407.21716513259815,
-    "width": 659.35622780881772
+    "width": 659.35622780881772,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "brazilMapVisual5B5DD37DD18C45B1B3C7DD73C184549D",

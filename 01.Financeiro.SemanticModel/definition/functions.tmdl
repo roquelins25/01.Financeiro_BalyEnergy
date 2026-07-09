@@ -15,7 +15,7 @@ function fxFormatNumber = ```
 		        VAR _Formato3 =   "R$ #.##"
 		        VAR _Formato4 = "R$ #,##0"
 		
-		        VAR _Formato5 = "#,#0;-#,#0"
+		        VAR _Formato5 = "R$ #,#0;R$ -#,#0"
 		
 		        VAR _ForPercent = "0.0%"
 		        RETURN

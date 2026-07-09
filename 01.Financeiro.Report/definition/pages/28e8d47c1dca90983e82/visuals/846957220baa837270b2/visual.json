@@ -4,9 +4,10 @@
   "position": {
     "x": 460.02925770374219,
     "y": 131.43693077249776,
-    "z": 1,
+    "z": 0,
     "height": 452.29767354065405,
-    "width": 1461.2694068236517
+    "width": 1440.0075503751593,
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "tableEx",
@@ -52,12 +53,12 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "xREDE"
+                  "Property": "nomcli"
                 }
               },
-              "queryRef": "TB_CLI.xREDE",
-              "nativeQueryRef": "xREDE",
-              "displayName": "xREDE"
+              "queryRef": "TB_CLI.nomcli",
+              "nativeQueryRef": "Nome Cliente",
+              "displayName": "Nome Cliente"
             },
             {
               "field": {

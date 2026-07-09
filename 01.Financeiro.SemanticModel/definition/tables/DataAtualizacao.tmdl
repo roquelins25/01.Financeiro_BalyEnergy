@@ -1,0 +1,41 @@
+table DataAtualizacao
+	lineageTag: 977b1ef4-fbad-4547-bb9c-441470935c4c
+
+	column 'data atualizada'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 637f98c7-8bda-4ab1-a5ac-725e024f1b1c
+		summarizeBy: none
+		sourceColumn: data atualizada
+
+		variation Variation
+			isDefault
+			relationship: f5cf27ca-e25b-4769-b7da-66f21f71ae3b
+			defaultHierarchy: LocalDateTable_19b0fe29-5ade-4445-bb3d-0a38db7daf25.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: string
+		lineageTag: 5adc6479-4985-4bda-a860-db31e199c22e
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DataAtualizacao = m
+		mode: import
+		source =
+				let
+				    Fonte = DateTimeZone.SwitchZone(DateTimeZone.LocalNow(),-3),
+				    #"Convertido para Tabela" = #table(1, {{Fonte}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Convertido para Tabela",{{"Column1", "data atualizada"}}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Renomeadas",{{"data atualizada", type datetimezone}}),
+				    #"Texto Inserido Antes do Delimitador" = Table.AddColumn(#"Tipo Alterado", "Data", each Text.BeforeDelimiter(Text.From([data atualizada], "pt-BR"), " "), type text)
+				in
+				    #"Texto Inserido Antes do Delimitador"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

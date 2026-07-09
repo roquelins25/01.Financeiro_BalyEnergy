@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 6500,
+    "z": 5000,
     "height": 712.11267605633793,
     "width": 1270.9859154929577,
-    "tabOrder": 5003
+    "tabOrder": 4000
   },
   "visualGroup": {
     "displayName": "Filter",

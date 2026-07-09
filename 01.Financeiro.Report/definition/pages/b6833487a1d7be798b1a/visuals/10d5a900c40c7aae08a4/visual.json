@@ -6,31 +6,15 @@
     "y": 287.38792419568091,
     "z": 5000,
     "height": 433.24812692816221,
-    "width": 638.31890700749227
+    "width": 638.31890700749227,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "donutChart",
     "query": {
       "queryState": {
         "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_Fatos"
-                    }
-                  },
-                  "Property": "portador"
-                }
-              },
-              "queryRef": "TB_Fatos.portador",
-              "nativeQueryRef": "portador",
-              "active": true,
-              "displayName": "portador"
-            }
-          ],
+          "projections": [],
           "fieldParameters": [
             {
               "parameterExpr": {
@@ -44,7 +28,7 @@
                 }
               },
               "index": 0,
-              "length": 1
+              "length": 0
             }
           ]
         },

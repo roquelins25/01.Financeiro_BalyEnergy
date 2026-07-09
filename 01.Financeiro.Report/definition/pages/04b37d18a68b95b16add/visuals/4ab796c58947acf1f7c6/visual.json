@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "4ab796c58947acf1f7c6",
+  "position": {
+    "x": 463.89504978528623,
+    "y": 135.3027228540418,
+    "z": 3000,
+    "height": 925.85720352980047,
+    "width": 467.76084186683022,
+    "tabOrder": 9000
+  },
+  "visualGroup": {
+    "displayName": "Encontros de lançamentos ",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}

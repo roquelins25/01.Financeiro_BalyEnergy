@@ -50,7 +50,9 @@
   },
   "publicCustomVisuals": [
     "htmlContent443BE3AD55E043BF878BED274D3A6855",
-    "MapBySquillion"
+    "MapBySquillion",
+    "inforiverAppPremium2B7A5FD2992D434DAE0B149479307B7B",
+    "ultimateWaterfall9712E1351D4E4FA89077ED4D9351DC71"
   ],
   "resourcePackages": [
     {
@@ -69,13 +71,23 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "__Ina527673166903114.png",
-          "path": "__Ina527673166903114.png",
+          "name": "__Ina9479875451005949.png",
+          "path": "__Ina9479875451005949.png",
           "type": "Image"
         },
         {
-          "name": "Clientes5215586664137711.png",
-          "path": "Clientes5215586664137711.png",
+          "name": "Clientes04625562419798779.png",
+          "path": "Clientes04625562419798779.png",
+          "type": "Image"
+        },
+        {
+          "name": "CR_Diario6974953415116328.png",
+          "path": "CR_Diario6974953415116328.png",
+          "type": "Image"
+        },
+        {
+          "name": "DASH6346284680725388.png",
+          "path": "DASH6346284680725388.png",
           "type": "Image"
         },
         {
@@ -84,8 +96,13 @@
           "type": "Image"
         },
         {
-          "name": "homme_119049726718193372.png",
-          "path": "homme_119049726718193372.png",
+          "name": "homme_14246524660079636.png",
+          "path": "homme_14246524660079636.png",
+          "type": "Image"
+        },
+        {
+          "name": "homme_28916324266723229.png",
+          "path": "homme_28916324266723229.png",
           "type": "Image"
         },
         {
@@ -94,8 +111,8 @@
           "type": "CustomTheme"
         },
         {
-          "name": "Table36111711811913305.png",
-          "path": "Table36111711811913305.png",
+          "name": "Table11509883096616047.png",
+          "path": "Table11509883096616047.png",
           "type": "Image"
         }
       ]

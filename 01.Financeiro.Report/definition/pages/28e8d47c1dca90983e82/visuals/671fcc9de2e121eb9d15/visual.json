@@ -4,10 +4,10 @@
   "position": {
     "x": 98.730763628352463,
     "y": 582.98428316975185,
-    "z": 3007,
+    "z": 11000,
     "height": 55,
     "width": 340,
-    "tabOrder": 11
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "sit"

@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 567.195494770716,
     "width": 1217.184231697506,
-    "tabOrder": 4000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -70,7 +70,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "observacao"
@@ -85,7 +85,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "titulo"
@@ -188,7 +188,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "observacao"
@@ -207,7 +207,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
                   "Property": "titulo"
@@ -656,93 +656,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "653a7226e66cd03e4ac0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "xCalendarioTable"
-              }
-            },
-            "Property": "Periodo"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0c95a0e1e146bec61a91",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_Rede"
-              }
-            },
-            "Property": "nomgre"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "fa8543edd347ba710b32",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_CLI"
-              }
-            },
-            "Property": "sigufs"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4be57e3cc3a43b6aaa9e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_Fatos"
-              }
-            },
-            "Property": "observacao"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a9300756d184300cc480",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_Fatos"
-              }
-            },
-            "Property": "titulo"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a82a1458055040c97109",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "04. Valor Aberto"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
