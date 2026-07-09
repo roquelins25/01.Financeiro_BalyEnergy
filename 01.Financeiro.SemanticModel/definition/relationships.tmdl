@@ -173,3 +173,7 @@ relationship 2e2635fe-d041-5e55-40ff-04ab751f6a38
 	fromColumn: TB_Fatos_CP.vctpro
 	toColumn: 'CALENDARIO DAX'.Date
 
+relationship ed8e3847-9f6f-1d1f-9bae-5d5c857df1c5
+	fromColumn: TB_Fatos_CP.'03. Aux Dias_'
+	toColumn: TB_AUXtempo.ID
+

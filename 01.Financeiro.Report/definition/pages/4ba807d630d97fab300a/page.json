@@ -23,7 +23,7 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "homme_28916324266723229.png"
+                    "ItemName": "homme_27526769806301088.png"
                   }
                 }
               },
@@ -39,5 +39,22 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "f2571ad7fa56bda8a6f9",
+      "target": "63ffd7a17a812a41cb4a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f2571ad7fa56bda8a6f9",
+      "target": "e8afbe952ac331914845",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f2571ad7fa56bda8a6f9",
+      "target": "d13486f71ce94f8a3476",
+      "type": "NoFilter"
+    }
+  ]
 }

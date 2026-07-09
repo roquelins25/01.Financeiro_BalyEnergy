@@ -115,6 +115,41 @@ table TB_Fatos_CP
 
 		annotation SummarizationSetBy = Automatic
 
+	column '03. Aux Dias_' = ```
+			
+			VAR _dias = 
+			DATEDIFF( TODAY(), TB_Fatos_CP[vctpro], DAY )
+			
+			VAR vRESULT = 
+			SWITCH(
+			    TRUE(),
+			    _dias = 0  , 10008,
+			    
+			    _dias < 0 && _dias >= -7 , 10007 ,
+			    _dias >= -15 && _dias < -7, 10006,
+			    _dias >= -30 && _dias < -15, 10005,
+			    _dias >= -60 && _dias < -30, 10004,
+			    _dias >= -90 && _dias < -60, 10003,
+			    _dias >= -180 && _dias < -90, 10002,
+			    _dias < -180, 10001,
+			
+			    _dias > 0 && _dias <= 7, 10009,
+			    _dias > 7 && _dias <= 15, 10010,
+			    _dias > 15 && _dias <= 30, 10011,
+			    _dias > 30 && _dias <= 60, 10012,
+			    _dias > 60 && _dias <= 90, 10013,
+			    _dias > 90 && _dias <= 120, 10014,
+			    _dias > 120 , 10015
+			    )
+			RETURN
+			vRESULT
+			```
+		formatString: 0
+		lineageTag: ba2cc971-6902-4d4c-a6eb-5220a4d7d036
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_Fatos_CP = m
 		mode: import
 		queryGroup: _Fatos

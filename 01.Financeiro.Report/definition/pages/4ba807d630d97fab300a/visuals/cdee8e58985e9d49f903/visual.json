@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "36c3fe2e4f86d34d643c",
+  "name": "cdee8e58985e9d49f903",
   "position": {
-    "x": 124.28005284015852,
-    "y": 143.30250990752972,
-    "z": 0,
-    "height": 304.35931307793925,
-    "width": 423.56671070013209
+    "x": 110.25522041763341,
+    "y": 182.92343387470999,
+    "z": 3000,
+    "height": 112.76102088167053,
+    "width": 452.29698375870066
   },
   "visual": {
     "visualType": "cardVisual",
@@ -22,25 +22,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "01. Valor AB CR"
+                  "Property": "01. Saldo Previsto"
                 }
               },
-              "queryRef": "_Medidas.01. Valor AB CR",
-              "nativeQueryRef": "01. Valor AB CR"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas"
-                    }
-                  },
-                  "Property": "01. Valor AB CP"
-                }
-              },
-              "queryRef": "_Medidas.01. Valor AB CP",
-              "nativeQueryRef": "01. Valor AB CP"
+              "queryRef": "_Medidas.01. Saldo",
+              "nativeQueryRef": "01. Saldo Previsto"
             }
           ]
         }
@@ -55,7 +41,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "01. Valor AB CR"
+                "Property": "01. Saldo Previsto"
               }
             },
             "direction": "Descending"
@@ -105,27 +91,6 @@
           "selector": {
             "id": "default"
           }
-        },
-        {
-          "properties": {
-            "dividerIgnorePadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Medidas.01. Valor AB CR"
-          }
         }
       ],
       "fillCustom": [
@@ -147,7 +112,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -163,120 +128,13 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Valor Previsto a Receber'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "15D"
-                }
-              }
-            },
-            "italic": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "_Medidas.01. Valor AB CR"
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "15D"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Valor Previsto a Pagar'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Medidas.01. Valor AB CP"
-          }
-        }
-      ],
-      "value": [
-        {
-          "properties": {
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "25D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Medidas.01. Valor AB CR"
-          }
-        },
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "25D"
-                }
-              }
-            },
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Medidas.01. Valor AB CP"
+            "id": "default"
           }
         }
       ],
@@ -303,6 +161,13 @@
                   "Value": "1D"
                 }
               }
+            },
+            "autoGrid": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -313,7 +178,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -339,19 +204,47 @@
           }
         }
       ],
-      "cardCalloutArea": [
+      "value": [
         {
           "properties": {
-            "show": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "35D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Bold'', wf_segoe-ui_bold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "_Medidas.01. Valor AB CR"
+            "metadata": "_Medidas.01. Saldo"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ]
@@ -401,8 +294,61 @@
             }
           }
         }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ce3ae15465c6ca026809",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. Saldo Previsto"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "46c72ddbc4ae0a3072fd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_Fatos_CR"
+              }
+            },
+            "Property": "tipo"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      }
+    ]
   }
 }

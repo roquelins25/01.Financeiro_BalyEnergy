@@ -2064,7 +2064,7 @@ table _Medidas
 			    VAR AcumuladoEmpresa = 
 			    SWITCH(
 			        EmpresaID,
-			            "Grassi", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			            "Grassi", CALCULATE( [01. Valor AB CP], 
 			                            REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
 			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
@@ -2073,7 +2073,7 @@ table _Medidas
 			    VAR DiaEmpresa = 
 			        SWITCH(
 			        EmpresaID,
-			            "Grassi",[01. Valor AB CP ( Class. Credito )] ,
+			            "Grassi",[01. Valor AB CP] ,
 			        0 )
 			    VAR TotalEmpresa = DiaEmpresa 
 			    VAR PercentEmpresa = 0
@@ -2081,12 +2081,12 @@ table _Medidas
 			    VAR vTabelaAGP = 
 			    ADDCOLUMNS(
 			        SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[DESCRICAO_TIPO_AGP] ), 
-			        "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			        "@Valor", CALCULATE( [01. Valor AB CP], 
 			                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
 			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
 			                        ),
-			        "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			        "@ValorDia", [01. Valor AB CP]
 			                )
 			    VAR AGPs = 
 			    CONCATENATEX(
@@ -2106,12 +2106,12 @@ table _Medidas
 			                        TB_Fatos_CP[ID_TIPO],
 			                        TB_Fatos_CP[DESCRICAO_TIPO]
 			                    ),
-			                    "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                    "@Valor", CALCULATE( [01. Valor AB CP], 
 			                                REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
 			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
 			                                ),
-			                    "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                    "@ValorDia", [01. Valor AB CP]
 			                )
 			
 			            VAR Tipos =
@@ -2133,12 +2133,12 @@ table _Medidas
 			                                    ),
 			                                    TB_Fatos_CP[CTAFIN],
 			                                    TB_Fatos_CP[DESCTA] ),
-			                            "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                            "@Valor", CALCULATE( [01. Valor AB CP], 
 			                                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
 			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
 			                                        ),
-			                            "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                            "@ValorDia", [01. Valor AB CP]
 			                                     )
 			                            
 			                            VAR CONTAS = 
@@ -2218,7 +2218,7 @@ table _Medidas
 			VAR eEntradaTotal = ( eCARTEIRA + eVinculada + eDescontada )
 			
 			-- ========================== SAIDAS TOTAIS ======================================
-			VAR eSaidas = ( [01. Valor AB CP ( Class. Credito )] * -1 )
+			VAR eSaidas = ( [01. Valor AB CP] * -1 )
 			VAR SALDO = tTOTALGERAL + eSaidas
 			RETURN
 			"<!DOCTYPE html>
@@ -2383,6 +2383,27 @@ table _Medidas
 			```
 		formatString: #,0.0%;-#,0.0%;#,0.0%
 		lineageTag: 62b3ca55-604f-4bdb-a337-bff5eaf98f32
+
+	measure '01. Saldo Previsto' =
+			
+			[01. Valor Previsto a Receber] + [01. Valor AB CP]
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Geral
+		lineageTag: 41fd32bf-8314-44a5-9417-7944537a9644
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Valor Previsto a Receber' =
+			
+			CALCULATE(
+			    [01. Valor AB CR],
+			    TB_Fatos_CR[tipo] IN{"01","02","03"},
+			    TB_Fatos_CR[sit] = "AB")
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares
+		lineageTag: 846806b0-7829-4d01-8766-ccf9268f44b4
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	partition _Medidas = m
 		mode: import

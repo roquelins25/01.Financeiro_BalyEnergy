@@ -1,0 +1,123 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "4b23790bc68eb224f37c",
+  "position": {
+    "x": 110.35924232527761,
+    "y": 588.16459830176359,
+    "z": 7003,
+    "height": 491.6002612671457,
+    "width": 1286.6884389288048
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_RTerceiros"
+                    }
+                  },
+                  "Property": "xIDTerceiros"
+                }
+              },
+              "queryRef": "TB_RTerceiros.xIDTerceiros",
+              "nativeQueryRef": "xIDTerceiros",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_RTerceiros"
+                    }
+                  },
+                  "Property": "Banco"
+                }
+              },
+              "queryRef": "TB_RTerceiros.Banco",
+              "nativeQueryRef": "Banco",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_RTerceiros"
+                    }
+                  },
+                  "Property": "Contas"
+                }
+              },
+              "queryRef": "TB_RTerceiros.Contas",
+              "nativeQueryRef": "Contas",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "08. Saldo Bancos"
+                }
+              },
+              "queryRef": "_Medidas.08. Saldo Bancos",
+              "nativeQueryRef": "08. Saldo Bancos"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "08. Saldo Bancos"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
