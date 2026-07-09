@@ -1,295 +1,146 @@
 table TB_Fatos_CP
-	lineageTag: 6976680e-f6de-4fb4-be68-a7d3b7a11ae6
+	lineageTag: 820916e0-9bc9-4d53-938e-57697026785a
 
-	column Filial
+	column CODEMP
 		dataType: int64
 		formatString: 0
-		lineageTag: 17d49b1c-6763-414e-9c48-c129a19b3c0c
+		lineageTag: 54b4eb14-adfe-4cc4-bfb0-b7c05b9eb38a
 		summarizeBy: sum
-		sourceColumn: Filial
+		sourceColumn: CODEMP
 
 		annotation SummarizationSetBy = Automatic
 
-	column Titulo
+	column NomEmp
 		dataType: string
-		lineageTag: b37cce9b-c2d9-47f8-8033-f1e8f3b4d0df
+		lineageTag: 7044f8f7-7de2-4543-b4f8-4b90a0f34dfb
 		summarizeBy: none
-		sourceColumn: Titulo
+		sourceColumn: NomEmp
 
 		annotation SummarizationSetBy = Automatic
 
-	column CodTpt
-		dataType: string
-		lineageTag: 0379d303-4db3-4943-aca4-fca094025e69
-		summarizeBy: none
-		sourceColumn: CodTpt
-
-		annotation SummarizationSetBy = Automatic
-
-	column Cta_Contabil
+	column CODCLI
 		dataType: int64
 		formatString: 0
-		lineageTag: fb45d490-41c4-468f-8a62-be46c8dfa20f
+		lineageTag: 7719a265-33fe-4fc0-98ff-4828892933e2
+		summarizeBy: none
+		sourceColumn: CODCLI
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMCLI
+		dataType: string
+		lineageTag: 3368b56e-f5f6-435c-9766-b0a76303d2eb
+		summarizeBy: none
+		sourceColumn: NOMCLI
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMTIT
+		dataType: string
+		lineageTag: 13ff7abf-dea6-4778-a688-2728d2961000
+		summarizeBy: none
+		sourceColumn: NUMTIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodCcu
+		dataType: string
+		lineageTag: 1a20fc8a-813d-40f9-b521-3db9d67207d6
+		summarizeBy: none
+		sourceColumn: CodCcu
+
+		annotation SummarizationSetBy = Automatic
+
+	column DesCcu
+		dataType: string
+		lineageTag: ec86c9cf-37c0-45db-b73b-e9c45f73e5e0
+		summarizeBy: none
+		sourceColumn: DesCcu
+
+		annotation SummarizationSetBy = Automatic
+
+	column CtaFin
+		dataType: int64
+		formatString: 0
+		lineageTag: efc3c120-1f48-41a9-a2cd-9fc05248ecdd
 		summarizeBy: sum
-		sourceColumn: Cta_Contabil
+		sourceColumn: CtaFin
 
 		annotation SummarizationSetBy = Automatic
 
-	column Classificacao_Contabil
+	column DesCta
 		dataType: string
-		lineageTag: 1760d52a-1b0d-41e2-8194-4fed47fe38b2
+		lineageTag: 0c3ed8c3-2d28-461f-88ef-8bb7ea4a432f
 		summarizeBy: none
-		sourceColumn: Classificacao_Contabil
+		sourceColumn: DesCta
 
 		annotation SummarizationSetBy = Automatic
 
-	column Cod_Fornecedor
-		dataType: int64
-		formatString: 0
-		lineageTag: 7c35c522-369c-4364-bb5d-322537ee4f81
-		summarizeBy: none
-		sourceColumn: Cod_Fornecedor
-
-		annotation SummarizationSetBy = Automatic
-
-	column Data_Emissao
+	column datemi
 		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 9df1ce7e-e6fe-4061-b5d1-cc38240a1578
+		formatString: General Date
+		lineageTag: 785a6a5b-ebd2-4534-86fc-25098bb2bcbd
 		summarizeBy: none
-		sourceColumn: Data_Emissao
+		sourceColumn: datemi
+
+		variation Variation
+			isDefault
+			relationship: 50568c8a-bd22-4ac2-9a38-93830537604d
+			defaultHierarchy: LocalDateTable_d128d03e-e579-4f39-b079-6d60cc16b653.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
-
-	column Data_Vencimento
+	column datent
 		dataType: dateTime
-		formatString: Long Date
-		lineageTag: e6b59994-1fc3-483e-a02e-05cd01e5b8dc
+		formatString: General Date
+		lineageTag: ff1a5186-bd9f-4120-a6f2-e80760f78091
 		summarizeBy: none
-		sourceColumn: Data_Vencimento
+		sourceColumn: datent
+
+		variation Variation
+			isDefault
+			relationship: 784047bd-e582-4790-9240-4c9eef32ec2e
+			defaultHierarchy: LocalDateTable_0b591359-c36d-48bb-9d45-b76a402bdc2e.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
-
-	column DESCRICAO_TIPO
-		dataType: string
-		lineageTag: ea5a054b-f533-45df-89b0-5baaf214cad7
+	column vctpro
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d1ca1bf2-5d7e-4367-99e5-c47805019379
 		summarizeBy: none
-		sourceColumn: DESCRICAO_TIPO
+		sourceColumn: vctpro
+
+		variation Variation
+			isDefault
+			relationship: 6823341d-cd51-4b59-aff9-c72be96f2a57
+			defaultHierarchy: LocalDateTable_d72db5bb-7f3f-4110-98c3-89053b78d0a8.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"TB_Fatos_CP","TableItemName":"ID_TIPO","ObjectType":4},"LinkType":"UsedInGroup"}]
-
-	column DESCRICAO_TIPO_AGP
-		dataType: string
-		lineageTag: 5405c86f-d446-4541-bc77-69234d71e512
-		summarizeBy: none
-		sourceColumn: DESCRICAO_TIPO_AGP
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"TB_Fatos_CP","TableItemName":"ID_AGP","ObjectType":4},"LinkType":"UsedInGroup"}]
-
-	column Valor_em_Aberto
+	column VLRABE
 		dataType: double
-		lineageTag: 0e558443-8402-41fc-8f98-9fd4fbdeeb06
+		lineageTag: 525270ba-e537-4dc5-9046-42cd26a1e51c
 		summarizeBy: sum
-		sourceColumn: Valor_em_Aberto
+		sourceColumn: VLRABE
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column Valor_Original
-		dataType: double
-		lineageTag: 19fa3222-022f-4161-acb4-fee83dbcd8bd
-		summarizeBy: sum
-		sourceColumn: Valor_Original
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column Tipo_Calculo
+	column despar
 		dataType: string
-		lineageTag: 1dc09ae3-64b0-4e16-b819-b2e9a793c92c
+		lineageTag: 2c5bac93-ec6b-4c8a-b7af-69f5a90c620c
 		summarizeBy: none
-		sourceColumn: Tipo_Calculo
+		sourceColumn: despar
 
 		annotation SummarizationSetBy = Automatic
 
-	column Classificacao
+	column tipo
 		dataType: string
-		lineageTag: bcc175e9-f850-46a3-bb21-401d00d2c308
+		lineageTag: dae909f7-2f4d-4638-9f38-f762f004f122
 		summarizeBy: none
-		sourceColumn: Classificacao
-
-		annotation SummarizationSetBy = Automatic
-
-	column Descricao_Contabil
-		dataType: string
-		lineageTag: 4cc43f17-14d8-4197-8085-759f11109b5b
-		summarizeBy: none
-		sourceColumn: Descricao_Contabil
-
-		annotation SummarizationSetBy = Automatic
-
-	column CTAFIN
-		dataType: int64
-		formatString: 0
-		lineageTag: ec8c2b5f-7851-49bc-a652-e9333970cda5
-		summarizeBy: sum
-		sourceColumn: CTAFIN
-
-		annotation SummarizationSetBy = Automatic
-
-	column DESCTA
-		dataType: string
-		lineageTag: 7261ecba-9bef-4fc3-8a7a-67ca870f7ed7
-		summarizeBy: none
-		sourceColumn: DESCTA
-
-		annotation SummarizationSetBy = Automatic
-
-	column ID_AGP =
-			SWITCH(
-				TRUE,
-				ISBLANK('TB_Fatos_CP'[DESCRICAO_TIPO_AGP]),
-				"(Em branco)",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP] IN {"Class. Credito"},
-				"1001",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP] IN {"Dep. Judicial"},
-				"1002",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP] IN {"Despesas Dp"},
-				"1003",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP] IN {"Duplicatas"},
-				"1004",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP] IN {"Emprestimos"},
-				"1005",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP] IN {"Impostos"},
-				"1006",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP] IN {"Parc. Imp"},
-				"1007",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP] IN {"Provisionamento"},
-				"1008",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP] IN {"Verba"},
-				"1009",
-				'TB_Fatos_CP'[DESCRICAO_TIPO_AGP]
-			)
-		lineageTag: e1b10955-6d61-46c4-a261-b35be82868c1
-		summarizeBy: none
-
-		extendedProperty GroupingMetadata =
-				{
-				  "version": 0,
-				  "groupedColumns": [
-				    {
-				      "Column": {
-				        "Expression": {
-				          "SourceRef": {
-				            "Entity": "TB_Fatos_CP"
-				          }
-				        },
-				        "Property": "DESCRICAO_TIPO_AGP"
-				      }
-				    }
-				  ]
-				}
-
-		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"TB_Fatos_CP"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"1001","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"Values":[[{"Literal":{"Value":"'Class. Credito'"}}]]}}},{"DisplayName":"1002","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"Values":[[{"Literal":{"Value":"'Dep. Judicial'"}}]]}}},{"DisplayName":"1003","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"Values":[[{"Literal":{"Value":"'Despesas Dp'"}}]]}}},{"DisplayName":"1004","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"Values":[[{"Literal":{"Value":"'Duplicatas'"}}]]}}},{"DisplayName":"1005","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"Values":[[{"Literal":{"Value":"'Emprestimos'"}}]]}}},{"DisplayName":"1006","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"Values":[[{"Literal":{"Value":"'Impostos'"}}]]}}},{"DisplayName":"1007","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"Values":[[{"Literal":{"Value":"'Parc. Imp'"}}]]}}},{"DisplayName":"1008","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"Values":[[{"Literal":{"Value":"'Provisionamento'"}}]]}}},{"DisplayName":"1009","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO_AGP"}}],"Values":[[{"Literal":{"Value":"'Verba'"}}]]}}}]}
-
-		annotation SummarizationSetBy = Automatic
-
-	column ID_TIPO =
-			SWITCH(
-				TRUE,
-				ISBLANK('TB_Fatos_CP'[DESCRICAO_TIPO]),
-				"(Em branco)",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"CREDITO"},
-				"1",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"FINAME"},
-				"10",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"FINANCIAMENTO"},
-				"11",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"FOLHA DE PAGAMENTO"},
-				"12",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"IMPOSTO"},
-				"13",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"INSS"},
-				"14",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"LEASING"},
-				"15",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"IPVA"},
-				"16",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"MULTA INTEGRAL"},
-				"17",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"PARCELAMENTO DIVIDA ATIVA"},
-				"18",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"PARCELAMENTO MALHA FISCAL"},
-				"19",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"DEPOSITO JUDICIAL"},
-				"2",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"PARCELAMENTO SIMPLIFICADO 1"},
-				"20",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"PARCELAMENTO SIMPLIFICADO 3"},
-				"21",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"PARCELAMENTO ST"},
-				"22",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"PENSÃO JUDICIAL"},
-				"23",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"PIS/COFINS/RETIDA"},
-				"24",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"PROVISÕES"},
-				"25",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"RETORNO DE IMPOSTO"},
-				"26",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"SEGURO DE VEÍCULOS"},
-				"27",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"ST SEM PARCELAMENTO"},
-				"28",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"VERBA"},
-				"29",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"DESPESAS POS VENDAS"},
-				"3",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"DEVOLUÇÃO VENDA"},
-				"4",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"DIFAL"},
-				"5",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"DISTRIBUIÇÃO DE LUCROS"},
-				"6",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"DUPLICATAS"},
-				"7",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"EMPRESTIMOS"},
-				"8",
-				'TB_Fatos_CP'[DESCRICAO_TIPO] IN {"FGTS RESCISÓRIO"},
-				"9",
-				"30"
-			)
-		lineageTag: 69628484-a355-4cfe-b525-ec6495dcb0b1
-		summarizeBy: none
-
-		extendedProperty GroupingMetadata =
-				{
-				  "version": 0,
-				  "groupedColumns": [
-				    {
-				      "Column": {
-				        "Expression": {
-				          "SourceRef": {
-				            "Entity": "TB_Fatos_CP"
-				          }
-				        },
-				        "Property": "DESCRICAO_TIPO"
-				      }
-				    }
-				  ]
-				}
-
-		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"TB_Fatos_CP"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"1","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'CREDITO'"}}]]}}},{"DisplayName":"10","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'FINAME'"}}]]}}},{"DisplayName":"11","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'FINANCIAMENTO'"}}]]}}},{"DisplayName":"12","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'FOLHA DE PAGAMENTO'"}}]]}}},{"DisplayName":"13","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'IMPOSTO'"}}]]}}},{"DisplayName":"14","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'INSS'"}}]]}}},{"DisplayName":"15","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'LEASING'"}}]]}}},{"DisplayName":"16","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'IPVA'"}}]]}}},{"DisplayName":"17","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'MULTA INTEGRAL'"}}]]}}},{"DisplayName":"18","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'PARCELAMENTO DIVIDA ATIVA'"}}]]}}},{"DisplayName":"19","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'PARCELAMENTO MALHA FISCAL'"}}]]}}},{"DisplayName":"2","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'DEPOSITO JUDICIAL'"}}]]}}},{"DisplayName":"20","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'PARCELAMENTO SIMPLIFICADO 1'"}}]]}}},{"DisplayName":"21","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'PARCELAMENTO SIMPLIFICADO 3'"}}]]}}},{"DisplayName":"22","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'PARCELAMENTO ST'"}}]]}}},{"DisplayName":"23","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'PENSÃO JUDICIAL'"}}]]}}},{"DisplayName":"24","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'PIS/COFINS/RETIDA'"}}]]}}},{"DisplayName":"25","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'PROVISÕES'"}}]]}}},{"DisplayName":"26","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'RETORNO DE IMPOSTO'"}}]]}}},{"DisplayName":"27","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'SEGURO DE VEÍCULOS'"}}]]}}},{"DisplayName":"28","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'ST SEM PARCELAMENTO'"}}]]}}},{"DisplayName":"29","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'VERBA'"}}]]}}},{"DisplayName":"3","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'DESPESAS POS VENDAS'"}}]]}}},{"DisplayName":"4","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'DEVOLUÇÃO VENDA'"}}]]}}},{"DisplayName":"5","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'DIFAL'"}}]]}}},{"DisplayName":"6","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'DISTRIBUIÇÃO DE LUCROS'"}}]]}}},{"DisplayName":"7","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'DUPLICATAS'"}}]]}}},{"DisplayName":"8","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'EMPRESTIMOS'"}}]]}}},{"DisplayName":"9","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESCRICAO_TIPO"}}],"Values":[[{"Literal":{"Value":"'FGTS RESCISÓRIO'"}}]]}}},{"DisplayName":"30"}]}
+		sourceColumn: tipo
 
 		annotation SummarizationSetBy = Automatic
 
@@ -298,10 +149,9 @@ table TB_Fatos_CP
 		queryGroup: _Fatos
 		source =
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="WITH TITULOS_ABERTOS AS#(lf)(#(lf)    SELECT#(lf)        E501TCP.CodFil AS Filial,#(lf)        E501TCP.NumTit AS Titulo,#(lf)        E501TCP.CodTpt AS CodTpt,#(lf)#(lf)        E095HFO.CTARED AS Cta_Contabil,#(lf)#(lf)        E045PLA.CLACTA AS Classificacao_Contabil,#(lf)        E045PLA.DESCTA AS Descricao_Contabil,#(lf)        #(lf)        E501TCP.CODFOR AS Cod_Fornecedor,#(lf)#(lf)        FORMAT(E501TCP.DATEMI, 'dd/MM/yyyy') AS Data_Emissao,#(lf)        FORMAT(E501TCP.VCTPRO, 'dd/MM/yyyy') AS Data_Vencimento,#(lf)        #(lf)        CASE#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'ADT' THEN 'ADIANTAMENTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'CRE' THEN 'CREDITO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DEC' THEN 'DEVOLUÇÃO COMPRA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN ('FDE', 'SDE') THEN 'RETORNO DE IMPOSTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = '01' THEN 'DUPLICATAS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'CCP' THEN 'PIS/COFINS/RETIDA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DEJ' THEN 'DEPOSITO JUDICIAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DEV' THEN 'DEVOLUÇÃO VENDA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DIF' THEN 'DIFAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN ('DIV', 'PDA') THEN 'PARCELAMENTO DIVIDA ATIVA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DLU' THEN 'DISTRIBUIÇÃO DE LUCROS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DPV' THEN 'DESPESAS POS VENDAS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'EMP' THEN 'EMPRESTIMOS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FCP' THEN 'IMPOSTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FET' THEN 'EMPRESTIMO CONSIGNADO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FGR' THEN 'FGTS RESCISÓRIO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FGT' THEN 'FGTS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FIN' THEN 'FINANCIAMENTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FME' THEN 'FINAME'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'INS' THEN 'INSS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'INT' THEN 'INSS RETIDO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IPV' THEN 'IPVA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IRA' THEN 'IR RETIDO SOBRE ALUGUEL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IRC' THEN 'IR RETIDO SOBRE COMISSÃO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IRF' THEN 'IRRF'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IRP' THEN 'IMPOSTO RETIDO SERVIÇOS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'ISR' THEN 'ISS RETENÇÃO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'ISS' THEN 'ISS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LAD' THEN 'PROVISÕES'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LEA' THEN 'LEASING'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LFÉ' THEN 'FÉRIAS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LIQ' THEN 'FOLHA DE PAGAMENTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LQP' THEN 'LIQUIDO PRO-LABORE'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LRE' THEN 'RESCISÕES'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN ('LS2', 'LS3') THEN 'LEASING'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'MUL' THEN 'MULTA INTEGRAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PCI' THEN 'PARCELAMENTO CSSL-IRPJ'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PJD' THEN 'PENSÃO JUDICIAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PMF' THEN 'PARCELAMENTO MALHA FISCAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PS1' THEN 'PARCELAMENTO SIMPLIFICADO 1'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PS2' THEN 'PARCELAMENTO SIMPLIFICADO 2'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PS3' THEN 'PARCELAMENTO SIMPLIFICADO 3'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN ('PST', 'STP') THEN 'PARCELAMENTO ST'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'RCO' THEN 'RECIBO DE COMISSÃO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'SEV' THEN 'SEGURO DE VEÍCULOS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'ST4' THEN 'ST SEM PARCELAMENTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'VRF' THEN 'VERBA FIXA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN (#(lf)#(tab)#(tab)        'VVA','VVC','VVD','VVI','VVK',#(lf)#(tab)#(tab)        'VVL','VVM','VVN','VVO','VVP',#(lf)#(tab)#(tab)        'VVR','VVT'#(lf)#(tab)#(tab)    ) THEN 'VERBA'#(lf)#(tab)#(tab)    ELSE 'OUTROS'#(lf)#(tab)#(tab)END AS DESCRICAO_TIPO,#(lf)#(tab)#(tab)#(lf)#(tab)#(tab)        CASE#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN( 'ADT','CRE','DEC','FDE', 'SDE', 'DEV') THEN 'Class. Credito'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('DLU','FET','FGR','FGT','INS','IRF','LFÉ','LIQ','LQP','LRE','PJD') THEN 'Despesas Dp' #(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('01','DPV','IPV','RCO','SEV') THEN 'Duplicatas'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('EMP','FIN','FME','LEA','LS2','LS3') THEN 'Emprestimos'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('CCP','DIF','FCP','INT','IRA','IRC','IRP','ISR','ISS','MUL','PS2','ST4','ICM') THEN 'Impostos'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('DIV','PCI','PDA','PMF','PS1','PS3','PST','STP') THEN 'Parc. Imp'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('LAD') THEN 'Provisionamento'#(lf)#(tab)#(tab)#(tab)WHEN E501TCP.codtpt  IN('DEJ') THEN 'Dep. Judicial'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  LIKE 'v%' THEN 'Verba'#(lf)#(tab)#(tab)    #(lf)#(tab)#(tab)    ELSE 'Outros'#(lf)#(tab)#(tab)END AS DESCRICAO_TIPO_AGP,#(lf)#(lf)        CASE#(lf)            WHEN E002TPT.PAGSOM IN ('D','O') #(tab)#(tab)#(tab) THEN SUM(E501TCP.VLRABE)#(lf)            ELSE SUM(E501TCP.VLRABE * (-1))#(lf)        END AS Valor_em_Aberto,#(lf)#(lf)        CASE#(lf)            WHEN E002TPT.PAGSOM IN ('D','O')  #(tab)#(tab)#(tab)THEN SUM(E501TCP.VLRORI)#(lf)            ELSE SUM(E501TCP.VLRORI * (-1))#(lf)        END AS Valor_Original,#(lf)#(lf)        CASE#(lf)            WHEN E002TPT.PAGSOM IN ('D','O')  #(tab)#(tab)#(tab)THEN 'Soma Duplicata'#(lf)            ELSE 'Soma Credito'#(lf)        END AS Tipo_Calculo,#(lf)#(lf)        CASE#(lf)            WHEN E501TCP.CODTPT IN ('LFÉ','LIQ','LRE')  THEN 'GASTOS COM PESSOAL'#(lf)            WHEN E095CFO.CODCCL > 0#(tab)#(tab)#(tab)#(tab)#(tab)    THEN UPPER(E014CCL.DESCCL)#(lf)            ELSE 'NULL'#(lf)        END AS Classificacao,#(lf)        #(lf)        E501TCP.CTAFIN,#(lf)        E091PLF.DESCTA#(lf)#(lf)    FROM sapiens_producao.E501TCP#(lf)        INNER JOIN sapiens_producao.E095FOR#(lf)            #(tab)ON E095FOR.CODFOR = E501TCP.CODFOR#(lf)            #(tab)#(lf)        INNER JOIN sapiens_producao.E095HFO#(lf)            #(tab)ON E095HFO.CODFOR = E501TCP.CODFOR#(lf)           #(tab)#(tab)AND E095HFO.CODFIL = E501TCP.CODFIL#(lf)           #(tab)#(tab)#(lf)        INNER JOIN sapiens_producao.E045PLA#(lf)            #(tab)ON E045PLA.CTARED = E095HFO.CTARED#(lf)            #(tab)#(lf)        INNER JOIN sapiens_producao.E002TPT#(lf)            #(tab)ON E002TPT.CODTPT = E501TCP.CODTPT#(lf)            #(tab)#(lf)        INNER JOIN sapiens_producao.E001TNS#(lf)            #(tab)ON E001TNS.CODEMP = E501TCP.CODEMP#(lf)           #(tab)#(tab)AND E001TNS.CODTNS = E501TCP.CODTNS#(lf)           #(tab)#(tab)#(lf)        LEFT JOIN sapiens_producao.E095CFO#(lf)               ON E095CFO.CODFOR = E501TCP.CODFOR#(lf)               #(lf)        LEFT JOIN sapiens_producao.E014CCL#(lf)               ON E014CCL.CODCCL = E095CFO.CODCCL#(lf)               #(lf)       #(tab)INNER JOIN sapiens_producao.E091PLF  #(lf)        #(tab)    ON E091PLF.codemp = E501TCP.CODEMP#(lf)        #(tab)   AND E091PLF.ctafin = E501TCP.CTAFIN #(lf)#(lf)    WHERE E501TCP.CODEMP = 1#(lf)      AND E501TCP.DATENT <= GETDATE()#(lf)      AND E501TCP.VLRABE > 0#(lf)      AND E001TNS.LISMOD = 'CPE'#(lf)      AND E095FOR.CODFOR NOT IN ('11143','21982','17661','46501','5517','48831','17935','2394','7868')#(lf)#(lf)    GROUP BY#(lf)        E501TCP.CodFil,#(lf)        E501TCP.NumTit,#(lf)        E501TCP.CodTpt,#(lf)        E002TPT.DesTpt,#(lf)        E095HFO.CTARED,#(lf)        E045PLA.DESCTA,#(lf)        E045PLA.CLACTA,#(lf)        E095FOR.SigUfs,#(lf)        E501TCP.CODFOR,#(lf)        E095FOR.NOMFOR,#(lf)        E501TCP.DATEMI,#(lf)        E501TCP.VCTPRO,#(lf)        E002TPT.PAGSOM,#(lf)        E095CFO.CODCCL,#(lf)        E014CCL.DESCCL,#(lf)        E091PLF.DESCTA,#(lf)        E501TCP.CTAFIN#(lf)),#(lf)#(lf)TITULOS_PAGOS_FUTUROS AS#(lf)(#(lf)    SELECT#(lf)        E501TCP.CodFil AS Filial,#(lf)        E501TCP.NumTit AS Titulo,#(lf)        E501TCP.CodTpt AS CodTpt,#(lf)#(lf)        E095HFO.CTARED AS Cta_Contabil,#(lf)#(lf)        E045PLA.CLACTA AS Classificacao_Contabil,#(lf)        E045PLA.DESCTA AS Descricao_Contabil,#(lf)        #(lf)        E501TCP.CODFOR AS Cod_Fornecedor,#(lf)#(lf)        FORMAT(E501TCP.DATEMI, 'dd/MM/yyyy') AS Data_Emissao,#(lf)        FORMAT(E501TCP.VCTPRO, 'dd/MM/yyyy') AS Data_Vencimento,#(lf)        #(lf)        CASE#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'ADT' THEN 'ADIANTAMENTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'CRE' THEN 'CREDITO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DEC' THEN 'DEVOLUÇÃO COMPRA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN ('FDE', 'SDE') THEN 'RETORNO DE IMPOSTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = '01' THEN 'DUPLICATAS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'CCP' THEN 'PIS/COFINS/RETIDA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DEJ' THEN 'DEPOSITO JUDICIAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DEV' THEN 'DEVOLUÇÃO VENDA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DIF' THEN 'DIFAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN ('DIV', 'PDA') THEN 'PARCELAMENTO DIVIDA ATIVA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DLU' THEN 'DISTRIBUIÇÃO DE LUCROS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'DPV' THEN 'DESPESAS POS VENDAS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'EMP' THEN 'EMPRESTIMOS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FCP' THEN 'IMPOSTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FET' THEN 'EMPRESTIMO CONSIGNADO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FGR' THEN 'FGTS RESCISÓRIO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FGT' THEN 'FGTS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FIN' THEN 'FINANCIAMENTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'FME' THEN 'FINAME'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'INS' THEN 'INSS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'INT' THEN 'INSS RETIDO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IPV' THEN 'IPVA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IRA' THEN 'IR RETIDO SOBRE ALUGUEL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IRC' THEN 'IR RETIDO SOBRE COMISSÃO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IRF' THEN 'IRRF'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'IRP' THEN 'IMPOSTO RETIDO SERVIÇOS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'ISR' THEN 'ISS RETENÇÃO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'ISS' THEN 'ISS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LAD' THEN 'PROVISÕES'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LEA' THEN 'LEASING'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LFÉ' THEN 'FÉRIAS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LIQ' THEN 'FOLHA DE PAGAMENTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LQP' THEN 'LIQUIDO PRO-LABORE'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'LRE' THEN 'RESCISÕES'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN ('LS2', 'LS3') THEN 'LEASING'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'MUL' THEN 'MULTA INTEGRAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PCI' THEN 'PARCELAMENTO CSSL-IRPJ'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PJD' THEN 'PENSÃO JUDICIAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PMF' THEN 'PARCELAMENTO MALHA FISCAL'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PS1' THEN 'PARCELAMENTO SIMPLIFICADO 1'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PS2' THEN 'PARCELAMENTO SIMPLIFICADO 2'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'PS3' THEN 'PARCELAMENTO SIMPLIFICADO 3'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN ('PST', 'STP') THEN 'PARCELAMENTO ST'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'RCO' THEN 'RECIBO DE COMISSÃO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'SEV' THEN 'SEGURO DE VEÍCULOS'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'ST4' THEN 'ST SEM PARCELAMENTO'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt = 'VRF' THEN 'VERBA FIXA'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt IN (#(lf)#(tab)#(tab)        'VVA','VVC','VVD','VVI','VVK',#(lf)#(tab)#(tab)        'VVL','VVM','VVN','VVO','VVP',#(lf)#(tab)#(tab)        'VVR','VVT'#(lf)#(tab)#(tab)    ) THEN 'VERBA'#(lf)#(tab)#(tab)    ELSE 'OUTROS'#(lf)#(tab)#(tab)END AS DESCRICAO_TIPO,#(lf)#(tab)#(tab)#(lf)#(tab)#(tab)CASE#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN( 'ADT','CRE','DEC','FDE', 'SDE', 'DEV') THEN 'Class. Credito'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('DLU','FET','FGR','FGT','INS','IRF','LFÉ','LIQ','LQP','LRE','PJD') THEN 'Despesas Dp' #(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('01','DPV','IPV','RCO','SEV') THEN 'Duplicatas'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('EMP','FIN','FME','LEA','LS2','LS3') THEN 'Emprestimos'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('CCP','DIF','FCP','INT','IRA','IRC','IRP','ISR','ISS','MUL','PS2','ST4','ICM') THEN 'Impostos'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('DIV','PCI','PDA','PMF','PS1','PS3','PST','STP') THEN 'Parc. Imp'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  IN('LAD') THEN 'Provisionamento'#(lf)#(tab)#(tab)#(tab)WHEN E501TCP.codtpt  IN('DEJ') THEN 'Dep. Judicial'#(lf)#(tab)#(tab)    WHEN E501TCP.codtpt  LIKE 'v%' THEN 'Verba'#(lf)#(tab)#(tab)    #(lf)#(tab)#(tab)    ELSE 'Outros'#(lf)#(tab)#(tab)END AS DESCRICAO_TIPO_AGP,#(lf)#(tab)#(tab)#(lf)        CASE#(lf)            WHEN E002TPT.PAGSOM IN ('D','O')#(tab)#(tab)#(tab) THEN SUM(E501MCP.VLRMOV)#(lf)            ELSE SUM(E501MCP.VLRMOV * (-1))#(lf)        END AS Valor_em_Aberto,#(lf)#(lf)        CASE#(lf)            WHEN E002TPT.PAGSOM IN ('D','O')        #(tab) THEN SUM(E501TCP.VLRORI)#(lf)            ELSE SUM(E501TCP.VLRORI * (-1))#(lf)        END AS Valor_Original,#(lf)#(lf)        CASE#(lf)            WHEN E002TPT.PAGSOM IN ('D','O')        #(tab) THEN 'Soma Duplicata'#(lf)            ELSE 'Soma Credito'#(lf)        END AS Tipo_Calculo,#(lf)#(lf)        CASE#(lf)            WHEN E501TCP.CODTPT IN ('LFÉ','LIQ','LRE')   THEN 'GASTOS COM PESSOAL'#(lf)            WHEN E095CFO.CODCCL > 0#(lf)                THEN UPPER(E014CCL.DESCCL)#(lf)            ELSE 'NULL'#(lf)        END AS Classificacao,#(lf)        #(lf)        E501TCP.CTAFIN, #(lf)        E091PLF.DESCTA#(lf)#(lf)    FROM sapiens_producao.E501TCP#(lf)        INNER JOIN sapiens_producao.E095FOR#(lf)            #(tab)ON E095FOR.CODFOR = E501TCP.CODFOR#(lf)            #(tab)#(lf)        INNER JOIN sapiens_producao.E095HFO#(lf)            #(tab)ON E095HFO.CODFOR = E501TCP.CODFOR#(lf)           #(tab)#(tab)AND E095HFO.CODFIL = E501TCP.CODFIL#(lf)           #(tab)#(lf)        INNER JOIN sapiens_producao.E045PLA#(lf)            #(tab)ON E045PLA.CTARED = E095HFO.CTARED#(lf)            #(tab)#(lf)        INNER JOIN sapiens_producao.E501MCP#(lf)            #(tab)ON E501MCP.CODEMP = E501TCP.CODEMP#(lf)           #(tab)#(tab)AND E501MCP.CODFIL = E501TCP.CODFIL#(lf)           #(tab)#(tab)AND E501MCP.NUMTIT = E501TCP.NUMTIT#(lf)           #(tab)#(tab)AND E501MCP.CODTPT = E501TCP.CODTPT#(lf)           #(tab)#(tab)AND E501MCP.CODFOR = E501TCP.CODFOR#(lf)           #(tab)#(tab)#(lf)        INNER JOIN sapiens_producao.E002TPT#(lf)            #(tab)ON E002TPT.CODTPT = E501MCP.CODTPT#(lf)            #(tab)#(lf)        LEFT JOIN sapiens_producao.E095CFO#(lf)               ON E095CFO.CODFOR = E501TCP.CODFOR#(lf)               #(lf)        LEFT JOIN sapiens_producao.E014CCL#(lf)               ON E014CCL.CODCCL = E095CFO.CODCCL#(lf)        #(lf)       #(tab)INNER JOIN sapiens_producao.E091PLF  #(lf)        #(tab)    ON E091PLF.codemp = E501TCP.CODEMP#(lf)        #(tab)   AND E091PLF.ctafin = E501TCP.CTAFIN        #(lf)#(lf)    WHERE E501TCP.CODEMP = 1#(lf)      AND E501TCP.DATENT <= GETDATE()#(lf)      AND E501MCP.DATPGT >  GETDATE()#(lf)      AND E095FOR.CODFOR NOT IN ('11143','21982','17661','46501','5517','48831','17935','2394','7868')#(lf)#(lf)    GROUP BY#(lf)        E501TCP.CodFil,#(lf)        E501TCP.NumTit,#(lf)        E501TCP.CodTpt,#(lf)        E002TPT.DesTpt,#(lf)        E095HFO.CTARED,#(lf)        E045PLA.DESCTA,#(lf)        E045PLA.CLACTA,#(lf)        E095FOR.SigUfs,#(lf)        E501TCP.CODFOR,#(lf)        E095FOR.NOMFOR,#(lf)        E501TCP.DATEMI,#(lf)        E501TCP.VCTPRO,#(lf)        E002TPT.PAGSOM,#(lf)        E095CFO.CODCCL,#(lf)        E014CCL.DESCCL,#(lf)        E091PLF.DESCTA,#(lf)        E501TCP.CTAFIN#(lf))#(lf)#(lf)SELECT *#(lf)FROM TITULOS_ABERTOS#(lf)#(lf)UNION ALL#(lf)#(lf)SELECT *#(lf)FROM TITULOS_PAGOS_FUTUROS#(lf)#(lf)ORDER BY#(lf)    Filial,#(lf)    Titulo,#(lf)    CodTpt;"]),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(Origem,{{"Data_Emissao", type date}, {"Data_Vencimento", type date}})
+				  Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP", [Query="select#(lf)*#(lf)from USU_VIEW_FluxoCaixa_Receber_Pagar#(lf)WHERE  #(lf)#(tab)   tipo = 'CP' AND #(lf)#(tab)   CODCLI NOT IN ('11143')", CommandTimeout=#duration(0, 2, 0, 0)])
 				in
-				  #"Tipo Alterado"
+				  Fonte
 
 	annotation PBI_NavigationStepName = Navegação
 

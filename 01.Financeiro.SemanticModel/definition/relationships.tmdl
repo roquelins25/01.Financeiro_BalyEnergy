@@ -155,16 +155,22 @@ relationship f5cf27ca-e25b-4769-b7da-66f21f71ae3b
 	fromColumn: DataAtualizacao.'data atualizada'
 	toColumn: LocalDateTable_19b0fe29-5ade-4445-bb3d-0a38db7daf25.Date
 
-relationship b3942648-074e-9339-0469-5992329d81ef
-	fromColumn: TB_Fatos_CP.Data_Vencimento
-	toColumn: 'CALENDARIO DAX'.Date
+relationship 50568c8a-bd22-4ac2-9a38-93830537604d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos_CP.datemi
+	toColumn: LocalDateTable_d128d03e-e579-4f39-b079-6d60cc16b653.Date
 
-relationship 7422762c-ad1b-8e84-e9cc-de732889bad7
-	isActive: false
-	fromColumn: TB_Fatos_CP.Data_Emissao
-	toColumn: 'CALENDARIO DAX'.Date
+relationship 784047bd-e582-4790-9240-4c9eef32ec2e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos_CP.datent
+	toColumn: LocalDateTable_0b591359-c36d-48bb-9d45-b76a402bdc2e.Date
 
-relationship 7cfde3e7-ea82-2cce-4c3b-32dde2bf82b3
-	fromColumn: TB_Fatos_CP.Cod_Fornecedor
+relationship 6823341d-cd51-4b59-aff9-c72be96f2a57
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos_CP.vctpro
+	toColumn: LocalDateTable_d72db5bb-7f3f-4110-98c3-89053b78d0a8.Date
+
+relationship AutoDetected_159158e8-1270-4645-9dc3-000f8e933ff8
+	fromColumn: TB_Fatos_CP.CODCLI
 	toColumn: TB_CLI.codcli
 
