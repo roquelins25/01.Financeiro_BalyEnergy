@@ -1,13 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "991b0bc2185f5c8cafb7",
+  "name": "b2a79dbb950c8f9569d5",
   "position": {
-    "x": 394.66357308584685,
-    "y": 0,
+    "x": 155.7096141268803,
+    "y": 345.32374100719426,
     "z": 0,
-    "height": 1080,
-    "width": 1047.4245939675175,
-    "tabOrder": 0
+    "height": 734.597776324395,
+    "width": 1495.5657292347939
   },
   "visual": {
     "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
@@ -23,11 +22,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "05. HTML SALDO DIA"
+                  "Property": "HTML_Calendario"
                 }
               },
-              "queryRef": "_Medidas.HTML SALDO DIA",
-              "nativeQueryRef": "05. HTML SALDO DIA"
+              "queryRef": "_Medidas.05. HTML CALENDARIO",
+              "nativeQueryRef": "HTML_Calendario"
             }
           ]
         }
@@ -49,23 +48,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "c6e5d091db57383bb4bb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "05. HTML SALDO DIA"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

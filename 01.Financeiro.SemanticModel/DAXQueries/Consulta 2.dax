@@ -1,7 +1,44 @@
 EVALUATE
-CALCULATETABLE(
-    TB_Fatos_CP,
-    REMOVEFILTERS('CALENDARIO DAX'),
-    KEEPFILTERS(VALUES('CALENDARIO DAX'[Ano])),
-    KEEPFILTERS(VALUES('CALENDARIO DAX'[Mês]))
+VAR MesRef        = MAX ( 'CALENDARIO DAX'[Date] )
+VAR PrimeiroDia   = DATE ( YEAR ( MesRef ), MONTH ( MesRef ), 1 )
+VAR UltimoDia     = EOMONTH ( PrimeiroDia, 0 )
+VAR OffsetSemana  = WEEKDAY ( PrimeiroDia, 1 ) - 1     -- quantas células vazias antes do dia 1
+
+VAR DiasDoMes = 
+FILTER(
+    SUMMARIZE(
+        'CALENDARIO DAX',
+        'CALENDARIO DAX'[Date],
+        "DiaSemana",  WEEKDAY ( [Date], 1 ) - 1,
+        "Receber", [01. Valor Previsto a Receber],
+        "Pagar", [01. Valor AB CP]
+    ),
+    'CALENDARIO DAX'[Date] >= DATE(2026,07,01) && 'CALENDARIO DAX'[Date] <= DATE(2026,07,31)
+)
+
+VAR CelulasVazias =
+    CONCATENATEX ( GENERATESERIES ( 1, OffsetSemana ), "<div class='dia vazio'></div>", "" )
+
+VAR CelulasDias =
+    CONCATENATEX (
+        DiasDoMes,
+        VAR Saldo = [Receber] - [Pagar]
+        VAR EhFDS = [DiaSemana] = 0 || [DiaSemana] = 6
+        RETURN
+            "<div class='dia" & IF ( EhFDS, " fds", "" ) & "'>" &
+                "<div class='numero'>" & DAY ( [Date] ) & "</div>" &
+                IF ( [Receber] > 0,
+                    "<div class='linha-valor receber'><span>Receber</span><span>R$ "
+                        & FORMAT ( [Receber], "#,##0" ) & "</span></div>" ) &
+                IF ( [Pagar] > 0,
+                    "<div class='linha-valor pagar'><span>Pagar</span><span>R$ "
+                        & FORMAT ( [Pagar], "#,##0" ) & "</span></div>" ) &
+                IF ( [Receber] > 0 || [Pagar] > 0,
+                    "<div class='saldo-dia" & IF ( Saldo < 0, " negativo", "" ) & "'>Saldo R$ "
+                        & FORMAT ( Saldo, "#,##0" ) & "</div>" ) &
+            "</div>",
+        "", [Date], ASC
     )
+
+RETURN
+DiasDoMes

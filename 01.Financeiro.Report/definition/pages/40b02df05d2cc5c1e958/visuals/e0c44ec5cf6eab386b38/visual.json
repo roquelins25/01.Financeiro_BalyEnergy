@@ -461,6 +461,76 @@
           }
         },
         "type": "Advanced"
+      },
+      {
+        "name": "21f16814e7322435f4eb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CALENDARIO DAX"
+              }
+            },
+            "Property": "Nome do Mês"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2a01222f2372f814d589",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CALENDARIO DAX"
+              }
+            },
+            "Property": "DiaMES"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "30e5e5a5b055669d4d71",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_PGT"
+              }
+            },
+            "Property": "desfpg"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2824b9f41d31a0afe1c4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "07. % FPG CR"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b6adea45638fa3f102dd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "07. % FPG FAt"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

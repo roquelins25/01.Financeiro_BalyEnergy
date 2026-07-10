@@ -1,170 +1,228 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "934f61cf84cb208a7310",
+  "name": "487a20b106acced10e7b",
   "position": {
-    "x": 2.3843338925267545,
-    "y": 156.5645793025341,
-    "z": 7000,
-    "height": 162.36326742485019,
-    "width": 355.65287150205279,
-    "tabOrder": 8
+    "x": 967.23897911832944,
+    "y": 0,
+    "z": 1000,
+    "height": 686.58932714617163,
+    "width": 907.0997679814385
   },
   "visual": {
-    "visualType": "advancedSlicerVisual",
+    "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Values": {
+        "Rows": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "Mês Abrev"
+                  "Property": "despar"
                 }
               },
-              "queryRef": "CALENDARIO DAX.Mês Abrev",
-              "nativeQueryRef": "Mês Abrev"
+              "queryRef": "TB_Fatos_CP.despar",
+              "nativeQueryRef": "Agrupamento Financeiro",
+              "active": true,
+              "displayName": "Agrupamento Financeiro"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CP"
+                    }
+                  },
+                  "Property": "DesCta"
+                }
+              },
+              "queryRef": "TB_Fatos_CP.DesCta",
+              "nativeQueryRef": "DesCta",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "nomcli"
+                }
+              },
+              "queryRef": "TB_CLI.nomcli",
+              "nativeQueryRef": "nomcli",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "01. Valor AB CP"
+                }
+              },
+              "queryRef": "_Medidas.01. Valor AB CP",
+              "nativeQueryRef": "01. Valor AB CP"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "01. Valor AB CP"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "TB_Fatos_CP.despar"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CP"
+                    }
+                  },
+                  "Property": "despar"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_Fatos_CP.DesCta"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CP"
+                    }
+                  },
+                  "Property": "DesCta"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_CLI.nomcli"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "nomcli"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
-      "general": [
+      "columnHeaders": [
         {
           "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "c",
-                    "Entity": "CALENDARIO DAX",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "c"
-                                }
-                              },
-                              "Property": "Mês Abrev"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'jul'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
-        }
-      ],
-      "fillCustom": [
-        {
-          "properties": {
-            "show": {
+            "autoSizeColumnWidth": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
             },
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.3
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "show": {
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
             },
-            "fillColor": {
+            "backColor": {
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#FFE1D6'"
                     }
                   }
                 }
               }
-            }
-          },
-          "selector": {
-            "id": "interaction:press"
-          }
-        },
-        {
-          "properties": {
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
-                    }
-                  }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "selection:selected"
           }
         }
       ],
-      "value": [
+      "values": [
         {
           "properties": {
-            "fontColor": {
+            "fontColorPrimary": {
               "solid": {
                 "color": {
                   "expr": {
@@ -176,132 +234,106 @@
                 }
               }
             },
-            "verticalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'middle'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default",
-            "hierarchyMatching": 1
-          }
-        },
-        {
-          "properties": {
-            "fontColor": {
+            "fontColorSecondary": {
               "solid": {
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 0,
+                      "ColorId": 1,
                       "Percent": 0
                     }
                   }
                 }
               }
             }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
           },
           "selector": {
-            "id": "interaction:hover"
+            "metadata": "_Medidas.01. Valor Previsto a Receber"
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "471.589812008218D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "TB_Operacao.OP"
           }
         },
         {
           "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#000000'"
-                    }
-                  }
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "722.7633237665776D"
                 }
               }
             }
           },
           "selector": {
-            "id": "selection:selected"
+            "metadata": "TB_CLI.nomcli"
           }
-        }
-      ],
-      "layout": [
+        },
         {
           "properties": {
-            "rowCount": {
+            "value": {
               "expr": {
                 "Literal": {
-                  "Value": "3L"
-                }
-              }
-            },
-            "columnCount": {
-              "expr": {
-                "Literal": {
-                  "Value": "4L"
-                }
-              }
-            },
-            "cellPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "2L"
-                }
-              }
-            },
-            "autoGrid": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "background": [
-        {
-          "properties": {
-            "wrapContent": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "721.5318401985854D"
                 }
               }
             }
           },
           "selector": {
-            "id": "default",
-            "hierarchyMatching": 1
+            "metadata": "TB_Rede.nomgre"
           }
-        }
-      ],
-      "selection": [
+        },
         {
           "properties": {
-            "selectAllCheckboxEnabled": {
+            "value": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "strictSingleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "singleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "649.7927759212204D"
                 }
               }
             }
+          },
+          "selector": {
+            "metadata": "TB_Fatos_CP.despar"
           }
         }
       ]
@@ -320,14 +352,26 @@
             "titleWrap": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'12'"
+                  "Value": "10D"
                 }
               }
             },
@@ -342,6 +386,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'A Pagar ( HOJE )'"
                 }
               }
             }
@@ -408,7 +459,7 @@
             "spaceBelowTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "10D"
                 }
               }
             },
@@ -419,20 +470,6 @@
                 }
               }
             }
-          }
-        },
-        {
-          "properties": {
-            "verticalSpacing": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],
@@ -618,20 +655,7 @@
             "name": {
               "expr": {
                 "Literal": {
-                  "Value": "''"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualHeader": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "'Minimal'"
                 }
               }
             }
@@ -641,5 +665,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "9884c485ff42f06cc7ba"
+  "parentGroupName": "9a9b297a746f6eee0b02"
 }

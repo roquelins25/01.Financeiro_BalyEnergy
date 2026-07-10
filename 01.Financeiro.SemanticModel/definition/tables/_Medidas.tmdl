@@ -197,719 +197,6 @@ table _Medidas
 		displayFolder: 01. Valores Totais\Auxiliares
 		lineageTag: 5617b1ec-4ced-4817-9f93-58b88fde30df
 
-	measure '05.HTML CARD GERAL' =
-			
-			-- Select
-			VAR vANO = SELECTEDVALUE( 'CALENDARIO DAX'[Ano] )
-			
-			---- Calculos
-			VAR _TOTALGERAL = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ) )
-			VAR _TOTALMESSELECT = [01. Valor Aberto]
-			VAR _TOTALMESANTSELECT = CALCULATE( [01. Valor Aberto], DATEADD( 'CALENDARIO DAX'[Date], -1, MONTH ) )
-			
-			VAR _QTDTitulos = CALCULATE( [02. Quantidade Titulos AB], ALL( 'CALENDARIO DAX' ) )
-			
-			VAR _PROXIMOSANOS = CALCULATE( [01. Valor Aberto],ALL('CALENDARIO DAX'), 'CALENDARIO DAX'[Ano] >  vANO )
-			VAR _ANOATUAL = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano] = vANO )
-			VAR _ANO1 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano] = vANO -1 )
-			VAR _ANO2 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano] = vANO -2 )
-			VAR _ANO3 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano] < vANO -2 )
-			
-			RETURN
-			
-			"
-			<!DOCTYPE html>
-			<html lang='pt-BR'>
-			<head>
-			  <meta charset='UTF-8'>
-			  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-			  <title>Card Inadimplência</title>
-			  <style>
-			    * { box-sizing: border-box; margin: 0; padding: 0; }
-			
-			    body {
-			      display: flex;
-			      justify-content: center;
-			      align-items: center;
-			      min-height: 100vh;
-			      font-family: 'Segoe UI', Arial, sans-serif;
-			    }
-			
-			    /* ── Flip container ── */
-			    .flip-wrapper {
-			      width: 277px;
-			      height: 145px;
-			      perspective: 900px;
-			    }
-			
-			    .flip-inner {
-			      width: 100%;
-			      height: 100%;
-			      position: relative;
-			      transform-style: preserve-3d;
-			      transition: transform 0.55s cubic-bezier(.4,0,.2,1);
-			    }
-			
-			    .flip-wrapper:hover .flip-inner {
-			      transform: rotateY(180deg);
-			    }
-			
-			    /* ── Faces comuns ── */
-			    .face {
-			      position: absolute;
-			      inset: 0;
-			      backface-visibility: hidden;
-			      -webkit-backface-visibility: hidden;
-			      border: 1.5px solid #FFCD00;
-			      border-radius: 12px;
-			      padding: 12px 12px 14px;
-			    }
-			
-			    /* ── Frente ── */
-			    .front {
-			      background: #F5F5F5;
-			    }
-			
-			    .header {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      margin-bottom: 6px;
-			    }
-			
-			    .title {
-			      font-size: 10px;
-			      font-weight: 600;
-			      color: #828282;
-			      letter-spacing: 0.4px;
-			      text-transform: uppercase;
-			    }
-			
-			    .badge {
-			      background: #B5FFC5;
-			      color: #11A141;
-			      font-size: 10px;
-			      font-weight: 700;
-			      padding: 3px 10px;
-			      border-radius: 20px;
-			    }
-			
-			    .main-value {
-			      font-size: 32px;
-			      font-weight: 800;
-			      color: #1a1a1a;
-			      letter-spacing: -0.5px;
-			      margin: 6px 0 10px;
-			      line-height: 1.7;
-			    }
-			
-			    .divider {
-			      border: none;
-			      border-top: 1px solid #FFCD00;
-			      margin: 10px 0;
-			    }
-			
-			    .footer {
-			      display: flex;
-			      align-items: center;
-			      gap: 6px;
-			    }
-			
-			    .footer-value {
-			      font-size: 14px;
-			      font-weight: 700;
-			      color: #393939;
-			    }
-			
-			    .footer-label {
-			      font-size: 11px;
-			      color: #828282;
-			      flex: 1;
-			    }
-			
-			    .flip-hint {
-			      font-size: 14px;
-			      color: #bbb;
-			    }
-			
-			    /* ── Verso ── */
-			    .back {
-			      background: #1a1a1a;
-			      transform: rotateY(180deg);
-			      display: flex;
-			      flex-direction: column;
-			      justify-content: center;
-			      gap: 0;
-			    }
-			
-			    .back-title {
-			      font-size: 9px;
-			      font-weight: 700;
-			      color: #FFCD00;
-			      text-transform: uppercase;
-			      letter-spacing: 0.1px;
-			      margin-bottom: 8px;
-			    }
-			
-			    .back-row {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      padding: 2px 0;
-			      border-bottom: 1px solid #2e2e2e;
-			      font-size: 11px;
-			    }
-			
-			    .back-row:last-child { border-bottom: none; }
-			
-			    .back-row .lbl { color: #888; }
-			    .back-row .val { font-weight: 700; color: #f0f0f0; }
-			    .back-row .val.up   { color: #FFCD00; }
-			    .back-row .val.down { color: #f87171; }
-			  </style>
-			</head>
-			<body>
-			
-			  <div class='flip-wrapper'>
-			    <div class='flip-inner'>
-			
-			      <!-- FRENTE -->
-			      <div class='face front'>
-			        <div class='header'>
-			          <span class='title'>CONTAS A RECEBER</span>
-			        </div>
-			        <div class='main-value'>"&fxFORMAT(_TOTALGERAL,4)&"</div>
-			        <hr class='divider'>
-			        <div class='footer'>
-			          <span class='footer-value'>"&fxFORMAT(_QTDTitulos,6)&"</span>
-			          <span class='footer-label'> Qtd Títulos Abertos</span>
-			          <span class='flip-hint'>›</span>
-			        </div>
-			      </div>
-			
-			      <!-- VERSO -->
-			      <div class='face back'>
-			        <div class='back-title'>Comparativo Anual</div>
-			        <div class='back-row'>
-			          <span class='lbl'>Proximos Anos</span>
-			          <span class='val'>"& fxFORMAT( _PROXIMOSANOS, 4 ) &"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='val up'>"&vANO&"</span>
-			          <span class='val up'>"&fxFORMAT(_ANOATUAL,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vANO - 1&"</span>
-			          <span class='val'>"&fxFORMAT(_ANO1,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vANO - 2&"</span>
-			          <span class='val'>"&fxFORMAT(_ANO2, 4 )&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>Anos Anteriores</span>
-			          <span class='val'>"& fxFORMAT( _ANO3, 4 ) &"</span>
-			        </div>
-			      </div>
-			
-			    </div>
-			  </div>
-			
-			</body>
-			</html>
-			
-			"
-		displayFolder: 05. HTML
-		lineageTag: ea54443a-862c-435d-9108-a53c37dff5fa
-
-	measure '05.HTML CARD VENCIDOS' = ```
-			
-			-- Select
-			VAR vANO = SELECTEDVALUE( 'CALENDARIO DAX'[Ano-Mes] )
-			
-			VAR vMESANTERIOR = 
-			FORMAT(
-			    EDATE(MAX('CALENDARIO DAX'[Date]), -1),
-			    "mmm-yy"
-			)
-			VAR vMES1 = 
-			FORMAT(
-			    EDATE(MAX('CALENDARIO DAX'[Date]), -2),
-			    "mmm-yy"
-			)
-			---- Calculos
-			VAR _TOTALGERAL = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), TB_AUXtempo[Tipo] = "Vencidas" )
-			
-			VAR _VencendoHOJE = CALCULATE( [01. Valor Aberto], ALL('CALENDARIO DAX'), TB_AUXtempo[Tipo] = "HOJE" )
-			
-			VAR _TOTALAB =  [01. Valor Aberto]
-			
-			VAR _TotalMesAnt = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano-Mes] = vMESANTERIOR )
-			
-			VAR _TotalMes1 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano-Mes] = vMES1 )
-			
-			VAR _TotalMes2 = 
-			    VAR DataLimite =
-			        EDATE(MAX('CALENDARIO DAX'[Date]), -3)
-			
-			    RETURN
-			    CALCULATE(
-			        [01. Valor Aberto],
-			        FILTER(
-			            ALL('CALENDARIO DAX'),
-			            'CALENDARIO DAX'[Date] <= EOMONTH(DataLimite, 0)
-			        )
-			    )
-			
-			
-			RETURN
-			
-			"
-			<!DOCTYPE html>
-			<html lang='pt-BR'>
-			<head>
-			  <meta charset='UTF-8'>
-			  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-			  <title>Card Inadimplência</title>
-			  <style>
-			    * { box-sizing: border-box; margin: 0; padding: 0; }
-			
-			    body {
-			      display: flex;
-			      justify-content: center;
-			      align-items: center;
-			      min-height: 100vh;
-			      font-family: 'Segoe UI', Arial, sans-serif;
-			    }
-			
-			    /* ── Flip container ── */
-			    .flip-wrapper {
-			      width: 277px;
-			      height: 145px;
-			      perspective: 900px;
-			    }
-			
-			    .flip-inner {
-			      width: 100%;
-			      height: 100%;
-			      position: relative;
-			      transform-style: preserve-3d;
-			      transition: transform 0.55s cubic-bezier(.4,0,.2,1);
-			    }
-			
-			    .flip-wrapper:hover .flip-inner {
-			      transform: rotateY(180deg);
-			    }
-			
-			    /* ── Faces comuns ── */
-			    .face {
-			      position: absolute;
-			      inset: 0;
-			      backface-visibility: hidden;
-			      -webkit-backface-visibility: hidden;
-			      border: 1.5px solid #FFCD00;
-			      border-radius: 12px;
-			      padding: 12px 12px 14px;
-			    }
-			
-			    /* ── Frente ── */
-			    .front {
-			      background: #F5F5F5;
-			    }
-			
-			    .header {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      margin-bottom: 6px;
-			    }
-			
-			    .title {
-			      font-size: 10px;
-			      font-weight: 600;
-			      color: #828282;
-			      letter-spacing: 0.4px;
-			      text-transform: uppercase;
-			    }
-			
-			    .badge {
-			      background: #B5FFC5;
-			      color: #11A141;
-			      font-size: 10px;
-			      font-weight: 700;
-			      padding: 3px 10px;
-			      border-radius: 20px;
-			    }
-			
-			    .main-value {
-			      font-size: 32px;
-			      font-weight: 800;
-			      color: #1a1a1a;
-			      letter-spacing: -0.5px;
-			      margin: 6px 0 10px;
-			      line-height: 1.7;
-			    }
-			
-			    .divider {
-			      border: none;
-			      border-top: 1px solid #FFCD00;
-			      margin: 10px 0;
-			    }
-			
-			    .footer {
-			      display: flex;
-			      align-items: center;
-			      gap: 6px;
-			    }
-			
-			    .footer-value {
-			      font-size: 14px;
-			      font-weight: 700;
-			      color: #393939;
-			    }
-			
-			    .footer-label {
-			      font-size: 11px;
-			      color: #828282;
-			      flex: 1;
-			    }
-			
-			    .flip-hint {
-			      font-size: 14px;
-			      color: #bbb;
-			    }
-			
-			    /* ── Verso ── */
-			    .back {
-			      background: #1a1a1a;
-			      transform: rotateY(180deg);
-			      display: flex;
-			      flex-direction: column;
-			      justify-content: center;
-			      gap: 0;
-			    }
-			
-			    .back-title {
-			      font-size: 9px;
-			      font-weight: 700;
-			      color: #FFCD00;
-			      text-transform: uppercase;
-			      letter-spacing: 0.1px;
-			      margin-bottom: 8px;
-			    }
-			
-			    .back-row {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      padding: 2px 0;
-			      border-bottom: 1px solid #2e2e2e;
-			      font-size: 11px;
-			    }
-			
-			    .back-row:last-child { border-bottom: none; }
-			
-			    .back-row .lbl { color: #888; }
-			    .back-row .val { font-weight: 700; color: #f0f0f0; }
-			    .back-row .val.up   { color: #FFCD00; }
-			    .back-row .val.down { color: #f87171; }
-			  </style>
-			</head>
-			<body>
-			
-			  <div class='flip-wrapper'>
-			    <div class='flip-inner'>
-			
-			      <!-- FRENTE -->
-			      <div class='face front'>
-			        <div class='header'>
-			          <span class='title'>VENCIDOS</span>
-			        </div>
-			        <div class='main-value'>"&fxFORMAT(_TOTALGERAL,4)&"</div>
-			        <hr class='divider'>
-			        <div class='footer'>
-			          <span class='footer-value'>"&fxFORMAT(_VencendoHOJE,4)&"</span>
-			          <span class='footer-label'> Vencendo Hoje </span>
-			          <span class='flip-hint'>›</span>
-			        </div>
-			      </div>
-			
-			      <!-- VERSO -->
-			      <div class='face back'>
-			        <div class='back-title'> Comparativo Mensal </div>
-			        <div class='back-row'>
-			          <span class='val up'>"&vANO&"</span>
-			          <span class='val up'>"&fxFORMAT(_TOTALAB,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vMESANTERIOR&"</span>
-			          <span class='val'>"&fxFORMAT(_TotalMesAnt,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vMES1&"</span>
-			          <span class='val'>"&fxFORMAT(_TotalMes1, 4 )&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>Anteriores</span>
-			          <span class='val'>"& fxFORMAT( _TotalMes2, 4 ) &"</span>
-			        </div>
-			      </div>
-			
-			    </div>
-			  </div>
-			
-			</body>
-			</html>
-			
-			"
-			```
-		displayFolder: 05. HTML
-		lineageTag: 9bd9b8a1-74df-4d1c-9562-582f69be841e
-
-	measure '05.HTML CARD A VENCER' = ```
-			
-			-- Select
-			VAR vANO = SELECTEDVALUE( 'CALENDARIO DAX'[Ano-Mes] )
-			
-			VAR vMESANTERIOR = 
-			FORMAT(
-			    EDATE(MAX('CALENDARIO DAX'[Date]), 1),
-			    "mmm-yy"
-			)
-			VAR vMES1 = 
-			FORMAT(
-			    EDATE(MAX('CALENDARIO DAX'[Date]), 2),
-			    "mmm-yy"
-			)
-			---- Calculos
-			VAR _TOTALGERAL = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), TB_AUXtempo[Tipo] = "A Vencer" )
-			
-			VAR _VencendoHOJE = CALCULATE( [01. Valor Aberto], ALL('CALENDARIO DAX'), TB_AUXtempo[Tipo] = "HOJE" )
-			
-			VAR _TOTALAB =  [01. Valor Aberto]
-			
-			VAR _TotalMesAnt = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano-Mes] = vMESANTERIOR )
-			
-			VAR _TotalMes1 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano-Mes] = vMES1 )
-			
-			VAR _TotalMes2 = 
-			    VAR DataLimite =
-			        EDATE(MAX('CALENDARIO DAX'[Date]), 3)
-			
-			    RETURN
-			    CALCULATE(
-			        [01. Valor Aberto],
-			        FILTER(
-			            ALL('CALENDARIO DAX'),
-			            'CALENDARIO DAX'[Date] >= EOMONTH(DataLimite, 0)
-			        )
-			    )
-			
-			
-			RETURN
-			
-			"
-			<!DOCTYPE html>
-			<html lang='pt-BR'>
-			<head>
-			  <meta charset='UTF-8'>
-			  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-			  <title>Card Inadimplência</title>
-			  <style>
-			    * { box-sizing: border-box; margin: 0; padding: 0; }
-			
-			    body {
-			      display: flex;
-			      justify-content: center;
-			      align-items: center;
-			      min-height: 100vh;
-			      font-family: 'Segoe UI', Arial, sans-serif;
-			    }
-			
-			    /* ── Flip container ── */
-			    .flip-wrapper {
-			      width: 277px;
-			      height: 145px;
-			      perspective: 900px;
-			    }
-			
-			    .flip-inner {
-			      width: 100%;
-			      height: 100%;
-			      position: relative;
-			      transform-style: preserve-3d;
-			      transition: transform 0.55s cubic-bezier(.4,0,.2,1);
-			    }
-			
-			    .flip-wrapper:hover .flip-inner {
-			      transform: rotateY(180deg);
-			    }
-			
-			    /* ── Faces comuns ── */
-			    .face {
-			      position: absolute;
-			      inset: 0;
-			      backface-visibility: hidden;
-			      -webkit-backface-visibility: hidden;
-			      border: 1.5px solid #FFCD00;
-			      border-radius: 12px;
-			      padding: 12px 12px 14px;
-			    }
-			
-			    /* ── Frente ── */
-			    .front {
-			      background: #F5F5F5;
-			    }
-			
-			    .header {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      margin-bottom: 6px;
-			    }
-			
-			    .title {
-			      font-size: 10px;
-			      font-weight: 600;
-			      color: #828282;
-			      letter-spacing: 0.4px;
-			      text-transform: uppercase;
-			    }
-			
-			    .badge {
-			      background: #B5FFC5;
-			      color: #11A141;
-			      font-size: 10px;
-			      font-weight: 700;
-			      padding: 3px 10px;
-			      border-radius: 20px;
-			    }
-			
-			    .main-value {
-			      font-size: 32px;
-			      font-weight: 800;
-			      color: #1a1a1a;
-			      letter-spacing: -0.5px;
-			      margin: 6px 0 10px;
-			      line-height: 1.7;
-			    }
-			
-			    .divider {
-			      border: none;
-			      border-top: 1px solid #FFCD00;
-			      margin: 10px 0;
-			    }
-			
-			    .footer {
-			      display: flex;
-			      align-items: center;
-			      gap: 6px;
-			    }
-			
-			    .footer-value {
-			      font-size: 14px;
-			      font-weight: 700;
-			      color: #393939;
-			    }
-			
-			    .footer-label {
-			      font-size: 11px;
-			      color: #828282;
-			      flex: 1;
-			    }
-			
-			    .flip-hint {
-			      font-size: 14px;
-			      color: #bbb;
-			    }
-			
-			    /* ── Verso ── */
-			    .back {
-			      background: #1a1a1a;
-			      transform: rotateY(180deg);
-			      display: flex;
-			      flex-direction: column;
-			      justify-content: center;
-			      gap: 0;
-			    }
-			
-			    .back-title {
-			      font-size: 9px;
-			      font-weight: 700;
-			      color: #FFCD00;
-			      text-transform: uppercase;
-			      letter-spacing: 0.1px;
-			      margin-bottom: 8px;
-			    }
-			
-			    .back-row {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      padding: 2px 0;
-			      border-bottom: 1px solid #2e2e2e;
-			      font-size: 11px;
-			    }
-			
-			    .back-row:last-child { border-bottom: none; }
-			
-			    .back-row .lbl { color: #888; }
-			    .back-row .val { font-weight: 700; color: #f0f0f0; }
-			    .back-row .val.up   { color: #FFCD00; }
-			    .back-row .val.down { color: #f87171; }
-			  </style>
-			</head>
-			<body>
-			
-			  <div class='flip-wrapper'>
-			    <div class='flip-inner'>
-			
-			      <!-- FRENTE -->
-			      <div class='face front'>
-			        <div class='header'>
-			          <span class='title'>A VENCER</span>
-			        </div>
-			        <div class='main-value'>"&fxFORMAT(_TOTALGERAL,4)&"</div>
-			        <hr class='divider'>
-			        <div class='footer'>
-			          <span class='footer-value'>"&fxFORMAT(_VencendoHOJE,4)&"</span>
-			          <span class='footer-label'> Vencendo Hoje </span>
-			          <span class='flip-hint'>›</span>
-			        </div>
-			      </div>
-			
-			      <!-- VERSO -->
-			      <div class='face back'>
-			        <div class='back-title'> Comparativo Mensal </div>
-			        <div class='back-row'>
-			          <span class='val up'>"&vANO&"</span>
-			          <span class='val up'>"&fxFORMAT(_TOTALAB,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vMESANTERIOR&"</span>
-			          <span class='val'>"&fxFORMAT(_TotalMesAnt,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vMES1&"</span>
-			          <span class='val'>"&fxFORMAT(_TotalMes1, 4 )&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>Outro Meses</span>
-			          <span class='val'>"& fxFORMAT( _TotalMes2, 4 ) &"</span>
-			        </div>
-			      </div>
-			
-			    </div>
-			  </div>
-			
-			</body>
-			</html>
-			
-			"
-			```
-		displayFolder: 05. HTML
-		lineageTag: 15316810-1a59-48d4-9a17-7069c0e9927c
-
 	measure '01. Valor Aberto Ano Anterior' =
 			
 			CALCULATE(
@@ -2080,7 +1367,7 @@ table _Medidas
 			-------- LV1
 			    VAR vTabelaAGP = 
 			    ADDCOLUMNS(
-			        SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[DESCRICAO_TIPO_AGP] ), 
+			        SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[despar] ), 
 			        "@Valor", CALCULATE( [01. Valor AB CP], 
 			                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
@@ -2092,7 +1379,7 @@ table _Medidas
 			    CONCATENATEX(
 			        vTabelaAGP,
 			        VAR AGPID = TB_Fatos_CP[ID_AGP]
-			        VAR AGPAtual = TB_Fatos_CP[DESCRICAO_TIPO_AGP]
+			        VAR AGPAtual = TB_Fatos_CP[despar]
 			        VAR ValorAGP = [@Valor]
 			        VAR ValorDia = [@ValorDia]
 			-------------------- LV2
@@ -2103,8 +1390,8 @@ table _Medidas
 			                            BaseCP,
 			                            TB_Fatos_CP[ID_AGP] = AGPID
 			                        ),
-			                        TB_Fatos_CP[ID_TIPO],
-			                        TB_Fatos_CP[DESCRICAO_TIPO]
+			                        TB_Fatos_CP[CtaFin],
+			                        TB_Fatos_CP[DesCta]
 			                    ),
 			                    "@Valor", CALCULATE( [01. Valor AB CP], 
 			                                REMOVEFILTERS( 'CALENDARIO DAX' ), 
@@ -2118,8 +1405,8 @@ table _Medidas
 			                CONCATENATEX(
 			                    TabelaTipo,
 			
-			                    VAR TipoID = TB_Fatos_CP[ID_TIPO]
-			                    VAR TipoAtual = TB_Fatos_CP[DESCRICAO_TIPO]
+			                    VAR TipoID = TB_Fatos_CP[CtaFin]
+			                    VAR TipoAtual = TB_Fatos_CP[DesCta]
 			                    VAR ValorTipo = [@Valor]
 			                    VAR ValorDia = [@ValorDia]
 			
@@ -2129,10 +1416,10 @@ table _Medidas
 			                                SUMMARIZE(
 			                                    FILTER(
 			                                        BaseCP,
-			                                        TB_Fatos_CP[ID_AGP] = AGPID && TB_Fatos_CP[ID_TIPO] = TipoID
+			                                        TB_Fatos_CP[ID_AGP] = AGPID && TB_Fatos_CP[CtaFin] = TipoID
 			                                    ),
-			                                    TB_Fatos_CP[CTAFIN],
-			                                    TB_Fatos_CP[DESCTA] ),
+			                                    TB_CLI[codcli],
+			                                    TB_CLI[nomcli] ),
 			                            "@Valor", CALCULATE( [01. Valor AB CP], 
 			                                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
@@ -2144,8 +1431,8 @@ table _Medidas
 			                            VAR CONTAS = 
 			                            CONCATENATEX(
 			                                TabelaConta,
-			                                    VAR ContaID = TB_Fatos_CP[CTAFIN]
-			                                    VAR ContaAtual = TB_Fatos_CP[DESCTA]
+			                                    VAR ContaID = TB_CLI[codcli]
+			                                    VAR ContaAtual = TB_CLI[nomcli]
 			                                    VAR ValorConta = [@Valor]
 			                                    VAR ValorDia = [@ValorDia]
 			                                    
@@ -2161,7 +1448,7 @@ table _Medidas
 			
 			                                    "",
 			                                    [@Valor],
-			                                    DESC
+			                                    ASC
 			                                )
 			------------------------------------------------------
 			                    RETURN
@@ -2177,7 +1464,7 @@ table _Medidas
 			                        & CONTAS,
 			                    "",
 			                    [@Valor],
-			                    DESC
+			                    ASC
 			                )
 			----------------------------------------
 			        RETURN
@@ -2192,7 +1479,7 @@ table _Medidas
 			        </tr>"
 			        &
 			        Tipos,
-			        "", [@Valor], DESC )
+			        "", [@Valor], ASC )
 			-------- SAIDA FINAL
 			RETURN
 			    "<tr class='bold child-row saldo  toggle-row nested'
@@ -2404,6 +1691,94 @@ table _Medidas
 		lineageTag: 846806b0-7829-4d01-8766-ccf9268f44b4
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Saldo Ontem' =
+			
+			CALCULATE(
+			    [01. Saldo Previsto],
+			    DATEADD( 'CALENDARIO DAX'[Date], -1,DAY )
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares
+		lineageTag: 7634be81-5876-47ac-84a3-ac49d2b16535
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Saldo Amanha' =
+			
+			CALCULATE(
+			    [01. Saldo Previsto],
+			    DATEADD( 'CALENDARIO DAX'[Date], 1,DAY )
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares
+		lineageTag: 3b1c134d-0eef-4d01-9a96-933d6ded360b
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure HTML_Calendario = ```
+			
+			VAR MesRef        = MAX ( 'CALENDARIO DAX'[Date] )
+			VAR PrimeiroDia   = DATE ( YEAR ( MesRef ), MONTH ( MesRef ), 1 )
+			VAR UltimoDia     = EOMONTH ( PrimeiroDia, 0 )
+			VAR OffsetSemana  = WEEKDAY ( PrimeiroDia, 1 ) - 1     -- quantas células vazias antes do dia 1
+			
+			VAR DiasDoMes = 
+			    SUMMARIZE(
+			        'CALENDARIO DAX',
+			        'CALENDARIO DAX'[Date],
+			        "DiaSemana",  WEEKDAY ( [Date], 1 ) - 1,
+			        "Receber", [01. Valor Previsto a Receber],
+			        "Pagar", [01. Valor AB CP]
+			    )
+			
+			VAR CelulasVazias =
+			    CONCATENATEX ( GENERATESERIES ( 1, OffsetSemana ), "<div class='dia vazio'></div>", "" )
+			
+			VAR CelulasDias =
+			    CONCATENATEX (
+			        DiasDoMes,
+			        VAR Saldo = [Receber] + [Pagar]
+			        VAR EhFDS = [DiaSemana] = 0 || [DiaSemana] = 6
+			        VAR DiaHoje = [Date] = TODAY()
+			        RETURN
+			            "<div class='dia" & IF( DiaHoje, " hoje", "" ) & IF ( EhFDS, " fds", "" ) & "'>" &
+			                "<div class='numero'>" & DAY ( [Date] ) & "</div>" &
+			                IF ( NOT ISBLANK( [Receber] ) ,
+			                    "<div class='linha-valor receber'><span>Receber</span><span>R$ "
+			                        & FORMAT ( [Receber], "#,##0" ) & "</span></div>" ) &
+			                IF ( NOT ISBLANK( [Pagar] ) ,
+			                    "<div class='linha-valor pagar'><span>Pagar</span><span>R$ "
+			                        & FORMAT ( [Pagar], "#,##0" ) & "</span></div>" ) &
+			                IF ( NOT ISBLANK( [Receber] )  || NOT ISBLANK( [Pagar] ) ,
+			                    "<div class='saldo-dia" & IF ( Saldo < 0, " negativo", "" ) & "'>Saldo R$ "
+			                        & FORMAT ( Saldo, "#,##0" ) & "</div>" ) &
+			            "</div>",
+			        "", [Date], ASC
+			    )
+			
+			RETURN
+			"<html><head><style>" &
+			    "*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial,sans-serif;}" &
+			    ".calendario{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;padding:12px;background:#f1f5f9;}" &
+			    ".dia-semana{background:#1e293b;color:#fff;padding:8px;text-align:center;border-radius:6px;font-size:12px;font-weight:600;}" &
+			    ".dia{background:#fff;border-radius:8px;min-height:100px;padding:6px;border:1px solid #e2e8f0;font-size:11px;}" &
+			    ".dia.hoje{ border:2px solid #2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.15);}" &
+			    ".dia.fds{background:#f8fafc;} .dia.vazio{background:transparent;border:none;}" &
+			    ".numero{font-weight:700;color:#64748b;}" &
+			    ".linha-valor{padding:3px 5px;border-radius:5px;margin-top:3px;display:flex;justify-content:space-between;}" &
+			    ".receber{background:#ecfdf9;color:#0d9488;} .pagar{background:#fefef2;color:#dc7e26;}" &
+			    ".saldo-dia{margin-top:6px;padding:6px 5px;border-radius:5px;font-weight:700;fonte-size:12pc; text-align:center; background:#eff6ff; color:#1d4ed8;}" &
+			    ".saldo-dia.negativo{background:#fef2f2;color:#b91c1c;}" &
+			"</style></head><body>" &
+			"<div class='calendario'>" &
+			    "<div class='dia-semana'>Dom</div><div class='dia-semana'>Seg</div><div class='dia-semana'>Ter</div>" &
+			    "<div class='dia-semana'>Qua</div><div class='dia-semana'>Qui</div><div class='dia-semana'>Sex</div><div class='dia-semana'>Sáb</div>" &
+			    CelulasVazias & CelulasDias &
+			"</div></body></html>"
+			```
+		displayFolder: 05. HTML
+		lineageTag: 838cc1a1-39c8-4adb-8518-fd36f728b3a6
 
 	partition _Medidas = m
 		mode: import

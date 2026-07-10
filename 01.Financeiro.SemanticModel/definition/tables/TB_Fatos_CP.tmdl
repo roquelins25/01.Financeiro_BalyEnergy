@@ -1,15 +1,6 @@
 table TB_Fatos_CP
 	lineageTag: 820916e0-9bc9-4d53-938e-57697026785a
 
-	column CODCLI
-		dataType: int64
-		formatString: 0
-		lineageTag: 7719a265-33fe-4fc0-98ff-4828892933e2
-		summarizeBy: none
-		sourceColumn: CODCLI
-
-		annotation SummarizationSetBy = Automatic
-
 	column CodCcu
 		dataType: string
 		lineageTag: 1a20fc8a-813d-40f9-b521-3db9d67207d6
@@ -71,25 +62,6 @@ table TB_Fatos_CP
 
 		annotation SummarizationSetBy = Automatic
 
-	column vctpro
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: d1ca1bf2-5d7e-4367-99e5-c47805019379
-		summarizeBy: none
-		sourceColumn: vctpro
-
-		annotation SummarizationSetBy = Automatic
-
-	column VLRABE
-		dataType: double
-		lineageTag: 525270ba-e537-4dc5-9046-42cd26a1e51c
-		summarizeBy: sum
-		sourceColumn: VLRABE
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column despar
 		dataType: string
 		lineageTag: 2c5bac93-ec6b-4c8a-b7af-69f5a90c620c
@@ -98,20 +70,13 @@ table TB_Fatos_CP
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"TB_Fatos_CP","TableItemName":"ID_AGP","ObjectType":4},"LinkType":"UsedInGroup"}]
+
 	column tipo
 		dataType: string
 		lineageTag: dae909f7-2f4d-4638-9f38-f762f004f122
 		summarizeBy: none
 		sourceColumn: tipo
-
-		annotation SummarizationSetBy = Automatic
-
-	column codemp
-		dataType: int64
-		formatString: 0
-		lineageTag: c4ecded5-d4de-436a-a148-0aecf5fe5857
-		summarizeBy: sum
-		sourceColumn: codemp
 
 		annotation SummarizationSetBy = Automatic
 
@@ -150,12 +115,108 @@ table TB_Fatos_CP
 
 		annotation SummarizationSetBy = Automatic
 
+	column CodEmp
+		dataType: int64
+		formatString: 0
+		lineageTag: 9cb36f97-9ec4-447b-afd6-86bdcd1e0556
+		summarizeBy: sum
+		sourceColumn: CodEmp
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodFor
+		dataType: int64
+		formatString: 0
+		lineageTag: 04b0078c-f1bf-4122-a172-8597da485547
+		summarizeBy: none
+		sourceColumn: CodFor
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumTit
+		dataType: string
+		lineageTag: 5219229a-43ed-4789-9833-f2d4c013f0c4
+		summarizeBy: none
+		sourceColumn: NumTit
+
+		annotation SummarizationSetBy = Automatic
+
+	column VCTPRO
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 57105554-4b59-4f92-b94f-fc3b310e94a4
+		summarizeBy: none
+		sourceColumn: VCTPRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column vlrabe
+		dataType: double
+		lineageTag: 7b0fbf62-811e-4b34-b5a7-9f8b13796681
+		summarizeBy: sum
+		sourceColumn: vlrabe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ID_AGP =
+			SWITCH(
+				TRUE,
+				ISBLANK('TB_Fatos_CP'[despar]),
+				"(Em branco)",
+				'TB_Fatos_CP'[despar] IN {"Despesas Administrativas"},
+				"1001",
+				'TB_Fatos_CP'[despar] IN {"Despesas com Pessoal"},
+				"1002",
+				'TB_Fatos_CP'[despar] IN {"Despesas com Produtos"},
+				"1003",
+				'TB_Fatos_CP'[despar] IN {"Despesas com Veículos"},
+				"1004",
+				'TB_Fatos_CP'[despar] IN {"Despesas Comerciais"},
+				"1005",
+				'TB_Fatos_CP'[despar] IN {"Despesas Financeiras"},
+				"1006",
+				'TB_Fatos_CP'[despar] IN {"Impostos"},
+				"1007",
+				'TB_Fatos_CP'[despar] IN {"Investimentos"},
+				"1008",
+				'TB_Fatos_CP'[despar] IN {"Manutenções"},
+				"1009",
+				'TB_Fatos_CP'[despar] IN {"Receita de Vendas"},
+				"1010",
+				"1011"
+			)
+		lineageTag: dfa78e8a-0ef2-4d8d-aaa8-f1ab39edc3de
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "TB_Fatos_CP"
+				          }
+				        },
+				        "Property": "despar"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"TB_Fatos_CP"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"1001","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas Administrativas'"}}]]}}},{"DisplayName":"1002","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas com Pessoal'"}}]]}}},{"DisplayName":"1003","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas com Produtos'"}}]]}}},{"DisplayName":"1004","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas com Veículos'"}}]]}}},{"DisplayName":"1005","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas Comerciais'"}}]]}}},{"DisplayName":"1006","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas Financeiras'"}}]]}}},{"DisplayName":"1007","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Impostos'"}}]]}}},{"DisplayName":"1008","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Investimentos'"}}]]}}},{"DisplayName":"1009","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Manutenções'"}}]]}}},{"DisplayName":"1010","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Receita de Vendas'"}}]]}}},{"DisplayName":"1011"}]}
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_Fatos_CP = m
 		mode: import
 		queryGroup: _Fatos
 		source =
 				let
-				  Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP", [Query="select#(lf)#(tab)tipo ,#(lf)#(tab)codemp ,#(lf)#(tab)CODCLI ,#(lf)#(tab)CodCcu ,#(lf)#(tab)DesCcu ,#(lf)#(tab)CtaFin ,#(lf)#(tab)DesCta ,#(lf)#(tab)CASE #(lf)#(tab)#(tab)WHEN ( despar = '' ) OR ( despar is null ) then 'Sem Classficacao'#(lf)#(tab)#(tab)ELSE despar#(lf)#(tab)END as despar,#(lf)#(tab)datemi ,#(lf)#(tab)datent ,#(lf)#(tab)vctpro ,#(lf)#(tab)VLRABE #(lf)from USU_VIEW_FluxoCaixa_Receber_Pagar#(lf)WHERE  tipo = 'CP' AND #(lf)#(tab)   CODCLI NOT IN ('11143')", CommandTimeout=#duration(0, 2, 0, 0)])
+				  Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP", [Query="select    #(lf)#(tab)E501TCP.CodEmp,             #(lf)#(tab)E095FOR.CodFor,   #(lf)#(tab)E501TCP.NumTit, #(lf)#(tab)E044CCU.CodCcu,   #(lf)#(tab)E044CCU.DesCcu,   #(lf)#(tab)E091PLF.CtaFin,   #(lf)#(tab)E091PLF.DesCta,   #(lf)#(tab)E501TCP.datemi,#(lf)#(tab)E501TCP.datent,#(lf)#(tab)E501TCP.VCTPRO,  #(lf)#(tab)case#(lf)#(tab)#(tab)when E091PLF.CtaFin is null then (E501TCP.vlrabe * -1)#(lf)#(tab)#(tab)when E091PLF.CtaFin is not null then (E501RAT.VlrRat * -1)       #(lf)#(tab)end as vlrabe, #(lf)#(tab)CASE #(lf)#(tab)#(tab)when ( E043PCM.despar is null ) OR ( E043PCM.despar = '' ) THEN 'Sem Classificacao'#(lf)#(tab)#(tab)else E043PCM.despar#(lf)#(tab)END as despar ,#(lf)#(tab)'CP' as tipo#(lf)from sapiens_producao.E501TCP #(lf)left outer join sapiens_producao.E501RAT on E501RAT.CodEmp = E501TCP.CodEmp  #(lf)                                        and E501RAT.CodFil = E501TCP.CodFil #(lf)                                        and E501RAT.NumTit = E501TCP.NumTit #(lf)                                        and E501RAT.CodTpt = E501TCP.CodTpt#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and E501RAT.CodFor = E501TCP.CodFor #(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and E501RAT.SomSub = 1#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E070EMP on E501TCP.CodEmp = E070EMP.CodEmp#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E095FOR on E501TCP.CodFor = E095FOR.CodFor#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E044CCU on E501RAT.CodEmp = E044CCU.CodEmp #(lf)                                        and E501RAT.CodCcu = E044CCU.CodCcu #(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E091PLF on E501RAT.CodEmp = E091PLF.CodEmp#(lf)                                        and E501RAT.CtaFin = E091PLF.CtaFin #(lf)#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E043MPC on E070EMP.CodMpf = E043MPC.CodMpc#(lf)#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E043PCM on E043MPC.CodMpc = E043PCM.CodMpc#(lf)                                        and E501RAT.CtaFin = E043PCM.CtaRed #(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and E043PCM.CodMpc = 301   #(lf)#(lf)where 1 = 1            #(lf)and E501TCP.SitTit NOT IN ('LS','CA') #(lf)AND E501TCP.VLRABE > 0 #(lf)And E501TCP.codfor NOT IN ('11143','21982','17661','46501','5517','48831','17935','2394','7868')#(lf)AND E501TCP.CODTPT  NOT IN ('ADT','FDE','SDE')#(lf)and E501TCP.VCTPRO >= '20240101'", CommandTimeout=#duration(0, 2, 0, 0)])
 				in
 				  Fonte
 
