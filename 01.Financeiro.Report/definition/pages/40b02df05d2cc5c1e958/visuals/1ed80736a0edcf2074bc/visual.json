@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "1ed80736a0edcf2074bc",
   "position": {
-    "x": 1593.75,
-    "y": 716.25,
-    "z": 5,
-    "height": 355,
-    "width": 326.25
+    "x": 1593.6890951276102,
+    "y": 700.37122969837583,
+    "z": 4000,
+    "height": 354.57076566125289,
+    "width": 305.707656612529,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pieChart",
@@ -132,7 +133,7 @@
             "labelStyle": {
               "expr": {
                 "Literal": {
-                  "Value": "'Percent of total'"
+                  "Value": "'Category, percent of total'"
                 }
               }
             },

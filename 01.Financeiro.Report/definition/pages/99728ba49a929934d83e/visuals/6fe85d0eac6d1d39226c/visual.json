@@ -3,8 +3,8 @@
   "name": "6fe85d0eac6d1d39226c",
   "position": {
     "x": 63.021721641190673,
-    "y": 150.75784392598553,
-    "z": 1000,
+    "y": 110.2068797386577,
+    "z": 0,
     "height": 567.195494770716,
     "width": 1217.184231697506,
     "tabOrder": 2000
@@ -107,7 +107,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "04. Valor Aberto"
+                  "Property": "04. Valor Aberto CR"
                 }
               },
               "queryRef": "_Medidas.04. Valor Aberto",
@@ -126,7 +126,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "04. Valor Aberto"
+                "Property": "04. Valor Aberto CR"
               }
             },
             "direction": "Descending"
@@ -656,5 +656,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "0dd4641b4ee0272156b3"
 }

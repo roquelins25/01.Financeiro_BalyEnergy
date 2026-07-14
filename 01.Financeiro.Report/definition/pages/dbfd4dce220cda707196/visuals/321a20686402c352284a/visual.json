@@ -12,5 +12,6 @@
   "visualGroup": {
     "displayName": "Operacao",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }

@@ -1406,6 +1406,9 @@ cultureInfo pt-BR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "tipo": {
@@ -1544,6 +1547,16 @@ cultureInfo pt-BR
 			          "07. CR valor original FAT": {
 			            "State": "Generated",
 			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "Contas a Receber": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        },
 			        {
@@ -3398,73 +3411,33 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "entity__medida.entity_01___valor_total": {
+			    "entity__medida.entity_01___valor_total_CR": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "01. % Valor Total"
+			          "ConceptualProperty": "01. % Valor Total CR"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "01. % valor total": {
+			          "01. % valor total CR": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "01. % valor aggregate": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        },
-			        {
-			          "01. % valor overall": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.757
-			          }
-			        },
-			        {
-			          "01. percentage valor total": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.624
-			          }
-			        },
-			        {
-			          "01. pct valor total": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
 			          }
 			        }
 			      ]
 			    },
-			    "entity__medida.entity_04__valor_aberto": {
+			    "entity__medida.entity_04__valor_aberto_CR": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "04. Valor Aberto"
+			          "ConceptualProperty": "04. Valor Aberto CR"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "04. valor aberto": {
+			          "04. valor aberto CR": {
 			            "State": "Generated"
 			          }
 			        }
@@ -5638,6 +5611,9 @@ cultureInfo pt-BR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "codtpt": {
@@ -6637,6 +6613,16 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "Faturado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        },
 			        {
@@ -9124,6 +9110,9 @@ cultureInfo pt-BR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "tipo": {
@@ -9386,6 +9375,312 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.demais_classif": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": ".... Demais Classif"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          ".... demais classif": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_04__valor_aberto_CP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "04. Valor Aberto CP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "04. valor aberto CP": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01___valor_total_CP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. % Valor Total CP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. % valor total CP": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "TB_fatos_CP.nom_emp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Fatos_CP",
+			          "ConceptualProperty": "NomEmp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nom emp": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "NomEmp": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "TB_fatos_CP.nom_for": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Fatos_CP",
+			          "ConceptualProperty": "NomFor"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nom for": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "NomFor": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "tb_tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_TIPO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tb tipo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "TB_TIPO": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "tb_tipo.codtpt": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_TIPO",
+			          "ConceptualProperty": "CODTPT"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "codtpt": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tb_tipo.id_agp_tipo_cp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_TIPO",
+			          "ConceptualProperty": "ID_AGP_TIPO_CP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id agp tipo cp": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ID_AGP_TIPO_CP": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification agp tipo cp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "identity agp tipo cp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "identifier agp tipo cp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "credential agp tipo cp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "tb_tipo.agp_tipo_cp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_TIPO",
+			          "ConceptualProperty": "AGP_TIPO_CP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "agp tipo cp": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "AGP_TIPO_CP": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Tipo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__valor_AB_total_CP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. Valor AB Total CP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. valor AB total CP": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Valor Aberto Total": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__valor_AB_total_vencidas_CP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. Valor AB Total Vencidas CP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. valor AB total vencidas CP": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Valor Aberto Vencidas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.entity_01__valor_AB_a_vencer_CP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "01. Valor AB a Vencer CP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "01. valor AB a vencer CP": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Valor Aberto a Vencer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -12164,6 +12459,52 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "TB_fatos_CP_has_tb_tipo": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CP": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP"
+			          }
+			        },
+			        "tb_tipo": {
+			          "Target": {
+			            "Entity": "tb_tipo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP"
+			            },
+			            "Object": {
+			              "Role": "tb_tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CPs_have_tb_tipos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_tipo"
+			            },
+			            "Object": {
+			              "Role": "TB_fatos_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_tipos_have_TB_fatos_CPs"
+			        }
+			      ]
+			    },
 			    "TB_fatos_CP_has_tb_cli": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Fatos_CP"
@@ -12563,6 +12904,52 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "TB_verba_has_tb_tipo": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Verbas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_verba": {
+			          "Target": {
+			            "Entity": "TB_verba"
+			          }
+			        },
+			        "tb_tipo": {
+			          "Target": {
+			            "Entity": "tb_tipo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_verba"
+			            },
+			            "Object": {
+			              "Role": "tb_tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_verbas_have_tb_tipos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_tipo"
+			            },
+			            "Object": {
+			              "Role": "TB_verba"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_tipos_have_TB_verbas"
+			        }
+			      ]
+			    },
 			    "TB_verba_has_tb_tn": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Verbas"
@@ -12922,6 +13309,52 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_AU_xtempos_have_calendario_dax"
+			        }
+			      ]
+			    },
+			    "TB_fatos_CR_has_tb_tipo": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CR"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CR": {
+			          "Target": {
+			            "Entity": "TB_fatos_CR"
+			          }
+			        },
+			        "tb_tipo": {
+			          "Target": {
+			            "Entity": "tb_tipo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CR"
+			            },
+			            "Object": {
+			              "Role": "tb_tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CR_have_tb_tipos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_tipo"
+			            },
+			            "Object": {
+			              "Role": "TB_fatos_CR"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_tipos_have_TB_fatos_CR"
 			        }
 			      ]
 			    },
@@ -13339,6 +13772,567 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "TB_fatos_CP_has_entity__medida_entity_01__valor_AB_a_vencer_CP": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CP": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP"
+			          }
+			        },
+			        "entity__medida.entity_01__valor_AB_a_vencer_CP": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__valor_AB_a_vencer_CP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__valor_AB_a_vencer_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CPs_have_01__valor_AB_a_vencer_CP"
+			        }
+			      ]
+			    },
+			    "TB_fatos_CP_has_entity__medida_entity_01__valor_AB_total_vencidas_CP": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CP": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP"
+			          }
+			        },
+			        "entity__medida.entity_01__valor_AB_total_vencidas_CP": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__valor_AB_total_vencidas_CP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__valor_AB_total_vencidas_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CPs_have_01__valor_AB_total_vencidas_CP"
+			        }
+			      ]
+			    },
+			    "TB_fatos_CP_has_entity__medida_entity_01__valor_AB_total_CP": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CP": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP"
+			          }
+			        },
+			        "entity__medida.entity_01__valor_AB_total_CP": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01__valor_AB_total_CP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01__valor_AB_total_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CPs_have_01__valor_AB_total_CP"
+			        }
+			      ]
+			    },
+			    "y_TB_01_has_entity__medida_medida": {
+			      "Binding": {
+			        "ConceptualEntity": "yTB_01"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "y_TB_01": {
+			          "Target": {
+			            "Entity": "y_TB_01"
+			          }
+			        },
+			        "entity__medida.medida": {
+			          "Target": {
+			            "Entity": "entity__medida.medida"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "y_TB_01"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.medida"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "y_TB_01_have_medida"
+			        }
+			      ]
+			    },
+			    "calendario_dax_has_entity__medida_medida": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax": {
+			          "Target": {
+			            "Entity": "calendario_dax"
+			          }
+			        },
+			        "entity__medida.medida": {
+			          "Target": {
+			            "Entity": "entity__medida.medida"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.medida"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendario_dax_have_medida"
+			        }
+			      ]
+			    },
+			    "tb_tipo_has_agp_tipo_cp": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_TIPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tb_tipo": {
+			          "Target": {
+			            "Entity": "tb_tipo"
+			          }
+			        },
+			        "tb_tipo.agp_tipo_cp": {
+			          "Target": {
+			            "Entity": "tb_tipo.agp_tipo_cp"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_tipo"
+			            },
+			            "Object": {
+			              "Role": "tb_tipo.agp_tipo_cp"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_tipos_have_agp_tipo_cps"
+			        }
+			      ]
+			    },
+			    "tb_tipo_has_id_agp_tipo_cp": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_TIPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tb_tipo": {
+			          "Target": {
+			            "Entity": "tb_tipo"
+			          }
+			        },
+			        "tb_tipo.id_agp_tipo_cp": {
+			          "Target": {
+			            "Entity": "tb_tipo.id_agp_tipo_cp"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_tipo"
+			            },
+			            "Object": {
+			              "Role": "tb_tipo.id_agp_tipo_cp"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_tipos_have_id_agp_tipo_cps"
+			        }
+			      ]
+			    },
+			    "tb_tipo_has_codtpt": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_TIPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tb_tipo": {
+			          "Target": {
+			            "Entity": "tb_tipo"
+			          }
+			        },
+			        "tb_tipo.codtpt": {
+			          "Target": {
+			            "Entity": "tb_tipo.codtpt"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_tipo"
+			            },
+			            "Object": {
+			              "Role": "tb_tipo.codtpt"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_tipos_have_codtpts"
+			        }
+			      ]
+			    },
+			    "TB_fatos_CP_has_nom_for": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CP": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP"
+			          }
+			        },
+			        "TB_fatos_CP.nom_for": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP.nom_for"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP"
+			            },
+			            "Object": {
+			              "Role": "TB_fatos_CP.nom_for"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CPs_have_nom_for"
+			        }
+			      ]
+			    },
+			    "TB_fatos_CP_has_nom_emp": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CP": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP"
+			          }
+			        },
+			        "TB_fatos_CP.nom_emp": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP.nom_emp"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP"
+			            },
+			            "Object": {
+			              "Role": "TB_fatos_CP.nom_emp"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CPs_have_nom_emps"
+			        }
+			      ]
+			    },
+			    "x_calendario_table_has_entity__medida_entity_01___valor_total_CP": {
+			      "Binding": {
+			        "ConceptualEntity": "xCalendarioTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "x_calendario_table": {
+			          "Target": {
+			            "Entity": "x_calendario_table"
+			          }
+			        },
+			        "entity__medida.entity_01___valor_total_CP": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01___valor_total_CP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "x_calendario_table"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01___valor_total_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "x_calendario_tables_have_01___valor_total_CP"
+			        }
+			      ]
+			    },
+			    "TB_fatos_CP_has_entity__medida_entity_01___valor_total_CP": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CP": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP"
+			          }
+			        },
+			        "entity__medida.entity_01___valor_total_CP": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01___valor_total_CP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01___valor_total_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CPs_have_01___valor_total_CP"
+			        }
+			      ]
+			    },
+			    "calendario_dax_has_entity__medida_entity_01___valor_total_CP": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax": {
+			          "Target": {
+			            "Entity": "calendario_dax"
+			          }
+			        },
+			        "entity__medida.entity_01___valor_total_CP": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_01___valor_total_CP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_01___valor_total_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendario_dax_have_01___valor_total_CP"
+			        }
+			      ]
+			    },
+			    "x_calendario_table_has_entity__medida_entity_04__valor_aberto_CP": {
+			      "Binding": {
+			        "ConceptualEntity": "xCalendarioTable"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "x_calendario_table": {
+			          "Target": {
+			            "Entity": "x_calendario_table"
+			          }
+			        },
+			        "entity__medida.entity_04__valor_aberto_CP": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_04__valor_aberto_CP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "x_calendario_table"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_04__valor_aberto_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "x_calendario_tables_have_04__valor_aberto_CP"
+			        }
+			      ]
+			    },
+			    "TB_fatos_CP_has_entity__medida_entity_04__valor_aberto_CP": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CP": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP"
+			          }
+			        },
+			        "entity__medida.entity_04__valor_aberto_CP": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_04__valor_aberto_CP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_04__valor_aberto_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CPs_have_04__valor_aberto_CP"
+			        }
+			      ]
+			    },
+			    "calendario_dax_has_entity__medida_entity_04__valor_aberto_CP": {
+			      "Binding": {
+			        "ConceptualEntity": "CALENDARIO DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "calendario_dax": {
+			          "Target": {
+			            "Entity": "calendario_dax"
+			          }
+			        },
+			        "entity__medida.entity_04__valor_aberto_CP": {
+			          "Target": {
+			            "Entity": "entity__medida.entity_04__valor_aberto_CP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "calendario_dax"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.entity_04__valor_aberto_CP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "calendario_dax_have_04__valor_aberto_CP"
+			        }
+			      ]
+			    },
+			    "tb_frj_has_entity__medida_demais_classif": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_FRJ"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tb_frj": {
+			          "Target": {
+			            "Entity": "tb_frj"
+			          }
+			        },
+			        "entity__medida.demais_classif": {
+			          "Target": {
+			            "Entity": "entity__medida.demais_classif"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tb_frj"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.demais_classif"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tb_frjs_have______demais_classif"
+			        }
+			      ]
+			    },
 			    "TB_fatos_CP_has_id_agp": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Fatos_CP"
@@ -13732,39 +14726,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_fatos_CPs_have_01__saldo_ontem"
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP_has_tipo": {
-			      "Binding": {
-			        "ConceptualEntity": "TB_Fatos_CP"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "TB_fatos_CP": {
-			          "Target": {
-			            "Entity": "TB_fatos_CP"
-			          }
-			        },
-			        "TB_fatos_CP.tipo": {
-			          "Target": {
-			            "Entity": "TB_fatos_CP.tipo"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "TB_fatos_CP"
-			            },
-			            "Object": {
-			              "Role": "TB_fatos_CP.tipo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "TB_fatos_CPs_have_tipos"
 			        }
 			      ]
 			    },
@@ -15880,39 +16841,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_verba_has_codtpt": {
-			      "Binding": {
-			        "ConceptualEntity": "TB_Verbas"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "TB_verba": {
-			          "Target": {
-			            "Entity": "TB_verba"
-			          }
-			        },
-			        "TB_verba.codtpt": {
-			          "Target": {
-			            "Entity": "TB_verba.codtpt"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "TB_verba"
-			            },
-			            "Object": {
-			              "Role": "TB_verba.codtpt"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "TB_verbas_have_codtpts"
-			        }
-			      ]
-			    },
 			    "TB_verba_has_numtit": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Verbas"
@@ -17879,7 +18807,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "x_calendario_table_has_entity__medida_entity_04__valor_aberto": {
+			    "x_calendario_table_has_entity__medida_entity_04__valor_aberto_CR": {
 			      "Binding": {
 			        "ConceptualEntity": "xCalendarioTable"
 			      },
@@ -17890,9 +18818,9 @@ cultureInfo pt-BR
 			            "Entity": "x_calendario_table"
 			          }
 			        },
-			        "entity__medida.entity_04__valor_aberto": {
+			        "entity__medida.entity_04__valor_aberto_CR": {
 			          "Target": {
-			            "Entity": "entity__medida.entity_04__valor_aberto"
+			            "Entity": "entity__medida.entity_04__valor_aberto_CR"
 			          }
 			        }
 			      },
@@ -17903,16 +18831,16 @@ cultureInfo pt-BR
 			              "Role": "x_calendario_table"
 			            },
 			            "Object": {
-			              "Role": "entity__medida.entity_04__valor_aberto"
+			              "Role": "entity__medida.entity_04__valor_aberto_CR"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "x_calendario_tables_have_04__valor_aberto"
+			          "ID": "x_calendario_tables_have_04__valor_aberto_CR"
 			        }
 			      ]
 			    },
-			    "TB_fatos_CR_has_entity__medida_entity_04__valor_aberto": {
+			    "TB_fatos_CR_has_entity__medida_entity_04__valor_aberto_CR": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Fatos_CR"
 			      },
@@ -17923,9 +18851,9 @@ cultureInfo pt-BR
 			            "Entity": "TB_fatos_CR"
 			          }
 			        },
-			        "entity__medida.entity_04__valor_aberto": {
+			        "entity__medida.entity_04__valor_aberto_CR": {
 			          "Target": {
-			            "Entity": "entity__medida.entity_04__valor_aberto"
+			            "Entity": "entity__medida.entity_04__valor_aberto_CR"
 			          }
 			        }
 			      },
@@ -17936,16 +18864,16 @@ cultureInfo pt-BR
 			              "Role": "TB_fatos_CR"
 			            },
 			            "Object": {
-			              "Role": "entity__medida.entity_04__valor_aberto"
+			              "Role": "entity__medida.entity_04__valor_aberto_CR"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "TB_fatos_CR_have_04__valor_aberto"
+			          "ID": "TB_fatos_CR_have_04__valor_aberto_CR"
 			        }
 			      ]
 			    },
-			    "calendario_dax_has_entity__medida_entity_04__valor_aberto": {
+			    "calendario_dax_has_entity__medida_entity_04__valor_aberto_CR": {
 			      "Binding": {
 			        "ConceptualEntity": "CALENDARIO DAX"
 			      },
@@ -17956,9 +18884,9 @@ cultureInfo pt-BR
 			            "Entity": "calendario_dax"
 			          }
 			        },
-			        "entity__medida.entity_04__valor_aberto": {
+			        "entity__medida.entity_04__valor_aberto_CR": {
 			          "Target": {
-			            "Entity": "entity__medida.entity_04__valor_aberto"
+			            "Entity": "entity__medida.entity_04__valor_aberto_CR"
 			          }
 			        }
 			      },
@@ -17969,16 +18897,16 @@ cultureInfo pt-BR
 			              "Role": "calendario_dax"
 			            },
 			            "Object": {
-			              "Role": "entity__medida.entity_04__valor_aberto"
+			              "Role": "entity__medida.entity_04__valor_aberto_CR"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "calendario_dax_have_04__valor_aberto"
+			          "ID": "calendario_dax_have_04__valor_aberto_CR"
 			        }
 			      ]
 			    },
-			    "TB_fatos_CR_has_entity__medida_entity_01___valor_total": {
+			    "TB_fatos_CR_has_entity__medida_entity_01___valor_total_CR": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Fatos_CR"
 			      },
@@ -17989,9 +18917,9 @@ cultureInfo pt-BR
 			            "Entity": "TB_fatos_CR"
 			          }
 			        },
-			        "entity__medida.entity_01___valor_total": {
+			        "entity__medida.entity_01___valor_total_CR": {
 			          "Target": {
-			            "Entity": "entity__medida.entity_01___valor_total"
+			            "Entity": "entity__medida.entity_01___valor_total_CR"
 			          }
 			        }
 			      },
@@ -18002,12 +18930,12 @@ cultureInfo pt-BR
 			              "Role": "TB_fatos_CR"
 			            },
 			            "Object": {
-			              "Role": "entity__medida.entity_01___valor_total"
+			              "Role": "entity__medida.entity_01___valor_total_CR"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "TB_fatos_CR_have_01___valor_total"
+			          "ID": "TB_fatos_CR_have_01___valor_total_CR"
 			        }
 			      ]
 			    },
@@ -19130,39 +20058,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_fatos_CR_have_sits"
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR_has_tipo": {
-			      "Binding": {
-			        "ConceptualEntity": "TB_Fatos_CR"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "TB_fatos_CR": {
-			          "Target": {
-			            "Entity": "TB_fatos_CR"
-			          }
-			        },
-			        "TB_fatos_CR.tipo": {
-			          "Target": {
-			            "Entity": "TB_fatos_CR.tipo"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "TB_fatos_CR"
-			            },
-			            "Object": {
-			              "Role": "TB_fatos_CR.tipo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "TB_fatos_CR_have_tipos"
 			        }
 			      ]
 			    },

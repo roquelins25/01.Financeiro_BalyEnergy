@@ -198,7 +198,7 @@
                             },
                             {
                               "Literal": {
-                                "Value": "'junho'"
+                                "Value": "'julho'"
                               }
                             }
                           ]
@@ -245,7 +245,7 @@
                                 "1": [
                                   {
                                     "Literal": {
-                                      "Value": "'junho'"
+                                      "Value": "'julho'"
                                     }
                                   }
                                 ]
@@ -282,7 +282,7 @@
                         "valueMap": [
                           {
                             "0": "2026",
-                            "1": "junho"
+                            "1": "julho"
                           }
                         ]
                       }

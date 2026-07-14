@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 151.74395819725669,
     "width": 331.07772697583277,
-    "tabOrder": 2
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -244,23 +244,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5d5d0c25c92805a66b47",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor Previsto a Receber"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

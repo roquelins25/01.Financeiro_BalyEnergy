@@ -4,9 +4,10 @@
   "position": {
     "x": 0,
     "y": 393.41067285382832,
-    "z": 9001,
+    "z": 10000,
     "height": 686.58932714617163,
-    "width": 1568.6310904872389
+    "width": 1568.6310904872389,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
@@ -131,23 +132,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "d51ba6fc0f9d4c15149d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "HTML_Calendario"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -180,16 +180,6 @@
                 }
               ],
               "isToggled": true
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'1255 - key Saint Barth'"
-                  }
-                }
-              ],
-              "isToggled": true
             }
           ]
         }
@@ -325,6 +315,19 @@
           },
           "selector": {
             "metadata": "Min(TB_Fatos.vencimento)"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
           }
         }
       ]

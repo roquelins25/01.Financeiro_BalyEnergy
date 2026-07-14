@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "e0c44ec5cf6eab386b38",
   "position": {
-    "x": 396.25,
-    "y": 102.5,
-    "z": 3,
-    "height": 597.5,
-    "width": 1523.75
+    "x": 459.81438515081203,
+    "y": 129.04872389791183,
+    "z": 2000,
+    "height": 571.322505800464,
+    "width": 1439.5823665893272,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -431,107 +432,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "eee1c0051acfdda8ab7c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "07.  CR Valor Original FAT"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "73d9b2697821bc949186",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "07. Total Faturado Geral"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "21f16814e7322435f4eb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CALENDARIO DAX"
-              }
-            },
-            "Property": "Nome do Mês"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2a01222f2372f814d589",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CALENDARIO DAX"
-              }
-            },
-            "Property": "DiaMES"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "30e5e5a5b055669d4d71",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_PGT"
-              }
-            },
-            "Property": "desfpg"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2824b9f41d31a0afe1c4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "07. % FPG CR"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b6adea45638fa3f102dd",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "07. % FPG FAt"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

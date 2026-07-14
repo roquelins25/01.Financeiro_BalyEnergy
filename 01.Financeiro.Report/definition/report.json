@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Power_BI_Theme_Generator_-_BIB1325801594451954.json",
+      "name": "Power_BI_Theme_Generator_-_BIB6093049315206134.json",
       "reportVersionAtImport": {
         "visual": "2.10.0",
         "report": "3.4.0",
@@ -71,23 +71,28 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "__Ina9479875451005949.png",
-          "path": "__Ina9479875451005949.png",
+          "name": "__Ina7993328090324235.png",
+          "path": "__Ina7993328090324235.png",
           "type": "Image"
         },
         {
-          "name": "Clientes04625562419798779.png",
-          "path": "Clientes04625562419798779.png",
+          "name": "Clientes4951693361021601.png",
+          "path": "Clientes4951693361021601.png",
           "type": "Image"
         },
         {
-          "name": "CR_Diario6974953415116328.png",
-          "path": "CR_Diario6974953415116328.png",
+          "name": "CR_Diario8555761866153934.png",
+          "path": "CR_Diario8555761866153934.png",
           "type": "Image"
         },
         {
-          "name": "DASH6346284680725388.png",
-          "path": "DASH6346284680725388.png",
+          "name": "DASH8064509386780874.png",
+          "path": "DASH8064509386780874.png",
+          "type": "Image"
+        },
+        {
+          "name": "Faturamento_vs_CR5108621579636909.png",
+          "path": "Faturamento_vs_CR5108621579636909.png",
           "type": "Image"
         },
         {
@@ -96,23 +101,28 @@
           "type": "Image"
         },
         {
-          "name": "homme_14246524660079636.png",
-          "path": "homme_14246524660079636.png",
+          "name": "homme_144620889031590394.png",
+          "path": "homme_144620889031590394.png",
           "type": "Image"
         },
         {
-          "name": "homme_25200507241206221.png",
-          "path": "homme_25200507241206221.png",
+          "name": "homme_2024712064714887738.png",
+          "path": "homme_2024712064714887738.png",
           "type": "Image"
         },
         {
-          "name": "Power_BI_Theme_Generator_-_BIB1325801594451954.json",
-          "path": "Power_BI_Theme_Generator_-_BIB1325801594451954.json",
+          "name": "Posicao_diaria2092812991658597.png",
+          "path": "Posicao_diaria2092812991658597.png",
+          "type": "Image"
+        },
+        {
+          "name": "Power_BI_Theme_Generator_-_BIB6093049315206134.json",
+          "path": "Power_BI_Theme_Generator_-_BIB6093049315206134.json",
           "type": "CustomTheme"
         },
         {
-          "name": "Table11509883096616047.png",
-          "path": "Table11509883096616047.png",
+          "name": "Table7565761815493901.png",
+          "path": "Table7565761815493901.png",
           "type": "Image"
         }
       ]

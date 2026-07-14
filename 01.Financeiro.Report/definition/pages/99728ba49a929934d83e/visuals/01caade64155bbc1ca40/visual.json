@@ -3,8 +3,8 @@
   "name": "01caade64155bbc1ca40",
   "position": {
     "x": 99,
-    "y": 82.793242156074015,
-    "z": 4000,
+    "y": 42.242277968746187,
+    "z": 1000,
     "height": 68.206757843925985,
     "width": 963.71922767498,
     "tabOrder": 4000
@@ -12,5 +12,6 @@
   "visualGroup": {
     "displayName": "Cards",
     "groupMode": "ScaleMode"
-  }
+  },
+  "parentGroupName": "0dd4641b4ee0272156b3"
 }

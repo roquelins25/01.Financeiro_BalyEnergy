@@ -1,0 +1,34 @@
+createOrReplace
+
+	ref table _Medidas
+
+		measure '01. Valor AB Total CP' =
+				
+				CALCULATE( [01. Valor AB CP], ALL( 'CALENDARIO DAX' ) )
+			formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+			displayFolder: 01. Valores Totais\Auxiliares\CP
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		measure '01. Valor AB Total Vencidas CP' =
+				
+				CALCULATE(
+				    [01. Valor AB CP],
+				    ALL( 'CALENDARIO DAX' ),
+				    'CALENDARIO DAX'[Vencidos?] = "Vencidas" )
+			formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+			displayFolder: 01. Valores Totais\Auxiliares\CP
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+		measure '01. Valor AB a Vencer CP' =
+				
+				CALCULATE(
+				    [01. Valor AB CP],
+				    ALL( 'CALENDARIO DAX' ),
+				    'CALENDARIO DAX'[Vencidos?] = "A Vencer" )
+			formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+			displayFolder: 01. Valores Totais\Auxiliares\CP
+
+			annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+

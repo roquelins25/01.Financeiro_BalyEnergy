@@ -23,7 +23,7 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "homme_14246524660079636.png"
+                    "ItemName": "homme_144620889031590394.png"
                   }
                 }
               },
@@ -138,6 +138,7 @@
       }
     ]
   },
+  "visibility": "HiddenInViewMode",
   "visualInteractions": [
     {
       "source": "18f3cd89db490bd0d2a7",

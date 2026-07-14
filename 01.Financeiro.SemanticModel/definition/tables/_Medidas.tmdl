@@ -8,7 +8,7 @@ table _Medidas
 			        [01. Valor AB CR],
 			        KEEPFILTERS( TB_Fatos_CR[sit] = "AB" )
 			        )
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: a5e1faf0-be2a-4d62-bfb1-9168eece8a21
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -94,7 +94,7 @@ table _Medidas
 		displayFolder: 03. Auxiliares
 		lineageTag: 3672b44b-9882-4846-aec9-b234686cb046
 
-	measure '01. % Valor Total' = ```
+	measure '01. % Valor Total CR' = ```
 			
 			VAR _TOTAL = 
 			CALCULATE(
@@ -111,7 +111,7 @@ table _Medidas
 		displayFolder: 01. Valores Totais\%
 		lineageTag: b3c7a197-2a20-49b0-82bf-35cb9fe4b422
 
-	measure '04. Valor Aberto' = ```
+	measure '04. Valor Aberto CR' = ```
 			
 			// Mostra em moto calendario Auxiliar 
 			VAR vSELECTMESES = SELECTEDVALUE( yTB_01[yTB_01] )
@@ -168,7 +168,7 @@ table _Medidas
 			CALCULATE( [01. Valor Aberto] , ALL( 'CALENDARIO DAX' ) )
 			
 			VAR vPercentTotal = 
-			CALCULATE( [01. % Valor Total], ALL( 'CALENDARIO DAX' ) )
+			CALCULATE( [01. % Valor Total CR], ALL( 'CALENDARIO DAX' ) )
 			---------------------------------- Resultado ---------------------------------
 			RETURN
 			IF(
@@ -194,7 +194,7 @@ table _Medidas
 			
 			CALCULATE( [01. Valor Original], KEEPFILTERS( TB_Fatos_CR[sit] IN{"LQ","AB"} ) )
 		formatString: #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 5617b1ec-4ced-4817-9f93-58b88fde30df
 
 	measure '01. Valor Aberto Ano Anterior' =
@@ -203,7 +203,7 @@ table _Medidas
 			    [01. Valor Aberto],
 			    SAMEPERIODLASTYEAR( 'CALENDARIO DAX'[Date] )
 			)
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 5210bd54-30f9-46e6-be2a-4f82ca9d1fee
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -236,7 +236,7 @@ table _Medidas
 			RETURN
 			vTOTAL
 			```
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: fb79b868-7dae-47d5-acc6-ff637d577546
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -849,7 +849,7 @@ table _Medidas
 			    ALL( 'CALENDARIO DAX' ),
 			    'CALENDARIO DAX'[Vencidos?] = "Vencidas" )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 02602ccf-407e-410b-ae48-e1b764c5ff8c
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -938,7 +938,7 @@ table _Medidas
 			
 			CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ) )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 3bc8228f-0127-4c0a-8ae8-cd3fc43c46f9
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -950,7 +950,7 @@ table _Medidas
 			    ALL( 'CALENDARIO DAX' ),
 			    'CALENDARIO DAX'[Vencidos?] = "A Vencer" )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 5e39f12e-ba09-4605-90e4-08ea34f21645
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -978,7 +978,7 @@ table _Medidas
 			        [01. Valor AB CR],
 			        KEEPFILTERS( TB_Fatos_CR[sit] IN {"AB","LQ"}  )
 			        )
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: c6918ab7-b6f2-4975-8b29-c602b58c95b5
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -1638,7 +1638,10 @@ table _Medidas
 
 	measure '01. Valor AB CP' =
 			
-			SUM( TB_Fatos_CP[VLRABE] )
+			CALCULATE(
+			    SUM( TB_Fatos_CP[VLRABE] ),
+			    NOT TB_Fatos_CP[CtaFin] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580})
+			)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 01. Valores Totais\Geral
 		lineageTag: 567240e9-4c89-49c9-a959-8f946f80200e
@@ -1684,10 +1687,11 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor AB CR],
-			    TB_Fatos_CR[tipo] IN{"01","02","03"},
-			    TB_Fatos_CR[sit] = "AB")
+			    TB_Fatos_CR[tipo] IN{"01","02","03","CHD","CHQ"},
+			    TB_Fatos_CR[sit] = "AB",
+			    TB_Apoio[xCODCART] = 100002)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 846806b0-7829-4d01-8766-ccf9268f44b4
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -1699,7 +1703,7 @@ table _Medidas
 			    DATEADD( 'CALENDARIO DAX'[Date], -1,DAY )
 			)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 7634be81-5876-47ac-84a3-ac49d2b16535
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -1711,7 +1715,7 @@ table _Medidas
 			    DATEADD( 'CALENDARIO DAX'[Date], 1,DAY )
 			)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 3b1c134d-0eef-4d01-9a96-933d6ded360b
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -1779,6 +1783,163 @@ table _Medidas
 			```
 		displayFolder: 05. HTML
 		lineageTag: 838cc1a1-39c8-4adb-8518-fd36f728b3a6
+
+	measure '.... Demais Classif' =
+			
+			"Demais Classificações: "&
+			CONCATENATEX(
+			    FILTER( TB_FRJ, TB_FRJ[xTipo (grupos)] = "Demais Classif." ),
+			     TB_FRJ[xTipo] & ", " )
+		lineageTag: a2aa7fb5-a36c-4827-b089-bad5cecfe315
+
+	measure '04. Valor Aberto CP' = ```
+			
+			// Mostra em moto calendario Auxiliar 
+			VAR vSELECTMESES = SELECTEDVALUE( yTB_01[yTB_01] )
+			VAR vUltimaData =
+			    LASTDATE ( 'CALENDARIO DAX'[Date] )
+			
+			VAR vPrimeiraData =
+			    DATE (
+			        YEAR ( EDATE ( vUltimaData, - vSELECTMESES ) ),
+			        MONTH ( EDATE ( vUltimaData,( - vSELECTMESES) + 1 ) ),
+			        1
+			    )
+			VAR vPimeiraDataPositivo = 
+			    DATE (
+			        YEAR ( EDATE ( vUltimaData,  vSELECTMESES ) ),
+			        MONTH ( EDATE ( vUltimaData, vSELECTMESES ) ),
+			        1
+			    )
+			VAR vMeses=
+			    VAR vNegativo =
+			        CALCULATE(
+			            [01. Valor AB CP],
+			            DATESBETWEEN( 'CALENDARIO DAX'[Date], vPrimeiraData, vUltimaData ),
+			            TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[Ano-Mes] )
+			        )
+			    VAR vPositivo =
+			        CALCULATE(
+			            [01. Valor AB CP],
+			            DATESBETWEEN( 'CALENDARIO DAX'[Date], vUltimaData, vPimeiraDataPositivo  ),
+			            TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[Ano-Mes] )
+			        )
+			    RETURN
+			        IF( SELECTEDVALUE( 'CALENDARIO DAX'[Vencidos?] ) = "Vencidas", vNegativo, vPositivo )
+			------------------------------ ANO --------------------
+			
+			VAR vGeralAno = 
+			    VAR vNegativo =
+			    IF(
+			        HASONEFILTER( 'CALENDARIO DAX'[Ano-Mes] ),
+			            CALCULATE(
+			                [01. Valor AB CP],
+			                TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[AnoTEXT] ),
+			                FILTER(
+			                    ALL( 'CALENDARIO DAX' ),
+			                    'CALENDARIO DAX'[Ano] <= SELECTEDVALUE( 'CALENDARIO DAX'[Ano] )
+			                )
+			            ),
+			                CALCULATE(
+			                [01. Valor AB CP],
+			                TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[AnoTEXT] )
+			                )
+			        )
+			    VAR vPositivo =
+			    IF(
+			        HASONEFILTER( 'CALENDARIO DAX'[Ano-Mes] ),
+			            CALCULATE(
+			                [01. Valor AB CP],
+			                TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[AnoTEXT] ),
+			                FILTER(
+			                    ALL( 'CALENDARIO DAX' ),
+			                    'CALENDARIO DAX'[Ano] >= SELECTEDVALUE( 'CALENDARIO DAX'[Ano] )
+			                )
+			            ),
+			                CALCULATE(
+			                [01. Valor AB CP],
+			                TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[AnoTEXT] )
+			                )
+			        )
+			    RETURN
+			        IF( SELECTEDVALUE( 'CALENDARIO DAX'[Vencidos?] ) = "Vencidas", vNegativo, vPositivo )
+			--------------------------------- Total Geral ------------------------------
+			VAR vTotalAberto = 
+			CALCULATE( [01. Valor AB CP] , ALL( 'CALENDARIO DAX' ) )
+			
+			VAR vPercentTotal = 
+			DIVIDE( vTotalAberto , CALCULATE( [01. Valor AB CP] , ALL( TB_TIPO ), ALL( 'CALENDARIO DAX' ) ), 0 )
+			---------------------------------- Resultado ---------------------------------
+			RETURN
+			IF(
+			    ISBLANK( vTotalAberto ), BLANK() ,
+			IF( 
+			    ISINSCOPE( xCalendarioTable[Periodo] ),
+			        SWITCH(
+			            SELECTEDVALUE( xCalendarioTable[Cod. Periodo] ),
+			            1, vTotalAberto,
+			            2, FORMAT( vPercentTotal, "Percent" ),
+			            4, vMeses,
+			            5, IF( vGeralAno = 0, BLANK(), vGeralAno )
+			        ),
+			    vPercentTotal )
+			)
+			```
+		formatString: #,0
+		displayFolder: 04. DRE
+		lineageTag: e31fda98-11d7-4f78-8993-9f59a21dd043
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '01. % Valor Total CP' = ```
+			
+			VAR _TOTAL = 
+			CALCULATE(
+			    [04. Valor Aberto CP],
+			    ALL( TB_TIPO )
+			)
+			VAR vRESULT = 
+			DIVIDE( [04. Valor Aberto CP], _TOTAL, 0 )
+			
+			RETURN
+			vRESULT
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 01. Valores Totais\%
+		lineageTag: 29cc80cf-2aa1-44c4-8bab-0d7563d262fa
+
+	measure '01. Valor AB Total CP' =
+			
+			CALCULATE( [01. Valor AB CP], ALL( 'CALENDARIO DAX' ) )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares\CP
+		lineageTag: 809bc82c-0b86-4185-9536-dc03e46e6d41
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Valor AB Total Vencidas CP' =
+			
+			CALCULATE(
+			    [01. Valor AB CP],
+			    ALL( 'CALENDARIO DAX' ),
+			    'CALENDARIO DAX'[Vencidos?] = "Vencidas" )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares\CP
+		lineageTag: f83c8202-0b15-4868-bff2-1c385318e240
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Valor AB a Vencer CP' =
+			
+			CALCULATE(
+			    [01. Valor AB CP],
+			    ALL( 'CALENDARIO DAX' ),
+			    'CALENDARIO DAX'[Vencidos?] = "A Vencer" )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares\CP
+		lineageTag: 946c4568-4f46-48a1-ae4d-e90afa78a508
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	partition _Medidas = m
 		mode: import

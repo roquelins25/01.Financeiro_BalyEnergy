@@ -5,7 +5,7 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 1008.1045327762422
+        "y": 158.01011485521036
       },
       "nodes": [
         {
@@ -344,6 +344,19 @@
             "width": 234
           },
           "zIndex": 26
+        },
+        {
+          "location": {
+            "x": 2477.7480217193242,
+            "y": 172.25198662190212
+          },
+          "nodeIndex": "TB_TIPO",
+          "nodeLineageTag": "25d321a0-b139-40ed-8663-c083a34eebf1",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",

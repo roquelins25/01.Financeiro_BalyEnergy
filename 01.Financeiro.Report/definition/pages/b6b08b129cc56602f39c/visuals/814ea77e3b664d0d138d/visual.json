@@ -6,7 +6,8 @@
     "y": 193.42222222222222,
     "z": 3000,
     "height": 150.75555555555556,
-    "width": 331.37777777777779
+    "width": 331.37777777777779,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -239,23 +240,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0e697f44039a1e81f255",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor AB CP"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

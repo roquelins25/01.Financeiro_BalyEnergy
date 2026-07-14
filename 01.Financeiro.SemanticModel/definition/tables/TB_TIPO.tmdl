@@ -1,0 +1,43 @@
+table TB_TIPO
+	lineageTag: 25d321a0-b139-40ed-8663-c083a34eebf1
+
+	column CODTPT
+		dataType: string
+		lineageTag: 939ed237-2556-4a64-acf6-454678d97375
+		summarizeBy: none
+		sourceColumn: CODTPT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_AGP_TIPO_CP
+		dataType: string
+		lineageTag: 6bd3cfb0-51ce-47e3-962c-2e1aa72b4cc9
+		summarizeBy: none
+		sourceColumn: ID_AGP_TIPO_CP
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGP_TIPO_CP
+		dataType: string
+		lineageTag: 688120d1-4be1-42dd-a393-6f3933a6ec9e
+		summarizeBy: none
+		sourceColumn: AGP_TIPO_CP
+		sortByColumn: ID_AGP_TIPO_CP
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_TIPO = m
+		mode: import
+		queryGroup: _Fatos
+		source =
+				let
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="WITH base AS (#(lf)    SELECT#(lf)        TPT.*,#(lf)        CASE#(lf)            WHEN codtpt IN ('01','DEV','LFÉ','LIQ','LQP','PJD','RCO','DEJ','SEV','DPV','LRE') THEN '10001'#(lf)            WHEN codtpt IN ('INT','CCP','IRC','IRP','ISR','IRA') THEN '10002'#(lf)            WHEN codtpt IN ('ST4','ISS','DIF','FCP','MUL','IPV') THEN '10003'#(lf)            WHEN codtpt IN ('STP','PCI','PS3','PDA','DIV','PS2','PS1','PST','PMF') THEN '10004'#(lf)            WHEN codtpt IN ('EMP','LS3','FME','LEA','LS2','FIN') THEN '10005'#(lf)            WHEN codtpt IN ('INS','FGT','IRF','IRY','FGR') THEN '10006'#(lf)            WHEN codtpt LIKE 'V%' THEN '10007'#(lf)            WHEN codtpt IN ('ADT','LAD','CRE','DEC','FDE','SDE') THEN '10008'#(lf)            ELSE '10009'#(lf)        END AS ID_AGP_TIPO_CP#(lf)    FROM sapiens_producao.E002TPT TPT#(lf))#(lf)SELECT#(lf)    CODTPT,#(lf)    ID_AGP_TIPO_CP,#(lf)    CASE ID_AGP_TIPO_CP#(lf)        WHEN '10001' THEN 'PAGAMENTOS DIVERSOS'#(lf)        WHEN '10002' THEN 'IMPOSTOS RETIDOS'#(lf)        WHEN '10003' THEN 'IMPOSTOS S/ PARCELAMENTO'#(lf)        WHEN '10004' THEN 'IMPOSTOS PARCELADOS'#(lf)        WHEN '10005' THEN 'EMPRESTIMOS'#(lf)        WHEN '10006' THEN 'IMPOSTOS FOLHA'#(lf)        WHEN '10007' THEN 'VERBA'#(lf)        WHEN '10008' THEN 'CRÉDITOS'#(lf)        ELSE 'OUTROS'#(lf)    END AS AGP_TIPO_CP#(lf)FROM base;"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

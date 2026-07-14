@@ -116,6 +116,7 @@ table 'CALENDARIO DAX'
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [AnoTEXT]
+		sortByColumn: Ano
 
 		annotation SummarizationSetBy = Automatic
 

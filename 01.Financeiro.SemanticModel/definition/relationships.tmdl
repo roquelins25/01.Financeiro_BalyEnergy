@@ -177,3 +177,15 @@ relationship 162e5d9b-5f32-9137-c1c9-ad056e52b096
 	fromColumn: TB_Fatos_CP.VCTPRO
 	toColumn: 'CALENDARIO DAX'.Date
 
+relationship AutoDetected_ca314f93-95b5-47f1-8cce-9dd1dcf54a9d
+	fromColumn: TB_Verbas.codtpt
+	toColumn: TB_TIPO.CODTPT
+
+relationship 1593fdd4-5b63-7a7f-0b85-f79e74b691cc
+	fromColumn: TB_Fatos_CP.tipo
+	toColumn: TB_TIPO.CODTPT
+
+relationship 506e8355-37d2-df73-77cb-fdea5e83b305
+	fromColumn: TB_Fatos_CR.tipo
+	toColumn: TB_TIPO.CODTPT
+

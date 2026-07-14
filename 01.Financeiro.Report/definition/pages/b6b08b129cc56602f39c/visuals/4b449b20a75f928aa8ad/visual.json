@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 151.60092807424593,
     "width": 330.7656612529002,
-    "tabOrder": 1
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
@@ -241,26 +241,32 @@
             }
           }
         }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'e07024999f05bd66ba7b'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "d2052255eab89a3df8f8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor Previsto a Receber"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "ad57994a94a5c24df106",
         "field": {
