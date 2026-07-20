@@ -1764,11 +1764,11 @@ table _Medidas
 			RETURN
 			"<html><head><style>" &
 			    "*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial,sans-serif;}" &
-			    ".calendario{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;padding:12px;background:#f1f5f9;}" &
+			    ".calendario{display:grid;grid-template-columns:0.4fr 1fr 1fr 1fr 1fr 1fr 0.4fr;;gap:8px;padding:12px;background:#f1f5f9;}" &
 			    ".dia-semana{background:#1e293b;color:#fff;padding:8px;text-align:center;border-radius:6px;font-size:12px;font-weight:600;}" &
 			    ".dia{background:#fff;border-radius:8px;min-height:100px;padding:6px;border:1px solid #e2e8f0;font-size:11px;}" &
 			    ".dia.hoje{ border:2px solid #2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.15);}" &
-			    ".dia.fds{background:#f8fafc;} .dia.vazio{background:transparent;border:none;}" &
+			    ".dia.fds{background:#f8fafc;} .dia.vazio{background:transparent;border:none; min-heigth: 20px; padding:0}" &
 			    ".numero{font-weight:700;color:#64748b;}" &
 			    ".linha-valor{padding:3px 5px;border-radius:5px;margin-top:3px;display:flex;justify-content:space-between;}" &
 			    ".receber{background:#ecfdf9;color:#0d9488;} .pagar{background:#fefef2;color:#dc7e26;}" &
