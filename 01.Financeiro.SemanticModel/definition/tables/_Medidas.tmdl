@@ -1941,6 +1941,11 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
+	measure 'Medida 2' = [01. Valor AB CR]
+		lineageTag: a87ff7f1-8e98-4c41-828b-9f0748949bdd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition _Medidas = m
 		mode: import
 		source =

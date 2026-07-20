@@ -579,7 +579,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -593,7 +593,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'12'"
+                  "Value": "8D"
                 }
               }
             },
@@ -608,6 +608,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Atrasado por Tipo'"
                 }
               }
             }
@@ -660,7 +667,7 @@
             "customizeSpacing": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -674,7 +681,7 @@
             "spaceBelowTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "0D"
                 }
               }
             },

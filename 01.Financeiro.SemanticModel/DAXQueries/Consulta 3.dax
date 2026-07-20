@@ -8,7 +8,9 @@ DEFINE
 	VAR __DS0FilterTable3 = 
 		TREATAS(
 			{("Contas a Receber", "'TB_PGT'[abrfpg (grupos)]"),
-				("Contas a Pagar", "'TB_Fatos_CP'[despar]")},
+				("Contas a Receber", "'TB_CLI'[sigufs]"),
+				("Contas a Pagar", "'TB_Fatos_CP'[despar]"),
+				("Contas a Pagar", "'TB_CLI'[nomcli]")},
 			'yxTeste'[desc],
 			'yParamentros'[yContasApagar Campos]
 		)

@@ -181,11 +181,15 @@ relationship AutoDetected_ca314f93-95b5-47f1-8cce-9dd1dcf54a9d
 	fromColumn: TB_Verbas.codtpt
 	toColumn: TB_TIPO.CODTPT
 
-relationship 1593fdd4-5b63-7a7f-0b85-f79e74b691cc
-	fromColumn: TB_Fatos_CP.tipo
-	toColumn: TB_TIPO.CODTPT
-
 relationship 506e8355-37d2-df73-77cb-fdea5e83b305
 	fromColumn: TB_Fatos_CR.tipo
 	toColumn: TB_TIPO.CODTPT
+
+relationship 3dd1605a-e0e4-a2e5-d845-d3277d489e7b
+	fromColumn: TB_Fatos_CP.CtaFin
+	toColumn: TB_Apoio.potador
+
+relationship dbccd59a-1881-ec11-6ecd-1a4e1eff6668
+	fromColumn: TB_Fatos_CP.CtaFin
+	toColumn: Base_Classificacao.Cod
 

@@ -12,5 +12,6 @@
   "visualGroup": {
     "displayName": "Cliente",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }

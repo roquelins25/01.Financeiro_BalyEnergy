@@ -88,6 +88,16 @@ cultureInfo pt-BR
 			          "carteira": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Agp_Portador": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -9102,25 +9112,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fatos_CP.tipo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "tipo"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "tipo": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "TB_fatos_CP.entity_03__aux_dias_": {
 			      "Definition": {
 			        "Binding": {
@@ -9684,9 +9675,91 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "entity__medida.medida_2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Medida 2"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "medida 2": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "TB_fatos_CP_datemi_trimestre_has_TB_fatos_CP_datemi_mê": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CP.datemi.trimestre": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP.datemi.trimestre"
+			          }
+			        },
+			        "TB_fatos_CP.datemi.mê": {
+			          "Target": {
+			            "Entity": "TB_fatos_CP.datemi.mê"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP.datemi.trimestre"
+			            },
+			            "Object": {
+			              "Role": "TB_fatos_CP.datemi.mê"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_mê"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP.datemi.mê"
+			            },
+			            "Object": {
+			              "Role": "TB_fatos_CP.datemi.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_have_trimestres"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "TB_fatos_CP.datemi.mê"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "TB_fatos_CP.datemi.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "mê_are_in_trimestres7"
+			        }
+			      ]
+			    },
 			    "TB_fatos_CP_datemi_ano_has_TB_fatos_CP_datemi_trimestre": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Fatos_CP"
@@ -10013,7 +10086,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê"
+			          "ID": "trimestres_have_mê1"
 			        },
 			        {
 			          "Attribute": {
@@ -10026,7 +10099,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres"
+			          "ID": "mê_have_trimestres1"
 			        },
 			        {
 			          "Preposition": {
@@ -10376,7 +10449,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê1"
+			          "ID": "trimestres_have_mê2"
 			        },
 			        {
 			          "Attribute": {
@@ -10389,7 +10462,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres1"
+			          "ID": "mê_have_trimestres2"
 			        },
 			        {
 			          "Preposition": {
@@ -10739,7 +10812,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê2"
+			          "ID": "trimestres_have_mê3"
 			        },
 			        {
 			          "Attribute": {
@@ -10752,7 +10825,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres2"
+			          "ID": "mê_have_trimestres3"
 			        },
 			        {
 			          "Preposition": {
@@ -11102,7 +11175,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê3"
+			          "ID": "trimestres_have_mê4"
 			        },
 			        {
 			          "Attribute": {
@@ -11115,7 +11188,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres3"
+			          "ID": "mê_have_trimestres4"
 			        },
 			        {
 			          "Preposition": {
@@ -11465,7 +11538,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê4"
+			          "ID": "trimestres_have_mê5"
 			        },
 			        {
 			          "Attribute": {
@@ -11478,7 +11551,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres4"
+			          "ID": "mê_have_trimestres5"
 			        },
 			        {
 			          "Preposition": {
@@ -11828,7 +11901,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê5"
+			          "ID": "trimestres_have_mê6"
 			        },
 			        {
 			          "Attribute": {
@@ -11841,7 +11914,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres5"
+			          "ID": "mê_have_trimestres6"
 			        },
 			        {
 			          "Preposition": {
@@ -12191,7 +12264,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê6"
+			          "ID": "trimestres_have_mê7"
 			        },
 			        {
 			          "Attribute": {
@@ -12204,7 +12277,7 @@ cultureInfo pt-BR
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres6"
+			          "ID": "mê_have_trimestres7"
 			        },
 			        {
 			          "Preposition": {
@@ -13772,6 +13845,39 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "TB_fatos_CR_has_entity__medida_medida_2": {
+			      "Binding": {
+			        "ConceptualEntity": "TB_Fatos_CR"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "TB_fatos_CR": {
+			          "Target": {
+			            "Entity": "TB_fatos_CR"
+			          }
+			        },
+			        "entity__medida.medida_2": {
+			          "Target": {
+			            "Entity": "entity__medida.medida_2"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "TB_fatos_CR"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.medida_2"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "TB_fatos_CR_have_medida_2"
+			        }
+			      ]
+			    },
 			    "TB_fatos_CP_has_entity__medida_entity_01__valor_AB_a_vencer_CP": {
 			      "Binding": {
 			        "ConceptualEntity": "TB_Fatos_CP"
@@ -13868,72 +13974,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_fatos_CPs_have_01__valor_AB_total_CP"
-			        }
-			      ]
-			    },
-			    "y_TB_01_has_entity__medida_medida": {
-			      "Binding": {
-			        "ConceptualEntity": "yTB_01"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "y_TB_01": {
-			          "Target": {
-			            "Entity": "y_TB_01"
-			          }
-			        },
-			        "entity__medida.medida": {
-			          "Target": {
-			            "Entity": "entity__medida.medida"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "y_TB_01"
-			            },
-			            "Object": {
-			              "Role": "entity__medida.medida"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "y_TB_01_have_medida"
-			        }
-			      ]
-			    },
-			    "calendario_dax_has_entity__medida_medida": {
-			      "Binding": {
-			        "ConceptualEntity": "CALENDARIO DAX"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "calendario_dax": {
-			          "Target": {
-			            "Entity": "calendario_dax"
-			          }
-			        },
-			        "entity__medida.medida": {
-			          "Target": {
-			            "Entity": "entity__medida.medida"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "calendario_dax"
-			            },
-			            "Object": {
-			              "Role": "entity__medida.medida"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "calendario_dax_have_medida"
 			        }
 			      ]
 			    },
@@ -21728,72 +21768,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "TB_apoios_have_potadors"
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP_datemi_trimestre_has_TB_fatos_CP_datemi_mê": {
-			      "Binding": {
-			        "ConceptualEntity": "TB_Fatos_CP"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "TB_fatos_CP.datemi.trimestre": {
-			          "Target": {
-			            "Entity": "TB_fatos_CP.datemi.trimestre"
-			          }
-			        },
-			        "TB_fatos_CP.datemi.mê": {
-			          "Target": {
-			            "Entity": "TB_fatos_CP.datemi.mê"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "TB_fatos_CP.datemi.trimestre"
-			            },
-			            "Object": {
-			              "Role": "TB_fatos_CP.datemi.mê"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "trimestres_have_mê7"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "TB_fatos_CP.datemi.mê"
-			            },
-			            "Object": {
-			              "Role": "TB_fatos_CP.datemi.trimestre"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mê_have_trimestres7"
-			        },
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "TB_fatos_CP.datemi.mê"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "TB_fatos_CP.datemi.trimestre"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mê_are_in_trimestres7"
 			        }
 			      ]
 			    },

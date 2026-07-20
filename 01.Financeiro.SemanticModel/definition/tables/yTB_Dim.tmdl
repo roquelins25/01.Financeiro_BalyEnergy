@@ -58,7 +58,8 @@ table yTB_Dim
 				    ("emissao", NAMEOF('TB_Fatos_CR'[emissao]), 15),
 				    ("vencimento", NAMEOF('TB_Fatos_CR'[vencimento]), 16),
 				    ("codpagamento", NAMEOF('TB_Fatos_CR'[codpagamento]), 17),
-				    ("Representante", NAMEOF('TB_REP'[nomrep]), 18)
+				    ("Representante", NAMEOF('TB_REP'[nomrep]), 18),
+				    ("Agp_Portador", NAMEOF(TB_Apoio[Carteira]), 19)
 				}
 
 	annotation PBI_Id = 7ac42367b93e4983a72f18b309072a63

@@ -36,7 +36,7 @@ table TB_Apoio
 	column xCODCART
 		dataType: double
 		lineageTag: 0966cbef-4b84-4eec-abdd-b61d54b1b9fb
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: xCODCART
 		sortByColumn: Carteira
 
@@ -51,10 +51,10 @@ table TB_Apoio
 		queryGroup: _Dim
 		source =
 				let
-				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("pdUxboMwFAbgqyDmpGOljjY2JBEQZBykCjE4xIMrCihALtShB8nF6qZSG2+Nfzbkp0/2z/OjrkOaFeEqFLrVR3PRZgrWwXge3vSsTsousGXsTKtmNQVRZ3Q/6+8Kpqd26G8lzaoONyTHEcFi2CASNxJScXwjucSRfcEFHitn+GmofNwozfvY6ekGMPKK72IrCY5QwUoYKdKIYoEkNAcjjYhAhVxuMIHkiUeX3wsv9sEEwT1Gzz1QxgTv7ggTbGsfMIEKn8vh5EDi6nGhMn27dH+3i3gMYNewWTyjhv0i8FnKbewxfV0j3UuPaeMaheAZamSH1KPHXYNXPn8j1xA82v0Yy6jP6vp5/RiC3XIyrVGdrbYLT7/v/y9smi8=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [potador = _t, #"apoio para a view" = _t, descrição = _t]),
+				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("tZXNjpswFIVfBWU9/ctEM8rSGMOQJgQZglRFs3DAjVwRTPnJO/Qxqi6qPgcv1msykxlahRSsZpXE535cn3uwt9uJufInNxPKY74TRy5K442RF/ILr1jCYMGq81TErGKlgVPBs4orhcXLWGat5PFmO3lAnj6EWrY2A4X6DAdFRL8RL9SHrH1C9W0llv5uzHA4IxCHPOVlC7DQJ/0u3BDpQ0xqBdoQf4lNPUMc0xthqZPKHUs9XrUMjKjmWLAXPgwnYLkrWBY/B90ZEfTXTczho0egZMTp8xoQ2Eg/4FiPAOne6BFMOub96PiA7Gg4IRJZXKcvLxgacQZ3GeDFnS4DJqK9l8C1RxzAXcZyHY44cLoMn5KVLmO1WY7IeJdBojEXUpdBCV6cGHXOC9b8bH5IY1EnIhYsBTUsvD3//nehQoeLDf1PaGSpMKHkKPesgr/lxd0qTfykaXNIorUS86NM65hdLnxRnGzy2g4zvpfQRV9hR9T6QJEqDuGULnNZwHBkcXk8f8gUAMas7reIF7uesbarbTwDlSy7zhJpBPLJXJ/t2QG0shuS9rUKZyBw8Sow2soeqY39QWhw+2z2aawJPzd9rRT/XWrLIoO0gzP9xZiqWxAXPBHVoELLVael7aJ3NnH7pUu7+aa0za9CsCubub2bTm9BsvINB+bLU+Pj/krJ7P39/B4km0x8lsXhml3T2fyDekDz/WstMogGNwh8y5/1bpbUZQWdij7Q428=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [potador = _t, #"apoio para a view" = _t, descrição = _t]),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(Origem,{{"potador", type text}, {"apoio para a view", type text}, {"descrição", type text}}),
 				    #"Texto Inserido Após o Delimitador" = Table.AddColumn(#"Tipo Alterado", "Carteira", each Text.AfterDelimiter([descrição], "- "), type text),
-				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Texto Inserido Após o Delimitador", "xCODCART", each if [Carteira] = "Descontada" then 100001 else if [Carteira] = "Simples" then 100002 else if [Carteira] = "Vinculada" then 100003 else if [Carteira] = "Rec. Judicial" then 100004 else 0),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Texto Inserido Após o Delimitador", "xCODCART", each if [Carteira] = "Descontada" then 100001 else if [Carteira] = "Simples" then 100002 else if [Carteira] = "Vinculada" then 100003 else if [Carteira] = "Rec. Judicial" then 100004 else if [Carteira] = "Advocaticio" then 100005 else if [Carteira] = "Devolucao" then 100006 else if [Carteira] = "Renegociacao" then 100007 else if [Carteira] = "Transportadora" then 100008 else if [Carteira] = "Verba" then 100009 else 0),
 				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Condicional Adicionada",{{"xCODCART", type number}})
 				in
 				  #"Tipo Alterado1"

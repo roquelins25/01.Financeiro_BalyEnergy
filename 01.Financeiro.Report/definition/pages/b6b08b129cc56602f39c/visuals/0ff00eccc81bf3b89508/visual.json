@@ -1,17 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "be88a0590e0b95070020",
+  "name": "0ff00eccc81bf3b89508",
   "position": {
-    "x": 0,
-    "y": 0,
-    "z": 7505,
-    "height": 712.11267605633793,
-    "width": 1270.9859154929577,
+    "x": 25.05800464037123,
+    "y": 83.911111111111111,
+    "z": 4000,
+    "height": 260.26666666666671,
+    "width": 1875.0308842485176,
     "tabOrder": 3000
   },
   "visualGroup": {
-    "displayName": "Filter",
+    "displayName": "Cards",
     "groupMode": "ScaleMode"
-  },
-  "isHidden": true
+  }
 }
