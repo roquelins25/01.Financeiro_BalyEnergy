@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "3e9511e563880b92cd4b",
-  "displayName": "Detalhamento Diario",
+  "name": "e9aaf3870db5e655677c",
+  "displayName": "Senha Incorreta",
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,
@@ -14,7 +14,7 @@
               "name": {
                 "expr": {
                   "Literal": {
-                    "Value": "'Posicao diaria.png'"
+                    "Value": "'Incorreta.png'"
                   }
                 }
               },
@@ -23,7 +23,7 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "Posicao_diaria2092812991658597.png"
+                    "ItemName": "Incorreta5191971177600064.png"
                   }
                 }
               },
@@ -40,12 +40,5 @@
       }
     ]
   },
-  "visibility": "HiddenInViewMode",
-  "visualInteractions": [
-    {
-      "source": "6d4e60bc3921cbc2538c",
-      "target": "919fb0cbcc9c0760532b",
-      "type": "NoFilter"
-    }
-  ]
+  "visibility": "HiddenInViewMode"
 }
