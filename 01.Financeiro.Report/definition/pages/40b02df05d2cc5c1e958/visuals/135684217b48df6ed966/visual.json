@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "135684217b48df6ed966",
   "position": {
-    "x": 396.25,
-    "y": 0,
-    "z": 2,
-    "height": 91.25,
-    "width": 585
+    "x": 645.24361948955914,
+    "y": 55.127610208816705,
+    "z": 1000,
+    "height": 73.921113689095122,
+    "width": 585.1044083526682,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "multiRowCard",
-    "autoSelectVisualType": true,
     "query": {
       "queryState": {
         "Values": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "_Medidas.07. Total Faturado Geral",
-              "nativeQueryRef": "07. Total Faturado Geral"
+              "nativeQueryRef": "Faturado",
+              "displayName": "Faturado"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "_Medidas.07.  CR Valor Original FAT",
-              "nativeQueryRef": "07.  CR Valor Original FAT"
+              "nativeQueryRef": "Contas a Receber",
+              "displayName": "Contas a Receber"
             }
           ]
         }
@@ -64,6 +66,34 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "drillFilterOtherVisuals": true
   }

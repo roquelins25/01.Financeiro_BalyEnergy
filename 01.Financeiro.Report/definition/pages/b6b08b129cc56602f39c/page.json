@@ -1,0 +1,233 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "b6b08b129cc56602f39c",
+  "displayName": "Calendario",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "182086de4a14c0add75b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_FRJ"
+              }
+            },
+            "Property": "desfrj"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "TB_FRJ",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "t"
+                              }
+                            },
+                            "Property": "desfrj"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'GlobalNet'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'homme 2.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "homme_2024712064714887738.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "73652c9b85010213bb33",
+      "target": "4b449b20a75f928aa8ad",
+      "type": "NoFilter"
+    },
+    {
+      "source": "73652c9b85010213bb33",
+      "target": "d164ba33d9c46b254731",
+      "type": "NoFilter"
+    },
+    {
+      "source": "73652c9b85010213bb33",
+      "target": "3489767ccc94255696c1",
+      "type": "NoFilter"
+    },
+    {
+      "source": "73652c9b85010213bb33",
+      "target": "43b2a1da688132b01842",
+      "type": "NoFilter"
+    },
+    {
+      "source": "73652c9b85010213bb33",
+      "target": "e8f114bd0629cc8770b8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3489767ccc94255696c1",
+      "target": "4b449b20a75f928aa8ad",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3489767ccc94255696c1",
+      "target": "1e97acd2b8791b1d91d5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3489767ccc94255696c1",
+      "target": "5cdaeadbcc1ad835454a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3489767ccc94255696c1",
+      "target": "09a4ca2e1bb657ed68e5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3489767ccc94255696c1",
+      "target": "e7e1dfe6e647059d9f88",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3489767ccc94255696c1",
+      "target": "814ea77e3b664d0d138d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3489767ccc94255696c1",
+      "target": "8d7ac36bf3191154948b",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3489767ccc94255696c1",
+      "target": "d164ba33d9c46b254731",
+      "type": "NoFilter"
+    },
+    {
+      "source": "43b2a1da688132b01842",
+      "target": "d164ba33d9c46b254731",
+      "type": "NoFilter"
+    },
+    {
+      "source": "43b2a1da688132b01842",
+      "target": "8d7ac36bf3191154948b",
+      "type": "NoFilter"
+    },
+    {
+      "source": "43b2a1da688132b01842",
+      "target": "814ea77e3b664d0d138d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "43b2a1da688132b01842",
+      "target": "09a4ca2e1bb657ed68e5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "43b2a1da688132b01842",
+      "target": "e7e1dfe6e647059d9f88",
+      "type": "NoFilter"
+    },
+    {
+      "source": "43b2a1da688132b01842",
+      "target": "1e97acd2b8791b1d91d5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "43b2a1da688132b01842",
+      "target": "5cdaeadbcc1ad835454a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "43b2a1da688132b01842",
+      "target": "4b449b20a75f928aa8ad",
+      "type": "NoFilter"
+    },
+    {
+      "source": "73652c9b85010213bb33",
+      "target": "7a6a734ef3517308f688",
+      "type": "NoFilter"
+    }
+  ]
+}

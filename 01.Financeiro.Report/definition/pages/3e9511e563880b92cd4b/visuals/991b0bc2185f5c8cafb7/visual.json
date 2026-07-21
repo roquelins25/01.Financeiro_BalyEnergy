@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "991b0bc2185f5c8cafb7",
   "position": {
-    "x": 395.21912350597609,
-    "y": 15.298804780876493,
+    "x": 463.57308584686774,
+    "y": 132.80742459396751,
     "z": 0,
-    "height": 1064.5418326693227,
-    "width": 928.12749003984061,
+    "height": 923.38747099767977,
+    "width": 960.97447795823666,
     "tabOrder": 0
   },
   "visual": {
@@ -49,23 +49,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "c6e5d091db57383bb4bb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "05. HTML SALDO DIA"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

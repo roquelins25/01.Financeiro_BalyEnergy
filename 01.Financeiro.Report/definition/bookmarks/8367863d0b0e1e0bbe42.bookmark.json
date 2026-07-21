@@ -464,7 +464,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "04. Valor Aberto"
+                      "Property": "04. Valor Aberto CR"
                     }
                   },
                   "howCreated": 0
@@ -484,7 +484,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "04. Valor Aberto"
+                      "Property": "04. Valor Aberto CR"
                     }
                   }
                 }
@@ -1113,24 +1113,6 @@
               }
             }
           },
-          "dc3f7a0db279223767a9": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "d76d4e03db5037e51c0b": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "c5307d40e29c956deac2": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
           "5560eb9798a807023212": {
             "singleVisual": {
               "visualType": "actionButton",
@@ -1150,12 +1132,6 @@
             }
           },
           "ead107752447a0d7a001": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "3c9283b60670cdb056c8": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {}

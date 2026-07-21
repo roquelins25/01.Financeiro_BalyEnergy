@@ -8,7 +8,7 @@ table _Medidas
 			        [01. Valor AB CR],
 			        KEEPFILTERS( TB_Fatos_CR[sit] = "AB" )
 			        )
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: a5e1faf0-be2a-4d62-bfb1-9168eece8a21
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -94,7 +94,7 @@ table _Medidas
 		displayFolder: 03. Auxiliares
 		lineageTag: 3672b44b-9882-4846-aec9-b234686cb046
 
-	measure '01. % Valor Total' = ```
+	measure '01. % Valor Total CR' = ```
 			
 			VAR _TOTAL = 
 			CALCULATE(
@@ -111,7 +111,7 @@ table _Medidas
 		displayFolder: 01. Valores Totais\%
 		lineageTag: b3c7a197-2a20-49b0-82bf-35cb9fe4b422
 
-	measure '04. Valor Aberto' = ```
+	measure '04. Valor Aberto CR' = ```
 			
 			// Mostra em moto calendario Auxiliar 
 			VAR vSELECTMESES = SELECTEDVALUE( yTB_01[yTB_01] )
@@ -168,7 +168,7 @@ table _Medidas
 			CALCULATE( [01. Valor Aberto] , ALL( 'CALENDARIO DAX' ) )
 			
 			VAR vPercentTotal = 
-			CALCULATE( [01. % Valor Total], ALL( 'CALENDARIO DAX' ) )
+			CALCULATE( [01. % Valor Total CR], ALL( 'CALENDARIO DAX' ) )
 			---------------------------------- Resultado ---------------------------------
 			RETURN
 			IF(
@@ -194,721 +194,8 @@ table _Medidas
 			
 			CALCULATE( [01. Valor Original], KEEPFILTERS( TB_Fatos_CR[sit] IN{"LQ","AB"} ) )
 		formatString: #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 5617b1ec-4ced-4817-9f93-58b88fde30df
-
-	measure '05.HTML CARD GERAL' =
-			
-			-- Select
-			VAR vANO = SELECTEDVALUE( 'CALENDARIO DAX'[Ano] )
-			
-			---- Calculos
-			VAR _TOTALGERAL = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ) )
-			VAR _TOTALMESSELECT = [01. Valor Aberto]
-			VAR _TOTALMESANTSELECT = CALCULATE( [01. Valor Aberto], DATEADD( 'CALENDARIO DAX'[Date], -1, MONTH ) )
-			
-			VAR _QTDTitulos = CALCULATE( [02. Quantidade Titulos AB], ALL( 'CALENDARIO DAX' ) )
-			
-			VAR _PROXIMOSANOS = CALCULATE( [01. Valor Aberto],ALL('CALENDARIO DAX'), 'CALENDARIO DAX'[Ano] >  vANO )
-			VAR _ANOATUAL = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano] = vANO )
-			VAR _ANO1 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano] = vANO -1 )
-			VAR _ANO2 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano] = vANO -2 )
-			VAR _ANO3 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano] < vANO -2 )
-			
-			RETURN
-			
-			"
-			<!DOCTYPE html>
-			<html lang='pt-BR'>
-			<head>
-			  <meta charset='UTF-8'>
-			  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-			  <title>Card Inadimplência</title>
-			  <style>
-			    * { box-sizing: border-box; margin: 0; padding: 0; }
-			
-			    body {
-			      display: flex;
-			      justify-content: center;
-			      align-items: center;
-			      min-height: 100vh;
-			      font-family: 'Segoe UI', Arial, sans-serif;
-			    }
-			
-			    /* ── Flip container ── */
-			    .flip-wrapper {
-			      width: 277px;
-			      height: 145px;
-			      perspective: 900px;
-			    }
-			
-			    .flip-inner {
-			      width: 100%;
-			      height: 100%;
-			      position: relative;
-			      transform-style: preserve-3d;
-			      transition: transform 0.55s cubic-bezier(.4,0,.2,1);
-			    }
-			
-			    .flip-wrapper:hover .flip-inner {
-			      transform: rotateY(180deg);
-			    }
-			
-			    /* ── Faces comuns ── */
-			    .face {
-			      position: absolute;
-			      inset: 0;
-			      backface-visibility: hidden;
-			      -webkit-backface-visibility: hidden;
-			      border: 1.5px solid #FFCD00;
-			      border-radius: 12px;
-			      padding: 12px 12px 14px;
-			    }
-			
-			    /* ── Frente ── */
-			    .front {
-			      background: #F5F5F5;
-			    }
-			
-			    .header {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      margin-bottom: 6px;
-			    }
-			
-			    .title {
-			      font-size: 10px;
-			      font-weight: 600;
-			      color: #828282;
-			      letter-spacing: 0.4px;
-			      text-transform: uppercase;
-			    }
-			
-			    .badge {
-			      background: #B5FFC5;
-			      color: #11A141;
-			      font-size: 10px;
-			      font-weight: 700;
-			      padding: 3px 10px;
-			      border-radius: 20px;
-			    }
-			
-			    .main-value {
-			      font-size: 32px;
-			      font-weight: 800;
-			      color: #1a1a1a;
-			      letter-spacing: -0.5px;
-			      margin: 6px 0 10px;
-			      line-height: 1.7;
-			    }
-			
-			    .divider {
-			      border: none;
-			      border-top: 1px solid #FFCD00;
-			      margin: 10px 0;
-			    }
-			
-			    .footer {
-			      display: flex;
-			      align-items: center;
-			      gap: 6px;
-			    }
-			
-			    .footer-value {
-			      font-size: 14px;
-			      font-weight: 700;
-			      color: #393939;
-			    }
-			
-			    .footer-label {
-			      font-size: 11px;
-			      color: #828282;
-			      flex: 1;
-			    }
-			
-			    .flip-hint {
-			      font-size: 14px;
-			      color: #bbb;
-			    }
-			
-			    /* ── Verso ── */
-			    .back {
-			      background: #1a1a1a;
-			      transform: rotateY(180deg);
-			      display: flex;
-			      flex-direction: column;
-			      justify-content: center;
-			      gap: 0;
-			    }
-			
-			    .back-title {
-			      font-size: 9px;
-			      font-weight: 700;
-			      color: #FFCD00;
-			      text-transform: uppercase;
-			      letter-spacing: 0.1px;
-			      margin-bottom: 8px;
-			    }
-			
-			    .back-row {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      padding: 2px 0;
-			      border-bottom: 1px solid #2e2e2e;
-			      font-size: 11px;
-			    }
-			
-			    .back-row:last-child { border-bottom: none; }
-			
-			    .back-row .lbl { color: #888; }
-			    .back-row .val { font-weight: 700; color: #f0f0f0; }
-			    .back-row .val.up   { color: #FFCD00; }
-			    .back-row .val.down { color: #f87171; }
-			  </style>
-			</head>
-			<body>
-			
-			  <div class='flip-wrapper'>
-			    <div class='flip-inner'>
-			
-			      <!-- FRENTE -->
-			      <div class='face front'>
-			        <div class='header'>
-			          <span class='title'>CONTAS A RECEBER</span>
-			        </div>
-			        <div class='main-value'>"&fxFORMAT(_TOTALGERAL,4)&"</div>
-			        <hr class='divider'>
-			        <div class='footer'>
-			          <span class='footer-value'>"&fxFORMAT(_QTDTitulos,6)&"</span>
-			          <span class='footer-label'> Qtd Títulos Abertos</span>
-			          <span class='flip-hint'>›</span>
-			        </div>
-			      </div>
-			
-			      <!-- VERSO -->
-			      <div class='face back'>
-			        <div class='back-title'>Comparativo Anual</div>
-			        <div class='back-row'>
-			          <span class='lbl'>Proximos Anos</span>
-			          <span class='val'>"& fxFORMAT( _PROXIMOSANOS, 4 ) &"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='val up'>"&vANO&"</span>
-			          <span class='val up'>"&fxFORMAT(_ANOATUAL,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vANO - 1&"</span>
-			          <span class='val'>"&fxFORMAT(_ANO1,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vANO - 2&"</span>
-			          <span class='val'>"&fxFORMAT(_ANO2, 4 )&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>Anos Anteriores</span>
-			          <span class='val'>"& fxFORMAT( _ANO3, 4 ) &"</span>
-			        </div>
-			      </div>
-			
-			    </div>
-			  </div>
-			
-			</body>
-			</html>
-			
-			"
-		displayFolder: 05. HTML
-		lineageTag: ea54443a-862c-435d-9108-a53c37dff5fa
-
-	measure '05.HTML CARD VENCIDOS' = ```
-			
-			-- Select
-			VAR vANO = SELECTEDVALUE( 'CALENDARIO DAX'[Ano-Mes] )
-			
-			VAR vMESANTERIOR = 
-			FORMAT(
-			    EDATE(MAX('CALENDARIO DAX'[Date]), -1),
-			    "mmm-yy"
-			)
-			VAR vMES1 = 
-			FORMAT(
-			    EDATE(MAX('CALENDARIO DAX'[Date]), -2),
-			    "mmm-yy"
-			)
-			---- Calculos
-			VAR _TOTALGERAL = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), TB_AUXtempo[Tipo] = "Vencidas" )
-			
-			VAR _VencendoHOJE = CALCULATE( [01. Valor Aberto], ALL('CALENDARIO DAX'), TB_AUXtempo[Tipo] = "HOJE" )
-			
-			VAR _TOTALAB =  [01. Valor Aberto]
-			
-			VAR _TotalMesAnt = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano-Mes] = vMESANTERIOR )
-			
-			VAR _TotalMes1 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano-Mes] = vMES1 )
-			
-			VAR _TotalMes2 = 
-			    VAR DataLimite =
-			        EDATE(MAX('CALENDARIO DAX'[Date]), -3)
-			
-			    RETURN
-			    CALCULATE(
-			        [01. Valor Aberto],
-			        FILTER(
-			            ALL('CALENDARIO DAX'),
-			            'CALENDARIO DAX'[Date] <= EOMONTH(DataLimite, 0)
-			        )
-			    )
-			
-			
-			RETURN
-			
-			"
-			<!DOCTYPE html>
-			<html lang='pt-BR'>
-			<head>
-			  <meta charset='UTF-8'>
-			  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-			  <title>Card Inadimplência</title>
-			  <style>
-			    * { box-sizing: border-box; margin: 0; padding: 0; }
-			
-			    body {
-			      display: flex;
-			      justify-content: center;
-			      align-items: center;
-			      min-height: 100vh;
-			      font-family: 'Segoe UI', Arial, sans-serif;
-			    }
-			
-			    /* ── Flip container ── */
-			    .flip-wrapper {
-			      width: 277px;
-			      height: 145px;
-			      perspective: 900px;
-			    }
-			
-			    .flip-inner {
-			      width: 100%;
-			      height: 100%;
-			      position: relative;
-			      transform-style: preserve-3d;
-			      transition: transform 0.55s cubic-bezier(.4,0,.2,1);
-			    }
-			
-			    .flip-wrapper:hover .flip-inner {
-			      transform: rotateY(180deg);
-			    }
-			
-			    /* ── Faces comuns ── */
-			    .face {
-			      position: absolute;
-			      inset: 0;
-			      backface-visibility: hidden;
-			      -webkit-backface-visibility: hidden;
-			      border: 1.5px solid #FFCD00;
-			      border-radius: 12px;
-			      padding: 12px 12px 14px;
-			    }
-			
-			    /* ── Frente ── */
-			    .front {
-			      background: #F5F5F5;
-			    }
-			
-			    .header {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      margin-bottom: 6px;
-			    }
-			
-			    .title {
-			      font-size: 10px;
-			      font-weight: 600;
-			      color: #828282;
-			      letter-spacing: 0.4px;
-			      text-transform: uppercase;
-			    }
-			
-			    .badge {
-			      background: #B5FFC5;
-			      color: #11A141;
-			      font-size: 10px;
-			      font-weight: 700;
-			      padding: 3px 10px;
-			      border-radius: 20px;
-			    }
-			
-			    .main-value {
-			      font-size: 32px;
-			      font-weight: 800;
-			      color: #1a1a1a;
-			      letter-spacing: -0.5px;
-			      margin: 6px 0 10px;
-			      line-height: 1.7;
-			    }
-			
-			    .divider {
-			      border: none;
-			      border-top: 1px solid #FFCD00;
-			      margin: 10px 0;
-			    }
-			
-			    .footer {
-			      display: flex;
-			      align-items: center;
-			      gap: 6px;
-			    }
-			
-			    .footer-value {
-			      font-size: 14px;
-			      font-weight: 700;
-			      color: #393939;
-			    }
-			
-			    .footer-label {
-			      font-size: 11px;
-			      color: #828282;
-			      flex: 1;
-			    }
-			
-			    .flip-hint {
-			      font-size: 14px;
-			      color: #bbb;
-			    }
-			
-			    /* ── Verso ── */
-			    .back {
-			      background: #1a1a1a;
-			      transform: rotateY(180deg);
-			      display: flex;
-			      flex-direction: column;
-			      justify-content: center;
-			      gap: 0;
-			    }
-			
-			    .back-title {
-			      font-size: 9px;
-			      font-weight: 700;
-			      color: #FFCD00;
-			      text-transform: uppercase;
-			      letter-spacing: 0.1px;
-			      margin-bottom: 8px;
-			    }
-			
-			    .back-row {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      padding: 2px 0;
-			      border-bottom: 1px solid #2e2e2e;
-			      font-size: 11px;
-			    }
-			
-			    .back-row:last-child { border-bottom: none; }
-			
-			    .back-row .lbl { color: #888; }
-			    .back-row .val { font-weight: 700; color: #f0f0f0; }
-			    .back-row .val.up   { color: #FFCD00; }
-			    .back-row .val.down { color: #f87171; }
-			  </style>
-			</head>
-			<body>
-			
-			  <div class='flip-wrapper'>
-			    <div class='flip-inner'>
-			
-			      <!-- FRENTE -->
-			      <div class='face front'>
-			        <div class='header'>
-			          <span class='title'>VENCIDOS</span>
-			        </div>
-			        <div class='main-value'>"&fxFORMAT(_TOTALGERAL,4)&"</div>
-			        <hr class='divider'>
-			        <div class='footer'>
-			          <span class='footer-value'>"&fxFORMAT(_VencendoHOJE,4)&"</span>
-			          <span class='footer-label'> Vencendo Hoje </span>
-			          <span class='flip-hint'>›</span>
-			        </div>
-			      </div>
-			
-			      <!-- VERSO -->
-			      <div class='face back'>
-			        <div class='back-title'> Comparativo Mensal </div>
-			        <div class='back-row'>
-			          <span class='val up'>"&vANO&"</span>
-			          <span class='val up'>"&fxFORMAT(_TOTALAB,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vMESANTERIOR&"</span>
-			          <span class='val'>"&fxFORMAT(_TotalMesAnt,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vMES1&"</span>
-			          <span class='val'>"&fxFORMAT(_TotalMes1, 4 )&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>Anteriores</span>
-			          <span class='val'>"& fxFORMAT( _TotalMes2, 4 ) &"</span>
-			        </div>
-			      </div>
-			
-			    </div>
-			  </div>
-			
-			</body>
-			</html>
-			
-			"
-			```
-		displayFolder: 05. HTML
-		lineageTag: 9bd9b8a1-74df-4d1c-9562-582f69be841e
-
-	measure '05.HTML CARD A VENCER' = ```
-			
-			-- Select
-			VAR vANO = SELECTEDVALUE( 'CALENDARIO DAX'[Ano-Mes] )
-			
-			VAR vMESANTERIOR = 
-			FORMAT(
-			    EDATE(MAX('CALENDARIO DAX'[Date]), 1),
-			    "mmm-yy"
-			)
-			VAR vMES1 = 
-			FORMAT(
-			    EDATE(MAX('CALENDARIO DAX'[Date]), 2),
-			    "mmm-yy"
-			)
-			---- Calculos
-			VAR _TOTALGERAL = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), TB_AUXtempo[Tipo] = "A Vencer" )
-			
-			VAR _VencendoHOJE = CALCULATE( [01. Valor Aberto], ALL('CALENDARIO DAX'), TB_AUXtempo[Tipo] = "HOJE" )
-			
-			VAR _TOTALAB =  [01. Valor Aberto]
-			
-			VAR _TotalMesAnt = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano-Mes] = vMESANTERIOR )
-			
-			VAR _TotalMes1 = CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[Ano-Mes] = vMES1 )
-			
-			VAR _TotalMes2 = 
-			    VAR DataLimite =
-			        EDATE(MAX('CALENDARIO DAX'[Date]), 3)
-			
-			    RETURN
-			    CALCULATE(
-			        [01. Valor Aberto],
-			        FILTER(
-			            ALL('CALENDARIO DAX'),
-			            'CALENDARIO DAX'[Date] >= EOMONTH(DataLimite, 0)
-			        )
-			    )
-			
-			
-			RETURN
-			
-			"
-			<!DOCTYPE html>
-			<html lang='pt-BR'>
-			<head>
-			  <meta charset='UTF-8'>
-			  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-			  <title>Card Inadimplência</title>
-			  <style>
-			    * { box-sizing: border-box; margin: 0; padding: 0; }
-			
-			    body {
-			      display: flex;
-			      justify-content: center;
-			      align-items: center;
-			      min-height: 100vh;
-			      font-family: 'Segoe UI', Arial, sans-serif;
-			    }
-			
-			    /* ── Flip container ── */
-			    .flip-wrapper {
-			      width: 277px;
-			      height: 145px;
-			      perspective: 900px;
-			    }
-			
-			    .flip-inner {
-			      width: 100%;
-			      height: 100%;
-			      position: relative;
-			      transform-style: preserve-3d;
-			      transition: transform 0.55s cubic-bezier(.4,0,.2,1);
-			    }
-			
-			    .flip-wrapper:hover .flip-inner {
-			      transform: rotateY(180deg);
-			    }
-			
-			    /* ── Faces comuns ── */
-			    .face {
-			      position: absolute;
-			      inset: 0;
-			      backface-visibility: hidden;
-			      -webkit-backface-visibility: hidden;
-			      border: 1.5px solid #FFCD00;
-			      border-radius: 12px;
-			      padding: 12px 12px 14px;
-			    }
-			
-			    /* ── Frente ── */
-			    .front {
-			      background: #F5F5F5;
-			    }
-			
-			    .header {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      margin-bottom: 6px;
-			    }
-			
-			    .title {
-			      font-size: 10px;
-			      font-weight: 600;
-			      color: #828282;
-			      letter-spacing: 0.4px;
-			      text-transform: uppercase;
-			    }
-			
-			    .badge {
-			      background: #B5FFC5;
-			      color: #11A141;
-			      font-size: 10px;
-			      font-weight: 700;
-			      padding: 3px 10px;
-			      border-radius: 20px;
-			    }
-			
-			    .main-value {
-			      font-size: 32px;
-			      font-weight: 800;
-			      color: #1a1a1a;
-			      letter-spacing: -0.5px;
-			      margin: 6px 0 10px;
-			      line-height: 1.7;
-			    }
-			
-			    .divider {
-			      border: none;
-			      border-top: 1px solid #FFCD00;
-			      margin: 10px 0;
-			    }
-			
-			    .footer {
-			      display: flex;
-			      align-items: center;
-			      gap: 6px;
-			    }
-			
-			    .footer-value {
-			      font-size: 14px;
-			      font-weight: 700;
-			      color: #393939;
-			    }
-			
-			    .footer-label {
-			      font-size: 11px;
-			      color: #828282;
-			      flex: 1;
-			    }
-			
-			    .flip-hint {
-			      font-size: 14px;
-			      color: #bbb;
-			    }
-			
-			    /* ── Verso ── */
-			    .back {
-			      background: #1a1a1a;
-			      transform: rotateY(180deg);
-			      display: flex;
-			      flex-direction: column;
-			      justify-content: center;
-			      gap: 0;
-			    }
-			
-			    .back-title {
-			      font-size: 9px;
-			      font-weight: 700;
-			      color: #FFCD00;
-			      text-transform: uppercase;
-			      letter-spacing: 0.1px;
-			      margin-bottom: 8px;
-			    }
-			
-			    .back-row {
-			      display: flex;
-			      justify-content: space-between;
-			      align-items: center;
-			      padding: 2px 0;
-			      border-bottom: 1px solid #2e2e2e;
-			      font-size: 11px;
-			    }
-			
-			    .back-row:last-child { border-bottom: none; }
-			
-			    .back-row .lbl { color: #888; }
-			    .back-row .val { font-weight: 700; color: #f0f0f0; }
-			    .back-row .val.up   { color: #FFCD00; }
-			    .back-row .val.down { color: #f87171; }
-			  </style>
-			</head>
-			<body>
-			
-			  <div class='flip-wrapper'>
-			    <div class='flip-inner'>
-			
-			      <!-- FRENTE -->
-			      <div class='face front'>
-			        <div class='header'>
-			          <span class='title'>A VENCER</span>
-			        </div>
-			        <div class='main-value'>"&fxFORMAT(_TOTALGERAL,4)&"</div>
-			        <hr class='divider'>
-			        <div class='footer'>
-			          <span class='footer-value'>"&fxFORMAT(_VencendoHOJE,4)&"</span>
-			          <span class='footer-label'> Vencendo Hoje </span>
-			          <span class='flip-hint'>›</span>
-			        </div>
-			      </div>
-			
-			      <!-- VERSO -->
-			      <div class='face back'>
-			        <div class='back-title'> Comparativo Mensal </div>
-			        <div class='back-row'>
-			          <span class='val up'>"&vANO&"</span>
-			          <span class='val up'>"&fxFORMAT(_TOTALAB,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vMESANTERIOR&"</span>
-			          <span class='val'>"&fxFORMAT(_TotalMesAnt,4)&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>"&vMES1&"</span>
-			          <span class='val'>"&fxFORMAT(_TotalMes1, 4 )&"</span>
-			        </div>
-			        <div class='back-row'>
-			          <span class='lbl'>Outro Meses</span>
-			          <span class='val'>"& fxFORMAT( _TotalMes2, 4 ) &"</span>
-			        </div>
-			      </div>
-			
-			    </div>
-			  </div>
-			
-			</body>
-			</html>
-			
-			"
-			```
-		displayFolder: 05. HTML
-		lineageTag: 15316810-1a59-48d4-9a17-7069c0e9927c
 
 	measure '01. Valor Aberto Ano Anterior' =
 			
@@ -916,7 +203,7 @@ table _Medidas
 			    [01. Valor Aberto],
 			    SAMEPERIODLASTYEAR( 'CALENDARIO DAX'[Date] )
 			)
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 5210bd54-30f9-46e6-be2a-4f82ca9d1fee
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -949,7 +236,7 @@ table _Medidas
 			RETURN
 			vTOTAL
 			```
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: fb79b868-7dae-47d5-acc6-ff637d577546
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -1562,7 +849,7 @@ table _Medidas
 			    ALL( 'CALENDARIO DAX' ),
 			    'CALENDARIO DAX'[Vencidos?] = "Vencidas" )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 02602ccf-407e-410b-ae48-e1b764c5ff8c
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -1651,7 +938,7 @@ table _Medidas
 			
 			CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ) )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 3bc8228f-0127-4c0a-8ae8-cd3fc43c46f9
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -1663,7 +950,7 @@ table _Medidas
 			    ALL( 'CALENDARIO DAX' ),
 			    'CALENDARIO DAX'[Vencidos?] = "A Vencer" )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 5e39f12e-ba09-4605-90e4-08ea34f21645
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -1691,7 +978,7 @@ table _Medidas
 			        [01. Valor AB CR],
 			        KEEPFILTERS( TB_Fatos_CR[sit] IN {"AB","LQ"}  )
 			        )
-		displayFolder: 01. Valores Totais\Auxiliares
+		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: c6918ab7-b6f2-4975-8b29-c602b58c95b5
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -2032,8 +1319,7 @@ table _Medidas
 			    TB_Fatos_CP,
 			        REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
-			        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) ),
-			        TB_Fatos_CP[DESCRICAO_TIPO_AGP] <> "Class. Credito"
+			        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
 			    )
 			
 			-- Empresas
@@ -2065,7 +1351,7 @@ table _Medidas
 			    VAR AcumuladoEmpresa = 
 			    SWITCH(
 			        EmpresaID,
-			            "Grassi", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			            "Grassi", CALCULATE( [01. Valor AB CP], 
 			                            REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
 			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
@@ -2074,26 +1360,26 @@ table _Medidas
 			    VAR DiaEmpresa = 
 			        SWITCH(
 			        EmpresaID,
-			            "Grassi",[01. Valor AB CP ( Class. Credito )] ,
+			            "Grassi",[01. Valor AB CP] ,
 			        0 )
 			    VAR TotalEmpresa = DiaEmpresa 
 			    VAR PercentEmpresa = 0
 			-------- LV1
 			    VAR vTabelaAGP = 
 			    ADDCOLUMNS(
-			        SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[DESCRICAO_TIPO_AGP] ), 
-			        "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			        SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[despar] ), 
+			        "@Valor", CALCULATE( [01. Valor AB CP], 
 			                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
 			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
 			                        ),
-			        "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			        "@ValorDia", [01. Valor AB CP]
 			                )
 			    VAR AGPs = 
 			    CONCATENATEX(
 			        vTabelaAGP,
 			        VAR AGPID = TB_Fatos_CP[ID_AGP]
-			        VAR AGPAtual = TB_Fatos_CP[DESCRICAO_TIPO_AGP]
+			        VAR AGPAtual = TB_Fatos_CP[despar]
 			        VAR ValorAGP = [@Valor]
 			        VAR ValorDia = [@ValorDia]
 			-------------------- LV2
@@ -2104,23 +1390,23 @@ table _Medidas
 			                            BaseCP,
 			                            TB_Fatos_CP[ID_AGP] = AGPID
 			                        ),
-			                        TB_Fatos_CP[ID_TIPO],
-			                        TB_Fatos_CP[DESCRICAO_TIPO]
+			                        TB_Fatos_CP[CtaFin],
+			                        TB_Fatos_CP[DesCta]
 			                    ),
-			                    "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                    "@Valor", CALCULATE( [01. Valor AB CP], 
 			                                REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
 			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
 			                                ),
-			                    "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                    "@ValorDia", [01. Valor AB CP]
 			                )
 			
 			            VAR Tipos =
 			                CONCATENATEX(
 			                    TabelaTipo,
 			
-			                    VAR TipoID = TB_Fatos_CP[ID_TIPO]
-			                    VAR TipoAtual = TB_Fatos_CP[DESCRICAO_TIPO]
+			                    VAR TipoID = TB_Fatos_CP[CtaFin]
+			                    VAR TipoAtual = TB_Fatos_CP[DesCta]
 			                    VAR ValorTipo = [@Valor]
 			                    VAR ValorDia = [@ValorDia]
 			
@@ -2130,23 +1416,23 @@ table _Medidas
 			                                SUMMARIZE(
 			                                    FILTER(
 			                                        BaseCP,
-			                                        TB_Fatos_CP[ID_AGP] = AGPID && TB_Fatos_CP[ID_TIPO] = TipoID
+			                                        TB_Fatos_CP[ID_AGP] = AGPID && TB_Fatos_CP[CtaFin] = TipoID
 			                                    ),
-			                                    TB_Fatos_CP[CTAFIN],
-			                                    TB_Fatos_CP[DESCTA] ),
-			                            "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
+			                                    TB_CLI[codcli],
+			                                    TB_CLI[nomcli] ),
+			                            "@Valor", CALCULATE( [01. Valor AB CP], 
 			                                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
 			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
 			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
 			                                        ),
-			                            "@ValorDia", [01. Valor AB CP ( Class. Credito )]
+			                            "@ValorDia", [01. Valor AB CP]
 			                                     )
 			                            
 			                            VAR CONTAS = 
 			                            CONCATENATEX(
 			                                TabelaConta,
-			                                    VAR ContaID = TB_Fatos_CP[CTAFIN]
-			                                    VAR ContaAtual = TB_Fatos_CP[DESCTA]
+			                                    VAR ContaID = TB_CLI[codcli]
+			                                    VAR ContaAtual = TB_CLI[nomcli]
 			                                    VAR ValorConta = [@Valor]
 			                                    VAR ValorDia = [@ValorDia]
 			                                    
@@ -2162,7 +1448,7 @@ table _Medidas
 			
 			                                    "",
 			                                    [@Valor],
-			                                    DESC
+			                                    ASC
 			                                )
 			------------------------------------------------------
 			                    RETURN
@@ -2178,7 +1464,7 @@ table _Medidas
 			                        & CONTAS,
 			                    "",
 			                    [@Valor],
-			                    DESC
+			                    ASC
 			                )
 			----------------------------------------
 			        RETURN
@@ -2193,7 +1479,7 @@ table _Medidas
 			        </tr>"
 			        &
 			        Tipos,
-			        "", [@Valor], DESC )
+			        "", [@Valor], ASC )
 			-------- SAIDA FINAL
 			RETURN
 			    "<tr class='bold child-row saldo  toggle-row nested'
@@ -2219,7 +1505,7 @@ table _Medidas
 			VAR eEntradaTotal = ( eCARTEIRA + eVinculada + eDescontada )
 			
 			-- ========================== SAIDAS TOTAIS ======================================
-			VAR eSaidas = ( [01. Valor AB CP ( Class. Credito )] * -1 )
+			VAR eSaidas = ( [01. Valor AB CP] * -1 )
 			VAR SALDO = tTOTALGERAL + eSaidas
 			RETURN
 			"<!DOCTYPE html>
@@ -2350,442 +1636,17 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure MEDIDA = ```
-			
-			VAR vDataSelect = SELECTEDVALUE( 'CALENDARIO DAX'[Date] )
-			
-			-- ===== FATURAMENTO ===== (sem mudança)
-			VAR vFaturamentoDiaAnterior = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY) ), 4 )
-			VAR vFaturamentoDoMes       = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]) ), 4 )
-			VAR vFaturamentoDiaAnteriorBOLETO   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY), TB_PGT[abrfpg (grupos)]="Boleto" ), 4 )
-			VAR vFaturamentoDiaAnteriorDEPOSITO = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY), TB_PGT[abrfpg (grupos)]="Depósito" ), 4 )
-			VAR vFaturamentoDiaAnteriorOUTROS   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], DATEADD('CALENDARIO DAX'[Date],-1,DAY), TB_PGT[abrfpg (grupos)]="Outros" ), 4 )
-			VAR vFaturamentoDoMesBOLETO   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Boleto" ), 4 )
-			VAR vFaturamentoDoMesDEPOSITO = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Depósito" ), 4 )
-			VAR vFaturamentoDoMesOUTROS   = fxFORMAT( CALCULATE( [07. Total Faturado Geral], ALL('CALENDARIO DAX'[Dia]), TB_PGT[abrfpg (grupos)]="Outros" ), 4 )
-			-- ===== TOTAIS por BANCOS e CONTAS ==========
-			VAR tCorrente =CALCULATE([08. Saldo Bancos],RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "01")
-			VAR tGarantia =CALCULATE([08. Saldo Bancos],RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "02")
-			VAR tVinculada =CALCULATE([08. Saldo Bancos],RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "03")
-			VAR tTOTALGERAL = tCorrente + tGarantia + tVinculada
-			
-			-- ===== BANCOS e Contas =====
-			VAR Bancos =SUMMARIZE(TB_RTerceiros,TB_RTerceiros[codBanco],TB_RTerceiros[Banco])
-			
-			VAR HTMLEntrada =
-			
-			CONCATENATEX(Bancos,
-			    VAR BancoAtual = [codBanco]
-			//---------------------------------------// Totais do banco//---------------------------------------
-			    VAR Corrente =CALCULATE([08. Saldo Bancos],TB_RTerceiros[xIDTerceiros] = BancoAtual & "_01")
-			    VAR Garantia =CALCULATE([08. Saldo Bancos],TB_RTerceiros[xIDTerceiros] = BancoAtual & "_02")
-			    VAR Vinculada =CALCULATE([08. Saldo Bancos],TB_RTerceiros[xIDTerceiros] = BancoAtual & "_03")
-			    VAR TOTAL = CALCULATE( [08. Saldo Bancos], ALL(TB_RTerceiros ), VALUES( 'CALENDARIO DAX'[Date])  )
-			
-			    VAR TOTAL_PERCENT = DIVIDE( ABS( Corrente + Garantia + Vinculada ), ABS( TOTAL ), 0 )
-			//---------------------------------------
-			// Contas do banco
-			//---------------------------------------
-			
-			    VAR ContasBanco =
-			    CONCATENATEX(
-			        FILTER(
-			            TB_RTerceiros,
-			            TB_RTerceiros[codBanco] = BancoAtual
-			        ),
-			            VAR ContaAtual = TB_RTerceiros[xIDTerceiros]
-			
-			            VAR TipoConta = RIGHT( ContaAtual, 2 )
-			
-			            VAR SaldoConta =
-			                CALCULATE(
-			                    [08. Saldo Bancos],
-			                      TB_RTerceiros[xIDTerceiros] = ContaAtual
-			                ) 
-			            VAR vTOTALCONTA = CALCULATE( [08. Saldo Bancos], REMOVEFILTERS(TB_RTerceiros[xIDTerceiros]), KEEPFILTERS(TB_RTerceiros[codBanco] = BancoAtual) )
-			
-			            VAR vPERCENT = DIVIDE( ABS( SaldoConta ), ABS( Corrente+Garantia+Vinculada ), 0 )
-			            RETURN  
-			
-			            "<tr class='child-row Banco" & BancoAtual & "'>
-			                <td class='indent2'>" & TB_RTerceiros[Contas] & "</td>
-			                    <td class='num'>" & IF(TipoConta="01",fxFORMAT(SaldoConta,4),"") & "</td>
-			                    <td class='num'>" & IF(TipoConta="02",fxFORMAT(SaldoConta,4),"") & "</td>
-			                    <td class='num'>" & IF(TipoConta="03",fxFORMAT(SaldoConta,4),"") & "</td>
-			                    <td class='num'>" & fxFORMAT(vTOTALCONTA,4) & "</td>
-			                    <td class='pct'>" & fxFORMAT( vPERCENT, 5 ) &"</td>
-			            </tr>", "" ,
-			                DIVIDE( ABS([08. Saldo Bancos]), ABS(Corrente + Garantia + Vinculada), 0 ),
-			            DESC
-			        )
-			            
-			//---------------------------------------
-			// Banco
-			//---------------------------------------
-			
-			RETURN
-			
-			    "<tr class='child-row saldo toggle-row nested' data-target='Banco" & BancoAtual & "'>
-			        <td class='indent'>" & [Banco] & "</td>
-			            <td class='num'>" & fxFORMAT(Corrente,4) & "</td>
-			            <td class='num'>" & fxFORMAT(Garantia,4) & "</td>
-			            <td class='num'>" & fxFORMAT(Vinculada,4) & "</td>
-			            <td class='num'>" & fxFORMAT(Corrente+Garantia+Vinculada,4) & "</td>
-			            <td>"& fxFORMAT( TOTAL_PERCENT , 5 ) &"</td>
-			    </tr>"
-			    &
-			    ContasBanco
-			
-			)
-			
-			-- ============================ SAIDAS ======================================
-			
-			VAR BaseCP =
-			CALCULATETABLE(
-			    TB_Fatos_CP,
-			        REMOVEFILTERS( 'CALENDARIO DAX' ), 
-			        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
-			        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) ),
-			        TB_Fatos_CP[DESCRICAO_TIPO_AGP] <> "Class. Credito"
-			    )
-			
-			-- Empresas
-			
-			VAR Empresas =
-			DATATABLE(
-			    "Empresa", 
-			    STRING,{
-			        { "( + ) Grassi" },
-			        { "Fruts Dia" },
-			        { "Fruts Atrasada" },
-			        { "Dubai" },
-			        { "Girassol" }
-			        })
-			VAR vHTMLSAIDAS = 
-			CONCATENATEX(
-			    Empresas,
-			    VAR EmpresaAtual = [Empresa]
-			    VAR EmpresaID =
-			        SWITCH(
-			            EmpresaAtual,
-			            "( + ) Grassi","grassi", 
-			            "Fruts Dia","frutsdia", 
-			            "Fruts Atrasada",
-			            "frutsatrasada", 
-			            "Dubai","dubai", 
-			            "Girassol","girassol" )
-			    VAR ProjetadoEmpresa = 0 
-			    VAR AcumuladoEmpresa = 
-			    SWITCH(
-			        EmpresaID,
-			            "Grassi", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
-			                            REMOVEFILTERS( 'CALENDARIO DAX' ), 
-			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
-			                            KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
-			                            ),
-			        0 )
-			    VAR DiaEmpresa = 
-			        SWITCH(
-			        EmpresaID,
-			            "Grassi",[01. Valor AB CP ( Class. Credito )] ,
-			        0 )
-			    VAR TotalEmpresa = DiaEmpresa 
-			    VAR PercentEmpresa = 0
-			-------- LV1
-			    VAR vTabelaAGP = 
-			    ADDCOLUMNS(
-			        SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[DESCRICAO_TIPO_AGP] ), 
-			        "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
-			                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
-			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
-			                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
-			                        ),
-			        "@ValorDia", [01. Valor AB CP ( Class. Credito )]
-			                )
-			    VAR AGPs = 
-			    CONCATENATEX(
-			        vTabelaAGP,
-			        VAR AGPID = TB_Fatos_CP[ID_AGP]
-			        VAR AGPAtual = TB_Fatos_CP[DESCRICAO_TIPO_AGP]
-			        VAR ValorAGP = [@Valor]
-			        VAR ValorDia = [@ValorDia]
-			-------------------- LV2
-			            VAR TabelaTipo =
-			                ADDCOLUMNS(
-			                    SUMMARIZE(
-			                        FILTER(
-			                            BaseCP,
-			                            TB_Fatos_CP[ID_AGP] = AGPID
-			                        ),
-			                        TB_Fatos_CP[ID_TIPO],
-			                        TB_Fatos_CP[DESCRICAO_TIPO]
-			                    ),
-			                    "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
-			                                REMOVEFILTERS( 'CALENDARIO DAX' ), 
-			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
-			                                KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
-			                                ),
-			                    "@ValorDia", [01. Valor AB CP ( Class. Credito )]
-			                )
-			
-			            VAR Tipos =
-			                CONCATENATEX(
-			                    TabelaTipo,
-			
-			                    VAR TipoID = TB_Fatos_CP[ID_TIPO]
-			                    VAR TipoAtual = TB_Fatos_CP[DESCRICAO_TIPO]
-			                    VAR ValorTipo = [@Valor]
-			                    VAR ValorDia = [@ValorDia]
-			
-			------------------------------- LV3
-			                            VAR TabelaConta = 
-			                            ADDCOLUMNS(
-			                                SUMMARIZE(
-			                                    FILTER(
-			                                        BaseCP,
-			                                        TB_Fatos_CP[ID_AGP] = AGPID && TB_Fatos_CP[ID_TIPO] = TipoID
-			                                    ),
-			                                    TB_Fatos_CP[CTAFIN],
-			                                    TB_Fatos_CP[DESCTA] ),
-			                            "@Valor", CALCULATE( [01. Valor AB CP ( Class. Credito )], 
-			                                        REMOVEFILTERS( 'CALENDARIO DAX' ), 
-			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
-			                                        KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
-			                                        ),
-			                            "@ValorDia", [01. Valor AB CP ( Class. Credito )]
-			                                     )
-			                            
-			                            VAR CONTAS = 
-			                            CONCATENATEX(
-			                                TabelaConta,
-			                                    VAR ContaID = TB_Fatos_CP[CTAFIN]
-			                                    VAR ContaAtual = TB_Fatos_CP[DESCTA]
-			                                    VAR ValorConta = [@Valor]
-			                                    VAR ValorDia = [@ValorDia]
-			                                    
-			                                    RETURN
-			                                        "<tr class='child-row TIPO" & TipoID & "'>
-			                                            <td class='indent3'>" & ContaAtual & "</td>
-			                                            <td></td>
-			                                            <td class='num'>" & fxFORMAT(ValorConta,4) & "</td>
-			                                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
-			                                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
-			                                            <td></td>
-			                                        </tr>",
-			
-			                                    "",
-			                                    [@Valor],
-			                                    DESC
-			                                )
-			------------------------------------------------------
-			                    RETURN
-			                        "<tr class='child-row AGP" & AGPID & " toggle-row nested'
-			                            data-target = 'TIPO"& TipoID &"'>
-			                            <td class='indent2'>" & TipoAtual & "</td>
-			                            <td></td>
-			                            <td class='num'>" & fxFORMAT(ValorTipo,4) & "</td>
-			                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
-			                            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
-			                            <td></td>
-			                        </tr>"
-			                        & CONTAS,
-			                    "",
-			                    [@Valor],
-			                    DESC
-			                )
-			----------------------------------------
-			        RETURN
-			        "<tr class='child-row saldo toggle-row nested'
-			            data-target='AGP" & AGPID & "'>
-			            <td class='indent'>" & AGPAtual & "</td>
-			            <td></td>
-			            <td class='num'>" & fxFORMAT(ValorAGP,4) & "</td>
-			            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
-			            <td class='num'>" & fxFORMAT(ValorDia,4) & "</td>
-			            <td></td>
-			        </tr>"
-			        &
-			        Tipos,
-			        "", [@Valor], DESC )
-			-------- SAIDA FINAL
-			RETURN
-			    "<tr class='bold child-row saldo  toggle-row nested'
-			        data-target='" & EmpresaID & "'>
-			        <td>" & EmpresaAtual & "</td>
-			        <td></td>
-			        <td class='num'>" & fxFORMAT(AcumuladoEmpresa,4) & "</td>
-			        <td class='num'>" & fxFORMAT(DiaEmpresa,4) & "</td>
-			        <td class='num'>" & fxFORMAT(TotalEmpresa,4) & "</td>
-			        <td></td>
-			    </tr>"
-			&
-			IF(
-			    EmpresaID = "grassi",
-			    AGPs,
-			    ""
-			) )
-			-- ============================ Entradas TOTAIS ===================================
-			VAR eCARTEIRA = [01. AB Simples]
-			VAR eVinculada = [01. AB Vinculada]
-			VAR eDescontada = [01. AB Descontada]
-			
-			VAR eEntradaTotal = ( eCARTEIRA + eVinculada + eDescontada )
-			
-			-- ========================== SAIDAS TOTAIS ======================================
-			VAR eSaidas = ( [01. Valor AB CP ( Class. Credito )] * -1 )
-			VAR SALDO = tTOTALGERAL + eSaidas
-			RETURN
-			"<!DOCTYPE html>
-			
-			<html lang='pt-BR'>
-			<head>
-			<meta charset='UTF-8'>
-			<title>Controle de Caixa</title>
-			<style>
-			  :root{
-			    --azul:#1c3d6e; --azul-claro:#e8eef7; --verde:#e9f7ee;
-			    --amarelo:#fff200; --borda:#c9d2df; --vermelho:#b02a2a;
-			  }
-			  *{box-sizing:border-box;}
-			  body{font-family:'Segoe UI', Arial, sans-serif; background:#f4f6f9; padding:24px; color:#1a1a1a; font-size:14px;}
-			  .sheet{max-width:900px; margin:0 auto; background:#fff; border:1px solid var(--borda); box-shadow:0 2px 8px rgba(0,0,0,.06);}
-			  table{width:100%; border-collapse:collapse;}
-			  td, th{padding:6px 10px; border:1px solid var(--borda); white-space:nowrap;}
-			  .dia-row td{font-weight:700; font-size:15px;}
-			  .header-row th{background:var(--azul); color:#fff; text-align:left; font-weight:600;}
-			  .section-title{background:var(--azul-claro); font-weight:700; font-size:15px; color:var(--azul); padding-top:14px;}
-			  .bold{font-weight:700;}
-			  .num{text-align:right;}
-			  .pct{text-align:right; color:#555;}
-			  .indent{padding-left:28px !important;}
-			  .indent2{padding-left:56px !important;}
-			  .indent3{padding-left:76px !important;}
-			  .negativo{color:var(--vermelho);}
-			  .saldo-dia td{background:var(--amarelo); font-weight:800; font-size:15px;}
-			  .toggle-row{cursor:pointer; background:#fafbfd; user-select:none;}
-			  .toggle-row:hover{background:#eef2f8;}
-			  .toggle-row td:first-child::before{content:'▸'; display:inline-block; margin-right:6px; transition:transform .15s ease; color:var(--azul); font-size:11px;}
-			  .toggle-row.open td:first-child::before{transform:rotate(90deg);}
-			  .child-row.saldo { display: table-row; }
-			  .child-row:not(.saldo) { display: none;}
-			  .child-row.show{display:table-row;}
-			  .total-strong td{background:var(--azul-claro); font-weight:700;}
-			</style>
-			</head>
-			<body>
-			<div class='sheet'>
-			<table>
-			
-			  <tr><td class='bold'>DIA</td><td colspan='2' class='bold'>"& vDataSelect &"</td><td colspan='3'></td></tr>
-			  <tr><td colspan='6' style='border:none;padding:4px;'></td></tr>
-			
-			  <tr class='header-row'><th>Vendas</th><th>Boleto</th><th>Depósito</th><th>Outros</th><th>Total</th><th>%</th></tr>
-			  <tr>
-			    <td class='bold'>Vendas dia Anterior</td>
-			    <td class='num bold'>"& vFaturamentoDiaAnteriorBOLETO &"</td>
-			    <td class='num bold'>"& vFaturamentoDiaAnteriorDEPOSITO &"</td>
-			    <td class='num bold'>"& vFaturamentoDiaAnteriorOUTROS &"</td>
-			    <td class='num bold'>"& vFaturamentoDiaAnterior &"</td>
-			    <td></td>
-			  </tr>
-			  <tr>
-			    <td>Vendas Acumuladas Mês</td>
-			    <td class='num'>"& vFaturamentoDoMesBOLETO &"</td>
-			    <td class='num'>"& vFaturamentoDoMesDEPOSITO &"</td>
-			    <td class='num'>"& vFaturamentoDoMesOUTROS &"</td>
-			    <td class='num'>"& vFaturamentoDoMes &"</td>
-			    <td></td>
-			  </tr>
-			
-			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
-			  <tr><td class='section-title'>Valor de Título para troca</td><td class='num bold'>"& vFaturamentoDiaAnteriorBOLETO &"</td></tr>
-			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
-			
-			    <!-- Saldo Conta -->
-			
-			  <tr class='header-row'><th>Saldo em conta</th><th>Corrente</th><th>Garantia</th><th>Vinculada</th><th>Total</th><th>%</th></tr>
-			  <tr class='total-strong'>
-			    <td>Total</td>
-			    <td class='num'>"& fxFORMAT(tCorrente,4) & "</td>
-			    <td class='num'>"& fxFORMAT(tGarantia,4) & "</td>
-			    <td class='num'>"& fxFORMAT(tVinculada,4) & "</td>
-			    <td class='num'>"& fxFORMAT(tTOTALGERAL,4) &"</td>
-			    <td class='pct'></td>
-			  </tr>
-			    "& HTMLEntrada &"
-			
-			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
-			
-			<!-- Entradas -->
-			
-			  <tr class='header-row'>
-			    <th>Entradas</th><th>Carteira</th><th>Vinculada</th><th>Antecipada/Descontada</th><th>Total</th><th>%</th>
-			  </tr>
-			     <td class='bold'>Projeçao de Contas a Receber</td>
-			        <td class='num bold'>"& fxFORMAT(eCARTEIRA,4) & "</td>
-			        <td class='num bold'>"& fxFORMAT(eVinculada,4) & "</td>
-			        <td class='num bold'>"& fxFORMAT(eDescontada,4) & "</td>
-			        <td class='num bold'>"& fxFORMAT(eEntradaTotal,4) & "</td>
-			        <td class='pct'></td>
-			  </tr>
-			  <tr><td colspan='6' style='border:none;padding:6px;'></td></tr>
-			
-			<!-- Saidas -->
-			
-			  <tr class='bold header-row'><th>Saídas</th><th>Projetado</th><th>Acumulado Mês</th><th>Dia</th><th>Total</th><th>%</th></tr>
-			  <tr class='bold toggle-row total-strong' data-target='grassi'>
-			    " & vHTMLSAIDAS & "
-			
-			  <tr class='saldo-dia'><td>Saldo dia</td><td></td><td></td><td></td><td class='num negativo'>"& fxFORMAT(SALDO,4) & "</td><td></td></tr>
-			</table>
-			</div>
-			
-			<script>
-			document.querySelectorAll('.toggle-row').forEach(row=>{
-			  row.addEventListener('click',()=>{
-			    const target = row.dataset.target;
-			    row.classList.toggle('open');
-			    document.querySelectorAll('.'+target).forEach(r=>r.classList.toggle('show'));
-			  });
-			});
-			</script>
-			
-			</body>
-			</html>"
-			```
-		lineageTag: 78c6a0fd-81e0-489b-a30f-a647e489fb0f
-
-	measure 'Medida 2' =
-			
-			CALCULATE(
-			    [01. Valor AB CP ( Class. Credito )],
-			    REMOVEFILTERS( 'CALENDARIO DAX' ),
-			    KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )),
-			    KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
-			)
-		lineageTag: 0ea16332-c327-46ac-9328-4bc914b0c05b
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure '01. Valor AB CP' =
 			
-			SUM( TB_Fatos_CP[Valor_em_Aberto] )
+			CALCULATE(
+			    SUM( TB_Fatos_CP[VLRABE] ),
+			    NOT TB_Fatos_CP[CtaFin] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580})
+			)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 01. Valores Totais\Geral
 		lineageTag: 567240e9-4c89-49c9-a959-8f946f80200e
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
-
-	measure '01. Valor AB CP ( Class. Credito )' =
-			
-			CALCULATE(
-			    [01. Valor AB CP],
-			    KEEPFILTERS( TB_Fatos_CP[DESCRICAO_TIPO_AGP] <> "Class. Credito" )
-			)
-		displayFolder: 01. Valores Totais
-		lineageTag: c4fdd2c0-93d4-407d-89db-27c5a1cd1767
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '07. % FPG CR' = ```
 			
@@ -2813,14 +1674,275 @@ table _Medidas
 		formatString: #,0.0%;-#,0.0%;#,0.0%
 		lineageTag: 62b3ca55-604f-4bdb-a337-bff5eaf98f32
 
-	measure '01. Total AB CP' =
+	measure '01. Saldo Previsto' =
+			
+			[01. Valor Previsto a Receber] + [01. Valor AB CP]
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Geral
+		lineageTag: 41fd32bf-8314-44a5-9417-7944537a9644
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Valor Previsto a Receber' =
+			
+			CALCULATE(
+			    [01. Valor AB CR],
+			    TB_Fatos_CR[tipo] IN{"01","02","03","CHD","CHQ"},
+			    TB_Fatos_CR[sit] = "AB",
+			    TB_Apoio[xCODCART] = 100002)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares\CR
+		lineageTag: 846806b0-7829-4d01-8766-ccf9268f44b4
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Saldo Ontem' =
+			
+			CALCULATE(
+			    [01. Saldo Previsto],
+			    DATEADD( 'CALENDARIO DAX'[Date], -1,DAY )
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares\CR
+		lineageTag: 7634be81-5876-47ac-84a3-ac49d2b16535
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Saldo Amanha' =
+			
+			CALCULATE(
+			    [01. Saldo Previsto],
+			    DATEADD( 'CALENDARIO DAX'[Date], 1,DAY )
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares\CR
+		lineageTag: 3b1c134d-0eef-4d01-9a96-933d6ded360b
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure HTML_Calendario = ```
+			
+			VAR MesRef        = MAX ( 'CALENDARIO DAX'[Date] )
+			VAR PrimeiroDia   = DATE ( YEAR ( MesRef ), MONTH ( MesRef ), 1 )
+			VAR UltimoDia     = EOMONTH ( PrimeiroDia, 0 )
+			VAR OffsetSemana  = WEEKDAY ( PrimeiroDia, 1 ) - 1     -- quantas células vazias antes do dia 1
+			
+			VAR DiasDoMes = 
+			    SUMMARIZE(
+			        'CALENDARIO DAX',
+			        'CALENDARIO DAX'[Date],
+			        "DiaSemana",  WEEKDAY ( [Date], 1 ) - 1,
+			        "Receber", [01. Valor Previsto a Receber],
+			        "Pagar", [01. Valor AB CP]
+			    )
+			
+			VAR CelulasVazias =
+			    CONCATENATEX ( GENERATESERIES ( 1, OffsetSemana ), "<div class='dia vazio'></div>", "" )
+			
+			VAR CelulasDias =
+			    CONCATENATEX (
+			        DiasDoMes,
+			        VAR Saldo = [Receber] + [Pagar]
+			        VAR EhFDS = [DiaSemana] = 0 || [DiaSemana] = 6
+			        VAR DiaHoje = [Date] = TODAY()
+			        RETURN
+			            "<div class='dia" & IF( DiaHoje, " hoje", "" ) & IF ( EhFDS, " fds", "" ) & "'>" &
+			                "<div class='numero'>" & DAY ( [Date] ) & "</div>" &
+			                IF ( NOT ISBLANK( [Receber] ) ,
+			                    "<div class='linha-valor receber'><span>Receber</span><span>R$ "
+			                        & FORMAT ( [Receber], "#,##0" ) & "</span></div>" ) &
+			                IF ( NOT ISBLANK( [Pagar] ) ,
+			                    "<div class='linha-valor pagar'><span>Pagar</span><span>R$ "
+			                        & FORMAT ( [Pagar], "#,##0" ) & "</span></div>" ) &
+			                IF ( NOT ISBLANK( [Receber] )  || NOT ISBLANK( [Pagar] ) ,
+			                    "<div class='saldo-dia" & IF ( Saldo < 0, " negativo", "" ) & "'>Saldo R$ "
+			                        & FORMAT ( Saldo, "#,##0" ) & "</div>" ) &
+			            "</div>",
+			        "", [Date], ASC
+			    )
+			
+			RETURN
+			"<html><head><style>" &
+			    "*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial,sans-serif;}" &
+			    ".calendario{display:grid;grid-template-columns:0.4fr 1fr 1fr 1fr 1fr 1fr 0.4fr;;gap:8px;padding:12px;background:#f1f5f9;}" &
+			    ".dia-semana{background:#1e293b;color:#fff;padding:8px;text-align:center;border-radius:6px;font-size:12px;font-weight:600;}" &
+			    ".dia{background:#fff;border-radius:8px;min-height:100px;padding:6px;border:1px solid #e2e8f0;font-size:11px;}" &
+			    ".dia.hoje{ border:2px solid #2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.15);}" &
+			    ".dia.fds{background:#f8fafc;} .dia.vazio{background:transparent;border:none; min-heigth: 20px; padding:0}" &
+			    ".numero{font-weight:700;color:#64748b;}" &
+			    ".linha-valor{padding:3px 5px;border-radius:5px;margin-top:3px;display:flex;justify-content:space-between;}" &
+			    ".receber{background:#ecfdf9;color:#0d9488;} .pagar{background:#fefef2;color:#dc7e26;}" &
+			    ".saldo-dia{margin-top:6px;padding:6px 5px;border-radius:5px;font-weight:700;fonte-size:12pc; text-align:center; background:#eff6ff; color:#1d4ed8;}" &
+			    ".saldo-dia.negativo{background:#fef2f2;color:#b91c1c;}" &
+			"</style></head><body>" &
+			"<div class='calendario'>" &
+			    "<div class='dia-semana'>Dom</div><div class='dia-semana'>Seg</div><div class='dia-semana'>Ter</div>" &
+			    "<div class='dia-semana'>Qua</div><div class='dia-semana'>Qui</div><div class='dia-semana'>Sex</div><div class='dia-semana'>Sáb</div>" &
+			    CelulasVazias & CelulasDias &
+			"</div></body></html>"
+			```
+		displayFolder: 05. HTML
+		lineageTag: 838cc1a1-39c8-4adb-8518-fd36f728b3a6
+
+	measure '.... Demais Classif' =
+			
+			"Demais Classificações: "&
+			CONCATENATEX(
+			    FILTER( TB_FRJ, TB_FRJ[xTipo (grupos)] = "Demais Classif." ),
+			     TB_FRJ[xTipo] & ", " )
+		lineageTag: a2aa7fb5-a36c-4827-b089-bad5cecfe315
+
+	measure '04. Valor Aberto CP' = ```
+			
+			// Mostra em moto calendario Auxiliar 
+			VAR vSELECTMESES = SELECTEDVALUE( yTB_01[yTB_01] )
+			VAR vUltimaData =
+			    LASTDATE ( 'CALENDARIO DAX'[Date] )
+			
+			VAR vPrimeiraData =
+			    DATE (
+			        YEAR ( EDATE ( vUltimaData, - vSELECTMESES ) ),
+			        MONTH ( EDATE ( vUltimaData,( - vSELECTMESES) + 1 ) ),
+			        1
+			    )
+			VAR vPimeiraDataPositivo = 
+			    DATE (
+			        YEAR ( EDATE ( vUltimaData,  vSELECTMESES ) ),
+			        MONTH ( EDATE ( vUltimaData, vSELECTMESES ) ),
+			        1
+			    )
+			VAR vMeses=
+			    VAR vNegativo =
+			        CALCULATE(
+			            [01. Valor AB CP],
+			            DATESBETWEEN( 'CALENDARIO DAX'[Date], vPrimeiraData, vUltimaData ),
+			            TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[Ano-Mes] )
+			        )
+			    VAR vPositivo =
+			        CALCULATE(
+			            [01. Valor AB CP],
+			            DATESBETWEEN( 'CALENDARIO DAX'[Date], vUltimaData, vPimeiraDataPositivo  ),
+			            TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[Ano-Mes] )
+			        )
+			    RETURN
+			        IF( SELECTEDVALUE( 'CALENDARIO DAX'[Vencidos?] ) = "Vencidas", vNegativo, vPositivo )
+			------------------------------ ANO --------------------
+			
+			VAR vGeralAno = 
+			    VAR vNegativo =
+			    IF(
+			        HASONEFILTER( 'CALENDARIO DAX'[Ano-Mes] ),
+			            CALCULATE(
+			                [01. Valor AB CP],
+			                TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[AnoTEXT] ),
+			                FILTER(
+			                    ALL( 'CALENDARIO DAX' ),
+			                    'CALENDARIO DAX'[Ano] <= SELECTEDVALUE( 'CALENDARIO DAX'[Ano] )
+			                )
+			            ),
+			                CALCULATE(
+			                [01. Valor AB CP],
+			                TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[AnoTEXT] )
+			                )
+			        )
+			    VAR vPositivo =
+			    IF(
+			        HASONEFILTER( 'CALENDARIO DAX'[Ano-Mes] ),
+			            CALCULATE(
+			                [01. Valor AB CP],
+			                TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[AnoTEXT] ),
+			                FILTER(
+			                    ALL( 'CALENDARIO DAX' ),
+			                    'CALENDARIO DAX'[Ano] >= SELECTEDVALUE( 'CALENDARIO DAX'[Ano] )
+			                )
+			            ),
+			                CALCULATE(
+			                [01. Valor AB CP],
+			                TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), 'CALENDARIO DAX'[AnoTEXT] )
+			                )
+			        )
+			    RETURN
+			        IF( SELECTEDVALUE( 'CALENDARIO DAX'[Vencidos?] ) = "Vencidas", vNegativo, vPositivo )
+			--------------------------------- Total Geral ------------------------------
+			VAR vTotalAberto = 
+			CALCULATE( [01. Valor AB CP] , ALL( 'CALENDARIO DAX' ) )
+			
+			VAR vPercentTotal = 
+			DIVIDE( vTotalAberto , CALCULATE( [01. Valor AB CP] , ALL( TB_TIPO ), ALL( 'CALENDARIO DAX' ) ), 0 )
+			---------------------------------- Resultado ---------------------------------
+			RETURN
+			IF(
+			    ISBLANK( vTotalAberto ), BLANK() ,
+			IF( 
+			    ISINSCOPE( xCalendarioTable[Periodo] ),
+			        SWITCH(
+			            SELECTEDVALUE( xCalendarioTable[Cod. Periodo] ),
+			            1, vTotalAberto,
+			            2, FORMAT( vPercentTotal, "Percent" ),
+			            4, vMeses,
+			            5, IF( vGeralAno = 0, BLANK(), vGeralAno )
+			        ),
+			    vPercentTotal )
+			)
+			```
+		formatString: #,0
+		displayFolder: 04. DRE
+		lineageTag: e31fda98-11d7-4f78-8993-9f59a21dd043
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '01. % Valor Total CP' = ```
+			
+			VAR _TOTAL = 
+			CALCULATE(
+			    [04. Valor Aberto CP],
+			    ALL( TB_TIPO )
+			)
+			VAR vRESULT = 
+			DIVIDE( [04. Valor Aberto CP], _TOTAL, 0 )
+			
+			RETURN
+			vRESULT
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 01. Valores Totais\%
+		lineageTag: 29cc80cf-2aa1-44c4-8bab-0d7563d262fa
+
+	measure '01. Valor AB Total CP' =
+			
+			CALCULATE( [01. Valor AB CP], ALL( 'CALENDARIO DAX' ) )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares\CP
+		lineageTag: 809bc82c-0b86-4185-9536-dc03e46e6d41
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Valor AB Total Vencidas CP' =
 			
 			CALCULATE(
 			    [01. Valor AB CP],
-			    TB_Fatos_CP[Tipo_Calculo] = "Soma Duplicata"
-			    )
-		displayFolder: 01. Valores Totais\Geral
-		lineageTag: ff1b31a3-0ebc-4ac1-b2a0-c016c07ce46a
+			    ALL( 'CALENDARIO DAX' ),
+			    'CALENDARIO DAX'[Vencidos?] = "Vencidas" )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares\CP
+		lineageTag: f83c8202-0b15-4868-bff2-1c385318e240
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '01. Valor AB a Vencer CP' =
+			
+			CALCULATE(
+			    [01. Valor AB CP],
+			    ALL( 'CALENDARIO DAX' ),
+			    'CALENDARIO DAX'[Vencidos?] = "A Vencer" )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 01. Valores Totais\Auxiliares\CP
+		lineageTag: 946c4568-4f46-48a1-ae4d-e90afa78a508
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Medida 2' = [01. Valor AB CR]
+		lineageTag: a87ff7f1-8e98-4c41-828b-9f0748949bdd
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

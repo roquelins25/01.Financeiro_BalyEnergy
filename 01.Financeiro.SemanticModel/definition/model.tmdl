@@ -19,11 +19,15 @@ queryGroup _DimPlan
 
 	annotation PBI_QueryGroupOrder = 2
 
+queryGroup _Fatos\CP_CR
+
+	annotation PBI_QueryGroupOrder = 0
+
 annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop","DaxQueryView_Desktop"]
 
-annotation PBI_QueryOrder = ["TB_Apoio","TB_PGT","TB_CLI","TB_REP","TB_Rede","TB_RTerceiros","TB_Fatos_CR","_Medidas","TB_FRJ","TB_AUXtempo","TB_OPRede","TB_OPUf","TB_Operacao","TB_Lvel","xUF_Regiao","TB_Verbas","TB_Fat","TB_TNS","DataAtualizacao","TB_Fatos_CP"]
+annotation PBI_QueryOrder = ["Base_Classificacao","TB_Apoio","TB_PGT","TB_CLI","TB_REP","TB_Rede","TB_Fatos_CP","TB_RTerceiros","TB_Fatos_CR","_Medidas","TB_FRJ","TB_AUXtempo","TB_OPRede","TB_OPUf","TB_Operacao","TB_Lvel","xUF_Regiao","TB_Verbas","TB_Fat","TB_TNS","DataAtualizacao","TB_TIPO","xSenha"]
 
 ref table TB_Apoio
 ref table TB_PGT
@@ -52,13 +56,19 @@ ref table TB_Verbas
 ref table LocalDateTable_a76563a1-919f-4a9b-b34c-54968ffaf289
 ref table LocalDateTable_0f711601-5541-4b8f-b357-24aaae26d81c
 ref table TB_Fat
-ref table LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae
 ref table TB_NUMNFV
 ref table TB_TNS
 ref table TB_RTerceiros
 ref table DataAtualizacao
 ref table LocalDateTable_19b0fe29-5ade-4445-bb3d-0a38db7daf25
 ref table TB_Fatos_CP
+ref table LocalDateTable_d128d03e-e579-4f39-b079-6d60cc16b653
+ref table LocalDateTable_0b591359-c36d-48bb-9d45-b76a402bdc2e
+ref table TB_TIPO
+ref table Base_Classificacao
+ref table LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae
+ref table xSenha
+ref table xAcesso
 
 ref cultureInfo pt-BR
 

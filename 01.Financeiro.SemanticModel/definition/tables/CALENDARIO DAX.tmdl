@@ -10,7 +10,7 @@ table 'CALENDARIO DAX'
 
 		variation Variation
 			isDefault
-			relationship: 283ad6bb-7303-419c-9772-53929cad4ea2
+			relationship: 31796bd3-9d2c-4473-83b3-c06b40d797f0
 			defaultHierarchy: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
@@ -78,8 +78,9 @@ table 'CALENDARIO DAX'
 		annotation SummarizationSetBy = Automatic
 
 	column DiasSemana
+		formatString: 0
 		lineageTag: afdaf124-fe82-4886-b9f2-43c3df2b8437
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [DiasSemana]
 
@@ -116,6 +117,7 @@ table 'CALENDARIO DAX'
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [AnoTEXT]
+		sortByColumn: Ano
 
 		annotation SummarizationSetBy = Automatic
 
@@ -133,6 +135,14 @@ table 'CALENDARIO DAX'
 		isNameInferred
 		sourceColumn: [DiaMES]
 		sortByColumn: Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiasSemanaNome
+		lineageTag: 380bb927-81fc-419c-b266-0ae9501a031b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DiasSemanaNome]
 
 		annotation SummarizationSetBy = Automatic
 
@@ -155,7 +165,8 @@ table 'CALENDARIO DAX'
 				        "trimestre", QUARTER([Date]),
 				        "Semestre", IF(MONTH([Date]) <= 6, "1º Semestre", "2º Semestre"),
 				        "Dia",DAY([Date]),
-				        "DiasSemana",SWITCH(
+				        "DiasSemana", WEEKNUM( [Date], 1 ),
+				        "DiasSemanaNome",SWITCH(
 				            WEEKDAY([Date]),
 				            1,"Domingo",
 				            2,"Segunda",

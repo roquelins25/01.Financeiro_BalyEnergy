@@ -98,34 +98,6 @@ relationship db374337-0452-cfe4-c578-a0f886eebc05
 	fromColumn: TB_Fat.codfpg
 	toColumn: TB_PGT.codfpg
 
-relationship 283ad6bb-7303-419c-9772-53929cad4ea2
-	joinOnDateBehavior: datePartOnly
-	fromColumn: 'CALENDARIO DAX'.Date
-	toColumn: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.Date
-
-relationship 522d0779-174c-46fa-36d1-7c1229ac0b7a
-	fromColumn: TB_Fatos_CR.vencimento
-	toColumn: 'CALENDARIO DAX'.Date
-
-relationship 2d175b07-d2a6-cd0c-29a5-c2676a3b5ec4
-	fromColumn: TB_Verbas.vctpro
-	toColumn: 'CALENDARIO DAX'.Date
-
-relationship f14394f1-56cd-5a80-257c-aaa125d2891d
-	fromColumn: TB_Fat.datemi
-	toColumn: 'CALENDARIO DAX'.Date
-
-relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
-	crossFilteringBehavior: bothDirections
-	toCardinality: many
-	fromColumn: TB_AUXtempo.Tipo
-	toColumn: 'CALENDARIO DAX'.Vencidos?
-
-relationship 9ff733ea-6328-c35e-f524-cd417373ed26
-	isActive: false
-	fromColumn: TB_Fatos_CR.emissao
-	toColumn: 'CALENDARIO DAX'.Date
-
 relationship c2758b1f-d776-6e6d-b0bc-3cea8c32aed7
 	fromColumn: TB_Fatos_CR.numnota
 	toColumn: TB_NUMNFV.Nota
@@ -146,25 +118,78 @@ relationship de066b90-3cec-b29e-e337-09e26632cd52
 	fromColumn: TB_Fat.tnspro
 	toColumn: TB_TNS.codtns
 
-relationship eaf82760-ca08-b277-b342-64ddc7c27a17
-	fromColumn: TB_RTerceiros.Atributo
-	toColumn: 'CALENDARIO DAX'.Date
-
 relationship f5cf27ca-e25b-4769-b7da-66f21f71ae3b
 	joinOnDateBehavior: datePartOnly
 	fromColumn: DataAtualizacao.'data atualizada'
 	toColumn: LocalDateTable_19b0fe29-5ade-4445-bb3d-0a38db7daf25.Date
 
-relationship b3942648-074e-9339-0469-5992329d81ef
-	fromColumn: TB_Fatos_CP.Data_Vencimento
-	toColumn: 'CALENDARIO DAX'.Date
+relationship 50568c8a-bd22-4ac2-9a38-93830537604d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos_CP.datemi
+	toColumn: LocalDateTable_d128d03e-e579-4f39-b079-6d60cc16b653.Date
 
-relationship 7422762c-ad1b-8e84-e9cc-de732889bad7
-	isActive: false
-	fromColumn: TB_Fatos_CP.Data_Emissao
-	toColumn: 'CALENDARIO DAX'.Date
+relationship 784047bd-e582-4790-9240-4c9eef32ec2e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: TB_Fatos_CP.datent
+	toColumn: LocalDateTable_0b591359-c36d-48bb-9d45-b76a402bdc2e.Date
 
-relationship 7cfde3e7-ea82-2cce-4c3b-32dde2bf82b3
-	fromColumn: TB_Fatos_CP.Cod_Fornecedor
+relationship ed8e3847-9f6f-1d1f-9bae-5d5c857df1c5
+	fromColumn: TB_Fatos_CP.'03. Aux Dias_'
+	toColumn: TB_AUXtempo.ID
+
+relationship 00e7f62a-f80d-20f4-25d3-8f821ead2054
+	fromColumn: TB_Fatos_CP.CodFor
 	toColumn: TB_CLI.codcli
+
+relationship AutoDetected_ca314f93-95b5-47f1-8cce-9dd1dcf54a9d
+	fromColumn: TB_Verbas.codtpt
+	toColumn: TB_TIPO.CODTPT
+
+relationship 506e8355-37d2-df73-77cb-fdea5e83b305
+	fromColumn: TB_Fatos_CR.tipo
+	toColumn: TB_TIPO.CODTPT
+
+relationship 3dd1605a-e0e4-a2e5-d845-d3277d489e7b
+	fromColumn: TB_Fatos_CP.CtaFin
+	toColumn: TB_Apoio.potador
+
+relationship dbccd59a-1881-ec11-6ecd-1a4e1eff6668
+	fromColumn: TB_Fatos_CP.CtaFin
+	toColumn: Base_Classificacao.Cod
+
+relationship 31796bd3-9d2c-4473-83b3-c06b40d797f0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'CALENDARIO DAX'.Date
+	toColumn: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.Date
+
+relationship 522d0779-174c-46fa-36d1-7c1229ac0b7a
+	fromColumn: TB_Fatos_CR.vencimento
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 2d175b07-d2a6-cd0c-29a5-c2676a3b5ec4
+	fromColumn: TB_Verbas.vctpro
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship f14394f1-56cd-5a80-257c-aaa125d2891d
+	fromColumn: TB_Fat.datemi
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 9ff733ea-6328-c35e-f524-cd417373ed26
+	isActive: false
+	fromColumn: TB_Fatos_CR.emissao
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship eaf82760-ca08-b277-b342-64ddc7c27a17
+	fromColumn: TB_RTerceiros.Atributo
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 162e5d9b-5f32-9137-c1c9-ad056e52b096
+	fromColumn: TB_Fatos_CP.VCTPRO
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: TB_AUXtempo.Tipo
+	toColumn: 'CALENDARIO DAX'.Vencidos?
 

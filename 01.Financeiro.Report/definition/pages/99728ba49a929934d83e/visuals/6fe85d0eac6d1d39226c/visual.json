@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "6fe85d0eac6d1d39226c",
   "position": {
-    "x": 63.021721641190673,
-    "y": 150.75784392598553,
-    "z": 1000,
-    "height": 567.195494770716,
-    "width": 1217.184231697506,
+    "x": 63.400267737617135,
+    "y": 152.03130243655983,
+    "z": 0,
+    "height": 526.05087014725564,
+    "width": 1216.5997322623828,
     "tabOrder": 2000
   },
   "visual": {
@@ -39,31 +39,16 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Rede"
+                      "Entity": "TB_Apoio"
                     }
                   },
-                  "Property": "nomgre"
+                  "Property": "Carteira"
                 }
               },
-              "queryRef": "TB_Rede.nomgre",
-              "nativeQueryRef": "Rede",
+              "queryRef": "TB_Apoio.Carteira",
+              "nativeQueryRef": "Agp_Portador",
               "active": true,
-              "displayName": "Rede"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_CLI"
-                    }
-                  },
-                  "Property": "sigufs"
-                }
-              },
-              "queryRef": "TB_CLI.sigufs",
-              "nativeQueryRef": "sigufs",
-              "active": false
+              "displayName": "Agp_Portador"
             },
             {
               "field": {
@@ -73,27 +58,29 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "observacao"
+                  "Property": "portador"
                 }
               },
-              "queryRef": "TB_Fatos.observacao",
-              "nativeQueryRef": "observacao",
-              "active": false
-            },
+              "queryRef": "TB_Fatos_CR.portador",
+              "nativeQueryRef": "portador",
+              "active": false,
+              "displayName": "portador"
+            }
+          ],
+          "fieldParameters": [
             {
-              "field": {
+              "parameterExpr": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos_CR"
+                      "Entity": "yTB_Dim"
                     }
                   },
-                  "Property": "titulo"
+                  "Property": "yTB_Dim"
                 }
               },
-              "queryRef": "TB_Fatos.titulo",
-              "nativeQueryRef": "titulo",
-              "active": false
+              "index": 0,
+              "length": 2
             }
           ]
         },
@@ -107,7 +94,7 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "04. Valor Aberto"
+                  "Property": "04. Valor Aberto CR"
                 }
               },
               "queryRef": "_Medidas.04. Valor Aberto",
@@ -126,7 +113,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "04. Valor Aberto"
+                "Property": "04. Valor Aberto CR"
               }
             },
             "direction": "Descending"
@@ -134,116 +121,6 @@
         ]
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Rows"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "TB_Rede.nomgre"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_Rede"
-                    }
-                  },
-                  "Property": "nomgre"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_CLI.sigufs"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_CLI"
-                    }
-                  },
-                  "Property": "sigufs"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_Fatos.observacao"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_Fatos_CR"
-                    }
-                  },
-                  "Property": "observacao"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_Fatos.titulo"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_Fatos_CR"
-                    }
-                  },
-                  "Property": "titulo"
-                }
-              }
-            ],
-            "isPinned": true
-          }
-        ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'TIELI'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'SC'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            }
-          ]
-        }
-      }
-    ],
     "objects": {
       "columnHeaders": [
         {
@@ -372,20 +249,6 @@
                 ]
               }
             ]
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "347.8133643999425D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "TB_Rede.nomgre"
           }
         },
         {
@@ -656,5 +519,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "0dd4641b4ee0272156b3"
 }

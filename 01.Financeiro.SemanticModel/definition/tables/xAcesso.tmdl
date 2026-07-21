@@ -1,0 +1,26 @@
+table xAcesso
+	lineageTag: 40c0f168-e613-4f28-9d19-6929fdd7d06a
+
+	measure 'Valor xAcesso' = SELECTEDVALUE('xAcesso'[xAcesso], 1)
+		formatString: 0
+		lineageTag: 326cb32a-eefb-4fe6-a196-62f1b386b911
+
+	column xAcesso
+		formatString: 0
+		lineageTag: d2834458-6bc5-4d7d-be69-888893b0fa41
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition xAcesso = calculated
+		mode: import
+		source = GENERATESERIES(123, 123999, 1)
+
+	annotation PBI_Id = ba38ac5f52b146eca2ab8f626e936bf0
+

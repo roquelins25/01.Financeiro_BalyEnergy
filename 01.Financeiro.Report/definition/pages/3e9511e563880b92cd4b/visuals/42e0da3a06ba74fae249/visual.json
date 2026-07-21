@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "42e0da3a06ba74fae249",
   "position": {
-    "x": 1334.1083223249668,
-    "y": 185.15191545574635,
-    "z": 4,
-    "height": 242.21928665785995,
-    "width": 585.891677675033
+    "x": 1424.5475638051043,
+    "y": 196.70533642691416,
+    "z": 3000,
+    "height": 184.17633410672855,
+    "width": 479.86078886310906,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -26,8 +27,9 @@
                 }
               },
               "queryRef": "TB_PGT.desfpg",
-              "nativeQueryRef": "desfpg",
-              "active": true
+              "nativeQueryRef": "Tipo ",
+              "active": true,
+              "displayName": "Tipo "
             }
           ]
         },
@@ -91,6 +93,37 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124.64489309265555D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "TB_PGT.desfpg"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tipo de Pagamento'"
                 }
               }
             }

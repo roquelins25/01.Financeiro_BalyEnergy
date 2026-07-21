@@ -54,6 +54,18 @@ table TB_RTerceiros
 
 		annotation SummarizationSetBy = Automatic
 
+	column xDescTerceiro =
+			
+			SWITCH(
+			    TRUE(),
+			    RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "01" , "Corrente",
+			    RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "03" , "Garantia",
+			    RIGHT( TB_RTerceiros[xIDTerceiros], 2 ) = "02" , "Vinculada")
+		lineageTag: 1c74bfce-4392-4c95-97a3-996c0a70fec4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_RTerceiros = m
 		mode: import
 		queryGroup: _Fatos
