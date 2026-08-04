@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "8e77ffedb0c8bddaaa01",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "161a3f8d5c6620194779",
   "position": {
-    "x": 301.94895591647332,
-    "y": 16.2877030162413,
-    "z": 5000,
-    "height": 25.05800464037123,
-    "width": 702.877030162413,
-    "tabOrder": 5000
+    "x": 201.1302549965541,
+    "y": 0,
+    "z": 5001,
+    "height": 25.582356995175743,
+    "width": 1047.1123363197796,
+    "tabOrder": 6001
   },
   "visual": {
     "visualType": "pageNavigator",
@@ -71,6 +71,34 @@
           },
           "selector": {
             "id": "2d15097e08a3d49ba863"
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "83f96aa80ccc794e7108"
+          }
+        },
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "e8e848990329b6b230d5"
           }
         }
       ],
