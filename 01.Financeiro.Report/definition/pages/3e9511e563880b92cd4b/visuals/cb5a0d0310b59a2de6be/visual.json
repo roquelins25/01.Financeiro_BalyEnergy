@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "cb5a0d0310b59a2de6be",
+  "position": {
+    "x": 6.2645011600928342,
+    "y": 80.185614849187928,
+    "z": 2000,
+    "height": 976.29470674676725,
+    "width": 1897.1551742058041,
+    "tabOrder": 7001
+  },
+  "visualGroup": {
+    "displayName": "Posiçao diaria",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}

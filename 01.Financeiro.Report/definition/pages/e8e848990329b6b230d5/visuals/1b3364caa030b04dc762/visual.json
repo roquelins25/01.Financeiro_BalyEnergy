@@ -1,0 +1,158 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "1b3364caa030b04dc762",
+  "position": {
+    "x": 0,
+    "y": 891.05926876711965,
+    "z": 6,
+    "height": 188.61838535946328,
+    "width": 1886.1838535946329
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "DiaMES"
+                }
+              },
+              "queryRef": "CALENDARIO DAX.DiaMES",
+              "nativeQueryRef": "DiaMES",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_LQ"
+                    }
+                  },
+                  "Property": "DEBCRE"
+                }
+              },
+              "queryRef": "TB_Fatos_LQ.DEBCRE",
+              "nativeQueryRef": "DEBCRE",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_TNS"
+                    }
+                  },
+                  "Property": "codtns"
+                }
+              },
+              "queryRef": "TB_TNS.codtns",
+              "nativeQueryRef": "codtns",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "10. ERROR"
+                }
+              },
+              "queryRef": "_Medidas.10. ERROR",
+              "nativeQueryRef": "10. ERROR"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CALENDARIO DAX"
+                  }
+                },
+                "Property": "DiaMES"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "TB_Fatos_LQ.DEBCRE"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_LQ"
+                    }
+                  },
+                  "Property": "DEBCRE"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_TNS.codtns"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

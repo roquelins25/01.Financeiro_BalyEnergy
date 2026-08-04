@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "321a20686402c352284a",
   "position": {
     "x": 71.67176186645213,
@@ -12,6 +12,5 @@
   "visualGroup": {
     "displayName": "Operacao",
     "groupMode": "ScaleMode"
-  },
-  "isHidden": true
+  }
 }

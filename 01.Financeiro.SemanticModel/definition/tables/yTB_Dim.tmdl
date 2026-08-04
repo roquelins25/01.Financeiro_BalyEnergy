@@ -50,7 +50,7 @@ table yTB_Dim
 				    ("Região/Grupo", NAMEOF('xUF_Regiao'[Região/Grupo]), 7),
 				    ("Descricao Conta", NAMEOF('TB_FRJ'[xTipo]), 8),
 				    ("portador", NAMEOF('TB_Fatos_CR'[portador]), 9),
-				    ("tipo", NAMEOF('TB_Fatos_CR'[tipo]), 10),
+				    ("tipo", NAMEOF(TB_TIPO[CODTPT]), 10),
 				    ("titulo", NAMEOF('TB_Fatos_CR'[titulo]), 11),
 				    ("situacao", NAMEOF('TB_Fatos_CR'[sit]), 12),
 				    ("numnota", NAMEOF('TB_Fatos_CR'[numnota]), 13),

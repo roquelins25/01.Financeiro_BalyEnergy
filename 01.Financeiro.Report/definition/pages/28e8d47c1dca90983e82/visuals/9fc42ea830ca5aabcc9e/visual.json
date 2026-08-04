@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "9fc42ea830ca5aabcc9e",
   "position": {
     "x": 1253.75,
@@ -108,6 +108,13 @@
                   "Value": "'Dropdown'"
                 }
               }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -128,43 +135,53 @@
                 "Where": [
                   {
                     "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "c"
+                      "Not": {
+                        "Expression": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "c"
+                                    }
+                                  },
+                                  "Property": "Ano"
                                 }
-                              },
-                              "Property": "Ano"
-                            }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "c"
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2021L"
+                                  }
                                 }
-                              },
-                              "Property": "Ano-Mes"
-                            }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2022L"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2023L"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2024L"
+                                  }
+                                }
+                              ]
+                            ]
                           }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "2026L"
-                              }
-                            },
-                            {
-                              "Literal": {
-                                "Value": "'jul-26'"
-                              }
-                            }
-                          ]
-                        ]
+                        }
                       }
                     },
                     "Annotations": {
@@ -179,16 +196,6 @@
                               },
                               "Property": "Ano"
                             }
-                          },
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "CALENDARIO DAX"
-                                }
-                              },
-                              "Property": "Ano-Mes"
-                            }
                           }
                         ],
                         "decomposedIdentities": {
@@ -198,16 +205,40 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "2026L"
+                                      "Value": "2021L"
                                     }
                                   }
                                 ]
-                              },
+                              }
+                            ],
+                            [
                               {
-                                "1": [
+                                "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'jul-26'"
+                                      "Value": "2022L"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "2023L"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "2024L"
                                     }
                                   }
                                 ]
@@ -226,25 +257,21 @@
                                   "Property": "Ano"
                                 }
                               }
-                            },
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "CALENDARIO DAX"
-                                    }
-                                  },
-                                  "Property": "Ano-Mes"
-                                }
-                              }
                             }
                           ]
                         },
                         "valueMap": [
                           {
-                            "0": "2026",
-                            "1": "jul-26"
+                            "0": "2021"
+                          },
+                          {
+                            "0": "2022"
+                          },
+                          {
+                            "0": "2023"
+                          },
+                          {
+                            "0": "2024"
                           }
                         ]
                       }

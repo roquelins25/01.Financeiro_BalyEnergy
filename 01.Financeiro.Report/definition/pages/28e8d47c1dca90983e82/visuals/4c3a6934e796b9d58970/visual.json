@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "4c3a6934e796b9d58970",
   "position": {
     "x": 460.02925770374219,
@@ -20,32 +20,32 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "TB_REP"
                     }
                   },
-                  "Property": "Ano"
+                  "Property": "nomrep"
                 }
               },
-              "queryRef": "CALENDARIO DAX.Ano",
-              "nativeQueryRef": "Ano",
+              "queryRef": "TB_REP.nomrep",
+              "nativeQueryRef": "Representante",
               "active": true,
-              "displayName": "Ano"
+              "displayName": "Representante"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "Nome do Mês"
+                  "Property": "xREDE"
                 }
               },
-              "queryRef": "CALENDARIO DAX.Nome do Mês",
-              "nativeQueryRef": "Nome do Mês",
+              "queryRef": "TB_CLI.xREDE",
+              "nativeQueryRef": "xREDE",
               "active": false,
-              "displayName": "Nome do Mês"
+              "displayName": "xREDE"
             },
             {
               "field": {
@@ -68,16 +68,32 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "xUF_Regiao"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "UF"
+                  "Property": "titulo"
                 }
               },
-              "queryRef": "xUF_Regiao.UF",
-              "nativeQueryRef": "UF",
+              "queryRef": "TB_Fatos_CR.titulo",
+              "nativeQueryRef": "titulo",
               "active": false,
-              "displayName": "UF"
+              "displayName": "titulo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "vencimento"
+                }
+              },
+              "queryRef": "TB_Fatos_CR.vencimento",
+              "nativeQueryRef": "vencimento",
+              "active": false,
+              "displayName": "vencimento"
             }
           ],
           "fieldParameters": [
@@ -93,28 +109,12 @@
                 }
               },
               "index": 0,
-              "length": 4,
-              "sortDirection": "Ascending"
+              "length": 5
             }
           ]
         },
         "Values": {
           "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas"
-                    }
-                  },
-                  "Property": "01. Valor Original"
-                }
-              },
-              "queryRef": "_Medidas.01. Valor Original",
-              "nativeQueryRef": "01. Valor Original",
-              "displayName": "01. Valor Original"
-            },
             {
               "field": {
                 "Measure": {
@@ -144,7 +144,8 @@
                 }
               },
               "index": 0,
-              "length": 2
+              "length": 1,
+              "sortDirection": "Descending"
             }
           ]
         }
@@ -153,16 +154,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "CALENDARIO DAX"
+                    "Entity": "_Medidas"
                   }
                 },
-                "Property": "Ano"
+                "Property": "01. Valor Aberto"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -175,7 +176,7 @@
         "levels": [
           {
             "queryRefs": [
-              "CALENDARIO DAX.Ano"
+              "TB_REP.nomrep"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -183,10 +184,10 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "TB_REP"
                     }
                   },
-                  "Property": "Ano"
+                  "Property": "nomrep"
                 }
               }
             ],
@@ -194,20 +195,39 @@
           },
           {
             "queryRefs": [
-              "CALENDARIO DAX.Nome do Mês"
+              "TB_CLI.xREDE"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "xREDE"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
             "queryRefs": [
               "TB_CLI.nomcli"
             ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_Fatos_CR.titulo"
+            ],
             "isCollapsed": true
           },
           {
             "queryRefs": [
-              "xUF_Regiao.UF"
+              "TB_Fatos_CR.vencimento"
             ],
             "isCollapsed": true
           }

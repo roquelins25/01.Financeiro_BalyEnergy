@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "e9755bb1b3093e31936e",
   "position": {
     "x": 494,
@@ -68,14 +68,14 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''CALENDARIO DAX''[Ano]'"
+                                "Value": "'''TB_REP''[nomrep]'"
                               }
                             }
                           ],
                           [
                             {
                               "Literal": {
-                                "Value": "'''CALENDARIO DAX''[Nome do Mês]'"
+                                "Value": "'''TB_CLI''[xREDE]'"
                               }
                             }
                           ],
@@ -89,7 +89,14 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''xUF_Regiao''[UF]'"
+                                "Value": "'''TB_Fatos_CR''[titulo]'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'''TB_Fatos_CR''[vencimento]'"
                               }
                             }
                           ]
@@ -117,7 +124,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''CALENDARIO DAX''[Ano]'"
+                                      "Value": "'''TB_REP''[nomrep]'"
                                     }
                                   }
                                 ]
@@ -128,7 +135,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''CALENDARIO DAX''[Nome do Mês]'"
+                                      "Value": "'''TB_CLI''[xREDE]'"
                                     }
                                   }
                                 ]
@@ -150,7 +157,18 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''xUF_Regiao''[UF]'"
+                                      "Value": "'''TB_Fatos_CR''[titulo]'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'''TB_Fatos_CR''[vencimento]'"
                                     }
                                   }
                                 ]
@@ -174,16 +192,19 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Ano"
+                            "0": "Representante"
                           },
                           {
-                            "0": "Nome do Mês"
+                            "0": "xREDE"
                           },
                           {
                             "0": "Nome Cliente"
                           },
                           {
-                            "0": "UF"
+                            "0": "titulo"
+                          },
+                          {
+                            "0": "vencimento"
                           }
                         ]
                       }

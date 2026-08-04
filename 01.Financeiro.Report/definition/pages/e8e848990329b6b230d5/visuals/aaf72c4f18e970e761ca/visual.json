@@ -1,0 +1,190 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "aaf72c4f18e970e761ca",
+  "position": {
+    "x": 1178.8649084966455,
+    "y": 108.94337775072448,
+    "z": 2,
+    "height": 393.4969763533631,
+    "width": 344.71635945005357
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "10. Entrada"
+                }
+              },
+              "queryRef": "_Medidas.10. Entrada",
+              "nativeQueryRef": "10. Entrada"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "10. Antecipacao Banco"
+                }
+              },
+              "queryRef": "_Medidas.10. Antecipacao Banco",
+              "nativeQueryRef": "10. Antecipacao Banco"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "10. Antecipacao Cliente"
+                }
+              },
+              "queryRef": "_Medidas.10. Antecipacao Cliente",
+              "nativeQueryRef": "10. Antecipacao Cliente"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "10. Troco Motorista"
+                }
+              },
+              "queryRef": "_Medidas.10. Troco Motorista",
+              "nativeQueryRef": "10. Troco Motorista"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "10. Estorno de Juros"
+                }
+              },
+              "queryRef": "_Medidas.10. Estorno de Juros",
+              "nativeQueryRef": "10. Estorno de Juros"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "10. Rendimentos"
+                }
+              },
+              "queryRef": "_Medidas.10. Rendimentos",
+              "nativeQueryRef": "10. Rendimentos"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "10. Entrada"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "66e48ca280691458a7c7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "10. Entrada"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

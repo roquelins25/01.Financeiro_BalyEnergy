@@ -113,7 +113,7 @@ table _Medidas
 
 	measure '04. Valor Aberto CR' = ```
 			
-			// Mostra em moto calendario Auxiliar 
+			// Mostra  calendario Auxiliar 
 			VAR vSELECTMESES = SELECTEDVALUE( yTB_01[yTB_01] )
 			VAR vUltimaData =
 			    LASTDATE ( 'CALENDARIO DAX'[Date] )
@@ -840,6 +840,7 @@ table _Medidas
 			        UTCNOW() - TIME(3,0,0),
 			        "dd.MM.yyyy HH.mm.ss"
 			    )
+		displayFolder: _Others
 		lineageTag: 42018b38-dfb6-491b-b812-906b31b863d3
 
 	measure '01. Valor AB Total Vencidas' =
@@ -1135,6 +1136,7 @@ table _Medidas
 	measure '.....Titulo_Table_Diario' =
 			
 			"Filtro de Data Aplicado : " & FORMAT( SELECTEDVALUE( 'CALENDARIO DAX'[Date] ), "" )
+		displayFolder: _Others
 		lineageTag: 728bfead-923c-4c77-993f-c62910be3a25
 
 	measure '01. AB Demais Classif' =
@@ -1157,6 +1159,7 @@ table _Medidas
 			)
 			```
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 07. Faturamento
 		lineageTag: 1a012185-2e63-46ee-999f-af5647c56fd9
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -1215,11 +1218,13 @@ table _Medidas
 			    USERELATIONSHIP( TB_Fatos_CR[emissao], 'CALENDARIO DAX'[Date] )
 			)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 07. Faturamento
 		lineageTag: ef26a858-f6c3-42fb-a232-debaf88ffd4d
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure '07. Diff' = [07. Total Faturado Geral] - [07.  CR Valor Original FAT]
+		displayFolder: 07. Faturamento
 		lineageTag: e33377c3-2828-483f-b6b7-4f0333d85dd0
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -1632,6 +1637,7 @@ table _Medidas
 	measure '08. Saldo Bancos' =
 			
 			SUM( TB_RTerceiros[Valor] )
+		displayFolder: 08. Saldo Bancos
 		lineageTag: e5c4667b-f0e1-42ec-87b5-b924d7d16c66
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -1659,6 +1665,7 @@ table _Medidas
 			)
 			```
 		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: 07. Faturamento
 		lineageTag: 80fbd1ed-60c4-48ab-828e-417121b19895
 
 	measure '07. % FPG FAt' = ```
@@ -1672,6 +1679,7 @@ table _Medidas
 			)
 			```
 		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: 07. Faturamento
 		lineageTag: 62b3ca55-604f-4bdb-a337-bff5eaf98f32
 
 	measure '01. Saldo Previsto' =
@@ -1790,6 +1798,7 @@ table _Medidas
 			CONCATENATEX(
 			    FILTER( TB_FRJ, TB_FRJ[xTipo (grupos)] = "Demais Classif." ),
 			     TB_FRJ[xTipo] & ", " )
+		displayFolder: _Others
 		lineageTag: a2aa7fb5-a36c-4827-b089-bad5cecfe315
 
 	measure '04. Valor Aberto CP' = ```
@@ -1941,8 +1950,1056 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
-	measure 'Medida 2' = [01. Valor AB CR]
+	measure 'Título Coluna' =
+			
+			CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ) )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: _Others
 		lineageTag: a87ff7f1-8e98-4c41-828b-9f0748949bdd
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '04. CR' =
+			
+			VAR AnoSelecionado =
+			    SELECTEDVALUE('CALENDARIO DAX'[Ano])
+			
+			VAR Tipo =
+			    SELECTEDVALUE(xCalendarioEixo[Tipo])
+			
+			VAR Offset =
+			    SELECTEDVALUE(xCalendarioEixo[Offset])
+			
+			VAR Mes =
+			    SELECTEDVALUE(xCalendarioEixo[Mes])
+			
+			RETURN
+			IF(
+			    ISBLANK( CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ) ) ), BLANK() ,
+			SWITCH(
+			    Tipo,
+			
+			    "Ano",
+			    fxFORMAT(
+			        CALCULATE(
+			            [01. Valor Aberto],
+			            REMOVEFILTERS('CALENDARIO DAX'),
+			            'CALENDARIO DAX'[Ano] = AnoSelecionado + Offset
+			        ),4 ),
+			
+			    "Mes",
+			    fxFORMAT(
+			        CALCULATE(
+			            [01. Valor Aberto],
+			            REMOVEFILTERS('CALENDARIO DAX'),
+			            'CALENDARIO DAX'[Ano] = AnoSelecionado,
+			            'CALENDARIO DAX'[Mês] = Mes
+			        ), 4 ),
+			
+			    "Total",
+			       fxFORMAT( CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ) ), 4 ),
+			
+			    "Percent",
+			    fxFORMAT(
+			    DIVIDE( [01. Valor Aberto] ,
+			        CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), REMOVEFILTERS( TB_Fatos_CR[portador]) ) ),
+			        5 ) ,
+			
+			    "Acumulado",
+			       BLANK()
+			) )
+		formatString: 0
+		displayFolder: 04. DRE
+		lineageTag: e4c864f1-26be-4c78-af78-25effba58e8c
+
+	measure '05. HTML_Tabela' = ```
+			
+			VAR MesRef        = MAX ( 'CALENDARIO DAX'[Date] )
+			VAR PrimeiroDia   = DATE ( YEAR ( MesRef ), MONTH ( MesRef ), 1 )
+			VAR UltimoDia     = EOMONTH ( PrimeiroDia, 0 )
+			VAR OffsetSemana  = WEEKDAY ( PrimeiroDia, 1 ) - 1     -- quantas células vazias antes do dia 1
+			VAR AspaDupla     = UNICHAR(34)
+			
+			VAR Datas =
+			    FILTER(
+			        ADDCOLUMNS(
+			            FILTER(
+			                ALL('CALENDARIO DAX'[Date]),
+			                'CALENDARIO DAX'[Date] >= PrimeiroDia &&
+			                'CALENDARIO DAX'[Date] <= UltimoDia
+			            ),
+			            "Receber", CALCULATE([01. Valor AB CR]),
+			            "Pagar", CALCULATE([01. Valor AB CP])
+			        ),
+			        NOT(
+			            ISBLANK([Receber]) &&
+			            ISBLANK([Pagar])
+			        )
+			    )
+			VAR Cabecalho =
+			    CONCATENATEX(
+			        Datas,
+			        "<th>" &
+			        FORMAT([Date],"dd/MM") &
+			        "</th>",
+			        "",
+			        'CALENDARIO DAX'[Date]
+			    )
+			VAR vContasAReceber =
+			    CONCATENATEX(
+			        Datas,
+			        VAR DataAtual = [Date]
+			        VAR Valor =
+			            [Receber]
+			        RETURN
+			            "<td class='valor'>" &
+			            fxFORMAT(Valor, 4) &
+			            "</td>",
+			        "",
+			        [Date],
+			        ASC
+			    )
+			
+			VAR TotalGeralCR = CALCULATE( [01. Valor AB CR] )
+			
+			VAR vCONTAS_A_RECEBER =
+			    "<tr>" &
+			        "<td class='label' onclick='toggle(" & AspaDupla & "CR" & AspaDupla & ")'><span class='seta' id='seta-CR'>▶</span>Contas a Receber</td>" &
+			        "<td class='total-col'>" &
+			            fxFORMAT(TotalGeralCR,4) &
+			        "</td>" &
+			        "<td class='pct-col'></td>" &
+			        vContasAReceber &
+			    "</tr>"
+			
+			VAR TabCarteiras =
+			    ADDCOLUMNS(
+			        FILTER(
+			            VALUES( TB_Apoio[Carteira] ),
+			            NOT ISBLANK( CALCULATE( [01. Valor AB CR] ) )
+			        ),
+			        "CarteiraNome", TB_Apoio[Carteira],
+			        "CarteiraID",
+			            "crc" & CONVERT(
+			                RANKX( ALL( TB_Apoio[Carteira] ), CALCULATE( MIN( TB_Apoio[Carteira] ) ), , ASC, DENSE ),
+			                STRING
+			            )
+			    )
+			
+			VAR vDetalheCR =
+			    CONCATENATEX(
+			        TabCarteiras,
+			        VAR CarteiraAtual = [CarteiraNome]
+			        VAR CarteiraID    = [CarteiraID]
+			        VAR vLinhasCarteira =
+			            CONCATENATEX(
+			                Datas,
+			                VAR ValorCarteira =
+			                    CALCULATE(
+			                        [01. Valor AB CR],
+			                        KEEPFILTERS( TB_Apoio[Carteira] = CarteiraAtual )
+			                    )
+			                RETURN
+			                    "<td class='valor'>" &
+			                    fxFORMAT(ValorCarteira, 4) &
+			                    "</td>",
+			                "",
+			                [Date],
+			                ASC
+			            )
+			        VAR TabRedes =
+			            FILTER(
+			                VALUES( TB_CLI[xREDE] ),
+			                NOT ISBLANK(
+			                    CALCULATE(
+			                        [01. Valor AB CR],
+			                        KEEPFILTERS( TB_Apoio[Carteira] = CarteiraAtual )
+			                    )
+			                )
+			            )
+			        VAR TotalCarteira =
+			            CALCULATE(
+			                [01. Valor AB CR],
+			                KEEPFILTERS( TB_Apoio[Carteira] = CarteiraAtual )
+			            )
+			        VAR vDetalheRedes =
+			            CONCATENATEX(
+			                TabRedes,
+			                VAR RedeAtual = [xREDE]
+			                VAR TotalRede =
+			                    CALCULATE(
+			                        [01. Valor AB CR],
+			                        KEEPFILTERS( TB_Apoio[Carteira] = CarteiraAtual ),
+			                        KEEPFILTERS( TB_CLI[xREDE] = RedeAtual )
+			                    )
+			                VAR PctRede = DIVIDE( TotalRede, TotalCarteira, 0 )
+			                VAR vLinhasRede =
+			                    CONCATENATEX(
+			                        Datas,
+			                        VAR ValorRede =
+			                            CALCULATE(
+			                                [01. Valor AB CR],
+			                                KEEPFILTERS( TB_Apoio[Carteira] = CarteiraAtual ),
+			                                KEEPFILTERS( TB_CLI[xREDE] = RedeAtual )
+			                            )
+			                        RETURN
+			                            "<td class='valor'>" &
+			                            fxFORMAT(ValorRede, 4) &
+			                            "</td>",
+			                        "",
+			                        [Date],
+			                        ASC
+			                    )
+			                RETURN
+			                    "<tr class='detalhe-row' data-grupo='" & CarteiraID & "'>" &
+			                        "<td class='desc desc2'>" & RedeAtual & "</td>" &
+			                        "<td class='total-col'>" &
+			                            fxFORMAT(TotalRede, 4) &
+			                        "</td>" &
+			                        "<td class='pct-col'>" &
+			                            fxFORMAT(PctRede, 5) &
+			                        "</td>" &
+			                        vLinhasRede &
+			                    "</tr>",
+			                "",
+			                CALCULATE(
+			                    [01. Valor AB CR],
+			                    KEEPFILTERS( TB_Apoio[Carteira] = CarteiraAtual )
+			                ),
+			                DESC
+			            )
+			        VAR PctCarteira = DIVIDE( TotalCarteira, TotalGeralCR, 0 )
+			        RETURN
+			            "<tr class='detalhe-row' data-grupo='CR'>" &
+			                "<td class='label desc' onclick='toggle(" & AspaDupla & CarteiraID & AspaDupla & ")'>" &
+			                    "<span class='seta' id='seta-" & CarteiraID & "'>▶</span>" &
+			                    CarteiraAtual &
+			                "</td>" &
+			                "<td class='total-col'>" &
+			                    fxFORMAT(TotalCarteira, 4) &
+			                "</td>" &
+			                "<td class='pct-col'>" &
+			                    fxFORMAT(PctCarteira, 5) &
+			                "</td>" &
+			                vLinhasCarteira &
+			            "</tr>" &
+			            vDetalheRedes,
+			        "",
+			        CALCULATE( [01. Valor AB CR] ),
+			        DESC
+			    )
+			
+			VAR vContasAPagar =
+			    CONCATENATEX(
+			        Datas,
+			        VAR DataAtual=[Date]
+			        VAR Valor=
+			            [Pagar]
+			        RETURN
+			        "<td class='valor'>"
+			        & fxFORMAT( Valor , 4 )
+			        & "</td>",
+			        "",
+			        [Date],
+			        ASC
+			    )
+			VAR TotalGeralCP = CALCULATE( [01. Valor AB CP] )
+			
+			VAR vCONTAS_A_PAGAR =
+			    "<tr>" &
+			        "<td class='label' onclick='toggle(" & AspaDupla & "CP" & AspaDupla & ")'><span class='seta' id='seta-CP'>▶</span>Contas a Pagar</td>" &
+			        "<td class='total-col'>" &
+			            fxFORMAT(TotalGeralCP,4) &
+			        "</td>" &
+			        "<td class='pct-col'></td>" &
+			        vContasAPagar &
+			    "</tr>"
+			
+			VAR TabDespar =
+			    ADDCOLUMNS(
+			        FILTER(
+			            VALUES( TB_Fatos_CP[despar] ),
+			            NOT ISBLANK( CALCULATE( [01. Valor AB CP] ) )
+			        ),
+			        "DesparNome", TB_Fatos_CP[despar],
+			        "DesparID",
+			            "cpd" & CONVERT(
+			                RANKX( ALL( TB_Fatos_CP[despar] ), CALCULATE( MIN( TB_Fatos_CP[despar] ) ), , ASC, DENSE ),
+			                STRING
+			            )
+			    )
+			
+			VAR vDetalheCP =
+			    CONCATENATEX(
+			        TabDespar,
+			        VAR DesparAtual = [DesparNome]
+			        VAR DesparID    = [DesparID]
+			        VAR vLinhasDespar =
+			            CONCATENATEX(
+			                Datas,
+			                VAR ValorDespar =
+			                    CALCULATE(
+			                        [01. Valor AB CP],
+			                        KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual )
+			                    )
+			                RETURN
+			                    "<td class='valor'>" &
+			                    fxFORMAT(ValorDespar, 4) &
+			                    "</td>",
+			                "",
+			                [Date],
+			                ASC
+			            )
+			        VAR TabDescta =
+			            ADDCOLUMNS(
+			                FILTER(
+			                    VALUES( TB_Fatos_CP[DesCta] ),
+			                    NOT ISBLANK(
+			                        CALCULATE(
+			                            [01. Valor AB CP],
+			                            KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual )
+			                        )
+			                    )
+			                ),
+			                "DesctaNome", TB_Fatos_CP[DesCta],
+			                "DesctaID",
+			                    DesparID & "_c" & CONVERT(
+			                        RANKX( ALL( TB_Fatos_CP[DesCta] ), CALCULATE( MIN( TB_Fatos_CP[DesCta] ) ), , ASC, DENSE ),
+			                        STRING
+			                    )
+			            )
+			        VAR TotalDespar =
+			            CALCULATE(
+			                [01. Valor AB CP],
+			                KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual )
+			            )
+			        VAR vDetalheDescta =
+			            CONCATENATEX(
+			                TabDescta,
+			                VAR DesctaAtual = [DesctaNome]
+			                VAR DesctaID    = [DesctaID]
+			                VAR TotalDescta =
+			                    CALCULATE(
+			                        [01. Valor AB CP],
+			                        KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
+			                        KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual )
+			                    )
+			                VAR PctDescta = DIVIDE( TotalDescta, TotalDespar, 0 )
+			                VAR vLinhasDescta =
+			                    CONCATENATEX(
+			                        Datas,
+			                        VAR ValorDescta =
+			                            CALCULATE(
+			                                [01. Valor AB CP],
+			                                KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
+			                                KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual )
+			                            )
+			                        RETURN
+			                            "<td class='valor'>" &
+			                            fxFORMAT(ValorDescta, 4) &
+			                            "</td>",
+			                        "",
+			                        [Date],
+			                        ASC
+			                    )
+			                VAR TabRedesCP =
+			                    FILTER(
+			                        VALUES( TB_CLI[nomcli] ),
+			                        NOT ISBLANK(
+			                            CALCULATE(
+			                                [01. Valor AB CP],
+			                                KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
+			                                KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual )
+			                            )
+			                        )
+			                    )
+			                VAR vDetalheRedesCP =
+			                    CONCATENATEX(
+			                        TabRedesCP,
+			                        VAR RedeAtual = [nomcli]
+			                        VAR TotalRedeCP =
+			                            CALCULATE(
+			                                [01. Valor AB CP],
+			                                KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
+			                                KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual ),
+			                                KEEPFILTERS( TB_CLI[nomcli] = RedeAtual )
+			                            )
+			                        VAR PctRedeCP = DIVIDE( TotalRedeCP, TotalDescta, 0 )
+			                        VAR vLinhasRedeCP =
+			                            CONCATENATEX(
+			                                Datas,
+			                                VAR ValorRedeCP =
+			                                    CALCULATE(
+			                                        [01. Valor AB CP],
+			                                        KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
+			                                        KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual ),
+			                                        KEEPFILTERS( TB_CLI[nomcli] = RedeAtual )
+			                                    )
+			                                RETURN
+			                                    "<td class='valor'>" &
+			                                    fxFORMAT(ValorRedeCP, 4) &
+			                                    "</td>",
+			                                "",
+			                                [Date],
+			                                ASC
+			                            )
+			                        RETURN
+			                            "<tr class='detalhe-row' data-grupo='" & DesctaID & "'>" &
+			                                "<td class='desc desc3'>" & RedeAtual & "</td>" &
+			                                "<td class='total-col'>" &
+			                                    fxFORMAT(TotalRedeCP, 4) &
+			                                "</td>" &
+			                                "<td class='pct-col'>" &
+			                                    fxFORMAT(PctRedeCP, 5) &
+			                                "</td>" &
+			                                vLinhasRedeCP &
+			                            "</tr>",
+			                        "",
+			                        CALCULATE(
+			                            [01. Valor AB CP],
+			                            KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
+			                            KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual )
+			                        ),
+			                        ASC
+			                    )
+			                RETURN
+			                    "<tr class='detalhe-row' data-grupo='" & DesparID & "'>" &
+			                        "<td class='label desc desc2' onclick='toggle(" & AspaDupla & DesctaID & AspaDupla & ")'>" &
+			                            "<span class='seta' id='seta-" & DesctaID & "'>▶</span>" &
+			                            DesctaAtual &
+			                        "</td>" &
+			                        "<td class='total-col'>" &
+			                            fxFORMAT(TotalDescta, 4) &
+			                        "</td>" &
+			                        "<td class='pct-col'>" &
+			                            fxFORMAT(PctDescta, 5) &
+			                        "</td>" &
+			                        vLinhasDescta &
+			                    "</tr>" &
+			                    vDetalheRedesCP,
+			                "",
+			                CALCULATE(
+			                    [01. Valor AB CP],
+			                    KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual )
+			                ),
+			                ASC
+			            )
+			        VAR PctDespar = DIVIDE( TotalDespar, TotalGeralCP, 0 )
+			        RETURN
+			            "<tr class='detalhe-row' data-grupo='CP'>" &
+			                "<td class='label desc' onclick='toggle(" & AspaDupla & DesparID & AspaDupla & ")'>" &
+			                    "<span class='seta' id='seta-" & DesparID & "'>▶</span>" &
+			                    DesparAtual &
+			                "</td>" &
+			                "<td class='total-col'>" &
+			                    fxFORMAT(TotalDespar, 4) &
+			                "</td>" &
+			                "<td class='pct-col'>" &
+			                    fxFORMAT(PctDespar, 5) &
+			                "</td>" &
+			                vLinhasDespar &
+			            "</tr>" &
+			            vDetalheDescta,
+			        "",
+			        CALCULATE( [01. Valor AB CP] ),
+			        ASC
+			    )
+			-- ===========================================================================================
+			VAR LinhaNecessidade =
+			    CONCATENATEX(
+			        Datas,
+			            VAR DataAtual=[Date]
+			            VAR Receber=
+			                CALCULATE(
+			                    [01. Valor AB CR],
+			                    TB_Apoio[Carteira] <> "Descontada"
+			                )
+			            VAR Pagar=
+			                [Pagar]
+			        VAR Saldo=Receber+Pagar
+			        RETURN
+			    "<td class='" & IF(Saldo<0, "negativo", IF(Saldo>0,"positivo","neutro") ) &"'>"&
+			    fxFORMAT( Saldo , 4 )
+			    &
+			    "</td>"
+			    )
+			VAR vNECESSIDADE =
+			    "<tr>" &
+			        "<td class='label'>Caixa (* CR sem Descontada )</td>" &
+			        "<td class='total-col'>" &
+			            fxFORMAT( CALCULATE( [01. Valor AB CR], TB_Apoio[Carteira] <> "Descontada" ) + [01. Valor AB CP],4) &
+			        "</td>" &
+			        "<td class='pct-col'></td>" &
+			        LinhaNecessidade &
+			    "</tr>"
+			RETURN
+			"<!DOCTYPE html>
+			<html lang='pt-br'>
+			<head>
+			<meta charset='UTF-8'>
+			<title>Fluxo de Caixa - Contas a Pagar e a Receber</title>
+			<style>
+			
+			:root{
+			    --azul:#1a3a63;
+			    --azul-claro:#2c5185;
+			    --azul-hover:#3d6aa8;
+			
+			    --verde:#1b5e20;
+			    --verde-bg:#e8f5e9;
+			
+			    --vermelho:#b71c1c;
+			    --vermelho-bg:#fdecea;
+			
+			    --cinza:#f7f8fa;
+			    --cinza2:#eef1f5;
+			    --borda:#dde3ea;
+			    --texto:#212529;
+			    --texto-claro:#6c757d;
+			}
+			*{ box-sizing:border-box; }
+			html,body{
+			    margin:0;
+			    padding:6px;
+			    width:100%;
+			    background:var(--cinza);
+			    font-family:'Segoe UI', Calibri, Arial, sans-serif;
+			    color:var(--texto);
+			}
+			
+			.card{
+			    width:100%;
+			    background:white;
+			    border:1px solid var(--borda);
+			    border-radius:10px;
+			    overflow:auto;
+			    box-shadow:0 3px 10px rgba(0,0,0,.10);
+			}
+			
+			.titulo-row{
+			    background:linear-gradient(90deg, var(--azul), var(--azul-claro));
+			    color:white;
+			    padding:14px 16px;
+			    font-size:15px;
+			    font-weight:600;
+			    letter-spacing:.2px;
+			    text-align:left;
+			    position:sticky;
+			    top:0;
+			    z-index:30;
+			    border:none;
+			}
+			
+			table{
+			    border-collapse:collapse;
+			    min-width:100%;
+			    table-layout:fixed;
+			    font-variant-numeric: tabular-nums;
+			}
+			
+			thead th{
+			    position:sticky;
+			    top:0;
+			    z-index:20;
+			    background:var(--azul);
+			    color:white;
+			    font-size:12px;
+			    font-weight:600;
+			    padding:10px 8px;
+			    text-align:right;
+			    border:1px solid rgba(255,255,255,.15);
+			    white-space:nowrap;
+			}
+			
+			tbody td{
+			    padding:8px 10px;
+			    font-size:12.5px;
+			    border:1px solid var(--borda);
+			    text-align:right;
+			    white-space:nowrap;
+			}
+			
+			tbody tr:nth-child(even) .valor{
+			    background:#fafbfc;
+			}
+			
+			tbody tr:hover .valor{
+			    background:#eaf2ff;
+			}
+			
+			.label{
+			    position:sticky;
+			    left:0;
+			    width:240px;
+			    min-width:240px;
+			    max-width:240px;
+			    background:var(--azul-claro);
+			    color:white;
+			    font-weight:600;
+			    font-size:12.5px;
+			    text-align:left;
+			    padding-left:14px;
+			    cursor:pointer;
+			    z-index:100;
+			    transition:background .15s;
+			    border-right:2px solid var(--azul);
+			}
+			
+			.label:hover{
+			    background:var(--azul);
+			}
+			.label.aberto{
+			    background:var(--azul) !important;
+			    color:#fff;
+			}
+			tr:has(.label.aberto) .total-col{
+			    background:var(--azul);
+			    color:#fff;
+			}
+			
+			tr:has(.label.aberto) .pct-col{
+			    background:var(--azul);
+			    color:#fff;
+			}
+			
+			.label .seta{
+			    margin-right:8px;
+			    display:inline-block;
+			    transition:transform .2s ease;
+			    font-size:10px;
+			}
+			
+			.label.aberto .seta{
+			    transform:rotate(90deg);
+			}
+			
+			.valor{
+			    background:white;
+			    font-variant-numeric: tabular-nums;
+			}
+			
+			tr:has(.label.aberto) .valor{
+			    background:var(--azul-claro);
+			    color:#fff;
+			}
+			
+			.total{
+			    position:sticky;
+			    z-index:3;
+			    background:var(--azul);
+			    color:white;
+			    font-weight:700;
+			    font-size:13px;
+			}
+			
+			.total-col{
+			    position:sticky;
+			    left:240px;
+			    width:130px;
+			    min-width:130px;
+			    max-width:130px;
+			    background:var(--azul);
+			    color:white;
+			    font-weight:700;
+			    text-align:right;
+			    padding-right:14px;
+			    z-index:99;
+			    box-shadow:3px 0 8px rgba(0,0,0,.18);
+			}
+			
+			.pct-col{
+			    position:sticky;
+			    left:370px;
+			    width:70px;
+			    min-width:70px;
+			    max-width:70px;
+			    background:var(--azul);
+			    color:white;
+			    font-weight:600;
+			    font-size:12px;
+			    text-align:right;
+			    padding-right:10px;
+			    z-index:98;
+			    box-shadow:3px 0 8px rgba(0,0,0,.12);
+			}
+			
+			.negativo{
+			    background:var(--vermelho-bg);
+			    color:var(--vermelho);
+			    font-weight:700;
+			}
+			
+			.positivo{
+			    background:var(--verde-bg);
+			    color:var(--verde);
+			    font-weight:700;
+			}
+			
+			.neutro{
+			    background:#f2f3f5;
+			    color:var(--texto-claro);
+			}
+			
+			.detalhe-row{
+			    display:none;
+			}
+			
+			.detalhe-row.show{
+			    display:table-row;
+			    animation:fadeIn .15s ease-in;
+			}
+			
+			@keyframes fadeIn{
+			    from{ opacity:0; }
+			    to{ opacity:1; }
+			}
+			
+			.detalhe-row td{
+			    background:#f9fbfd;
+			    font-size:14.5px;
+			    color:var(--texto-claro);
+			}
+			
+			.desc{
+			    position:sticky;
+			    left:0;
+			    background:#edf2f7 !important;
+			    padding-left:32px !important;
+			    text-align:left !important;
+			    font-weight:500;
+			    z-index:3;
+			    border-right:2px solid var(--borda);
+			}
+			
+			.fds{
+			    background:#f0f1f3 !important;
+			    color:var(--texto-claro);
+			}
+			
+			.desc2{
+			    padding-left:52px !important;
+			    background:#f3f6fa !important;
+			    font-weight:400;
+			}
+			
+			.desc3{
+			    padding-left:72px !important;
+			    background:#eef2f7 !important;
+			    font-weight:400;
+			}
+			
+			::-webkit-scrollbar{
+			    height:11px;
+			    width:11px;
+			}
+			::-webkit-scrollbar-track{
+			    background:#eceff2;
+			}
+			::-webkit-scrollbar-thumb{
+			    background:#9aa7b5;
+			    border-radius:10px;
+			    border:2px solid #eceff2;
+			}
+			::-webkit-scrollbar-thumb:hover{
+			    background:#708090;
+			}
+			
+			thead .label{ z-index:120; }
+			thead .total-col{ z-index:119; }
+			thead .pct-col{ z-index:118; }
+			
+			</style>
+			</head>
+			<body>
+			
+			<div class='card'>
+			  <table id='tabela-vencimento'>
+			    <thead>
+			        <tr>
+			            <th class='titulo-row' colspan='100'>Contas a Pagar e a Receber — Análise por data de vencimento (contas em aberto)</th>
+			        </tr>
+			        <tr>
+			            <th class='label'>Grupo</th>
+			            <th class='total-col'>Total</th>
+			            <th class='pct-col'>%</th>
+			            " & Cabecalho & "
+			        </tr>
+			    </thead>
+			    <tbody>
+			        "& vCONTAS_A_RECEBER &"
+			        "& vDetalheCR &"
+			        "& vCONTAS_A_PAGAR &"
+			        "& vDetalheCP &"
+			        "& vNECESSIDADE &"
+			    </tbody>
+			  </table>
+			</div>
+			<script>
+			function toggle(grupo){
+			  const linhas = document.querySelectorAll('.detalhe-row[data-grupo='+grupo+']');
+			  const seta = document.getElementById('seta-'+grupo);
+			  const mostrando = linhas[0].classList.contains('show');
+			  linhas.forEach(l => l.classList.toggle('show', !mostrando));
+			  seta.parentElement.classList.toggle('aberto', !mostrando);
+			}
+			</script>
+			
+			</body>
+			</html>"
+			
+			```
+		displayFolder: 05. HTML
+		lineageTag: baf52527-1574-4b28-8f77-0e5437a819f9
+
+	measure Medida = ```
+			
+			VAR _Campo = SELECTEDVALUE(yTB_Dim[yTB_Dim Campos])
+			VAR QUANTIDADE_SELECIONADA = 
+			    VAR _Texto =
+			        CONCATENATEX(
+			            yTB_Dim,
+			            yTB_Dim[yTB_Dim Campos],
+			            ","
+			        )
+			
+			    VAR _Qtd =
+			        IF(
+			            ISBLANK(_Texto),
+			            0,
+			            LEN(_Texto) - LEN(SUBSTITUTE(_Texto, ",", "")) + 1
+			        )
+			
+			    RETURN
+			    _Qtd
+			VAR _Total =
+			    SWITCH(
+			        TRUE(),
+			
+			        _Campo IN {
+			            NAMEOF('CALENDARIO DAX'[Ano]),
+			            NAMEOF('CALENDARIO DAX'[Ano-Mes]),
+			            NAMEOF('CALENDARIO DAX'[Nome do Mês]),
+			            NAMEOF('CALENDARIO DAX'[Vencidos?])
+			        },
+			            CALCULATE([01. Valor Aberto], REMOVEFILTERS('CALENDARIO DAX')),
+			
+			        _Campo IN {
+			            NAMEOF(TB_CLI[xREDE]),
+			            NAMEOF(TB_CLI[nomcli])
+			        },
+			            CALCULATE([01. Valor Aberto], REMOVEFILTERS(TB_CLI)),
+			
+			        _Campo IN {
+			            NAMEOF(xUF_Regiao[UF]),
+			            NAMEOF(xUF_Regiao[Região/Grupo])
+			        },
+			            CALCULATE([01. Valor Aberto], REMOVEFILTERS(xUF_Regiao)),
+			
+			        _Campo = NAMEOF(TB_FRJ[xTipo]),
+			            CALCULATE([01. Valor Aberto], REMOVEFILTERS(TB_FRJ)),
+			
+			        _Campo = NAMEOF(TB_REP[nomrep]),
+			            CALCULATE([01. Valor Aberto], REMOVEFILTERS(TB_REP)),
+			
+			        _Campo IN {
+			            NAMEOF(TB_Fatos_CR[portador]),
+			            NAMEOF(TB_Fatos_CR[titulo]),
+			            NAMEOF(TB_Fatos_CR[sit]),
+			            NAMEOF(TB_Fatos_CR[numnota]),
+			            NAMEOF(TB_Fatos_CR[observacao]),
+			            NAMEOF(TB_Fatos_CR[emissao]),
+			            NAMEOF(TB_Fatos_CR[vencimento]),
+			            NAMEOF(TB_Fatos_CR[codpagamento])
+			        },
+			            CALCULATE([01. Valor Aberto], REMOVEFILTERS(TB_Fatos_CR) ),
+			
+			        _Campo IN{
+			            NAMEOF( TB_TIPO[CODTPT] ) 
+			        }, 
+			            CALCULATE( [01. Valor Aberto], REMOVEFILTERS( TB_TIPO ) ),
+			
+			        [01. Valor Aberto]
+			    )
+			
+			RETURN
+			_Total
+			```
+		lineageTag: 15388eca-f516-4d56-aa16-bad0bd794bc7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Medida 2' =
+			
+			DIVIDE(
+			    [01. Valor AB Total] ,
+			    CALCULATE(
+			        [01. Valor AB Total],
+			        ALL( TB_Apoio[potador] )
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 01. Valores Totais\%
+		lineageTag: 3d18b89a-acc7-4c78-9ad9-c2a1eed7e271
+
+	measure 'Medida 3' = ```
+			
+			VAR _Campo = SELECTEDVALUE(yTB_Dim[yTB_Dim Campos])
+			VAR _Total =
+			    SWITCH(
+			        TRUE(),
+			
+			        _Campo IN {
+			            NAMEOF('CALENDARIO DAX'[Ano]),
+			            NAMEOF('CALENDARIO DAX'[Ano-Mes]),
+			            NAMEOF('CALENDARIO DAX'[Nome do Mês]),
+			            NAMEOF('CALENDARIO DAX'[Vencidos?])
+			        },
+			            CALCULATE([01. Valor AB Total], REMOVEFILTERS('CALENDARIO DAX')),
+			
+			        _Campo IN {
+			            NAMEOF(TB_CLI[xREDE]),
+			            NAMEOF(TB_CLI[nomcli])
+			        },
+			            CALCULATE([01. Valor AB Total], REMOVEFILTERS(TB_CLI)),
+			
+			        _Campo IN {
+			            NAMEOF(xUF_Regiao[UF]),
+			            NAMEOF(xUF_Regiao[Região/Grupo])
+			        },
+			            CALCULATE([01. Valor AB Total], REMOVEFILTERS(xUF_Regiao)),
+			
+			        _Campo = NAMEOF(TB_FRJ[xTipo]),
+			            CALCULATE([01. Valor AB Total], REMOVEFILTERS(TB_FRJ)),
+			
+			        _Campo = NAMEOF(TB_REP[nomrep]),
+			            CALCULATE([01. Valor AB Total], REMOVEFILTERS(TB_REP)),
+			
+			        _Campo IN {
+			            NAMEOF(TB_Fatos_CR[titulo]),
+			            NAMEOF(TB_Fatos_CR[sit]),
+			            NAMEOF(TB_Fatos_CR[numnota]),
+			            NAMEOF(TB_Fatos_CR[observacao]),
+			            NAMEOF(TB_Fatos_CR[emissao]),
+			            NAMEOF(TB_Fatos_CR[vencimento]),
+			            NAMEOF(TB_Fatos_CR[codpagamento])
+			        },
+			            CALCULATE([01. Valor AB Total], REMOVEFILTERS(TB_Fatos_CR) ),
+			
+			        _Campo IN{
+			            NAMEOF( TB_TIPO[CODTPT] ) 
+			        }, 
+			            CALCULATE( [01. Valor AB Total], REMOVEFILTERS( TB_TIPO ) ),
+			        
+			        _Campo IN{
+			            NAMEOF(TB_Fatos_CR[portador])
+			        }, 
+			            CALCULATE( tota
+			
+			        [01. Valor AB Total]
+			    )
+			
+			RETURN
+			DIVIDE( [01. Valor AB Total], _Total, 0 )
+			```
+		displayFolder: 01. Valores Totais\%
+		lineageTag: b6b48241-5d05-4b03-b4c1-5382a417f2ba
+
+	measure '10. Valor Total LQ' =
+			
+			SUM( TB_Fatos_LQ[VLRRAT] )
+		displayFolder: 10. Liquidado
+		lineageTag: 5e8391c3-5268-4cc9-b2fa-d0df02fbc972
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '10. Entrada' = ```
+			
+			// COLOCADO CONTA FINANCEIRA DE ENTRADAS
+			CALCULATE( 
+			    [10. Valor Total LQ],
+			    TB_Fatos_LQ[CTAFIN] IN{40,110},
+			    KEEPFILTERS( NOT TB_Fatos_LQ[CODCLI] IN{11143,21982,17661,46501,5517,48831,17935,2394,7868}) )
+			```
+		displayFolder: 10. Liquidado
+		lineageTag: c5b5664d-8aae-4d94-91c1-1c009df432f0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '10. Antecipacao Cliente' =
+			
+			CALCULATE(
+			    [10. Valor Total LQ],
+			    TB_Fatos_LQ[CODTNS] = "9061A" )
+		displayFolder: 10. Liquidado
+		lineageTag: 89a0c180-c753-44f6-a005-e2224311af33
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '10. Antecipacao Banco' =
+			
+			CALCULATE(
+			    [10. Valor Total LQ],
+			    TB_Fatos_LQ[CODTNS] = "90770",
+			    USERELATIONSHIP( TB_Fatos_LQ[DATMOV], 'CALENDARIO DAX'[Date])
+			) * -1 -- invertido sinal por conta da transação não alterada
+		displayFolder: 10. Liquidado
+		lineageTag: 9826602c-fcfd-4cbf-918b-cb884efdf92c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '10. Troco Motorista' =
+			
+			CALCULATE(
+			    [10. Valor Total LQ],
+			    TB_Fatos_LQ[CODTNS] = "90634" -- transação de troco motorista
+			
+			)
+		displayFolder: 10. Liquidado
+		lineageTag: 5cd064da-0e8a-4f9f-a72f-f0d38b6d77e7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '10. Estorno de Juros' =
+			
+			CALCULATE(
+			    [10. Valor Total LQ],
+			    TB_Fatos_LQ[CODTNS] = "90616" -- transação de estorno de juros
+			
+			)
+		displayFolder: 10. Liquidado
+		lineageTag: e1ea73af-f306-423f-8bd1-f2238c30972d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '10. Rendimentos' =
+			
+			CALCULATE(
+			    [10. Valor Total LQ],
+			    TB_Fatos_LQ[CODTNS] = "90608" -- transação de Rendimentos
+			
+			)
+		displayFolder: 10. Liquidado
+		lineageTag: ddb10bd0-9f87-42a2-baff-22943aa1cf4f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '10. ERROR' =
+			
+			CALCULATE(
+			    [10. Valor Total LQ],
+			    TB_Fatos_LQ[CODTNS] IN({"90657","90617","90769","90770","90762"}),
+			    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_LQ[DATMOV] )
+			)
+		displayFolder: 10. Liquidado
+		lineageTag: 6dc492c7-ea04-403d-be3b-00a36f3fd896
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '01. Saldo' =
+			
+			[01. Valor AB CR] + [01. Valor AB CP]
+		displayFolder: 01. Valores Totais\Geral
+		lineageTag: 7afcc56f-2a6c-4a67-b33f-34a3b651e578
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

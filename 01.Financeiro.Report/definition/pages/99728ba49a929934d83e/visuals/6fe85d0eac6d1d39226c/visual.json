@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "6fe85d0eac6d1d39226c",
   "position": {
     "x": 63.400267737617135,
@@ -39,22 +39,6 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Apoio"
-                    }
-                  },
-                  "Property": "Carteira"
-                }
-              },
-              "queryRef": "TB_Apoio.Carteira",
-              "nativeQueryRef": "Agp_Portador",
-              "active": true,
-              "displayName": "Agp_Portador"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
                       "Entity": "TB_Fatos_CR"
                     }
                   },
@@ -63,7 +47,7 @@
               },
               "queryRef": "TB_Fatos_CR.portador",
               "nativeQueryRef": "portador",
-              "active": false,
+              "active": true,
               "displayName": "portador"
             }
           ],
@@ -80,7 +64,7 @@
                 }
               },
               "index": 0,
-              "length": 2
+              "length": 1
             }
           ]
         },

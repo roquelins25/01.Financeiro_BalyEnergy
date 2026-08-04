@@ -1,0 +1,177 @@
+table TB_Fatos_LQ
+	lineageTag: 0fe279fa-3a60-4a42-a024-2216cc42bc8d
+
+	column codemp
+		dataType: int64
+		formatString: 0
+		lineageTag: 617dfb34-6975-4454-8598-c5c4e64121b2
+		summarizeBy: sum
+		sourceColumn: codemp
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMCCO
+		dataType: string
+		lineageTag: 8f0ed6b1-de09-4a0d-8328-e68f2e1bb541
+		summarizeBy: none
+		sourceColumn: NUMCCO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODTNS
+		dataType: string
+		lineageTag: c2be0161-7245-4b16-9317-3caf4f51eaca
+		summarizeBy: none
+		sourceColumn: CODTNS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCCO
+		dataType: string
+		lineageTag: 7d6638bd-95bb-4b1a-8c53-9b9fc9f5332c
+		summarizeBy: none
+		sourceColumn: DESCCO
+
+		annotation SummarizationSetBy = Automatic
+
+	column hismov
+		dataType: string
+		lineageTag: 6db4b4de-651f-40bb-b858-9df8ffe5a5e4
+		summarizeBy: none
+		sourceColumn: hismov
+
+		annotation SummarizationSetBy = Automatic
+
+	column VLRRAT
+		dataType: double
+		lineageTag: 5cd22c5a-cfd5-408e-b140-240500940246
+		summarizeBy: sum
+		sourceColumn: VLRRAT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CTAFIN
+		dataType: int64
+		formatString: 0
+		lineageTag: bb1ef885-b56c-4305-a6f8-43ae10bb1904
+		summarizeBy: sum
+		sourceColumn: CTAFIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCTA
+		dataType: string
+		lineageTag: c5fd0eb9-a61b-4fb3-bff0-c80cd1ccc835
+		summarizeBy: none
+		sourceColumn: DESCTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODCCU
+		dataType: string
+		lineageTag: 9bb4260c-0c32-408f-bb1d-d9e464539194
+		summarizeBy: none
+		sourceColumn: CODCCU
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCCU
+		dataType: string
+		lineageTag: 48b09c75-1a06-4e92-bc9a-35ab456d16b9
+		summarizeBy: none
+		sourceColumn: DESCCU
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEBCRE
+		dataType: string
+		lineageTag: 37b25546-4cf7-4240-8a16-c4029c933ba8
+		summarizeBy: none
+		sourceColumn: DEBCRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATMOV
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fd695abd-d7e5-497f-b223-867a5dd3e50e
+		summarizeBy: none
+		sourceColumn: DATMOV
+
+		annotation SummarizationSetBy = Automatic
+
+	column ctared
+		dataType: int64
+		formatString: 0
+		lineageTag: a615a89c-eb1f-41d8-8022-c5d179058cdf
+		summarizeBy: sum
+		sourceColumn: ctared
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODFIL
+		dataType: int64
+		formatString: 0
+		lineageTag: 78a98b75-4545-4e7e-897a-fdc9b0fd3cf0
+		summarizeBy: sum
+		sourceColumn: CODFIL
+
+		annotation SummarizationSetBy = Automatic
+
+	column nummcr
+		dataType: string
+		lineageTag: 90c036b4-badd-46c4-9539-ab9452d89a1a
+		summarizeBy: none
+		sourceColumn: nummcr
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODCLI
+		dataType: int64
+		formatString: 0
+		lineageTag: ef4cf147-3007-411c-a921-a7342b6ac019
+		summarizeBy: none
+		sourceColumn: CODCLI
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODTNSMCR
+		dataType: string
+		lineageTag: cb99caee-b21f-4946-90af-07e20f6fb5b6
+		summarizeBy: none
+		sourceColumn: CODTNSMCR
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_CONTA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 934e045f-beb1-4de7-9462-49ee95ea9281
+		summarizeBy: none
+		sourceColumn: DATA_CONTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITTIT
+		dataType: string
+		lineageTag: a2c654d5-eb39-4273-aa36-03ca3049318c
+		summarizeBy: none
+		sourceColumn: SITTIT
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_Fatos_LQ = m
+		mode: import
+		queryGroup: _Fatos\CP_CR
+		source =
+				let
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="WITH #(lf)#(tab)TB_Extrato as (#(lf)#(tab) SELECT #(lf)#(tab)#(tab) E600MCC.codemp,#(lf)#(tab)#(tab) E600MCC.CODFIL,#(lf)#(tab)#(tab) E600MCC.NUMCCO,#(lf)#(tab)#(tab) E600MCC.nummcr,#(lf)#(tab)#(tab) E600MCC.tptmcr,#(lf)#(tab)#(tab) E600MCC.SEQMCR,#(lf)#(tab)#(tab) E600RAT.CODTNS,#(lf)#(tab)#(tab) E600CCO.DESCCO,#(lf)#(tab)#(tab) E600MCC.hismov,#(lf)#(tab)#(tab) E600MCC.DATMOV,#(lf)#(tab)#(tab) Case when E600MCC.DEBCRE = 'D' then E600RAT.VLRRAT * (-1)#(lf)#(tab)#(tab) Else E600RAT.VLRRAT#(lf)#(tab)#(tab) End VLRRAT, #(lf)#(tab)#(tab) E600RAT.CTAFIN,#(lf)#(tab)#(tab) E091PLF.DESCTA,#(lf)#(tab)#(tab) E600RAT.CODCCU,#(lf)#(tab)#(tab) E600RAT.ctared,#(lf)#(tab)#(tab) E044CCU.DESCCU,#(lf)#(tab)#(tab) E600MCC.DEBCRE#(lf)#(tab) FROM sapiens_producao.E600MCC,#(lf)#(tab)#(tab)  sapiens_producao.E600RAT,#(lf)#(tab)#(tab)  sapiens_producao.E091PLF,#(lf)#(tab)#(tab)  sapiens_producao.E600CCO,#(lf)#(tab)#(tab)  sapiens_producao.E070EMP,#(lf)#(tab)#(tab)  sapiens_producao.E044CCU#(lf)#(tab) WHERE E600MCC.SITMCC <> 'I'#(lf)#(tab)#(tab) AND E600MCC.CODEMP = 1#(lf)#(tab)#(tab) AND E600MCC.CODFIL = 1#(lf)#(tab)#(tab) AND E600MCC.CODEMP = E070EMP.CODEMP#(lf)#(tab)#(tab) AND E600RAT.CODEMP = E600MCC.CODEMP#(lf)#(tab)#(tab) AND E600RAT.NUMCCO = E600MCC.NUMCCO#(lf)#(tab)#(tab) AND E600RAT.DATMOV = E600MCC.DATMOV#(lf)#(tab)#(tab) AND E600RAT.SEQMOV = E600MCC.SEQMOV#(lf)#(tab)#(tab) AND E600CCO.CODEMP = E600MCC.CODEMP#(lf)#(tab)#(tab) AND E600CCO.NUMCCO = E600MCC.NUMCCO#(lf)#(tab)#(tab) AND E091PLF.CODEMP = E600RAT.CODEMP#(lf)#(tab)#(tab) AND E091PLF.CTAFIN = E600RAT.CTAFIN#(lf)#(tab)#(tab) AND E600RAT.CODEMP = E044CCU.CODEMP#(lf)#(tab)#(tab) AND E600RAT.CODCCU = E044CCU.CODCCU#(lf)#(tab)#(tab) AND NOT EXISTS (#(lf)#(tab)#(tab) #(tab)SELECT 1 FROM sapiens_producao.E099UXC #(lf)#(tab)#(tab) #(tab)WHERE E099UXC.CODEMP = 1 #(lf)#(tab)#(tab)#(tab)  AND E099UXC.CODUSU = 261 #(lf)#(tab)#(tab)#(tab)  AND E099UXC.NUMCCO = E600MCC.NUMCCO)#(lf)#(tab)#(tab) AND E600MCC.SITMCC <> 'I'#(lf)#(tab)#(tab) AND E600CCO.CODTCC NOT IN ('1') -- RETIRA CONTAS DE MOTORISTAS#(lf)#(tab)#(tab)#(lf)#(tab)),#(lf)#(tab)TB_TCR AS(#(lf)#(tab)SELECT #(lf)#(tab)#(tab)CODEMP,#(lf)#(tab)#(tab)CODFIL,#(lf)#(tab)#(tab)NUMTIT,#(lf)#(tab)#(tab)SITTIT,#(lf)#(tab)#(tab)CODTPT,#(lf)#(tab)#(tab)CODCLI#(lf)#(tab)FROM E301TCR#(lf)#(tab)),#(lf)#(tab)TB_MCR AS(#(lf)#(tab)SELECT#(lf)#(tab)#(tab)MCR.CODEMP,#(lf)#(tab)#(tab)MCR.CODFIL,#(lf)#(tab)#(tab)MCR.numtit ,#(lf)#(tab)#(tab)MCR.codtpt ,#(lf)#(tab)#(tab)MCR.seqmov ,#(lf)#(tab)#(tab)MCR.codtns #(lf)#(tab)FROM E301MCR MCR#(lf)#(tab)WHERE MCR.datmov >= '20250101'#(lf)#(tab)),#(lf)TB_CONSOLIDADO as(#(lf)SELECT #(lf)#(tab)#(tab) EX.codemp,#(lf)#(tab)#(tab) EX.CODFIL,#(lf)#(tab)#(tab) EX.NUMCCO,#(lf)#(tab)#(tab) EX.nummcr,#(lf)#(tab)#(tab) TCR.CODCLI,#(lf)#(tab)#(tab) TCR.SITTIT,#(lf)#(tab)#(tab) EX.CODTNS,#(lf)#(tab)#(tab) MCR.CODTNS CODTNSMCR,#(lf)#(tab)#(tab) EX.DESCCO,#(lf)#(tab)#(tab) EX.hismov,#(lf)#(tab)#(tab) EX.DATMOV,#(lf)#(tab)#(tab)CASE#(lf)#(tab)#(tab)    WHEN DATEPART(WEEKDAY, EX.DATMOV) = 6#(lf)#(tab)#(tab)         AND MCR.CODTNS = '90350'#(lf)#(tab)#(tab)         AND EX.NUMCCO NOT IN ('ITAU10917-0', 'SAFRA VINC', 'BMP SOCIEDADE', 'RED')#(lf)#(tab)#(tab)    THEN DATEADD(DAY, 3, EX.DATMOV)#(lf)#(tab)#(tab)#(lf)#(tab)#(tab)    WHEN DATEPART(WEEKDAY, EX.DATMOV) <> 6#(lf)#(tab)#(tab)         AND (MCR.CODTNS = '90350' OR MCR.CODTNS IS NULL)#(lf)#(tab)#(tab)         AND EX.NUMCCO NOT IN ('ITAU10917-0', 'SAFRA VINC', 'BMP SOCIEDADE', 'RED')#(lf)#(tab)#(tab)    THEN DATEADD(DAY, 1, EX.DATMOV)#(lf)#(tab)#(tab)#(lf)#(tab)#(tab)    ELSE EX.DATMOV#(lf)#(tab)#(tab)END AS DATA_CONTA,#(lf)#(tab)#(tab) EX.VLRRAT, #(lf)#(tab)#(tab) EX.CTAFIN,#(lf)#(tab)#(tab) EX.DESCTA,#(lf)#(tab)#(tab) EX.CODCCU,#(lf)#(tab)#(tab) EX.ctared,#(lf)#(tab)#(tab) EX.DESCCU,#(lf)#(tab)#(tab) EX.DEBCRE#(lf)FROM TB_Extrato EX#(lf)LEFT JOIN TB_MCR MCR#(lf)#(tab)   ON MCR.CODEMP = EX.CODEMP #(lf)#(tab)  AND MCR.CODFIL = EX.CODFIL #(lf)#(tab)  AND MCR.SEQMOV = EX.SEQMCR#(lf)#(tab)  AND MCR.NUMTIT = EX.NUMMCR#(lf)#(tab)  AND MCR.CODTPT = EX.TPTMCR#(lf)#(tab)  #(lf)LEFT JOIN TB_TCR TCR#(lf)#(tab)   ON TCR.CODEMP = MCR.CODEMP #(lf)#(tab)  AND TCR.CODFIL = MCR.CODFIL#(lf)#(tab)  AND TCR.NUMTIT = MCR.NUMTIT#(lf)#(tab)  AND TCR.CODTPT = MCR.CODTPT#(lf)#(tab)  #(lf)WHERE EX.CODTNS NOT IN ('90686') -- Retira transação pois é pagamento de devolução, deve entrar somente depois e reclassificado#(lf)  AND (TCR.SITTIT IS NULL OR TCR.SITTIT <> 'CA') -- retira os titulos que foram cancelados  #(lf))#(lf)  SELECT #(lf)  #(tab)*#(lf)  FROM TB_CONSOLIDADO#(lf)  WHERE DATA_CONTA between '20260601'  and '20260701'"])
+				in
+				  Origem
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
