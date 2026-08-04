@@ -157,7 +157,11 @@ relationship dbccd59a-1881-ec11-6ecd-1a4e1eff6668
 	fromColumn: TB_Fatos_CP.CtaFin
 	toColumn: Base_Classificacao.Cod
 
-relationship 31796bd3-9d2c-4473-83b3-c06b40d797f0
+relationship 0dce54a3-e7bb-f374-4535-aefa31c970ee
+	fromColumn: TB_Fatos_CP.Tipo
+	toColumn: TB_TIPO.CODTPT
+
+relationship a61297e2-af0a-444e-a8c6-aa65b90dbac2
 	joinOnDateBehavior: datePartOnly
 	fromColumn: 'CALENDARIO DAX'.Date
 	toColumn: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.Date
@@ -192,4 +196,25 @@ relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
 	toCardinality: many
 	fromColumn: TB_AUXtempo.Tipo
 	toColumn: 'CALENDARIO DAX'.Vencidos?
+
+relationship AutoDetected_f51aee0b-d594-4d33-966e-0c88f1902901
+	fromColumn: TB_Fatos_LQ.CODTNS
+	toColumn: TB_TNS.codtns
+
+relationship 2128ade2-ee6f-b09b-85bb-744ae4cf1a2c
+	fromColumn: TB_Fatos_LQ.NUMCCO
+	toColumn: TB_Apoio.potador
+
+relationship AutoDetected_31c7f75f-1a81-41b4-9f62-411991afc617
+	fromColumn: TB_Fatos_LQ.CODCLI
+	toColumn: TB_CLI.codcli
+
+relationship 7e97d2a0-5dd6-7af5-aef7-c5614624d213
+	fromColumn: TB_Fatos_LQ.DATA_CONTA
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship fcc236c5-5b37-2ccf-0e05-dee68cb274b7
+	isActive: false
+	fromColumn: TB_Fatos_LQ.DATMOV
+	toColumn: 'CALENDARIO DAX'.Date
 

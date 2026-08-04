@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "f3f06c6be29e0d6022be",
   "position": {
     "x": 829.27779407450873,
@@ -68,13 +68,6 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''_Medidas''[01. Valor Original]'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
                                 "Value": "'''_Medidas''[01. Valor Aberto]'"
                               }
                             }
@@ -103,17 +96,6 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''_Medidas''[01. Valor Original]'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
                                       "Value": "'''_Medidas''[01. Valor Aberto]'"
                                     }
                                   }
@@ -137,9 +119,6 @@
                           ]
                         },
                         "valueMap": [
-                          {
-                            "0": "01. Valor Original"
-                          },
                           {
                             "0": "01. Valor Aberto"
                           }

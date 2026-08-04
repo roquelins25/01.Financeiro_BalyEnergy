@@ -1,10 +1,10 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "6d4e60bc3921cbc2538c",
   "position": {
     "x": 2.3843338925267545,
     "y": 301.53178236043607,
-    "z": 8000,
+    "z": 7000,
     "height": 202.95408428106273,
     "width": 351.78707942050875,
     "tabOrder": 2000
@@ -67,7 +67,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "20L"
+                                "Value": "3L"
                               }
                             }
                           ]

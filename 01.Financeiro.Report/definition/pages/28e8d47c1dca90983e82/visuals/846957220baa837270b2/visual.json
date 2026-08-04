@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "846957220baa837270b2",
   "position": {
-    "x": 460.02925770374219,
-    "y": 131.43693077249776,
+    "x": 459.81438515081203,
+    "y": 132.80742459396751,
     "z": 0,
-    "height": 452.29767354065405,
-    "width": 1440.0075503751593,
+    "height": 464.82598607888633,
+    "width": 1439.5823665893272,
     "tabOrder": 14000
   },
   "visual": {
@@ -20,30 +20,30 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "TB_REP"
                     }
                   },
-                  "Property": "Ano"
+                  "Property": "nomrep"
                 }
               },
-              "queryRef": "CALENDARIO DAX.Ano",
-              "nativeQueryRef": "Ano",
-              "displayName": "Ano"
+              "queryRef": "TB_REP.nomrep",
+              "nativeQueryRef": "Representante",
+              "displayName": "Representante"
             },
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "Nome do Mês"
+                  "Property": "xREDE"
                 }
               },
-              "queryRef": "CALENDARIO DAX.Nome do Mês",
-              "nativeQueryRef": "Nome do Mês",
-              "displayName": "Nome do Mês"
+              "queryRef": "TB_CLI.xREDE",
+              "nativeQueryRef": "xREDE",
+              "displayName": "xREDE"
             },
             {
               "field": {
@@ -65,30 +65,30 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "xUF_Regiao"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "UF"
+                  "Property": "titulo"
                 }
               },
-              "queryRef": "xUF_Regiao.UF",
-              "nativeQueryRef": "UF",
-              "displayName": "UF"
+              "queryRef": "TB_Fatos_CR.titulo",
+              "nativeQueryRef": "titulo",
+              "displayName": "titulo"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Medidas"
+                      "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "01. Valor Original"
+                  "Property": "vencimento"
                 }
               },
-              "queryRef": "_Medidas.01. Valor Original",
-              "nativeQueryRef": "01. Valor Original",
-              "displayName": "01. Valor Original"
+              "queryRef": "TB_Fatos_CR.vencimento",
+              "nativeQueryRef": "vencimento",
+              "displayName": "vencimento"
             },
             {
               "field": {
@@ -119,7 +119,8 @@
                 }
               },
               "index": 0,
-              "length": 4
+              "length": 5,
+              "sortDirection": "Descending"
             },
             {
               "parameterExpr": {
@@ -133,8 +134,7 @@
                 }
               },
               "index": 1,
-              "length": 2,
-              "sortDirection": "Descending"
+              "length": 1
             }
           ]
         }
@@ -143,13 +143,13 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Medidas"
+                    "Entity": "TB_Fatos_CR"
                   }
                 },
-                "Property": "01. Valor Original"
+                "Property": "vencimento"
               }
             },
             "direction": "Descending"
@@ -179,6 +179,22 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "503.63575335235134D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "TB_REP.nomrep"
           }
         }
       ]

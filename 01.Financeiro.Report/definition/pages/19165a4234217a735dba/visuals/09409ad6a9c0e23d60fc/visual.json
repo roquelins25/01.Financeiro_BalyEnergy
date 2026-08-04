@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "09409ad6a9c0e23d60fc",
   "position": {
     "x": 463.39501206757842,
@@ -222,8 +222,8 @@
                 }
               },
               "queryRef": "_Medidas.01. AB Prorogacao",
-              "nativeQueryRef": "Prorogacao",
-              "displayName": "Prorogacao"
+              "nativeQueryRef": "Prorrogacao",
+              "displayName": "Prorrogacao"
             },
             {
               "field": {

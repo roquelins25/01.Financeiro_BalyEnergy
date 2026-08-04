@@ -10,7 +10,7 @@ table 'CALENDARIO DAX'
 
 		variation Variation
 			isDefault
-			relationship: 31796bd3-9d2c-4473-83b3-c06b40d797f0
+			relationship: a61297e2-af0a-444e-a8c6-aa65b90dbac2
 			defaultHierarchy: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
@@ -179,7 +179,7 @@ table 'CALENDARIO DAX'
 				        "AnoMesOrdem", YEAR( [Date] )*100 + MONTH([Date]),
 				        "MesAtual", IF( YEAR( [Date] ) = YEAR( TODAY() ) && MONTH( [Date] ) = MONTH( TODAY() ), "S", "N" ),
 				        "AnoTEXT", FORMAT( YEAR( [Date] ), "" ),
-				        "Vencidos?", IF( [Date] < TODAY() - 3, "Vencidas", "A Vencer" ),
+				        "Vencidos?", IF( [Date] < TODAY() -2 , "Vencidas", "A Vencer" ),
 				        "DiaMES", FORMAT([Date],"dd","PT-BR")&"-"&FORMAT([Date],"mmm","PT-BR")
 				        )
 

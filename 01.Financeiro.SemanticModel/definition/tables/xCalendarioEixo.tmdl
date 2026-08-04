@@ -1,0 +1,86 @@
+table xCalendarioEixo
+	lineageTag: d483388b-ed7e-42b7-b342-1242b16df297
+
+	column Ordem
+		formatString: 0
+		lineageTag: 08e39899-2e00-4025-9858-2f53ab7b5bbd
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ordem]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tipo
+		lineageTag: 04a99342-598c-49bd-a9c3-9834a37262d8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Tipo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Offset
+		formatString: 0
+		lineageTag: 30c8ded9-282d-44f9-bfe4-932d73cd9db2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Offset]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		formatString: 0
+		lineageTag: 8bcd7ddf-5875-4f39-b040-5a09695a3eb4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Periodo
+		lineageTag: 61d184aa-3c7d-44d3-aa9e-5f876bdd9792
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Periodo]
+		sortByColumn: Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	partition xCalendarioEixo = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Ordem", INTEGER,
+				    "Tipo", STRING,
+				    "Offset", INTEGER,
+				    "Mes", INTEGER,
+				    "Periodo", STRING,
+				{
+				    { 1,"Total",0,0,"Total Geral"},
+				    { 2,"Percent",0,0,"% Total"},
+				    { 3,"Acumulado",0,0,"% Acum."},
+				
+				    { 4,"Ano",-2,0,"Ano -2"},
+				    { 5,"Ano",-1,0,"Ano -1"},
+				
+				    { 6,"Mes",0,1,"Jan"},
+				    { 7,"Mes",0,2,"Fev"},
+				    { 8,"Mes",0,3,"Mar"},
+				    { 9,"Mes",0,4,"Abr"},
+				    {10,"Mes",0,5,"Mai"},
+				    {11,"Mes",0,6,"Jun"},
+				    {12,"Mes",0,7,"Jul"},
+				    {13,"Mes",0,8,"Ago"},
+				    {14,"Mes",0,9,"Set"},
+				    {15,"Mes",0,10,"Out"},
+				    {16,"Mes",0,11,"Nov"},
+				    {17,"Mes",0,12,"Dez"},
+				
+				    {18,"Ano",0,0,"Ano"},
+				    {19,"Ano",1,0,"Ano +1"},
+				    {20,"Ano",2,0,"Ano +2"}
+				}
+				)
+
+	annotation PBI_Id = 1e7e4e7341b8481aa0e325690844c6b5
+

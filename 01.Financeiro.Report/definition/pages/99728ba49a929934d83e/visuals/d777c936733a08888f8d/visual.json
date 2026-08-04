@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "d777c936733a08888f8d",
   "position": {
     "x": 76.039603960396036,
@@ -68,13 +68,6 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''TB_Apoio''[Carteira]'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
                                 "Value": "'''TB_Fatos_CR''[portador]'"
                               }
                             }
@@ -103,17 +96,6 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''TB_Apoio''[Carteira]'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
                                       "Value": "'''TB_Fatos_CR''[portador]'"
                                     }
                                   }
@@ -137,9 +119,6 @@
                           ]
                         },
                         "valueMap": [
-                          {
-                            "0": "Agp_Portador"
-                          },
                           {
                             "0": "portador"
                           }
