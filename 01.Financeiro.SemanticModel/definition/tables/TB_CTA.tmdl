@@ -1,0 +1,67 @@
+table TB_CTA
+	lineageTag: 4411d2e5-f8f3-42c6-b390-99624670fdde
+
+	column ctafin
+		dataType: int64
+		formatString: 0
+		lineageTag: b49bc906-e18f-439f-b5ec-50192b292ccd
+		summarizeBy: none
+		sourceColumn: ctafin
+
+		annotation SummarizationSetBy = Automatic
+
+	column descta
+		dataType: string
+		lineageTag: e9809dcc-2381-4a06-b814-1c2e08977436
+		summarizeBy: none
+		sourceColumn: descta
+
+		annotation SummarizationSetBy = Automatic
+
+	column abrcta
+		dataType: string
+		lineageTag: 8ea30aee-d0f9-4d56-9181-0c5273a744f3
+		summarizeBy: none
+		sourceColumn: abrcta
+
+		annotation SummarizationSetBy = Automatic
+
+	column xAgrupamento =
+			
+			VAR Conta = TB_CTA[ctafin]
+			RETURN
+			IF(
+			    CONTAINS(
+			        fxFluxoCaixa(2),
+			        [CtaFin], Conta
+			    ),
+			    SWITCH(
+			        TRUE(),
+			        Conta IN {1060,2040,3730,850,1800,3350,3921,2840}, "01. Consumo",
+			        Conta IN {1080,530,610,640,630,660,620,520,580,710,650,560,570,590,3050,2540}, "02. Matéria Prima",
+			        Conta IN {540,670,3850,700,3910,680,500}, "03. Embalagem",
+			        Conta IN {1100,1890}, "04. Manutenção",
+			        "05. A Classificar"
+			    ),
+			    BLANK()
+			)
+		lineageTag: 7d7c0d81-c4ed-4517-8fd8-16b8b3cb948f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_CTA = m
+		mode: import
+		queryGroup: _Dim
+		source =
+				let
+				    Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
+				    sapiens_producao_e037frj = Fonte{[Schema="sapiens_producao",Item="e091plf"]}[Data],
+				    #"Outras Colunas Removidas" = Table.SelectColumns(sapiens_producao_e037frj,{"ctafin", "descta", "abrcta"})
+				in
+				    #"Outras Colunas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

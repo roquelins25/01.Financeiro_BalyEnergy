@@ -1,0 +1,133 @@
+					-- ================================== FLUXO DE CAIXA DE INVESTIMENTOS =======================================
+						VAR TiposFluoCaixaInvetimentos =
+							DATATABLE(
+								"Ordem", INTEGER,
+								"ID", STRING,
+								"Categoria", STRING,
+								{
+									{ 1, "adtFor", "Adiantamento Fornecedores" },
+									{ 2, "cambiopassivo", "Cambio Passivo" },
+									{ 3, "despesasFinimp", "Despesas de Finimp" },
+									{ 4, "dJuros", "Juros" },
+									{ 5, "dCheques", "Cheques" },
+									{ 6, "dVarCambial", "Variação Cambial" }
+								}
+							)
+
+						VAR QtdeFixasR_D = COUNTROWS( TiposFluoCaixaInvetimentos )
+
+						VAR Tipos_FluxoCaixaInvestimentos_Base =
+							FILTER(
+								SUMMARIZE(
+									TB_CTA,
+									TB_CTA[ctafin],
+									TB_CTA[descta]
+								),
+								TB_CTA[ctafin] IN fxFluxoCaixa(7)
+							)
+
+						VAR Tipos_FluxoCaixaInvest =
+							ADDCOLUMNS(
+								Tipos_FluxoCaixaInvestimentos_Base,
+								"Ordem", QtdeFixasR_D + RANKX( Tipos_FluxoCaixaInvestimentos_Base, TB_CTA[descta], , ASC, Dense )
+							)
+
+						VAR Soma_FluxoCaixaInvest_Fixas =
+							SUMX( TiposFluoCaixaInvetimentos, fxADMFixaValor( [ID] ) )
+
+						VAR TotalGeralFluxoCaixaInvest =
+							CALCULATE(
+								[10. Deducoes TOTAL],
+								TB_CTA[ctafin] IN fxFluxoCaixa(7)
+							)
+							+ Soma_FluxoCaixaInvest_Fixas
+
+						VAR vCusto_FluxoCaixaInvest_Dias =
+							CONCATENATEX(
+								Datas,
+								VAR ValorContasDia =
+									CALCULATE(
+										[10. Deducoes TOTAL],
+										TB_CTA[ctafin] IN fxFluxoCaixa(7)
+									)
+								VAR ValorFixasDia =
+									SUMX( TiposFluoCaixaInvetimentos, fxADMFixaValor( [ID] ) )
+								VAR ValorDia = ValorContasDia + ValorFixasDia
+								RETURN
+									"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
+								"",
+								[Date],
+								ASC
+							)
+
+						VAR vR_D_finanCabecalho =
+							"<tr class='grupo clicavel ' onclick='toggle(" & AspaDupla & "FluxoCaixaInvest" & AspaDupla & ")'>" &
+								"<td class='col-descricao'><span class='seta' id='seta-FluxoCaixaInvest'>&#9654;</span>( - ) Receitas / Despesas Financeiras</td>" &
+								"<td class='col-total'>" & fxFORMAT( TotalGeralFluxoCaixaInvest, 4 ) & "</td>" &
+								"<td class='col-percent'></td>" &
+								vCusto_FluxoCaixaInvest_Dias &
+							"</tr>"
+
+						VAR vFluxoCaixaFinan_HTML =
+							CONCATENATEX(
+								TiposFluoCaixaInvetimentos,
+								VAR IDAtual        = [ID]
+								VAR OrdemAtual     = [Ordem]
+								VAR CategoriaAtual = [Categoria]
+								VAR TotalFixa      = fxADMFixaValor( IDAtual )
+								VAR PercentFixa    = DIVIDE( TotalFixa, TotalGeralFluxoCaixaInvest, 0 )
+								VAR LinhaDiasFixa =
+									CONCATENATEX(
+										Datas,
+										VAR ValorDia = fxADMFixaValor( IDAtual )
+										RETURN
+											"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
+										"",
+										[Date],
+										ASC
+									)
+								RETURN
+									"<tr class='normal detalhe-row ' data-grupo='FluxoCaixaInvest'>" &
+										"<td class='col-descricao col-nivel1'>6." & OrdemAtual & " - " & CategoriaAtual & "</td>" &
+										"<td class='valor total percent'>" & fxFORMAT( TotalFixa, 4 ) & "</td>" &
+										"<td class='valor total percent'>" & fxFORMAT( PercentFixa, 5 ) & "</td>" &
+										LinhaDiasFixa &
+									"</tr>",
+								"",
+								[Ordem],
+								ASC
+							)
+
+						VAR vFluxoCaixaInvest_Detalhe =
+							CONCATENATEX(
+								Tipos_FluxoCaixaInvest,
+								VAR CtafinAtual    = TB_CTA[ctafin]
+								VAR CategoriaAtual = TB_CTA[descta]
+								VAR OrdemAtual     = [Ordem]
+								VAR TotalConta =
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+								VAR PercentConta = DIVIDE( TotalConta, TotalGeralFluxoCaixaInvest, 0 )
+								VAR LinhaDias =
+									CONCATENATEX(
+										Datas,
+										VAR ValorDia =
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+										RETURN
+											"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
+										"",
+										[Date],
+										ASC
+									)
+								RETURN
+									"<tr class='normal detalhe-row ' data-grupo='FluxoCaixaInvest'>" &
+										"<td class='col-descricao col-nivel1'>6." & OrdemAtual & " - " & CategoriaAtual & "</td>" &
+										"<td class='valor total percent'>" & fxFORMAT( TotalConta, 4 ) & "</td>" &
+										"<td class='valor total percent'>" & fxFORMAT( PercentConta, 5 ) & "</td>" &
+										LinhaDias &
+									"</tr>",
+								"",
+								[Ordem],
+								ASC
+							)
+
+						VAR vCustoFluxoCaixaInvest = vR_D_finanCabecalho & vFluxoCaixaFinan_HTML & vFluxoCaixaInvest_Detalhe

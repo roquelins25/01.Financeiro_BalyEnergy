@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "0431434b4780b1097abe",
   "position": {
-    "x": 1524.3556168159889,
-    "y": 0,
+    "x": 456.05568445475637,
+    "y": 63.897911832946633,
     "z": 4,
-    "height": 93.949000689179869,
-    "width": 361.24052377670574
+    "height": 47.610208816705338,
+    "width": 513.68909512761024
   },
   "visual": {
     "visualType": "slicer",
@@ -128,6 +128,49 @@
                 ]
               }
             }
+          }
+        }
+      ],
+      "slider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "calendarButton": [
+        {
+          "properties": {
+            "strokeShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "iconTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            },
+            "iconSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "40D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ]

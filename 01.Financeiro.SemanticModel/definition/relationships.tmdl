@@ -218,3 +218,11 @@ relationship fcc236c5-5b37-2ccf-0e05-dee68cb274b7
 	fromColumn: TB_Fatos_LQ.DATMOV
 	toColumn: 'CALENDARIO DAX'.Date
 
+relationship AutoDetected_59821e43-1c1e-4448-8dfa-c4f601287085
+	fromColumn: TB_Fatos_CP.CtaFin
+	toColumn: TB_CTA.ctafin
+
+relationship AutoDetected_41aba577-3e5c-468b-a2ca-ebc4903d7791
+	fromColumn: TB_Fatos_LQ.CTAFIN
+	toColumn: TB_CTA.ctafin
+

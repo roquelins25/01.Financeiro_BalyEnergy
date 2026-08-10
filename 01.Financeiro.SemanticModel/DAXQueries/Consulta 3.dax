@@ -1,58 +1,8 @@
-DEFINE
-	VAR __DS0FilterTable = 
-		TREATAS({"Vencidas"}, 'CALENDARIO DAX'[Vencidos?])
-
-	VAR __DS0FilterTable2 = 
-		TREATAS({(2026, "jun-26")}, 'CALENDARIO DAX'[Ano], 'CALENDARIO DAX'[Ano-Mes])
-
-	VAR __DS0FilterTable3 = 
-		TREATAS(
-			{("Contas a Receber", "'TB_PGT'[abrfpg (grupos)]"),
-				("Contas a Receber", "'TB_CLI'[sigufs]"),
-				("Contas a Pagar", "'TB_Fatos_CP'[despar]"),
-				("Contas a Pagar", "'TB_CLI'[nomcli]")},
-			'yxTeste'[desc],
-			'yParamentros'[yContasApagar Campos]
-		)
-
-	VAR __DM3FilterTable = 
-		TREATAS({"Contas a Pagar",
-			"Contas a Receber"}, 'yxTeste'[desc])
-
-	VAR __DS0Core = 
-		SUMMARIZECOLUMNS(
-			ROLLUPADDISSUBTOTAL(
-				ROLLUPGROUP('yxTeste'[desc], 'yxTeste'[id]), "IsGrandTotalRowTotal",
-				'TB_PGT'[abrfpg (grupos)], "IsDM1Total", NONVISUAL(__DM3FilterTable)
-			),
-			__DS0FilterTable,
-			__DS0FilterTable2,
-			__DS0FilterTable3,
-			"v01__Valor_AB_CR", '_Medidas'[01. Valor AB CR]
-		)
-
-	VAR __DS0PrimaryWindowed = 
-		TOPN(
-			502,
-			__DS0Core,
-			[IsGrandTotalRowTotal],
-			0,
-			'yxTeste'[id],
-			1,
-			'yxTeste'[desc],
-			1,
-			[IsDM1Total],
-			0,
-			'TB_PGT'[abrfpg (grupos)],
-			1
-		)
-
 EVALUATE
-	__DS0PrimaryWindowed
-
-ORDER BY
-	[IsGrandTotalRowTotal] DESC,
-	'yxTeste'[id],
-	'yxTeste'[desc],
-	[IsDM1Total] DESC,
-	'TB_PGT'[abrfpg (grupos)]
+SUMMARIZE(
+	TB_Fatos_LQ,
+	TB_Fatos_LQ[CODTNS],
+	TB_Fatos_LQ[CTAFIN],
+	TB_Fatos_LQ[DESCTA],
+	"Valor", [10. Deducoes da Entrada TOTAL]
+	)

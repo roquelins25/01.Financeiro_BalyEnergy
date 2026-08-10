@@ -5,7 +5,7 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 0
+        "y": 39.947514234490896
       },
       "nodes": [
         {
@@ -140,8 +140,8 @@
         },
         {
           "location": {
-            "x": 2859.8100476647051,
-            "y": 721.28799107561758
+            "x": 3433.8276045176217,
+            "y": 546.50063812386441
           },
           "nodeIndex": "yTB_01",
           "nodeLineageTag": "bef9b51d-4035-4c25-847f-f71743a73033",
@@ -218,8 +218,8 @@
         },
         {
           "location": {
-            "x": 2864.5473221841735,
-            "y": 511.84475089237344
+            "x": 3424.6613395977461,
+            "y": 801.83285919869127
           },
           "nodeIndex": "yTB_Dim",
           "nodeLineageTag": "488d8b9f-3c11-4778-af1b-34a4756ad568",
@@ -231,8 +231,8 @@
         },
         {
           "location": {
-            "x": 3148.5473221841735,
-            "y": 511.84475089237344
+            "x": 3434.5629906506788,
+            "y": 370.82313657902711
           },
           "nodeIndex": "yTB_Metricas",
           "nodeLineageTag": "125319ef-8be2-4abc-8d6b-f63edc75666a",
@@ -321,8 +321,8 @@
         },
         {
           "location": {
-            "x": 2858.97060525976,
-            "y": 978.48452049556784
+            "x": 4012.9643787253121,
+            "y": 797.73850778409576
           },
           "nodeIndex": "DataAtualizacao",
           "nodeLineageTag": "977b1ef4-fbad-4547-bb9c-441470935c4c",
@@ -421,10 +421,23 @@
             "width": 234
           },
           "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 3033.2286514139691,
+            "y": 172.67987786815945
+          },
+          "nodeIndex": "TB_CTA",
+          "nodeLineageTag": "4411d2e5-f8f3-42c6-b390-99624670fdde",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",
-      "zoomValue": 50.346892102823226,
+      "zoomValue": 40.052554724883272,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "378973f5ed32950035e4",
+  "position": {
+    "x": 114.01392111368909,
+    "y": 134.06032482598607,
+    "z": 9,
+    "height": 922.13457076566124,
+    "width": 1784.1299303944315
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "05.HTML_Fluxo_caixa_LQ"
+                }
+              },
+              "queryRef": "_Medidas.05.HTML_Fluxo_caixa_LQ",
+              "nativeQueryRef": "05.HTML_Fluxo_caixa_LQ"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e1f31220bb460a925702",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "05.HTML_Fluxo_caixa_LQ"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

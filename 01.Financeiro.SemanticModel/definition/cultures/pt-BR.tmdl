@@ -10067,7 +10067,7 @@ cultureInfo pt-BR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
-			          "ConceptualProperty": "Medida"
+			          "ConceptualProperty": "10. Entrada FRUTS"
 			        }
 			      },
 			      "State": "Generated",

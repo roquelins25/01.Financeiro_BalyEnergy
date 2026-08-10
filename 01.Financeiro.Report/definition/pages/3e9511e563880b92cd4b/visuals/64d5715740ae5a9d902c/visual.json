@@ -5,12 +5,13 @@
     "x": 6.2645011600928342,
     "y": 80.185614849187928,
     "z": 3000,
-    "height": 989.55862640704993,
-    "width": 1899.0653581752897,
+    "height": 990.936143091718,
+    "width": 1911.8620823901365,
     "tabOrder": 7001
   },
   "visualGroup": {
     "displayName": "Tabela",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }
