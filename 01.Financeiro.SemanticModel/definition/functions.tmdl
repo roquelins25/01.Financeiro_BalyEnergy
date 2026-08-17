@@ -127,3 +127,41 @@ function fxADMFixaValor = ```
 		```
 	lineageTag: 3dd4b218-6583-47b3-b119-deeb17615d5a
 
+function fxPeriodo = ```
+		
+		                    ( xExpr: EXPR, xGranularidade: INT64, xDataRef: DATETIME ) =>
+		                            CALCULATE(
+		                                xExpr,
+		                                REMOVEFILTERS( 'CALENDARIO DAX' ),
+		                                'CALENDARIO DAX'[Date] >= fxInicioPeriodo( xGranularidade, xDataRef ),
+		                                'CALENDARIO DAX'[Date] <= fxFimPeriodo( xGranularidade, xDataRef )
+		                            )
+		```
+	lineageTag: 0f2d06c3-b68d-4eed-aba3-d1e189f36a45
+
+function fxInicioPeriodo = ```
+		
+		                    ( xGranularidade: INT64, xDataRef: DATETIME ) =>
+		                            SWITCH(
+		                                xGranularidade,
+		                                1, DATE( YEAR( xDataRef ), 1, 1 ),
+		                                2, DATE( YEAR( xDataRef ), ( INT( ( MONTH( xDataRef ) - 1 ) / 3 ) * 3 ) + 1, 1 ),
+		                                3, DATE( YEAR( xDataRef ), MONTH( xDataRef ), 1 ),
+		                                xDataRef
+		                            )
+		```
+	lineageTag: fd327c97-9fa5-4da1-b289-04ad87be8b21
+
+function fxFimPeriodo = ```
+		
+		                    ( xGranularidade: INT64, xDataRef: DATETIME ) =>
+		                            SWITCH(
+		                                xGranularidade,
+		                                1, DATE( YEAR( xDataRef ), 12, 31 ),
+		                                2, EOMONTH( DATE( YEAR( xDataRef ), ( INT( ( MONTH( xDataRef ) - 1 ) / 3 ) * 3 ) + 3, 1 ), 0 ),
+		                                3, EOMONTH( xDataRef, 0 ),
+		                                xDataRef
+		                            )
+		```
+	lineageTag: c3452c18-4c48-45da-a6c0-cfdc95d04d88
+

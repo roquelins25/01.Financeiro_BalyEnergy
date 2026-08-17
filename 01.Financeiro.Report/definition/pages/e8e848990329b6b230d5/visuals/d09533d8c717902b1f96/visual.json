@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "0431434b4780b1097abe",
+  "name": "d09533d8c717902b1f96",
   "position": {
-    "x": 514.94199535962878,
-    "y": 66.403712296983755,
-    "z": 4,
-    "height": 41.345707656612525,
-    "width": 140.32482598607888
+    "x": 1342.8901734104047,
+    "y": 74.913294797687868,
+    "z": 11,
+    "height": 36.069364161849713,
+    "width": 564.62427745664741
   },
   "visual": {
     "visualType": "slicer",
@@ -19,18 +19,35 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CALENDARIO DAX"
+                      "Entity": "yParamGranularidade"
                     }
                   },
-                  "Property": "AnoTEXT"
+                  "Property": "Granularidade"
                 }
               },
-              "queryRef": "CALENDARIO DAX.AnoTEXT",
-              "nativeQueryRef": "AnoTEXT",
+              "queryRef": "yParamGranularidade.Granularidade",
+              "nativeQueryRef": "Granularidade",
               "active": true
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "yParamGranularidade"
+                  }
+                },
+                "Property": "Granularidade"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -40,7 +57,20 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -50,20 +80,13 @@
       "general": [
         {
           "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "filter": {
               "filter": {
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "c",
-                    "Entity": "CALENDARIO DAX",
+                    "Name": "y",
+                    "Entity": "yParamGranularidade",
                     "Type": 0
                   }
                 ],
@@ -76,10 +99,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "c"
+                                  "Source": "y"
                                 }
                               },
-                              "Property": "AnoTEXT"
+                              "Property": "Granularidade"
                             }
                           }
                         ],
@@ -87,7 +110,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'2026'"
+                                "Value": "'Mês'"
                               }
                             }
                           ]
@@ -97,60 +120,11 @@
                   }
                 ]
               }
-            }
-          }
-        }
-      ],
-      "slider": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "calendarButton": [
-        {
-          "properties": {
-            "strokeShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
             },
-            "iconTransparency": {
+            "orientation": {
               "expr": {
                 "Literal": {
-                  "Value": "100D"
-                }
-              }
-            },
-            "iconSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "40D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "1D"
                 }
               }
             }

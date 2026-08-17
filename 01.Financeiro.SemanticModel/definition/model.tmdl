@@ -37,8 +37,6 @@ ref table LocalDateTable_9b806f60-4aa9-4692-b2d1-3455339e17ac
 ref table TB_REP
 ref table TB_Rede
 ref table TB_Fatos_CR
-ref table LocalDateTable_583a235a-7d12-49c2-8072-ab5c4665e829
-ref table LocalDateTable_5299a92e-7ead-441a-934f-081ca3824f8b
 ref table 'CALENDARIO DAX'
 ref table _Medidas
 ref table TB_FRJ
@@ -72,6 +70,7 @@ ref table xCalendarioEixo
 ref table LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae
 ref table TB_Fatos_LQ
 ref table TB_CTA
+ref table yParamGranularidade
 
 ref cultureInfo pt-BR
 

@@ -20,7 +20,7 @@ table xCalendarioTable
 		annotation SummarizationSetBy = Automatic
 
 	column 'CALENDARIO DAX_Ano-Mes'
-		lineageTag: ba9d1f85-e058-4050-9dc9-b5c4e5c73278
+		lineageTag: 88ca06db-87fd-4b5d-bfc6-b62d0948ce94
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: CALENDARIO DAX[Ano-Mes]
@@ -28,7 +28,7 @@ table xCalendarioTable
 		annotation SummarizationSetBy = Automatic
 
 	column 'CALENDARIO DAX_Mês Abrev'
-		lineageTag: dcb878bd-5a70-4fcb-88a0-392cc3ad1a43
+		lineageTag: 8c311c60-d968-4bbb-a25a-9e1c58758a08
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: CALENDARIO DAX[Mês Abrev]
@@ -37,7 +37,7 @@ table xCalendarioTable
 
 	column 'CALENDARIO DAX_AnoMesOrdem'
 		formatString: 0
-		lineageTag: da5e1b0f-ce09-42ee-b4d3-9647409cdeb0
+		lineageTag: d8e07c35-51f9-4ab7-901c-d00080f93d88
 		summarizeBy: sum
 		isNameInferred
 		sourceColumn: CALENDARIO DAX[AnoMesOrdem]
@@ -53,7 +53,7 @@ table xCalendarioTable
 				    "Ano-Mes", BLANK(),
 				    "Mês Abrev", BLANK(),
 				    "Mês", 1 ,
-				    "Periodo", "Total Geral",
+				    "Periodo", "Vlr Limite",
 				    "Cod. Periodo", 1 )
 				
 				VAR _TotalPercent = 
@@ -61,7 +61,7 @@ table xCalendarioTable
 				    "Ano-Mes", BLANK(),
 				    "Mês Abrev", BLANK(),
 				    "Mês", 2 ,
-				    "Periodo", "% Total",
+				    "Periodo", "PrazoMedio",
 				    "Cod. Periodo", 2 )
 				
 				VAR _TotalAcum = 
@@ -69,8 +69,24 @@ table xCalendarioTable
 				    "Ano-Mes", BLANK(),
 				    "Mês Abrev", BLANK(),
 				    "Mês", 3 ,
-				    "Periodo", "% Acum.",
+				    "Periodo", "Limite Suger.",
 				    "Cod. Periodo", 3 )
+				
+				VAR _TotalMedio = 
+				ROW(
+				    "Ano-Mes", BLANK(),
+				    "Mês Abrev", BLANK(),
+				    "Mês", 4 ,
+				    "Periodo", "Media Fat.",
+				    "Cod. Periodo", 4 )
+				
+				VAR _Total = 
+				ROW(
+				    "Ano-Mes", BLANK(),
+				    "Mês Abrev", BLANK(),
+				    "Mês", 5 ,
+				    "Periodo", "Total Fat.",
+				    "Cod. Periodo", 5 )
 				
 				VAR _MES = 
 				ADDCOLUMNS(
@@ -81,7 +97,7 @@ table xCalendarioTable
 				        'CALENDARIO DAX'[Mês Abrev],
 				        'CALENDARIO DAX'[AnoMesOrdem] ) ),
 				    "Periodo", 'CALENDARIO DAX'[Ano-Mes] ,
-				    "Cod. Periodo", 4 )
+				    "Cod. Periodo", 6 )
 				
 				VAR _ANO =
 				    VAR Anos =
@@ -105,10 +121,10 @@ table xCalendarioTable
 				                    DENSE
 				                ),
 				            "Periodo", [Ano],
-				            "Cod. Periodo", 5
+				            "Cod. Periodo", 7
 				        )
 				RETURN
-				UNION(_MES,_ANO,_TotalGeral,_TotalPercent,_TotalAcum )
+				UNION(_MES,_ANO,_TotalGeral,_TotalPercent,_TotalAcum,_TotalMedio,_Total )
 				
 				```
 

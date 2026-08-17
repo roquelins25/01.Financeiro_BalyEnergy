@@ -1,8 +1,0 @@
-EVALUATE
-SUMMARIZE(
-	TB_Fatos_LQ,
-	TB_Fatos_LQ[CODTNS],
-	TB_Fatos_LQ[CTAFIN],
-	TB_Fatos_LQ[DESCTA],
-	"Valor", [10. Deducoes da Entrada TOTAL]
-	)

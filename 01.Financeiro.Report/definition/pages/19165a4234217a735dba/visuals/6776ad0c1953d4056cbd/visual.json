@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "321a20686402c352284a",
+  "name": "6776ad0c1953d4056cbd",
   "position": {
-    "x": 71.67176186645213,
-    "y": 74.143201930812552,
+    "x": 6.6161268090971816,
+    "y": 74.100620261888352,
     "z": 3000,
-    "height": 646.28157683024938,
-    "width": 1208.5341914722446,
-    "tabOrder": 5000
+    "height": 985.80289455547893,
+    "width": 1886.9193659545142,
+    "tabOrder": 8004
   },
   "visualGroup": {
-    "displayName": "Operacao",
+    "displayName": "Limit",
     "groupMode": "ScaleMode"
   },
   "isHidden": true

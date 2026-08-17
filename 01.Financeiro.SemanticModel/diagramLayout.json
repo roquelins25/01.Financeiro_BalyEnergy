@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
-        "y": 39.947514234490896
+        "x": 2696.0543106680016,
+        "y": 0
       },
       "nodes": [
         {
@@ -19,7 +19,7 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 31
+          "zIndex": 30
         },
         {
           "location": {
@@ -32,7 +32,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 30
+          "zIndex": 29
         },
         {
           "location": {
@@ -278,7 +278,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 29
+          "zIndex": 32
         },
         {
           "location": {
@@ -343,7 +343,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 32
+          "zIndex": 31
         },
         {
           "location": {
@@ -356,7 +356,7 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 6
+          "zIndex": 33
         },
         {
           "location": {
@@ -369,7 +369,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 3
         },
         {
           "location": {
@@ -382,7 +382,7 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 4
         },
         {
           "location": {
@@ -395,7 +395,7 @@
             "height": 224,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 5
         },
         {
           "location": {
@@ -407,7 +407,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 6
         },
         {
           "location": {
@@ -420,7 +420,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 2
         },
         {
           "location": {
@@ -433,11 +433,23 @@
             "height": 152,
             "width": 234
           },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 4296.9643787253117,
+            "y": 955.08516535011177
+          },
+          "nodeIndex": "yParamGranularidade",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
           "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",
-      "zoomValue": 40.052554724883272,
+      "zoomValue": 70.955543900968962,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

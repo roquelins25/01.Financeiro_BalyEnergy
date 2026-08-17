@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "0431434b4780b1097abe",
+  "name": "164924b86ec2dc4b979a",
   "position": {
-    "x": 514.94199535962878,
-    "y": 66.403712296983755,
-    "z": 4,
-    "height": 41.345707656612525,
-    "width": 140.32482598607888
+    "x": 717.91183294663574,
+    "y": 68.909512761020878,
+    "z": 12,
+    "height": 36.334106728538281,
+    "width": 241.80974477958236
   },
   "visual": {
     "visualType": "slicer",
@@ -22,11 +22,11 @@
                       "Entity": "CALENDARIO DAX"
                     }
                   },
-                  "Property": "AnoTEXT"
+                  "Property": "Nome do Mês"
                 }
               },
-              "queryRef": "CALENDARIO DAX.AnoTEXT",
-              "nativeQueryRef": "AnoTEXT",
+              "queryRef": "CALENDARIO DAX.Nome do Mês",
+              "nativeQueryRef": "Nome do Mês",
               "active": true
             }
           ]
@@ -50,13 +50,6 @@
       "general": [
         {
           "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "filter": {
               "filter": {
                 "Version": 2,
@@ -79,7 +72,7 @@
                                   "Source": "c"
                                 }
                               },
-                              "Property": "AnoTEXT"
+                              "Property": "Nome do Mês"
                             }
                           }
                         ],
@@ -87,7 +80,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'2026'"
+                                "Value": "'setembro'"
                               }
                             }
                           ]

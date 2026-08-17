@@ -40,5 +40,12 @@
       }
     ]
   },
-  "visibility": "HiddenInViewMode"
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "7a5a9506d0503a6276ea",
+      "target": "46f1054804fd094e0048",
+      "type": "NoFilter"
+    }
+  ]
 }

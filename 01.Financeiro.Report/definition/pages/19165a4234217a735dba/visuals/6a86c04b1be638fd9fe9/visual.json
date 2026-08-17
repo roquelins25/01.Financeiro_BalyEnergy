@@ -1,10 +1,10 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "6a86c04b1be638fd9fe9",
   "position": {
     "x": 2.3843338925267545,
     "y": 156.5645793025341,
-    "z": 7000,
+    "z": 6000,
     "height": 162.36326742485019,
     "width": 355.65287150205279,
     "tabOrder": 7000
@@ -67,7 +67,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'jul'"
+                                "Value": "'ago'"
                               }
                             }
                           ]
@@ -303,6 +303,11 @@
               }
             }
           }
+        }
+      ],
+      "data": [
+        {
+          "properties": {}
         }
       ]
     },

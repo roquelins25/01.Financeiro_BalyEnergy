@@ -3,16 +3,6 @@ relationship a1e2672a-1c56-4674-b30b-d37836518f36
 	fromColumn: TB_CLI.datcad
 	toColumn: LocalDateTable_9b806f60-4aa9-4692-b2d1-3455339e17ac.Date
 
-relationship b844cb2f-ff56-43c2-bcf5-da815a2c9b9b
-	joinOnDateBehavior: datePartOnly
-	fromColumn: TB_Fatos_CR.DataEntrada
-	toColumn: LocalDateTable_583a235a-7d12-49c2-8072-ab5c4665e829.Date
-
-relationship 0b015b73-5233-4e77-80f5-fd3ce15ff67a
-	joinOnDateBehavior: datePartOnly
-	fromColumn: TB_Fatos_CR.VenctOri
-	toColumn: LocalDateTable_5299a92e-7ead-441a-934f-081ca3824f8b.Date
-
 relationship 5f19a329-5d45-e780-d9cb-80872eb853a0
 	fromColumn: TB_Fatos_CR.portador
 	toColumn: TB_Apoio.potador
@@ -225,4 +215,14 @@ relationship AutoDetected_59821e43-1c1e-4448-8dfa-c4f601287085
 relationship AutoDetected_41aba577-3e5c-468b-a2ca-ebc4903d7791
 	fromColumn: TB_Fatos_LQ.CTAFIN
 	toColumn: TB_CTA.ctafin
+
+relationship 97ba9355-df06-5589-ecec-d381a997b370
+	isActive: false
+	fromColumn: TB_Fatos_CR.DataEntrada
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 5d1fe93d-b73b-b317-6695-1135ba921c96
+	isActive: false
+	fromColumn: TB_Fatos_CR.VenctOri
+	toColumn: 'CALENDARIO DAX'.Date
 

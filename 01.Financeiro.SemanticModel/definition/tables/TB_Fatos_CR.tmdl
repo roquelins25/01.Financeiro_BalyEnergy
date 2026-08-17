@@ -76,26 +76,20 @@ table TB_Fatos_CR
 		summarizeBy: none
 		sourceColumn: DataEntrada
 
-		variation Variation
-			isDefault
-			relationship: b844cb2f-ff56-43c2-bcf5-da815a2c9b9b
-			defaultHierarchy: LocalDateTable_583a235a-7d12-49c2-8072-ab5c4665e829.'Hierarquia de datas'
-
 		annotation SummarizationSetBy = Automatic
 
 	column VenctOri
 		dataType: dateTime
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: b246477e-2154-4e31-bf85-ad03a3112c9c
 		summarizeBy: none
 		sourceColumn: VenctOri
 
-		variation Variation
-			isDefault
-			relationship: 0b015b73-5233-4e77-80f5-fd3ce15ff67a
-			defaultHierarchy: LocalDateTable_5299a92e-7ead-441a-934f-081ca3824f8b.'Hierarquia de datas'
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column vencimento
 		dataType: dateTime
@@ -234,6 +228,26 @@ table TB_Fatos_CR
 		lineageTag: cdbc27c4-046e-4292-a41e-1b9014760e10
 		summarizeBy: none
 		sourceColumn: destns
+
+		annotation SummarizationSetBy = Automatic
+
+	column xAnoMesVencOri =
+			
+			FORMAT([VenctOri],"mmm","PT-BR")&"-"&RIGHT(YEAR([VenctOri]),2)
+		lineageTag: 45accb22-447f-4706-b063-7acb68bb6ca7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column xPzrMedioRecebimento =
+			
+			DATEDIFF(
+			    TB_Fatos_CR[emissao],
+			    TB_Fatos_CR[VenctOri],
+			    DAY )
+		formatString: 0
+		lineageTag: 1be95cfd-5f01-4104-aa8f-636110a11442
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
