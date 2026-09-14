@@ -33,7 +33,6 @@ ref table TB_Apoio
 ref table TB_PGT
 ref table DateTableTemplate_da6e50a1-f473-4929-81ee-16f33b811992
 ref table TB_CLI
-ref table LocalDateTable_9b806f60-4aa9-4692-b2d1-3455339e17ac
 ref table TB_REP
 ref table TB_Rede
 ref table TB_Fatos_CR
@@ -51,8 +50,6 @@ ref table xUF_Regiao
 ref table yTB_Dim
 ref table yTB_Metricas
 ref table TB_Verbas
-ref table LocalDateTable_a76563a1-919f-4a9b-b34c-54968ffaf289
-ref table LocalDateTable_0f711601-5541-4b8f-b357-24aaae26d81c
 ref table TB_Fat
 ref table TB_NUMNFV
 ref table TB_TNS
@@ -60,8 +57,6 @@ ref table TB_RTerceiros
 ref table DataAtualizacao
 ref table LocalDateTable_19b0fe29-5ade-4445-bb3d-0a38db7daf25
 ref table TB_Fatos_CP
-ref table LocalDateTable_d128d03e-e579-4f39-b079-6d60cc16b653
-ref table LocalDateTable_0b591359-c36d-48bb-9d45-b76a402bdc2e
 ref table TB_TIPO
 ref table Base_Classificacao
 ref table xSenha
@@ -72,6 +67,11 @@ ref table TB_CTA
 ref table yParamGranularidade
 ref table TB_Projetado
 ref table LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae
+ref table LocalDateTable_883c164d-f052-4b3b-bd11-0400d4339e97
+ref table LocalDateTable_3f164784-a227-49f6-a039-2dbe0af46813
+ref table LocalDateTable_8fae5f4d-8ef4-430a-9af3-96018dad1202
+ref table LocalDateTable_8ec0ac7a-f2de-4765-ae85-d7fbb6265916
+ref table LocalDateTable_37767bc9-1cd3-48e4-9f63-b73919a3b099
 
 ref cultureInfo pt-BR
 

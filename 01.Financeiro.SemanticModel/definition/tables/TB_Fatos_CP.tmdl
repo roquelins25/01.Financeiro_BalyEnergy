@@ -1,77 +1,6 @@
 table TB_Fatos_CP
 	lineageTag: 820916e0-9bc9-4d53-938e-57697026785a
 
-	column CodCcu
-		dataType: string
-		lineageTag: 1a20fc8a-813d-40f9-b521-3db9d67207d6
-		summarizeBy: none
-		sourceColumn: CodCcu
-
-		annotation SummarizationSetBy = Automatic
-
-	column DesCcu
-		dataType: string
-		lineageTag: ec86c9cf-37c0-45db-b73b-e9c45f73e5e0
-		summarizeBy: none
-		sourceColumn: DesCcu
-
-		annotation SummarizationSetBy = Automatic
-
-	column CtaFin
-		dataType: int64
-		formatString: 0
-		lineageTag: efc3c120-1f48-41a9-a2cd-9fc05248ecdd
-		summarizeBy: none
-		sourceColumn: CtaFin
-
-		annotation SummarizationSetBy = Automatic
-
-	column DesCta
-		dataType: string
-		lineageTag: 0c3ed8c3-2d28-461f-88ef-8bb7ea4a432f
-		summarizeBy: none
-		sourceColumn: DesCta
-
-		annotation SummarizationSetBy = Automatic
-
-	column datemi
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: 785a6a5b-ebd2-4534-86fc-25098bb2bcbd
-		summarizeBy: none
-		sourceColumn: datemi
-
-		variation Variation
-			isDefault
-			relationship: 50568c8a-bd22-4ac2-9a38-93830537604d
-			defaultHierarchy: LocalDateTable_d128d03e-e579-4f39-b079-6d60cc16b653.'Hierarquia de datas'
-
-		annotation SummarizationSetBy = Automatic
-
-	column datent
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: ff1a5186-bd9f-4120-a6f2-e80760f78091
-		summarizeBy: none
-		sourceColumn: datent
-
-		variation Variation
-			isDefault
-			relationship: 784047bd-e582-4790-9240-4c9eef32ec2e
-			defaultHierarchy: LocalDateTable_0b591359-c36d-48bb-9d45-b76a402bdc2e.'Hierarquia de datas'
-
-		annotation SummarizationSetBy = Automatic
-
-	column despar
-		dataType: string
-		lineageTag: 2c5bac93-ec6b-4c8a-b7af-69f5a90c620c
-		summarizeBy: none
-		sourceColumn: despar
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"TB_Fatos_CP","TableItemName":"ID_AGP","ObjectType":4},"LinkType":"UsedInGroup"}]
-
 	column '03. Aux Dias_' = ```
 			
 			VAR _dias = 
@@ -107,32 +36,6 @@ table TB_Fatos_CP
 
 		annotation SummarizationSetBy = Automatic
 
-	column CodEmp
-		dataType: int64
-		formatString: 0
-		lineageTag: 9cb36f97-9ec4-447b-afd6-86bdcd1e0556
-		summarizeBy: sum
-		sourceColumn: CodEmp
-
-		annotation SummarizationSetBy = Automatic
-
-	column CodFor
-		dataType: int64
-		formatString: 0
-		lineageTag: 04b0078c-f1bf-4122-a172-8597da485547
-		summarizeBy: none
-		sourceColumn: CodFor
-
-		annotation SummarizationSetBy = Automatic
-
-	column NumTit
-		dataType: string
-		lineageTag: 5219229a-43ed-4789-9833-f2d4c013f0c4
-		summarizeBy: none
-		sourceColumn: NumTit
-
-		annotation SummarizationSetBy = Automatic
-
 	column VCTPRO
 		dataType: dateTime
 		formatString: General Date
@@ -142,117 +45,245 @@ table TB_Fatos_CP
 
 		annotation SummarizationSetBy = Automatic
 
-	column vlrabe
-		dataType: double
-		lineageTag: 7b0fbf62-811e-4b34-b5a7-9f8b13796681
+	column CODEMP
+		dataType: int64
+		formatString: 0
+		lineageTag: 91165e24-4535-494b-b06d-6a87767cce92
 		summarizeBy: sum
-		sourceColumn: vlrabe
+		sourceColumn: CODEMP
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMEMP
+		dataType: string
+		lineageTag: 1b9b503b-d6e2-418c-909c-64116182eb4e
+		summarizeBy: none
+		sourceColumn: NOMEMP
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO
+		dataType: string
+		lineageTag: 218c40b5-f934-4d7e-9ce5-07996a9bf420
+		summarizeBy: none
+		sourceColumn: TIPO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODFOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 0de409fe-c8f6-4929-96d9-10630b5d74de
+		summarizeBy: sum
+		sourceColumn: CODFOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMFOR
+		dataType: string
+		lineageTag: 40a9be2d-646a-452d-b92b-0e0bcb919a85
+		summarizeBy: none
+		sourceColumn: NOMFOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMTIT
+		dataType: string
+		lineageTag: 548f72f5-746a-4cae-a92d-6b97f090824e
+		summarizeBy: none
+		sourceColumn: NUMTIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODCCU
+		dataType: string
+		lineageTag: dd020d1f-1990-4da0-baa0-4d45d35da75f
+		summarizeBy: none
+		sourceColumn: CODCCU
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCCU
+		dataType: string
+		lineageTag: ff0bdbaa-be79-43fe-9dad-6552dfb5e80b
+		summarizeBy: none
+		sourceColumn: DESCCU
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTAFIN
+		dataType: int64
+		formatString: 0
+		lineageTag: f3227cc5-fdc5-4514-a301-248c49721671
+		summarizeBy: sum
+		sourceColumn: CTAFIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCTA
+		dataType: string
+		lineageTag: 022ba4d2-b618-446d-a9b5-4bdd00c4e965
+		summarizeBy: none
+		sourceColumn: DESCTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITTIT
+		dataType: string
+		lineageTag: e6bf0551-8c7f-4731-ae9e-7815e8582995
+		summarizeBy: none
+		sourceColumn: SITTIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATEMI
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 814e0644-7831-436d-9c5e-5a05f120e3fc
+		summarizeBy: none
+		sourceColumn: DATEMI
+
+		variation Variation
+			isDefault
+			relationship: 09bc9eb7-8c6c-4f44-b3f5-f93c0428a5b3
+			defaultHierarchy: LocalDateTable_3f164784-a227-49f6-a039-2dbe0af46813.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATENT
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2eafc108-6c2a-4342-8d23-0940981b4cc4
+		summarizeBy: none
+		sourceColumn: DATENT
+
+		variation Variation
+			isDefault
+			relationship: 2c592d0e-f041-4e47-9618-858835596004
+			defaultHierarchy: LocalDateTable_8fae5f4d-8ef4-430a-9af3-96018dad1202.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column VLRABE
+		dataType: double
+		lineageTag: f2564eb1-b97f-43f1-bf9b-98e00c720648
+		summarizeBy: sum
+		sourceColumn: VLRABE
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column ID_AGP =
-			SWITCH(
-				TRUE,
-				ISBLANK('TB_Fatos_CP'[despar]),
-				"(Em branco)",
-				'TB_Fatos_CP'[despar] IN {"Despesas Administrativas"},
-				"1001",
-				'TB_Fatos_CP'[despar] IN {"Despesas com Pessoal"},
-				"1002",
-				'TB_Fatos_CP'[despar] IN {"Despesas com Produtos"},
-				"1003",
-				'TB_Fatos_CP'[despar] IN {"Despesas com Veículos"},
-				"1004",
-				'TB_Fatos_CP'[despar] IN {"Despesas Comerciais"},
-				"1005",
-				'TB_Fatos_CP'[despar] IN {"Despesas Financeiras"},
-				"1006",
-				'TB_Fatos_CP'[despar] IN {"Impostos"},
-				"1007",
-				'TB_Fatos_CP'[despar] IN {"Investimentos"},
-				"1008",
-				'TB_Fatos_CP'[despar] IN {"Manutenções"},
-				"1009",
-				'TB_Fatos_CP'[despar] IN {"Receita de Vendas"},
-				"1010",
-				"1011"
-			)
-		lineageTag: dfa78e8a-0ef2-4d8d-aaa8-f1ab39edc3de
-		summarizeBy: none
-
-		extendedProperty GroupingMetadata =
-				{
-				  "version": 0,
-				  "groupedColumns": [
-				    {
-				      "Column": {
-				        "Expression": {
-				          "SourceRef": {
-				            "Entity": "TB_Fatos_CP"
-				          }
-				        },
-				        "Property": "despar"
-				      }
-				    }
-				  ]
-				}
-
-		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"TB_Fatos_CP"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"1001","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas Administrativas'"}}]]}}},{"DisplayName":"1002","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas com Pessoal'"}}]]}}},{"DisplayName":"1003","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas com Produtos'"}}]]}}},{"DisplayName":"1004","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas com Veículos'"}}]]}}},{"DisplayName":"1005","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas Comerciais'"}}]]}}},{"DisplayName":"1006","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Despesas Financeiras'"}}]]}}},{"DisplayName":"1007","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Impostos'"}}]]}}},{"DisplayName":"1008","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Investimentos'"}}]]}}},{"DisplayName":"1009","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Manutenções'"}}]]}}},{"DisplayName":"1010","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"despar"}}],"Values":[[{"Literal":{"Value":"'Receita de Vendas'"}}]]}}},{"DisplayName":"1011"}]}
-
-		annotation SummarizationSetBy = Automatic
-
-	column NomEmp
-		dataType: string
-		lineageTag: fdf6c3eb-70d0-4897-a218-5b677dc1d404
-		summarizeBy: none
-		sourceColumn: NomEmp
-
-		annotation SummarizationSetBy = Automatic
-
-	column NomFor
-		dataType: string
-		lineageTag: ccf707fa-d902-42d3-a362-e7a24b09ad62
-		summarizeBy: none
-		sourceColumn: NomFor
-
-		annotation SummarizationSetBy = Automatic
-
-	column Tipo
-		dataType: string
-		lineageTag: b04009be-fd03-4c35-9775-c55bd237b147
-		summarizeBy: none
-		sourceColumn: Tipo
-
-		annotation SummarizationSetBy = Automatic
-
-	column sittit
-		dataType: string
-		lineageTag: dd5a1a46-72e2-4733-95eb-3cbb07e796e6
-		summarizeBy: none
-		sourceColumn: sittit
-
-		annotation SummarizationSetBy = Automatic
-
-	column vlrori
+	column VLRORI
 		dataType: double
-		lineageTag: c049f930-0aa4-4d2c-b1e1-f002ca14d612
+		lineageTag: 7ea46f95-95bf-4fed-9a78-10e055abed42
 		summarizeBy: sum
-		sourceColumn: vlrori
+		sourceColumn: VLRORI
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DESPAR
+		dataType: string
+		lineageTag: 45c4081a-7e38-4fef-87a7-2224e749265d
+		summarizeBy: none
+		sourceColumn: DESPAR
+
+		annotation SummarizationSetBy = Automatic
 
 	partition TB_Fatos_CP = m
 		mode: import
 		queryGroup: _Fatos\CP_CR
-		source =
+		source = ```
 				let
-				  Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP", [Query="select    #(lf)E501TCP.CodEmp,            #(lf)E070EMP.NomEmp, #(lf)CASE#(lf)    WHEN E095FOR.CodFor IN (36223, 40797, 2491)#(lf)        THEN CONVERT(VARCHAR(20), E095FOR.CodFor)#(lf)    ELSE E501TCP.CodTpt#(lf)END AS Tipo,#(lf)E095FOR.CodFor,   #(lf)E095FOR.NomFor,   #(lf)E501TCP.NumTit, #(lf)E044CCU.CodCcu,   #(lf)E044CCU.DesCcu,   #(lf)E091PLF.CtaFin,   #(lf)E091PLF.DesCta,#(lf)E501TCP.sittit,#(lf)E501TCP.datemi,#(lf)E501TCP.datent,#(lf)CASE#(lf)    WHEN DATEPART(WEEKDAY, E501TCP.VCTPRO) = 7 THEN DATEADD(DAY, 2, E501TCP.VCTPRO)#(lf)    WHEN DATEPART(WEEKDAY, E501TCP.VCTPRO) = 1 THEN DATEADD(DAY, 1, E501TCP.VCTPRO)#(lf)    ELSE E501TCP.VCTPRO#(lf)END AS VCTPRO,#(lf)case#(lf)#(tab)when E091PLF.CtaFin is null then (E501TCP.vlrabe * -1)#(lf)#(tab)when E091PLF.CtaFin is not null then (E501RAT.VlrRat * -1)#(lf)end as vlrabe,#(lf)case#(lf)#(tab)when E091PLF.CtaFin is null then (E501TCP.vlrori * -1)#(lf)#(tab)when E091PLF.CtaFin is not null then (E501RAT.VlrRat * -1)#(lf)end as vlrori,#(lf)CASE #(lf)#(tab)WHEN ( E043PCM.despar is null) or (E043PCM.despar = '') THEN 'Sem C. Financeira'#(lf)#(tab)ELSE E043PCM.despar#(lf)END as despar#(lf)#(lf)from sapiens_producao.E501TCP #(lf)left outer join sapiens_producao.E501RAT on E501RAT.CodEmp = E501TCP.CodEmp  #(lf)                                        and E501RAT.CodFil = E501TCP.CodFil #(lf)                                        and E501RAT.NumTit = E501TCP.NumTit #(lf)                                        and E501RAT.CodTpt = E501TCP.CodTpt#(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and E501RAT.CodFor = E501TCP.CodFor #(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and E501RAT.SomSub = 1#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E070EMP on E501TCP.CodEmp = E070EMP.CodEmp#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E095FOR on E501TCP.CodFor = E095FOR.CodFor#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E044CCU on E501RAT.CodEmp = E044CCU.CodEmp #(lf)                                        and E501RAT.CodCcu = E044CCU.CodCcu #(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E091PLF on E501RAT.CodEmp = E091PLF.CodEmp#(lf)                                        and E501RAT.CtaFin = E091PLF.CtaFin #(lf)#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E043MPC on E070EMP.CodMpf = E043MPC.CodMpc#(lf)#(lf)/**/#(lf)LEFT OUTER join sapiens_producao.E043PCM ON E501RAT.CtaFin = E043PCM.CtaRed #(lf)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)#(tab)and E043PCM.CodMpc = '301'   #(lf)#(lf)where 1 = 1            #(lf)and E501TCP.SitTit NOT IN ('LS','CA') #(lf)--AND E501TCP.VLRABE > 0 #(lf)And E501TCP.codfor NOT IN ('11143','21982','17661','46501','5517','48831','17935','2394','7868')#(lf)AND E501TCP.CODTPT  NOT IN ('ADT','FDE','SDE')#(lf)and E501TCP.VCTPRO >= '20250101'", CommandTimeout=#duration(0, 2, 0, 0)])
+				  Fonte = 
+				  Oracle.Database(
+					"147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com", 
+					[CommandTimeout = #duration(0, 0, 10, 0),
+				   Query = "
+				SELECT
+				    E501TCP.CODEMP,
+				    E070EMP.NOMEMP,
+				
+				    CASE
+				        WHEN E095FOR.CODFOR IN (36223, 40797, 2491)
+				            THEN TO_CHAR(E095FOR.CODFOR)
+				        ELSE E501TCP.CODTPT
+				    END AS TIPO,
+				
+				    E095FOR.CODFOR,
+				    E095FOR.NOMFOR,
+				    E501TCP.NUMTIT,
+				    E044CCU.CODCCU,
+				    E044CCU.DESCCU,
+				    E091PLF.CTAFIN,
+				    E091PLF.DESCTA,
+				    E501TCP.SITTIT,
+				    E501TCP.DATEMI,
+				    E501TCP.DATENT,
+				
+					 CASE
+					    WHEN MOD(TRUNC(E501TCP.VCTPRO) - DATE '2024-01-01', 7) = 5 THEN E501TCP.VCTPRO + 2  -- sábado
+					    WHEN MOD(TRUNC(E501TCP.VCTPRO) - DATE '2024-01-01', 7) = 6 THEN E501TCP.VCTPRO + 1  -- domingo
+					    ELSE E501TCP.VCTPRO
+					END AS VCTPRO,
+				
+				    CASE
+				        WHEN E091PLF.CTAFIN IS NULL THEN (E501TCP.VLRABE * -1)
+				        WHEN E091PLF.CTAFIN IS NOT NULL THEN (E501RAT.VLRRAT * -1)
+				    END AS VLRABE,
+				
+				    CASE
+				        WHEN E091PLF.CTAFIN IS NULL THEN (E501TCP.VLRORI * -1)
+				        WHEN E091PLF.CTAFIN IS NOT NULL THEN (E501RAT.VLRRAT * -1)
+				    END AS VLRORI,
+				
+				    CASE
+				        WHEN (E043PCM.DESPAR IS NULL) OR (E043PCM.DESPAR = '') THEN 'Sem C. Financeira'
+				        ELSE E043PCM.DESPAR
+				    END AS DESPAR
+				
+				FROM E501TCP
+				
+				LEFT OUTER JOIN E501RAT
+				    ON E501RAT.CODEMP = E501TCP.CODEMP
+				   AND E501RAT.CODFIL = E501TCP.CODFIL
+				   AND E501RAT.NUMTIT = E501TCP.NUMTIT
+				   AND E501RAT.CODTPT = E501TCP.CODTPT
+				   AND E501RAT.CODFOR = E501TCP.CODFOR
+				   AND E501RAT.SOMSUB = 1
+				
+				LEFT OUTER JOIN E070EMP
+				    ON E501TCP.CODEMP = E070EMP.CODEMP
+				
+				LEFT OUTER JOIN E095FOR
+				    ON E501TCP.CODFOR = E095FOR.CODFOR
+				
+				LEFT OUTER JOIN E044CCU
+				    ON E501RAT.CODEMP = E044CCU.CODEMP
+				   AND E501RAT.CODCCU = E044CCU.CODCCU
+				
+				LEFT OUTER JOIN E091PLF
+				    ON E501RAT.CODEMP = E091PLF.CODEMP
+				   AND E501RAT.CTAFIN = E091PLF.CTAFIN
+				
+				LEFT OUTER JOIN E043MPC
+				    ON E070EMP.CODMPF = E043MPC.CODMPC
+				
+				LEFT OUTER JOIN E043PCM
+				    ON E501RAT.CTAFIN = E043PCM.CTARED
+				   AND E043PCM.CODMPC = '301'
+				
+				WHERE 1 = 1
+				  AND E501TCP.SITTIT NOT IN ('LS','CA')
+				  AND E501TCP.CODFOR NOT IN ('11143','21982','17661','46501','5517','48831','17935','2394','7868')
+				  AND E501TCP.CODTPT NOT IN ('ADT','FDE','SDE')
+				  AND E501TCP.VCTPRO >= TO_DATE('2025-01-01','YYYY-MM-DD')
+				   ", HierarchicalNavigation = true])
 				in
 				  Fonte
+				```
 
 	annotation PBI_NavigationStepName = Navegação
 

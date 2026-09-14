@@ -872,7 +872,7 @@ table _Medidas
 
 	measure '01. Valor AB CR' =
 			
-			SUM( TB_Fatos_CR[valorAberto] )
+			SUM( TB_Fatos_CR[VALORABERTO] )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 01. Valores Totais\Geral
 		lineageTag: ad6bc90c-fb92-4060-9dab-83a27a7e8aee

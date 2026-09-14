@@ -4,7 +4,7 @@ table TB_NUMNFV
 	column Nota
 		formatString: 0
 		lineageTag: 3b3d18b0-3b50-41e8-a9dd-c01e788a4968
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Nota]
 

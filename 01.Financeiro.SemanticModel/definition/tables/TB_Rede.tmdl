@@ -1,53 +1,56 @@
 table TB_Rede
 	lineageTag: be5ca997-a178-48ac-8763-cfc7d006db9b
 
-	column codgre
-		dataType: int64
-		formatString: 0
-		lineageTag: 114a05b6-1057-43da-a4c6-2fbba6171869
-		summarizeBy: none
-		sourceColumn: codgre
-
-		annotation SummarizationSetBy = Automatic
-
-	column nomgre
-		dataType: string
-		lineageTag: 84450c20-7bba-46ef-88e9-aeefcb08c2e9
-		summarizeBy: none
-		sourceColumn: nomgre
-
-		annotation SummarizationSetBy = Automatic
-
-	column siggre
-		dataType: string
-		lineageTag: 0a1dc13f-3e96-4cc8-9395-df29a8126720
-		summarizeBy: none
-		sourceColumn: siggre
-
-		annotation SummarizationSetBy = Automatic
-
-	column vlrlim
-		dataType: double
-		lineageTag: 2ec69a4c-6dfa-40be-8b1d-f077823cbaf7
-		summarizeBy: sum
-		sourceColumn: vlrlim
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column xREDE = TB_Rede[codgre] &" - "& TB_Rede[nomgre]
 		lineageTag: da855332-22f5-461e-a0a1-d496c7a62b7a
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
+	column CODGRE
+		dataType: int64
+		formatString: 0
+		lineageTag: c44ce40a-397e-4269-9d27-759a8a9fb716
+		summarizeBy: sum
+		sourceColumn: CODGRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOMGRE
+		dataType: string
+		lineageTag: a2637191-4349-468a-a5fd-021eb0a0a33b
+		summarizeBy: none
+		sourceColumn: NOMGRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SIGGRE
+		dataType: string
+		lineageTag: 319c0f2a-e410-424e-91ea-fe3e9f163baa
+		summarizeBy: none
+		sourceColumn: SIGGRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VLRLIM
+		dataType: double
+		lineageTag: 7da99ee0-d6ea-457e-a5bf-0a9cefee5151
+		summarizeBy: sum
+		sourceColumn: VLRLIM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition TB_Rede = m
 		mode: import
 		queryGroup: _Dim
 		source = ```
 				let
-				  Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP", [Query="
+				  Fonte = Oracle.Database(
+					"147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com", 
+					[CommandTimeout = #duration(0, 2, 0, 0),
+				   Query = "
 				select
 					e069gre.codgre,
 					e069gre.nomgre,
@@ -58,17 +61,18 @@ table TB_Rede
 					   on e069hgr.codgre = e069gre.codgre 
 					  and e069hgr.codemp = 1
 					  and e069hgr.codfil = 1
-				  
-				  ", CommandTimeout=#duration(0, 2, 0, 0)]),
+				   ", HierarchicalNavigation = true]),
+				
+				
 				    Personalizar1 = Table.InsertRows(
 				    Fonte,
 				    0,
 				    {
 				        [
-				            codgre = 0,
-				            nomgre = "Sem Rede",
-				            siggre = "Sem Rede",
-				            vlrlim = 0
+				            CODGRE = 0,
+				            NOMGRE = "Sem Rede",
+				            SIGGRE = "Sem Rede",
+				            VLRLIM = 0
 				        ]
 				    }
 				)

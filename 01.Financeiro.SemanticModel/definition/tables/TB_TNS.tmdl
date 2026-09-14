@@ -1,19 +1,19 @@
 table TB_TNS
 	lineageTag: 8f2b86db-5d4c-42e0-9ae2-a48c6825c526
 
-	column codtns
+	column CODTNS
 		dataType: string
-		lineageTag: 807c0caf-8319-477d-a1ea-052373078685
+		lineageTag: 3ff7c4d4-33fe-44a5-8db6-594261b180eb
 		summarizeBy: none
-		sourceColumn: codtns
+		sourceColumn: CODTNS
 
 		annotation SummarizationSetBy = Automatic
 
-	column destns
+	column DESTNS
 		dataType: string
-		lineageTag: faacb6d7-7167-44f9-accb-1804d127481d
+		lineageTag: bce355e4-6919-4e27-8e3e-4d13945e4705
 		summarizeBy: none
-		sourceColumn: destns
+		sourceColumn: DESTNS
 
 		annotation SummarizationSetBy = Automatic
 
@@ -22,9 +22,12 @@ table TB_TNS
 		queryGroup: _Dim
 		source =
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
-				  #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "e001tns"]}[Data],
-				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"codtns", "destns"})
+				  Origem =  Oracle.Database("147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com", [HierarchicalNavigation = true]),
+				
+				  #"Navegação 1" = Origem{[Schema = "I260220090255_ERPP"]}[Data],
+				  #"Navegação 2" = #"Navegação 1"{[Name = "E001TNS"]}[Data],
+				
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 2",{"CODTNS", "DESTNS"})
 				in
 				    #"Outras Colunas Removidas"
 

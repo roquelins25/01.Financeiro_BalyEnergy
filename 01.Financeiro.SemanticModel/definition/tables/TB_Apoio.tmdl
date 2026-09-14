@@ -36,7 +36,7 @@ table TB_Apoio
 	column xCODCART
 		dataType: double
 		lineageTag: 0966cbef-4b84-4eec-abdd-b61d54b1b9fb
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: xCODCART
 		sortByColumn: Carteira
 

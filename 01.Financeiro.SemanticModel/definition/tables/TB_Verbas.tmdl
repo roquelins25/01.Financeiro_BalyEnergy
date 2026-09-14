@@ -1,128 +1,157 @@
 table TB_Verbas
 	lineageTag: a8b0478a-8d20-45c9-8de2-475b7140a57a
 
-	column Tipo
+	column TIPO
 		dataType: string
-		lineageTag: 9906ab1c-d5b1-4814-8774-413f7fa23fce
+		lineageTag: acdea23a-8213-4e2f-af6f-bc4332a3d23d
 		summarizeBy: none
-		sourceColumn: Tipo
+		sourceColumn: TIPO
 
 		annotation SummarizationSetBy = Automatic
 
-	column Data_BI
+	column DATA_BI
 		dataType: string
-		lineageTag: 3a04a7ca-946c-4299-b78f-4d5e606cac7e
+		lineageTag: 70be4520-b174-4b70-802c-cf4ab897c8de
 		summarizeBy: none
-		sourceColumn: Data_BI
+		sourceColumn: DATA_BI
 
 		annotation SummarizationSetBy = Automatic
 
-	column numtit
+	column NUMTIT
 		dataType: string
-		lineageTag: 9f37c45d-3e0b-4b15-97e0-cc91c256b489
+		lineageTag: ed1f25e2-3df8-466d-8058-444920278345
 		summarizeBy: none
-		sourceColumn: numtit
+		sourceColumn: NUMTIT
 
 		annotation SummarizationSetBy = Automatic
 
-	column codtpt
+	column CODTPT
 		dataType: string
-		lineageTag: f99c26e1-454f-40fa-84dd-82d643d5a3ed
+		lineageTag: 17464594-a954-4b25-9432-f45164107042
 		summarizeBy: none
-		sourceColumn: codtpt
+		sourceColumn: CODTPT
 
 		annotation SummarizationSetBy = Automatic
 
-	column datger
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: 5daa91c9-264d-4b49-a543-4aa8b1368436
-		summarizeBy: none
-		sourceColumn: datger
-
-		variation Variation
-			isDefault
-			relationship: 62c7807f-5c86-41e7-9b04-0f7b77f705aa
-			defaultHierarchy: LocalDateTable_a76563a1-919f-4a9b-b34c-54968ffaf289.'Hierarquia de datas'
-
-		annotation SummarizationSetBy = Automatic
-
-	column vctpro
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: d74de95b-1bfc-4e4c-9c1c-35cf52888264
-		summarizeBy: none
-		sourceColumn: vctpro
-
-		annotation SummarizationSetBy = Automatic
-
-	column vlrabe
-		dataType: double
-		lineageTag: 1c5886c0-ca89-4e52-ab6e-c7ca454e1672
-		summarizeBy: sum
-		sourceColumn: vlrabe
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column sittit
-		dataType: string
-		lineageTag: 82b05e62-c0a7-4f8a-98dc-272feabc6cf6
-		summarizeBy: none
-		sourceColumn: sittit
-
-		annotation SummarizationSetBy = Automatic
-
-	column codtns
-		dataType: string
-		lineageTag: a0eb98a3-b75f-435a-b0b2-39c1d642274d
-		summarizeBy: none
-		sourceColumn: codtns
-
-		annotation SummarizationSetBy = Automatic
-
-	column usu_datalt
-		dataType: dateTime
-		formatString: General Date
-		lineageTag: 9539e5fd-bd3f-4627-89e2-00cceee5fc4c
-		summarizeBy: none
-		sourceColumn: usu_datalt
-
-		variation Variation
-			isDefault
-			relationship: 8d5be41e-19a2-411b-9b67-5cfddb87833b
-			defaultHierarchy: LocalDateTable_0f711601-5541-4b8f-b357-24aaae26d81c.'Hierarquia de datas'
-
-		annotation SummarizationSetBy = Automatic
-
-	column vlrori
-		dataType: double
-		lineageTag: 6d309386-a40a-4ed3-bcd2-542d62ea09b7
-		summarizeBy: sum
-		sourceColumn: vlrori
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column codfor
+	column CODFOR
 		dataType: int64
 		formatString: 0
-		lineageTag: a0494941-308c-494b-b85b-299580eb34ad
-		summarizeBy: none
-		sourceColumn: codfor
+		lineageTag: 758b59e2-c5cb-403c-a92e-cb1eecbda4af
+		summarizeBy: sum
+		sourceColumn: CODFOR
 
 		annotation SummarizationSetBy = Automatic
+
+	column DATGER
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c533ecbc-a125-4772-b817-ae9e884f0f6c
+		summarizeBy: none
+		sourceColumn: DATGER
+
+		variation Variation
+			isDefault
+			relationship: 921ab767-b23e-4e1f-85fb-f708d1adea14
+			defaultHierarchy: LocalDateTable_8ec0ac7a-f2de-4765-ae85-d7fbb6265916.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column VCTPRO
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ce68213c-66b8-4f67-945f-703b2d7fb3d3
+		summarizeBy: none
+		sourceColumn: VCTPRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column VLRABE
+		dataType: double
+		lineageTag: 08179c74-93ec-48a1-956e-7ef54332b588
+		summarizeBy: sum
+		sourceColumn: VLRABE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SITTIT
+		dataType: string
+		lineageTag: fcb97480-b2d4-48a1-b435-e0bb75ef9ad4
+		summarizeBy: none
+		sourceColumn: SITTIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODTNS
+		dataType: string
+		lineageTag: d18b83d1-1d78-4526-992b-3f557953ee0b
+		summarizeBy: none
+		sourceColumn: CODTNS
+
+		annotation SummarizationSetBy = Automatic
+
+	column USU_DATALT
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fb4f0216-4327-4252-b9f3-f5c1e0f1c456
+		summarizeBy: none
+		sourceColumn: USU_DATALT
+
+		variation Variation
+			isDefault
+			relationship: dc3e043c-faa7-4735-b132-7a0106ea8436
+			defaultHierarchy: LocalDateTable_37767bc9-1cd3-48e4-9f63-b73919a3b099.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column VLRORI
+		dataType: double
+		lineageTag: c3a02566-7caa-46f3-87b5-0ae6b0a2eb59
+		summarizeBy: sum
+		sourceColumn: VLRORI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition TB_Verbas = m
 		mode: import
 		queryGroup: _Fatos
-		source =
+		source = ```
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="#(tab)select #(lf)#(tab)'Competencia' as Tipo,#(lf)#(tab)    format(cp.datEnt,'MM/yyyy') AS Data_BI,#(lf)#(tab)    cp.numtit,#(lf)#(tab)    cp.codtpt,#(lf)#(tab)    cp.codfor,#(lf)#(tab)    CONVERT(date, cp.datger, 103) AS datger,#(lf)#(tab)    CONVERT(date, cp.vctpro, 103) AS vctpro,#(lf)#(tab)    cp.vlrabe,#(lf)#(tab)    cp.sittit,#(lf)#(tab)    cp.codtns,#(lf)#(tab)    CASE #(lf)#(tab)        WHEN cp.datcmp IS NULL #(lf)#(tab)             OR YEAR(cp.datcmp) = 1900 #(lf)#(tab)        THEN NULL#(lf)#(tab)        ELSE CONVERT(date, cp.datcmp)#(lf)#(tab)    END AS usu_datalt,#(lf)#(tab)    cp.vlrori #(lf)#(tab)from e501tcp cp#(lf)#(tab)where cp.sittit NOT IN ('CA') AND #(lf)#(tab)#(tab)  cp.codtns IN('9051V') AND #(lf)#(tab)#(tab)  cp.datemi >= '20250101'#(lf)#(tab)"])
+				  Origem = Oracle.Database(
+					"147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com", 
+					[CommandTimeout = #duration(0, 0, 10, 0),
+				   Query = "
+				SELECT 
+				    'Competencia'                                  AS TIPO,
+				    TO_CHAR(CP.DATENT,'MM/YYYY')                   AS DATA_BI,
+				    CP.NUMTIT,
+				    CP.CODTPT,
+				    CP.CODFOR,
+				    TRUNC(CP.DATGER)                               AS DATGER,
+				    TRUNC(CP.VCTPRO)                                AS VCTPRO,
+				    CP.VLRABE,
+				    CP.SITTIT,
+				    CP.CODTNS,
+				    CASE 
+				        WHEN CP.DATCMP IS NULL 
+				             OR EXTRACT(YEAR FROM CP.DATCMP) = 1900
+				        THEN NULL
+				        ELSE TRUNC(CP.DATCMP)
+				    END                                             AS USU_DATALT,
+				    CP.VLRORI
+				
+				FROM E501TCP CP
+				
+				WHERE CP.SITTIT NOT IN ('CA')
+				  AND CP.CODTNS IN ('9051V')
+				  AND CP.DATEMI >= TO_DATE('2025-01-01','YYYY-MM-DD')
+				   ", HierarchicalNavigation = true])
 				in
 				  Origem
+				```
 
 	annotation PBI_NavigationStepName = Navegação
 

@@ -123,54 +123,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "tb_pgt.codfpg": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_PGT",
-			          "ConceptualProperty": "codfpg"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codfpg": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_pgt.desfpg": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_PGT",
-			          "ConceptualProperty": "desfpg"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "desfpg": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_pgt.abrfpg": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_PGT",
-			          "ConceptualProperty": "abrfpg"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "abrfpg": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "tb_cli": {
 			      "Definition": {
 			        "Binding": {
@@ -192,264 +144,6 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
-			    },
-			    "tb_cli.codcli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "codcli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codcli": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Cod. Cliente": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.nomcli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "nomcli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nomcli": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Nome Cliente": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Cliente": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.cgccpf": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "cgccpf"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cgccpf": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.apecli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "apecli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "apecli": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.usu_perdup": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "usu_perdup"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "usu perdup": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "usu_perdup": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.marcli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "marcli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "marcli": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.codgre": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "codgre"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codgre": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.cepcli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "cepcli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cepcli": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.endcli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "endcli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "endcli": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.cidcli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "cidcli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cidcli": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.siguf": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "sigufs"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "siguf": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.foncli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "foncli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "foncli": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.datcad": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "datcad"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "datcad": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
 			    },
 			    "tb_cli.datcad.hierarquia_de_data": {
 			      "Definition": {
@@ -635,291 +329,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "tb_cli.sitcli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "sitcli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sitcli": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.codrep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "codrep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codrep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.nomrep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "nomrep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nomrep": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Representante": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.codpai": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "codpai"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codpai": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.nompai": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "nompai"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nompai": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.codram": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "codram"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codram": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.usu_codram": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "usu_codram"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "usu codram": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "usu_codram": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.usu_desram": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "usu_desram"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "usu desram": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "usu_desram": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.sit_financeiro": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "SitFinanceiro"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sit financeiro": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "SitFinanceiro": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.sit_inadimplencia": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "SitInadimplencia"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sit inadimplencia": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "SitInadimplencia": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.codcpg": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "codcpg"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codcpg": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.abrcpg": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "abrcpg"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "abrcpg": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.vlrlim": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "vlrlim"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vlrlim": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.exiage": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "exiage"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "exiage": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cli.dep_padrao": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CLI",
-			          "ConceptualProperty": "Dep_Padrao"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dep padrao": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Dep_Padrao": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
 			    "tb_rep": {
 			      "Definition": {
 			        "Binding": {
@@ -1048,209 +457,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "tb_rep.codrep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "codrep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codrep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.nomrep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "nomrep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nomrep": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Representante": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.aperep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "aperep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "aperep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.tiprep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "tiprep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "tiprep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.cidrep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "cidrep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cidrep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.siguf": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "sigufs"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "siguf": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "UF": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.fonrep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "fonrep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "fonrep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.sitrep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "sitrep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sitrep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.repsup": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "repsup"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "repsup": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.nomsup": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "nomsup"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nomsup": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_rep.rep_concat": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_REP",
-			          "ConceptualProperty": "Rep_concat"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "rep concat": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Rep_concat": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
 			    "TB_rede": {
 			      "Definition": {
 			        "Binding": {
@@ -1269,64 +475,6 @@ cultureInfo pt-BR
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_rede.codgre": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Rede",
-			          "ConceptualProperty": "codgre"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codgre": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_rede.nomgre": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Rede",
-			          "ConceptualProperty": "nomgre"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nomgre": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Rede": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "TB_rede.siggre": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Rede",
-			          "ConceptualProperty": "siggre"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "siggre": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -1359,131 +507,6 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
-			    },
-			    "TB_fatos_CR.empresa": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "empresa"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "empresa": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.filial": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "filial"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "filial": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.titulo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "titulo"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "titulo": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.tipo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "tipo"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "tipo": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.sit": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "sit"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sit": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.codcliente": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "codcliente"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codcliente": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.emissao": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "emissao"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "emissao": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
 			    },
 			    "tb_numnfv.notum": {
 			      "Definition": {
@@ -1594,125 +617,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fatos_CR.portador": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "portador"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "portador": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.data_entrada": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "DataEntrada"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "data entrada": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "DataEntrada": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        },
-			        {
-			          "information entrada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "fact entrada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "info entrada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "statistic entrada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "document entrada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
-			          "figure entrada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
-			          "record entrada": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
 			    "entity__medida.entity_10__troco_motorista": {
 			      "Definition": {
 			        "Binding": {
@@ -1813,36 +717,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fatos_CR.venct_ori": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "VenctOri"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "venct ori": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "VenctOri": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
 			    "TB_fatos_CR.x_pzr_medio_recebimento": {
 			      "Definition": {
 			        "Binding": {
@@ -1919,22 +793,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_rede.vlrlim": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Rede",
-			          "ConceptualProperty": "vlrlim"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vlrlim": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "tb_cli.x_cliente": {
 			      "Definition": {
 			        "Binding": {
@@ -1951,206 +809,6 @@ cultureInfo pt-BR
 			        },
 			        {
 			          "xCliente": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.vencimento": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "vencimento"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vencimento": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "TB_fatos_CR.codrep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "codrep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codrep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.observacao": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "observacao"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "observacao": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.codpagamento": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "codpagamento"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codpagamento": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.numnota": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "numnota"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "numnota": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.numpedido": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "numpedido"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "numpedido": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.valor_ori": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "valorOri"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "valor ori": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "valorOri": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.valor_aberto": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "valorAberto"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "valor aberto": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "valorAberto": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.carteira": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "carteira"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "carteira": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.for_reaj": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "ForReaj"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "for reaj": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "ForReaj": {
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
@@ -3172,48 +1830,6 @@ cultureInfo pt-BR
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "tb_frj.codfrj": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_FRJ",
-			          "ConceptualProperty": "codfrj"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codfrj": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_frj.desfrj": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_FRJ",
-			          "ConceptualProperty": "desfrj"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "desfrj": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Descrição Conta": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -4988,179 +3604,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_verba.tipo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "Tipo"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "tipo": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_verba.data_BI": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "Data_BI"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "data BI": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Data_BI": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "BI": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "information bi": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "fact bi": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "info bi": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "statistic bi": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "document bi": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "figure bi": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "record bi": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
-			    "TB_verba.numtit": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "numtit"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "numtit": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_verba.codtpt": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "codtpt"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codtpt": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_verba.datger": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "datger"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "datger": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
 			    "TB_verba.datger.hierarquia_de_data": {
 			      "Definition": {
 			        "Binding": {
@@ -5345,110 +3788,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_verba.vctpro": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "vctpro"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vctpro": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "TB_verba.vlrabe": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "vlrabe"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vlrabe": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_verba.sittit": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "sittit"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sittit": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_verba.codtn": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "codtns"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codtn": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_verba.usu_datalt": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "usu_datalt"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "usu datalt": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "usu_datalt": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
 			    "TB_verba.usu_datalt.hierarquia_de_data": {
 			      "Definition": {
 			        "Binding": {
@@ -5628,41 +3967,6 @@ cultureInfo pt-BR
 			        },
 			        {
 			          "usu datalt dia": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_verba.vlrori": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "vlrori"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vlrori": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_verba.codfor": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Verbas",
-			          "ConceptualProperty": "codfor"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codfor": {
 			            "State": "Generated"
 			          }
 			        }
@@ -6062,41 +4366,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fatos_CR.codtn": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "codtns"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codtn": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CR.destn": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CR",
-			          "ConceptualProperty": "destns"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "destn": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "entity__medida.entity_07__total_faturado_geral": {
 			      "Definition": {
 			        "Binding": {
@@ -6325,284 +4594,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fat.codemp": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "codemp"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codemp": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.codfil": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "codfil"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codfil": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.datemi": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "datemi"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "datemi": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "TB_fat.codsnf": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "codsnf"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codsnf": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.tipnf": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "tipnfs"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "tipnf": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.tnspro": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "tnspro"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "tnspro": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.codcli": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "codcli"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codcli": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.codrep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "codrep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codrep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.codcpg": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "codcpg"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codcpg": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.codfpg": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "codfpg"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "codfpg": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.sitnfv": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "sitnfv"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sitnfv": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.numnfv": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "numnfv"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "numnfv": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.codpro": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "codpro"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codpro": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.vlrliq": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "vlrliq"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vlrliq": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.vlrfin": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "vlrfin"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vlrfin": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.qtdfat": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "qtdfat"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "qtdfat": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "tb_tn": {
 			      "Definition": {
 			        "Binding": {
@@ -6627,77 +4618,6 @@ cultureInfo pt-BR
 			          "tn": {
 			            "State": "Generated",
 			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "tb_tn.codtn": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_TNS",
-			          "ConceptualProperty": "codtns"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codtn": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_tn.destn": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_TNS",
-			          "ConceptualProperty": "destns"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "destn": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_pgt.abrfpg_grupos": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_PGT",
-			          "ConceptualProperty": "abrfpg (grupos)"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "abrfpg (grupos)": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "abrfpg (grupo)": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.78
-			          }
-			        },
-			        {
-			          "abrfpg": {
-			            "State": "Generated",
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "Agp_Forma Pagamento": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -7990,230 +5910,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fatos_CP.cod_ccu": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "CodCcu"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cod ccu": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "CodCcu": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.des_ccu": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "DesCcu"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "des ccu": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "DesCcu": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.cta_fin": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "CtaFin"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "cta fin": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "CtaFin": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "fin": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "cta appendage": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "cta limb": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "cta organ": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "cta member": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "appendage": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "limb": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "organ": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "member": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "cta flipper": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        },
-			        {
-			          "cta paddle": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.485
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.des_cta": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "DesCta"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "des cta": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "DesCta": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.datemi": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "datemi"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "datemi": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
 			    "TB_fatos_CP.datemi.hierarquia_de_data": {
 			      "Definition": {
 			        "Binding": {
@@ -8397,29 +6093,6 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
-			    },
-			    "TB_fatos_CP.datent": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "datent"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "datent": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
 			    },
 			    "TB_fatos_CP.datent.hierarquia_de_data": {
 			      "Definition": {
@@ -8605,32 +6278,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fatos_CP.despar": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "despar"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "despar": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Agrupamento Financeiro": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
 			    "TB_fatos_CP.entity_03__aux_dias_": {
 			      "Definition": {
 			        "Binding": {
@@ -8705,88 +6352,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fatos_CP.cod_emp": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "CodEmp"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cod emp": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "CodEmp": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.cod_for": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "CodFor"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "cod for": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "CodFor": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.num_tit": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "NumTit"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "num tit": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "NumTit": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "number tit": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        }
-			      ]
-			    },
 			    "TB_fatos_CP.vctpro": {
 			      "Definition": {
 			        "Binding": {
@@ -8809,85 +6374,6 @@ cultureInfo pt-BR
 			        }
 			      ],
 			      "SemanticType": "Time"
-			    },
-			    "TB_fatos_CP.vlrabe": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "vlrabe"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vlrabe": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.id_agp": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "ID_AGP"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "id agp": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "ID_AGP": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "identification agp": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "identity agp": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "identifier agp": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.6
-			          }
-			        },
-			        {
-			          "credential agp": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        }
-			      ]
 			    },
 			    "entity__medida.demais_classif": {
 			      "Definition": {
@@ -8933,52 +6419,6 @@ cultureInfo pt-BR
 			        {
 			          "01. % valor total CP": {
 			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.nom_emp": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "NomEmp"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nom emp": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "NomEmp": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.nom_for": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "NomFor"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nom for": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "NomFor": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
 			          }
 			        }
 			      ]
@@ -9230,25 +6670,6 @@ cultureInfo pt-BR
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.tipo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "Tipo"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "tipo": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -10388,38 +7809,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "TB_fat.descpg": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "descpg"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "descpg": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fat.przmed": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fat",
-			          "ConceptualProperty": "przmed"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "przmed": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "TB_fatos_LQ": {
 			      "Definition": {
 			        "Binding": {
@@ -10445,22 +7834,6 @@ cultureInfo pt-BR
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_LQ.codemp": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_LQ",
-			          "ConceptualProperty": "codemp"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "codemp": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -10514,22 +7887,6 @@ cultureInfo pt-BR
 			      "Terms": [
 			        {
 			          "descco": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_LQ.hismov": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_LQ",
-			          "ConceptualProperty": "hismov"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "hismov": {
 			            "State": "Generated"
 			          }
 			        }
@@ -10657,22 +8014,6 @@ cultureInfo pt-BR
 			      ],
 			      "SemanticType": "Time"
 			    },
-			    "TB_fatos_LQ.ctared": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_LQ",
-			          "ConceptualProperty": "ctared"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ctared": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "TB_fatos_LQ.codfil": {
 			      "Definition": {
 			        "Binding": {
@@ -10684,22 +8025,6 @@ cultureInfo pt-BR
 			      "Terms": [
 			        {
 			          "codfil": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_LQ.nummcr": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_LQ",
-			          "ConceptualProperty": "nummcr"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nummcr": {
 			            "State": "Generated"
 			          }
 			        }
@@ -10880,54 +8205,6 @@ cultureInfo pt-BR
 			          "cta": {
 			            "State": "Generated",
 			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cta.ctafin": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CTA",
-			          "ConceptualProperty": "ctafin"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ctafin": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cta.descta": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CTA",
-			          "ConceptualProperty": "descta"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "descta": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "tb_cta.abrcta": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_CTA",
-			          "ConceptualProperty": "abrcta"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "abrcta": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -11129,38 +8406,6 @@ cultureInfo pt-BR
 			              "Agent": "PowerBI.VisualColumnRename"
 			            },
 			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.sittit": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "sittit"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "sittit": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "TB_fatos_CP.vlrori": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "TB_Fatos_CP",
-			          "ConceptualProperty": "vlrori"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "vlrori": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -11477,6 +8722,310 @@ cultureInfo pt-BR
 			        }
 			      ],
 			      "SemanticType": "Time"
+			    },
+			    "tb_rede.nomgre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Rede",
+			          "ConceptualProperty": "nomgre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rede": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_fatos_cp.despar": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Fatos_CP",
+			          "ConceptualProperty": "despar"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Agrupamento Financeiro": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_frj.desfrj": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_FRJ",
+			          "ConceptualProperty": "desfrj"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Descrição Conta": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_fatos_cr.portador": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Fatos_CR",
+			          "ConceptualProperty": "portador"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "portador": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_fatos_cr.titulo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Fatos_CR",
+			          "ConceptualProperty": "titulo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "titulo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_fatos_cr.vencimento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Fatos_CR",
+			          "ConceptualProperty": "vencimento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vencimento": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_fatos_cr.emissao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Fatos_CR",
+			          "ConceptualProperty": "emissao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Emissao": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_fatos_cr.observacao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_Fatos_CR",
+			          "ConceptualProperty": "observacao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Observacao": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_cli.nomcli": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_CLI",
+			          "ConceptualProperty": "nomcli"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Nome Cliente": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Cliente": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_cli.codcli": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_CLI",
+			          "ConceptualProperty": "codcli"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cod. Cliente": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_cli.nomrep": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_CLI",
+			          "ConceptualProperty": "nomrep"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Representante": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_pgt.abrfpg_grupos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_PGT",
+			          "ConceptualProperty": "abrfpg (grupos)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Agp_Forma Pagamento": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_rep.nomrep": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_REP",
+			          "ConceptualProperty": "nomrep"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Representante": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tb_rep.sigufs": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "TB_REP",
+			          "ConceptualProperty": "sigufs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "UF": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
