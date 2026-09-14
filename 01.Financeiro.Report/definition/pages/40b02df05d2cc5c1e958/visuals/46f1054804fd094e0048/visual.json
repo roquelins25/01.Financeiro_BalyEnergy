@@ -42,11 +42,11 @@
                       "Entity": "TB_PGT"
                     }
                   },
-                  "Property": "desfpg"
+                  "Property": "DESFPG"
                 }
               },
-              "queryRef": "TB_PGT.desfpg",
-              "nativeQueryRef": "desfpg"
+              "queryRef": "TB_PGT.DESFPG",
+              "nativeQueryRef": "DESFPG"
             }
           ]
         },

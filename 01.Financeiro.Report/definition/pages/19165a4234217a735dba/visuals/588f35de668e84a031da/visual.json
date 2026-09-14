@@ -23,10 +23,10 @@
                       "Entity": "TB_FRJ"
                     }
                   },
-                  "Property": "desfrj"
+                  "Property": "DESFRJ"
                 }
               },
-              "queryRef": "TB_FRJ.desfrj",
+              "queryRef": "TB_FRJ.DESFRJ",
               "nativeQueryRef": "Descrição Conta",
               "active": true,
               "displayName": "Descrição Conta"

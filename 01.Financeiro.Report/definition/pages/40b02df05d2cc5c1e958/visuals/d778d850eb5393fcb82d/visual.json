@@ -23,11 +23,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "tipo"
+                  "Property": "TIPO"
                 }
               },
               "queryRef": "TB_Fatos.tipo",
-              "nativeQueryRef": "tipo",
+              "nativeQueryRef": "TIPO",
               "active": true
             }
           ]

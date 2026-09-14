@@ -23,11 +23,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "titulo"
+                  "Property": "TITULO"
                 }
               },
               "queryRef": "TB_Fatos.titulo",
-              "nativeQueryRef": "Titulo",
+              "nativeQueryRef": "TITULO",
               "displayName": "Titulo"
             },
             {
@@ -38,11 +38,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "sit"
+                  "Property": "SIT"
                 }
               },
               "queryRef": "TB_Fatos.sit",
-              "nativeQueryRef": "sit"
+              "nativeQueryRef": "SIT"
             },
             {
               "field": {
@@ -52,10 +52,10 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "codcli"
+                  "Property": "CODCLI"
                 }
               },
-              "queryRef": "TB_CLI.codcli",
+              "queryRef": "TB_CLI.CODCLI",
               "nativeQueryRef": "Cod. Cliente",
               "displayName": "Cod. Cliente"
             },
@@ -81,10 +81,10 @@
                       "Entity": "TB_REP"
                     }
                   },
-                  "Property": "sigufs"
+                  "Property": "SIGUFS"
                 }
               },
-              "queryRef": "TB_REP.sigufs",
+              "queryRef": "TB_REP.SIGUFS",
               "nativeQueryRef": "UF",
               "displayName": "UF"
             },
@@ -96,10 +96,10 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "nomrep"
+                  "Property": "NOMREP"
                 }
               },
-              "queryRef": "TB_CLI.nomrep",
+              "queryRef": "TB_CLI.NOMREP",
               "nativeQueryRef": "Representante",
               "displayName": "Representante"
             },
@@ -111,11 +111,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "tipo"
+                  "Property": "TIPO"
                 }
               },
               "queryRef": "TB_Fatos.tipo",
-              "nativeQueryRef": "tipo"
+              "nativeQueryRef": "TIPO"
             },
             {
               "field": {
@@ -155,11 +155,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "emissao"
+                  "Property": "EMISSAO"
                 }
               },
               "queryRef": "TB_Fatos.emissao",
-              "nativeQueryRef": "Emissao",
+              "nativeQueryRef": "EMISSAO",
               "displayName": "Emissao"
             },
             {
@@ -170,11 +170,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "vencimento"
+                  "Property": "VENCIMENTO"
                 }
               },
               "queryRef": "TB_Fatos.vencimento",
-              "nativeQueryRef": "Vencimento",
+              "nativeQueryRef": "VENCIMENTO",
               "displayName": "Vencimento"
             },
             {
@@ -185,11 +185,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "observacao"
+                  "Property": "OBSERVACAO"
                 }
               },
               "queryRef": "TB_Fatos.observacao",
-              "nativeQueryRef": "Observacao",
+              "nativeQueryRef": "OBSERVACAO",
               "displayName": "Observacao"
             }
           ]

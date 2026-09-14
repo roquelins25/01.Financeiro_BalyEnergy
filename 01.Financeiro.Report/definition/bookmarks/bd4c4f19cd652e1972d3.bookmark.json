@@ -66,7 +66,7 @@
                       "Entity": "TB_FRJ"
                     }
                   },
-                  "Property": "desfrj"
+                  "Property": "DESFRJ"
                 }
               },
               "howCreated": 1
@@ -639,7 +639,7 @@
                                 "Entity": "TB_PGT"
                               }
                             },
-                            "Property": "abrfpg"
+                            "Property": "ABRFPG"
                           }
                         }
                       ]
@@ -657,7 +657,7 @@
                           "Entity": "TB_Rede"
                         }
                       },
-                      "Property": "nomgre"
+                      "Property": "NOMGRE"
                     }
                   },
                   "howCreated": 0
@@ -672,7 +672,7 @@
                           "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "nomcli"
+                      "Property": "NOMCLI"
                     }
                   },
                   "howCreated": 0
@@ -687,7 +687,7 @@
                           "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "sigufs"
+                      "Property": "SIGUFS"
                     }
                   },
                   "howCreated": 0
@@ -745,7 +745,7 @@
                                 "Entity": "TB_PGT"
                               }
                             },
-                            "Property": "abrfpg"
+                            "Property": "ABRFPG"
                           }
                         }
                       ]
@@ -760,7 +760,7 @@
                           "Entity": "TB_Rede"
                         }
                       },
-                      "Property": "nomgre"
+                      "Property": "NOMGRE"
                     }
                   }
                 ]
@@ -784,7 +784,7 @@
                                 "Entity": "TB_Rede"
                               }
                             },
-                            "Property": "nomgre"
+                            "Property": "NOMGRE"
                           }
                         }
                       ],
@@ -803,7 +803,7 @@
                                 "Entity": "TB_CLI"
                               }
                             },
-                            "Property": "nomcli"
+                            "Property": "NOMCLI"
                           }
                         }
                       ],
@@ -837,7 +837,7 @@
                           "Entity": "TB_Fatos_CP"
                         }
                       },
-                      "Property": "despar"
+                      "Property": "DESPAR"
                     }
                   },
                   "howCreated": 0
@@ -852,7 +852,7 @@
                           "Entity": "TB_Fatos_CP"
                         }
                       },
-                      "Property": "DesCta"
+                      "Property": "DESCTA"
                     }
                   },
                   "howCreated": 0
@@ -867,7 +867,7 @@
                           "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "nomcli"
+                      "Property": "NOMCLI"
                     }
                   },
                   "howCreated": 0
@@ -916,7 +916,7 @@
                           "Entity": "TB_Fatos_CP"
                         }
                       },
-                      "Property": "despar"
+                      "Property": "DESPAR"
                     }
                   }
                 ]
@@ -940,7 +940,7 @@
                                 "Entity": "TB_Fatos_CP"
                               }
                             },
-                            "Property": "despar"
+                            "Property": "DESPAR"
                           }
                         }
                       ],
@@ -959,7 +959,7 @@
                                 "Entity": "TB_Fatos_CP"
                               }
                             },
-                            "Property": "DesCta"
+                            "Property": "DESCTA"
                           }
                         }
                       ],
@@ -978,7 +978,7 @@
                                 "Entity": "TB_CLI"
                               }
                             },
-                            "Property": "nomcli"
+                            "Property": "NOMCLI"
                           }
                         }
                       ],

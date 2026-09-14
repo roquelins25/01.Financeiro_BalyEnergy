@@ -23,11 +23,11 @@
                       "Entity": "TB_REP"
                     }
                   },
-                  "Property": "nomrep"
+                  "Property": "NOMREP"
                 }
               },
-              "queryRef": "TB_REP.nomrep",
-              "nativeQueryRef": "nomrep",
+              "queryRef": "TB_REP.NOMREP",
+              "nativeQueryRef": "NOMREP",
               "active": true
             }
           ]
@@ -50,15 +50,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [

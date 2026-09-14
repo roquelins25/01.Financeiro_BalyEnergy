@@ -6,7 +6,7 @@ table _Medidas
 			// Soma o valor em aberto .
 			    CALCULATE(
 			        [01. Valor AB CR],
-			        KEEPFILTERS( TB_Fatos_CR[sit] = "AB" )
+			        KEEPFILTERS( TB_Fatos_CR[SIT] = "AB" )
 			        )
 		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: a5e1faf0-be2a-4d62-bfb1-9168eece8a21
@@ -18,7 +18,7 @@ table _Medidas
 			// Calcula a Quantidade de Titulos na Base
 			CALCULATE(
 			    [02. Qtde Titulos],
-			    TB_Fatos_CR[sit] = "AB" )
+			    TB_Fatos_CR[SIT] = "AB" )
 		formatString: #,0
 		displayFolder: 02. Quantidade\Auxiliares
 		lineageTag: b31ae0f3-2543-4db5-acc3-ba0c993c5445
@@ -88,7 +88,7 @@ table _Medidas
 	measure '03. Dias' = ```
 			
 			// Mostra a quantidade de dias no vencimento 
-			DATEDIFF( TODAY(), MAX( TB_Fatos_CR[vencimento] ), DAY )
+			DATEDIFF( TODAY(), MAX( TB_Fatos_CR[VENCIMENTO] ), DAY )
 			```
 		formatString: 0
 		displayFolder: 03. Auxiliares
@@ -99,7 +99,7 @@ table _Medidas
 			VAR _TOTAL = 
 			CALCULATE(
 			    [01. Valor AB Total Vencidas],
-			    ALL( TB_Rede[nomgre] )
+			    ALL( TB_Rede[NOMGRE] )
 			)
 			VAR vRESULT = 
 			DIVIDE( [01. Valor AB Total Vencidas], _TOTAL, 0 )
@@ -192,7 +192,7 @@ table _Medidas
 
 	measure '01. Valor AB/LQ Original' =
 			
-			CALCULATE( [01. Valor Original], KEEPFILTERS( TB_Fatos_CR[sit] IN{"LQ","AB"} ) )
+			CALCULATE( [01. Valor Original], KEEPFILTERS( TB_Fatos_CR[SIT] IN{"LQ","AB"} ) )
 		formatString: #,0.00
 		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: 5617b1ec-4ced-4817-9f93-58b88fde30df
@@ -211,19 +211,19 @@ table _Medidas
 	measure '01. Valor AB Operacao' = ```
 			
 			VAR vREDE = 
-			CALCULATE( [01. Valor Aberto], CROSSFILTER( TB_OPRede[codgre], TB_Rede[codgre], Both ) )
+			CALCULATE( [01. Valor Aberto], CROSSFILTER( TB_OPRede[codgre], TB_Rede[CODGRE], Both ) )
 			
 			VAR vUF = 
 			CALCULATE(
 			    [01. Valor Aberto],
 			    USERELATIONSHIP(
 			        TB_OPUf[UF],
-			        TB_CLI[sigufs]
+			        TB_CLI[SIGUFS]
 			    ),
 			    KEEPFILTERS(
 			    FILTER(
 			        ALL(TB_CLI),
-			        NOT TB_CLI[codgre] IN ALL(TB_OPRede[codgre])
+			        NOT TB_CLI[CODGRE] IN ALL(TB_OPRede[codgre])
 			    ) )
 			)
 			
@@ -244,19 +244,19 @@ table _Medidas
 	measure '02. Qtde AB Operacao' = ```
 			
 			VAR vREDE = 
-			CALCULATE( [02. Quantidade Titulos AB], CROSSFILTER( TB_OPRede[codgre], TB_Rede[codgre], Both ) )
+			CALCULATE( [02. Quantidade Titulos AB], CROSSFILTER( TB_OPRede[codgre], TB_Rede[CODGRE], Both ) )
 			
 			VAR vUF = 
 			CALCULATE(
 			    [02. Quantidade Titulos AB],
 			    USERELATIONSHIP(
 			        TB_OPUf[UF],
-			        TB_CLI[sigufs]
+			        TB_CLI[SIGUFS]
 			    ),
 			    KEEPFILTERS(
 			    FILTER(
 			        ALL(TB_CLI),
-			        NOT TB_CLI[codgre] IN ALL(TB_OPRede[codgre])
+			        NOT TB_CLI[CODGRE] IN ALL(TB_OPRede[codgre])
 			    ) )
 			)
 			
@@ -271,7 +271,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [02. Qtde AB Operacao],
-			    TB_Fatos_CR[observacao] =  BLANK() || TB_Fatos_CR[observacao] = "" 
+			    TB_Fatos_CR[OBSERVACAO] =  BLANK() || TB_Fatos_CR[OBSERVACAO] = "" 
 			)
 			```
 		formatString: 0
@@ -282,7 +282,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [02. Qtde AB Operacao],
-			    TB_Fatos_CR[ForReaj] = "00"  && (TB_Fatos_CR[observacao] =  BLANK() || TB_Fatos_CR[observacao] = "" )
+			    TB_Fatos_CR[FORREAJ] = "00"  && (TB_Fatos_CR[OBSERVACAO] =  BLANK() || TB_Fatos_CR[OBSERVACAO] = "" )
 			)
 		formatString: 0
 		displayFolder: 02. Quantidade\Auxiliares
@@ -811,7 +811,7 @@ table _Medidas
 			RETURN
 			SUMX(
 			    FILTER(
-			        ALLSELECTED(TB_CLI[sigufs]),
+			        ALLSELECTED(TB_CLI[SIGUFS]),
 			        [01. % Valor Total UF] >= ValorAtual
 			    ),
 			    [01. % Valor Total UF]
@@ -826,7 +826,7 @@ table _Medidas
 			    [01. Valor AB Total Vencidas] , 
 			CALCULATE(
 			    [01. Valor AB Total Vencidas],
-			    ALL( TB_CLI[sigufs] )
+			    ALL( TB_CLI[SIGUFS] )
 			) )
 			```
 		formatString: 0.00%;-0.00%;0.00%
@@ -857,7 +857,7 @@ table _Medidas
 
 	measure '01. Valor Original' =
 			
-			SUM( TB_Fatos_CR[valorOri] )
+			SUM( TB_Fatos_CR[VALORORI] )
 		displayFolder: 01. Valores Totais\Geral
 		lineageTag: 3b6cc0d9-83e5-4b2f-8b6f-59d926582bd7
 
@@ -872,7 +872,7 @@ table _Medidas
 
 	measure '01. Valor AB CR' =
 			
-			SUM( TB_Fatos_CR[valorAberto] )
+			SUM( TB_Fatos_CR[VALORABERTO] )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 01. Valores Totais\Geral
 		lineageTag: ad6bc90c-fb92-4060-9dab-83a27a7e8aee
@@ -882,7 +882,7 @@ table _Medidas
 	measure '02. Qtde Titulos' =
 			
 			DISTINCTCOUNT(
-			    TB_Fatos_CR[titulo] )
+			    TB_Fatos_CR[TITULO] )
 		formatString: 0
 		displayFolder: 02. Quantidade\Geral
 		lineageTag: 432cdc15-1e51-4f22-b3e6-c25abe06c628
@@ -890,19 +890,19 @@ table _Medidas
 	measure '01. % Indice Inadimplencia Operacao' = ```
 			
 			VAR vREDE = 
-			CALCULATE( [01 % Indice Inadimplencia], CROSSFILTER( TB_OPRede[codgre], TB_Rede[codgre], Both ) )
+			CALCULATE( [01 % Indice Inadimplencia], CROSSFILTER( TB_OPRede[codgre], TB_Rede[CODGRE], Both ) )
 			
 			VAR vUF = 
 			CALCULATE(
 			    [01 % Indice Inadimplencia],
 			    USERELATIONSHIP(
 			        TB_OPUf[UF],
-			        TB_CLI[sigufs]
+			        TB_CLI[SIGUFS]
 			    ),
 			    KEEPFILTERS(
 			    FILTER(
 			        ALL(TB_CLI),
-			        NOT TB_CLI[codgre] IN ALL(TB_OPRede[codgre])
+			        NOT TB_CLI[CODGRE] IN ALL(TB_OPRede[codgre])
 			    ) )
 			)
 			
@@ -967,7 +967,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [02. Qtde Clientes],
-			    TB_Fatos_CR[sit] = "AB" )
+			    TB_Fatos_CR[SIT] = "AB" )
 		formatString: #,0
 		displayFolder: 02. Quantidade\Auxiliares
 		lineageTag: e7f3aaab-8a00-4692-98f7-0071cc4f5ec7
@@ -977,7 +977,7 @@ table _Medidas
 			// Soma o valor em aberto .
 			    CALCULATE(
 			        [01. Valor AB CR],
-			        KEEPFILTERS( TB_Fatos_CR[sit] IN {"AB","LQ"}  )
+			        KEEPFILTERS( TB_Fatos_CR[SIT] IN {"AB","LQ"}  )
 			        )
 		displayFolder: 01. Valores Totais\Auxiliares\CR
 		lineageTag: c6918ab7-b6f2-4975-8b29-c602b58c95b5
@@ -1026,11 +1026,11 @@ table _Medidas
 			
 			IF(
 			    CALCULATE(
-			        SUM( TB_Verbas[vlrabe] ),
+			        SUM( TB_Verbas[VLRABE] ),
 			        USERELATIONSHIP( TB_CLI[xOperacao], TB_Lvel[CODOP] )
 			    ) = 0, BLANK() , 
 			     CALCULATE(
-			        SUM( TB_Verbas[vlrabe] ),
+			        SUM( TB_Verbas[VLRABE] ),
 			        USERELATIONSHIP( TB_CLI[xOperacao], TB_Lvel[CODOP] )
 			     ))
 			```
@@ -1099,7 +1099,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Aberto],
-			    TB_FRJ[codfrj] = "600" )
+			    TB_FRJ[CODFRJ] = "600" )
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: 01. Valores Totais\CR
 		lineageTag: b277f886-3214-46fc-a776-731534994b5a
@@ -1110,7 +1110,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Aberto],
-			    TB_FRJ[codfrj] = "980" )
+			    TB_FRJ[CODFRJ] = "980" )
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: 01. Valores Totais\CR
 		lineageTag: 30391636-3826-493b-8f1c-48623f941fed
@@ -1121,7 +1121,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Aberto],
-			    TB_FRJ[codfrj] = "940" )
+			    TB_FRJ[CODFRJ] = "940" )
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: 01. Valores Totais\CR
 		lineageTag: c610aa98-b386-43f9-9d2d-54fa30ecfbe2
@@ -1132,7 +1132,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Aberto],
-			    TB_FRJ[codfrj] = "300" )
+			    TB_FRJ[CODFRJ] = "300" )
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: 01. Valores Totais\CR
 		lineageTag: 3d36e53e-34cd-4c37-9a52-de9a3d0a15bb
@@ -1159,9 +1159,9 @@ table _Medidas
 	measure '07. Total Faturado Geral' = ```
 			
 			CALCULATE( 
-			    SUM( TB_Fat[vlrfin] ), 
-			    TB_Fat[vlrfin] > 0 ,
-			    NOT TB_Fat[tnspro] IN{"5201O","6202Q","6201A","6201S","6201Z","51015"}
+			    SUM( TB_Fat[VLRFIN] ), 
+			    TB_Fat[VLRFIN] > 0 ,
+			    NOT TB_Fat[TNSPRO] IN{"5201O","6202Q","6201A","6201S","6201Z","51015"}
 			)
 			```
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
@@ -1174,7 +1174,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Aberto],
-			    TB_FRJ[codfrj] = "700" )
+			    TB_FRJ[CODFRJ] = "700" )
 		displayFolder: 01. Valores Totais\CR
 		lineageTag: 96b6dc8b-16b8-4c49-b005-b3c637aa6f44
 
@@ -1184,7 +1184,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Aberto],
-			    TB_FRJ[codfrj] IN{ "250", "200", "150", "100" } )
+			    TB_FRJ[CODFRJ] IN{ "250", "200", "150", "100" } )
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: 01. Valores Totais\CR
 		lineageTag: 4f44ddab-599c-408f-a560-f284dc7b006b
@@ -1195,7 +1195,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Aberto],
-			    TB_FRJ[codfrj] = "500" )
+			    TB_FRJ[CODFRJ] = "500" )
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: 01. Valores Totais\CR
 		lineageTag: 4449fc6c-9a3c-4a6a-b954-13c99174ff22
@@ -1206,7 +1206,7 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Aberto],
-			    TB_FRJ[codfrj] = "00" )
+			    TB_FRJ[CODFRJ] = "00" )
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: 01. Valores Totais\CR
 		lineageTag: dc16392a-1bb2-4cb2-abd0-4f290855ce71
@@ -1217,11 +1217,11 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Original],
-			    TB_Fatos_CR[tipo] = "01",
-			    TB_Fatos_CR[codtns] = "90301",
-			    NOT TB_Fatos_CR[sit] IN{"CA"},
-			    NOT TB_Fatos_CR[portador] IN{"ANTE"},
-			    USERELATIONSHIP( TB_Fatos_CR[emissao], 'CALENDARIO DAX'[Date] )
+			    TB_Fatos_CR[TIPO] = "01",
+			    TB_Fatos_CR[CODTNS] = "90301",
+			    NOT TB_Fatos_CR[SIT] IN{"CA"},
+			    NOT TB_Fatos_CR[PORTADOR] IN{"ANTE"},
+			    USERELATIONSHIP( TB_Fatos_CR[EMISSAO], 'CALENDARIO DAX'[Date] )
 			)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 07. Faturamento
@@ -1377,7 +1377,7 @@ table _Medidas
 							-------- LV1
 								VAR vTabelaAGP = 
 								ADDCOLUMNS(
-									SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[despar] ), 
+									SUMMARIZE( BaseCP,TB_Fatos_CP[ID_AGP],  TB_Fatos_CP[DESPAR] ), 
 									"@Valor", CALCULATE( [01. Valor Ori CP], 
 													REMOVEFILTERS( 'CALENDARIO DAX' ), 
 													KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
@@ -1390,13 +1390,13 @@ table _Medidas
 										VAR CtaFinsDoAGP =
 											SUMMARIZE(
 												FILTER( BaseCP, TB_Fatos_CP[ID_AGP] = AGPIDAtual ),
-												TB_Fatos_CP[CtaFin]
+												TB_Fatos_CP[CTAFIN]
 											)
 										RETURN
 											SUMX(
 												CtaFinsDoAGP,
-												VAR CtaFinAtual = TB_Fatos_CP[CtaFin]
-												RETURN CALCULATE( [11. Projetado Saidas], TB_CTA[ctafin] = CtaFinAtual )
+												VAR CtaFinAtual = TB_Fatos_CP[CTAFIN]
+												RETURN CALCULATE( [11. Projetado Saidas], TB_CTA[CTAFIN] = CtaFinAtual )
 											)
 											)
 			
@@ -1404,7 +1404,7 @@ table _Medidas
 								CONCATENATEX(
 									vTabelaAGP,
 									VAR AGPID = TB_Fatos_CP[ID_AGP]
-									VAR AGPAtual = TB_Fatos_CP[despar]
+									VAR AGPAtual = TB_Fatos_CP[DESPAR]
 									VAR ValorAGP = [@Valor]
 									VAR ValorLQ = [@ValorLQ]
 									VAR ValorAB = [@ValorAB]
@@ -1418,8 +1418,8 @@ table _Medidas
 														BaseCP,
 														TB_Fatos_CP[ID_AGP] = AGPID
 													),
-													TB_Fatos_CP[CtaFin],
-													TB_Fatos_CP[DesCta]
+													TB_Fatos_CP[CTAFIN],
+													TB_Fatos_CP[DESCTA]
 												),
 												"@Valor", CALCULATE( [01. Valor Ori CP], 
 															REMOVEFILTERS( 'CALENDARIO DAX' ), 
@@ -1429,17 +1429,17 @@ table _Medidas
 												"@ValorLQ", [01. Valor LQ CP],
 												"@ValorAB", [01. Valor AB CP],
 												"@Projetado",
-														VAR CtaFinAtual = TB_Fatos_CP[CtaFin]
+														VAR CtaFinAtual = TB_Fatos_CP[CTAFIN]
 														RETURN
-															CALCULATE( [11. Projetado Saidas], TB_CTA[ctafin] = CtaFinAtual )
+															CALCULATE( [11. Projetado Saidas], TB_CTA[CTAFIN] = CtaFinAtual )
 											)
 			
 										VAR Tipos =
 											CONCATENATEX(
 												TabelaTipo,
 			
-												VAR TipoID = TB_Fatos_CP[CtaFin]
-												VAR TipoAtual = TB_Fatos_CP[DesCta]
+												VAR TipoID = TB_Fatos_CP[CTAFIN]
+												VAR TipoAtual = TB_Fatos_CP[DESCTA]
 												VAR ValorTipo = [@Valor]
 												VAR ValorLQ = [@ValorLQ]
 												VAR ValorAB = [@ValorAB]
@@ -1452,10 +1452,10 @@ table _Medidas
 															SUMMARIZE(
 																FILTER(
 																	BaseCP,
-																	TB_Fatos_CP[ID_AGP] = AGPID && TB_Fatos_CP[CtaFin] = TipoID
+																	TB_Fatos_CP[ID_AGP] = AGPID && TB_Fatos_CP[CTAFIN] = TipoID
 																),
-																TB_CLI[codcli],
-																TB_CLI[nomcli] ),
+																TB_CLI[CODCLI],
+																TB_CLI[NOMCLI] ),
 														"@Valor", CALCULATE( [01. Valor Ori CP], 
 																	REMOVEFILTERS( 'CALENDARIO DAX' ), 
 																	KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] )), 
@@ -1468,8 +1468,8 @@ table _Medidas
 														VAR CONTAS = 
 														CONCATENATEX(
 															TabelaConta,
-																VAR ContaID = TB_CLI[codcli]
-																VAR ContaAtual = TB_CLI[nomcli]
+																VAR ContaID = TB_CLI[CODCLI]
+																VAR ContaAtual = TB_CLI[NOMCLI]
 																VAR ValorConta = [@Valor]
 																VAR ValorLQ = [@ValorLQ]
 																VAR ValorAB = [@ValorAB]
@@ -1682,9 +1682,9 @@ table _Medidas
 			
 			CALCULATE(
 			    SUM( TB_Fatos_CP[VLRABE] ),
-			    TB_Fatos_CP[sittit] IN {"AB","AV"},
-			    NOT TB_Fatos_CP[Tipo] IN {"LAD"},
-			    NOT TB_Fatos_CP[CtaFin] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580})
+			    TB_Fatos_CP[SITTIT] IN {"AB","AV"},
+			    NOT TB_Fatos_CP[TIPO] IN {"LAD"},
+			    NOT TB_Fatos_CP[CTAFIN] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580})
 			)
 		displayFolder: 01. Valores Totais\Geral
 		lineageTag: 567240e9-4c89-49c9-a959-8f946f80200e
@@ -1697,7 +1697,7 @@ table _Medidas
 			    [07.  CR Valor Original FAT] ,
 			            CALCULATE(
 			                [07.  CR Valor Original FAT],
-			                ALLSELECTED( TB_PGT[desfpg] )
+			                ALLSELECTED( TB_PGT[DESFPG] )
 			            )
 			)
 			```
@@ -1711,7 +1711,7 @@ table _Medidas
 			    [07. Total Faturado Geral] ,
 			            CALCULATE(
 			                [07. Total Faturado Geral],
-			                ALLSELECTED( TB_PGT[desfpg] )
+			                ALLSELECTED( TB_PGT[DESFPG] )
 			            )
 			)
 			```
@@ -1732,8 +1732,8 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor AB CR],
-			    TB_Fatos_CR[tipo] IN{"01","02","03","CHD","CHQ"},
-			    TB_Fatos_CR[sit] = "AB",
+			    TB_Fatos_CR[TIPO] IN{"01","02","03","CHD","CHQ"},
+			    TB_Fatos_CR[SIT] = "AB",
 			    TB_Apoio[xCODCART] = 100002)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 01. Valores Totais\Auxiliares\CR
@@ -2039,7 +2039,7 @@ table _Medidas
 			    "Percent",
 			    fxFORMAT(
 			    DIVIDE( [01. Valor Aberto] ,
-			        CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), REMOVEFILTERS( TB_Fatos_CR[portador]) ) ),
+			        CALCULATE( [01. Valor Aberto], ALL( 'CALENDARIO DAX' ), REMOVEFILTERS( TB_Fatos_CR[PORTADOR]) ) ),
 			        5 ) ,
 			
 			    "Acumulado",
@@ -2255,13 +2255,13 @@ table _Medidas
 			VAR TabDespar =
 			    ADDCOLUMNS(
 			        FILTER(
-			            VALUES( TB_Fatos_CP[despar] ),
+			            VALUES( TB_Fatos_CP[DESPAR] ),
 			            NOT ISBLANK( CALCULATE( [01. Valor AB CP] ) )
 			        ),
-			        "DesparNome", TB_Fatos_CP[despar],
+			        "DesparNome", TB_Fatos_CP[DESPAR],
 			        "DesparID",
 			            "cpd" & CONVERT(
-			                RANKX( ALL( TB_Fatos_CP[despar] ), CALCULATE( MIN( TB_Fatos_CP[despar] ) ), , ASC, DENSE ),
+			                RANKX( ALL( TB_Fatos_CP[DESPAR] ), CALCULATE( MIN( TB_Fatos_CP[DESPAR] ) ), , ASC, DENSE ),
 			                STRING
 			            )
 			    )
@@ -2277,7 +2277,7 @@ table _Medidas
 			                VAR ValorDespar =
 			                    CALCULATE(
 			                        [01. Valor AB CP],
-			                        KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual )
+			                        KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual )
 			                    )
 			                RETURN
 			                    "<td class='valor'>" &
@@ -2290,25 +2290,25 @@ table _Medidas
 			        VAR TabDescta =
 			            ADDCOLUMNS(
 			                FILTER(
-			                    VALUES( TB_Fatos_CP[DesCta] ),
+			                    VALUES( TB_Fatos_CP[DESCTA] ),
 			                    NOT ISBLANK(
 			                        CALCULATE(
 			                            [01. Valor AB CP],
-			                            KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual )
+			                            KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual )
 			                        )
 			                    )
 			                ),
-			                "DesctaNome", TB_Fatos_CP[DesCta],
+			                "DesctaNome", TB_Fatos_CP[DESCTA],
 			                "DesctaID",
 			                    DesparID & "_c" & CONVERT(
-			                        RANKX( ALL( TB_Fatos_CP[DesCta] ), CALCULATE( MIN( TB_Fatos_CP[DesCta] ) ), , ASC, DENSE ),
+			                        RANKX( ALL( TB_Fatos_CP[DESCTA] ), CALCULATE( MIN( TB_Fatos_CP[DESCTA] ) ), , ASC, DENSE ),
 			                        STRING
 			                    )
 			            )
 			        VAR TotalDespar =
 			            CALCULATE(
 			                [01. Valor AB CP],
-			                KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual )
+			                KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual )
 			            )
 			        VAR vDetalheDescta =
 			            CONCATENATEX(
@@ -2318,8 +2318,8 @@ table _Medidas
 			                VAR TotalDescta =
 			                    CALCULATE(
 			                        [01. Valor AB CP],
-			                        KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
-			                        KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual )
+			                        KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual ),
+			                        KEEPFILTERS( TB_Fatos_CP[DESCTA] = DesctaAtual )
 			                    )
 			                VAR PctDescta = DIVIDE( TotalDescta, TotalDespar, 0 )
 			                VAR vLinhasDescta =
@@ -2328,8 +2328,8 @@ table _Medidas
 			                        VAR ValorDescta =
 			                            CALCULATE(
 			                                [01. Valor AB CP],
-			                                KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
-			                                KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual )
+			                                KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual ),
+			                                KEEPFILTERS( TB_Fatos_CP[DESCTA] = DesctaAtual )
 			                            )
 			                        RETURN
 			                            "<td class='valor'>" &
@@ -2341,12 +2341,12 @@ table _Medidas
 			                    )
 			                VAR TabRedesCP =
 			                    FILTER(
-			                        VALUES( TB_CLI[nomcli] ),
+			                        VALUES( TB_CLI[NOMCLI] ),
 			                        NOT ISBLANK(
 			                            CALCULATE(
 			                                [01. Valor AB CP],
-			                                KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
-			                                KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual )
+			                                KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual ),
+			                                KEEPFILTERS( TB_Fatos_CP[DESCTA] = DesctaAtual )
 			                            )
 			                        )
 			                    )
@@ -2357,9 +2357,9 @@ table _Medidas
 			                        VAR TotalRedeCP =
 			                            CALCULATE(
 			                                [01. Valor AB CP],
-			                                KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
-			                                KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual ),
-			                                KEEPFILTERS( TB_CLI[nomcli] = RedeAtual )
+			                                KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual ),
+			                                KEEPFILTERS( TB_Fatos_CP[DESCTA] = DesctaAtual ),
+			                                KEEPFILTERS( TB_CLI[NOMCLI] = RedeAtual )
 			                            )
 			                        VAR PctRedeCP = DIVIDE( TotalRedeCP, TotalDescta, 0 )
 			                        VAR vLinhasRedeCP =
@@ -2368,9 +2368,9 @@ table _Medidas
 			                                VAR ValorRedeCP =
 			                                    CALCULATE(
 			                                        [01. Valor AB CP],
-			                                        KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
-			                                        KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual ),
-			                                        KEEPFILTERS( TB_CLI[nomcli] = RedeAtual )
+			                                        KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual ),
+			                                        KEEPFILTERS( TB_Fatos_CP[DESCTA] = DesctaAtual ),
+			                                        KEEPFILTERS( TB_CLI[NOMCLI] = RedeAtual )
 			                                    )
 			                                RETURN
 			                                    "<td class='valor'>" &
@@ -2394,8 +2394,8 @@ table _Medidas
 			                        "",
 			                        CALCULATE(
 			                            [01. Valor AB CP],
-			                            KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual ),
-			                            KEEPFILTERS( TB_Fatos_CP[DesCta] = DesctaAtual )
+			                            KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual ),
+			                            KEEPFILTERS( TB_Fatos_CP[DESCTA] = DesctaAtual )
 			                        ),
 			                        ASC
 			                    )
@@ -2417,7 +2417,7 @@ table _Medidas
 			                "",
 			                CALCULATE(
 			                    [01. Valor AB CP],
-			                    KEEPFILTERS( TB_Fatos_CP[despar] = DesparAtual )
+			                    KEEPFILTERS( TB_Fatos_CP[DESPAR] = DesparAtual )
 			                ),
 			                ASC
 			            )
@@ -3314,15 +3314,15 @@ table _Medidas
 							FILTER(
 								SUMMARIZE(
 									TB_CTA,
-									TB_CTA[ctafin],
-									TB_CTA[descta]
+									TB_CTA[CTAFIN],
+									TB_CTA[DESCTA]
 								),
-								TB_CTA[ctafin] IN fxFluxoCaixa(1)
+								TB_CTA[CTAFIN] IN fxFluxoCaixa(1)
 							),
 							"Ordem",
 								5 +
 								SWITCH(
-									TB_CTA[ctafin],
+									TB_CTA[CTAFIN],
 									750,  1,
 									2370, 2,
 									790,  3,
@@ -3333,7 +3333,7 @@ table _Medidas
 						)
 			
 					VAR TotalGeralDeducoes =
-						CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1), FiltroTotal )
+						CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(1), FiltroTotal )
 						+ CALCULATE( [10. Deducoes Entrada RECOMPRA], FiltroTotal )
 			
 					VAR vDeducoesDiasTotal =
@@ -3352,7 +3352,7 @@ table _Medidas
 									)
 								)
 							VAR ValorDia =
-								CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1), FiltroData )
+								CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(1), FiltroData )
 								+ CALCULATE( [10. Deducoes Entrada RECOMPRA], FiltroData )
 							RETURN
 								"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
@@ -3427,11 +3427,11 @@ table _Medidas
 					VAR vDeducoesContasHTML =
 						CONCATENATEX(
 							TiposDeducoesContas,
-							VAR CtafinAtual    = TB_CTA[ctafin]
-							VAR CategoriaAtual = TB_CTA[descta]
+							VAR CtafinAtual    = TB_CTA[CTAFIN]
+							VAR CategoriaAtual = TB_CTA[DESCTA]
 							VAR OrdemAtual     = [Ordem]
 							VAR TotalConta =
-								CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal )
+								CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroTotal )
 							VAR PercentConta = DIVIDE( TotalConta, TotalGeralDeducoes, 0 )
 							VAR LinhaDias =
 								CONCATENATEX(
@@ -3449,7 +3449,7 @@ table _Medidas
 											)
 										)
 									VAR ValorDia =
-										CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroData )
+										CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroData )
 									RETURN
 										"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 									"",
@@ -3540,7 +3540,7 @@ table _Medidas
 									FiltroData
 								)
 							VAR ValorDeducoesDia =
-								CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1), FiltroData )
+								CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(1), FiltroData )
 								+ CALCULATE( [10. Deducoes Entrada RECOMPRA], FiltroData )
 							VAR ValorEntradaDescontadaDia =
 								CALCULATE( [10. Entrada], TB_Apoio[Carteira] = "Descontada", FiltroData ) * -1
@@ -3569,10 +3569,10 @@ table _Medidas
 								SUMMARIZE(
 									TB_CTA,
 									TB_CTA[xAgrupamento],
-									TB_CTA[ctafin],
-									TB_CTA[descta]
+									TB_CTA[CTAFIN],
+									TB_CTA[DESCTA]
 								),
-								TB_CTA[ctafin] IN fxFluxoCaixa(2)
+								TB_CTA[CTAFIN] IN fxFluxoCaixa(2)
 							)
 			
 						VAR Agrupamentos =
@@ -3582,7 +3582,7 @@ table _Medidas
 							)
 			
 						VAR TotalGeralCustos =
-							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2), FiltroTotal )
+							CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2), FiltroTotal )
 			
 						VAR vCustosDiasTotal =
 							CONCATENATEX(
@@ -3600,7 +3600,7 @@ table _Medidas
 										)
 									)
 								VAR ValorDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2), FiltroData )
 								RETURN
 									"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 								"",
@@ -3628,7 +3628,7 @@ table _Medidas
 									CALCULATE(
 										[10. Deducoes TOTAL],
 										TB_CTA[xAgrupamento] = AgrupamentoAtual,
-										TB_CTA[ctafin] IN fxFluxoCaixa(2),
+										TB_CTA[CTAFIN] IN fxFluxoCaixa(2),
 										FiltroTotal
 									)
 								VAR PercentGrupo = DIVIDE( TotalGrupo, TotalGeralCustos, 0 )
@@ -3651,7 +3651,7 @@ table _Medidas
 											CALCULATE(
 												[10. Deducoes TOTAL],
 												TB_CTA[xAgrupamento] = AgrupamentoAtual,
-												TB_CTA[ctafin] IN fxFluxoCaixa(2),
+												TB_CTA[CTAFIN] IN fxFluxoCaixa(2),
 												FiltroData
 											)
 										RETURN
@@ -3670,11 +3670,11 @@ table _Medidas
 								VAR LinhasContasHTML =
 									CONCATENATEX(
 										ContasDoGrupo,
-										VAR CtafinAtual    = TB_CTA[ctafin]
-										VAR CategoriaAtual = TB_CTA[descta]
-										VAR OrdemConta     = RANKX( ContasDoGrupo, TB_CTA[descta], , ASC, Dense )
+										VAR CtafinAtual    = TB_CTA[CTAFIN]
+										VAR CategoriaAtual = TB_CTA[DESCTA]
+										VAR OrdemConta     = RANKX( ContasDoGrupo, TB_CTA[DESCTA], , ASC, Dense )
 										VAR TotalConta =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroTotal )
 										VAR PercentConta = DIVIDE( TotalConta, TotalGrupo, 0 )
 										VAR LinhaDiasConta =
 											CONCATENATEX(
@@ -3692,7 +3692,7 @@ table _Medidas
 														)
 													)
 												VAR ValorDia =
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroData )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroData )
 												RETURN
 													"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 												"",
@@ -3707,7 +3707,7 @@ table _Medidas
 												LinhaDiasConta &
 											"</tr>",
 										"",
-										TB_CTA[ctafin],
+										TB_CTA[CTAFIN],
 										ASC
 									)
 								RETURN
@@ -3725,20 +3725,20 @@ table _Medidas
 							FILTER(
 								SUMMARIZE(
 									TB_CTA,
-									TB_CTA[ctafin],
-									TB_CTA[descta]
+									TB_CTA[CTAFIN],
+									TB_CTA[DESCTA]
 								),
-								TB_CTA[ctafin] IN fxFluxoCaixa(3)
+								TB_CTA[CTAFIN] IN fxFluxoCaixa(3)
 							)
 			
 						VAR TiposDespesasComerciais =
 							ADDCOLUMNS(
 								TiposDCDBase,
-								"Ordem", RANKX( TiposDCDBase, TB_CTA[descta], , ASC, Dense )
+								"Ordem", RANKX( TiposDCDBase, TB_CTA[DESCTA], , ASC, Dense )
 							)
 			
 						VAR TotalGeralDCD =
-							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3), FiltroTotal )
+							CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3), FiltroTotal )
 			
 						VAR vCustosDiasDCD =
 							CONCATENATEX(
@@ -3756,7 +3756,7 @@ table _Medidas
 										)
 									)
 								VAR ValorDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3), FiltroData )
 								RETURN
 									"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 								"",
@@ -3775,11 +3775,11 @@ table _Medidas
 						VAR vDCDDetalhe =
 							CONCATENATEX(
 								TiposDespesasComerciais,
-								VAR CtafinAtual    = TB_CTA[ctafin]
-								VAR CategoriaAtual = TB_CTA[descta]
+								VAR CtafinAtual    = TB_CTA[CTAFIN]
+								VAR CategoriaAtual = TB_CTA[DESCTA]
 								VAR OrdemAtual     = [Ordem]
 								VAR TotalConta =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroTotal )
 								VAR PercentConta = DIVIDE( TotalConta, TotalGeralDCD, 0 )
 								VAR LinhaDias =
 									CONCATENATEX(
@@ -3797,7 +3797,7 @@ table _Medidas
 												)
 											)
 										VAR ValorDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroData )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroData )
 										RETURN
 											"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 										"",
@@ -3836,16 +3836,16 @@ table _Medidas
 							FILTER(
 								SUMMARIZE(
 									TB_CTA,
-									TB_CTA[ctafin],
-									TB_CTA[descta]
+									TB_CTA[CTAFIN],
+									TB_CTA[DESCTA]
 								),
-								TB_CTA[ctafin] IN fxFluxoCaixa(4)
+								TB_CTA[CTAFIN] IN fxFluxoCaixa(4)
 							)
 			
 						VAR TiposDespesasADM =
 							ADDCOLUMNS(
 								TiposADMBase,
-								"Ordem", QtdFixasADM + RANKX( TiposADMBase, TB_CTA[descta], , ASC, Dense )
+								"Ordem", QtdFixasADM + RANKX( TiposADMBase, TB_CTA[DESCTA], , ASC, Dense )
 							)
 			
 						VAR SomaADMFixas =
@@ -3855,7 +3855,7 @@ table _Medidas
 							 CALCULATE( fxADMFixaValor( IDAtual ), FiltroTotal ) )
 			
 						VAR TotalGEralADM =
-							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4), FiltroTotal )
+							CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4), FiltroTotal )
 							+ SomaADMFixas
 			
 						VAR vCustosDiaADM =
@@ -3874,7 +3874,7 @@ table _Medidas
 										)
 									)
 								VAR ValorContasDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4), FiltroData )
 								VAR ValorFixasDia =
 									SUMX( TiposADMFixas,
 										VAR IDAtual = [ID]
@@ -3940,11 +3940,11 @@ table _Medidas
 						VAR vADMDetalhe =
 							CONCATENATEX(
 								TiposDespesasADM,
-								VAR CtafinAtual    = TB_CTA[ctafin]
-								VAR CategoriaAtual = TB_CTA[descta]
+								VAR CtafinAtual    = TB_CTA[CTAFIN]
+								VAR CategoriaAtual = TB_CTA[DESCTA]
 								VAR OrdemAtual     = [Ordem]
 								VAR TotalConta =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroTotal )
 								VAR PercentConta = DIVIDE( TotalConta, TotalGEralADM, 0 )
 								VAR LinhaDias =
 									CONCATENATEX(
@@ -3962,7 +3962,7 @@ table _Medidas
 												)
 											)
 										VAR ValorDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroData )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroData )
 										RETURN
 											"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 										"",
@@ -3990,20 +3990,20 @@ table _Medidas
 							FILTER(
 								SUMMARIZE(
 									TB_CTA,
-									TB_CTA[ctafin],
-									TB_CTA[descta]
+									TB_CTA[CTAFIN],
+									TB_CTA[DESCTA]
 								),
-								TB_CTA[ctafin] IN fxFluxoCaixa(5)
+								TB_CTA[CTAFIN] IN fxFluxoCaixa(5)
 							)
 			
 						VAR TiposImpostosLucro =
 							ADDCOLUMNS(
 								TiposIMPBase,
-								"Ordem", RANKX( TiposIMPBase, TB_CTA[descta], , ASC, Dense )
+								"Ordem", RANKX( TiposIMPBase, TB_CTA[DESCTA], , ASC, Dense )
 							)
 			
 						VAR TotalGeralImpLucro =
-							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5), FiltroTotal )
+							CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5), FiltroTotal )
 			
 						VAR vImpostoDiasLucro =
 							CONCATENATEX(
@@ -4021,7 +4021,7 @@ table _Medidas
 										)
 									)
 								VAR ValorDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5), FiltroData )
 								RETURN
 									"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 								"",
@@ -4040,11 +4040,11 @@ table _Medidas
 						VAR vImpDetalhe =
 							CONCATENATEX(
 								TiposImpostosLucro,
-								VAR CtafinAtual    = TB_CTA[ctafin]
-								VAR CategoriaAtual = TB_CTA[descta]
+								VAR CtafinAtual    = TB_CTA[CTAFIN]
+								VAR CategoriaAtual = TB_CTA[DESCTA]
 								VAR OrdemAtual     = [Ordem]
 								VAR TotalConta =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroTotal )
 								VAR PercentConta = DIVIDE( TotalConta, TotalGeralImpLucro, 0 )
 								VAR LinhaDias =
 									CONCATENATEX(
@@ -4062,7 +4062,7 @@ table _Medidas
 												)
 											)
 										VAR ValorDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroData )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroData )
 										RETURN
 											"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 										"",
@@ -4104,16 +4104,16 @@ table _Medidas
 							FILTER(
 								SUMMARIZE(
 									TB_CTA,
-									TB_CTA[ctafin],
-									TB_CTA[descta]
+									TB_CTA[CTAFIN],
+									TB_CTA[DESCTA]
 								),
-								TB_CTA[ctafin] IN fxFluxoCaixa(6)
+								TB_CTA[CTAFIN] IN fxFluxoCaixa(6)
 							)
 			
 						VAR TiposR_D_finan =
 							ADDCOLUMNS(
 								TiposR_DFinan_Base,
-								"Ordem", QtdeFixasR_D + RANKX( TiposR_DFinan_Base, TB_CTA[descta], , ASC, Dense )
+								"Ordem", QtdeFixasR_D + RANKX( TiposR_DFinan_Base, TB_CTA[DESCTA], , ASC, Dense )
 							)
 			
 						VAR SomaR_D_finanFixas =
@@ -4124,7 +4124,7 @@ table _Medidas
 							)
 			
 						VAR TotalGeralR_D_finan =
-							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6), FiltroTotal )
+							CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6), FiltroTotal )
 							+ SomaR_D_finanFixas
 			
 						VAR vCustosDiaR_D_finan =
@@ -4143,7 +4143,7 @@ table _Medidas
 										)
 									)
 								VAR ValorContasDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6), FiltroData )
 								VAR ValorFixasDia =
 									SUMX(
 										TiposR_Dfinan,
@@ -4211,11 +4211,11 @@ table _Medidas
 						VAR vR_D_finanDetalhe =
 							CONCATENATEX(
 								TiposR_D_finan,
-								VAR CtafinAtual    = TB_CTA[ctafin]
-								VAR CategoriaAtual = TB_CTA[descta]
+								VAR CtafinAtual    = TB_CTA[CTAFIN]
+								VAR CategoriaAtual = TB_CTA[DESCTA]
 								VAR OrdemAtual     = [Ordem]
 								VAR TotalConta =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroTotal )
 								VAR PercentConta = DIVIDE( TotalConta, TotalGeralR_D_finan, 0 )
 								VAR LinhaDias =
 									CONCATENATEX(
@@ -4233,7 +4233,7 @@ table _Medidas
 												)
 											)
 										VAR ValorDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroData )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroData )
 										RETURN
 											"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 										"",
@@ -4296,26 +4296,26 @@ table _Medidas
 									)
 									+ (
 										(
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1), FiltroData )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(1), FiltroData )
 											+ CALCULATE( [10. Deducoes Entrada RECOMPRA], FiltroData )
 										)
 										+ CALCULATE( [10. Entrada], TB_Apoio[Carteira] = "Descontada", FiltroData ) * -1
 									)
 								VAR ValorCustosDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2), FiltroData )
 								VAR ValorDCDDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3), FiltroData )
 								VAR ValorADMDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4), FiltroData )
 									+ SUMX(
 										TiposADMFixas,
 										VAR IDAtual = [ID]
 										RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroData )
 									)
 								VAR ValorImpLucroDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5), FiltroData )
 								VAR ValorR_D_finanDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6), FiltroData )
 									+ SUMX(
 										TiposR_Dfinan,
 										VAR IDAtual = [ID]
@@ -4363,16 +4363,16 @@ table _Medidas
 							FILTER(
 								SUMMARIZE(
 									TB_CTA,
-									TB_CTA[ctafin],
-									TB_CTA[descta]
+									TB_CTA[CTAFIN],
+									TB_CTA[DESCTA]
 								),
-								TB_CTA[ctafin] IN fxFluxoCaixa(7)
+								TB_CTA[CTAFIN] IN fxFluxoCaixa(7)
 							)
 			
 						VAR Tipos_FluxoCaixaInvest =
 							ADDCOLUMNS(
 								Tipos_FluxoCaixaInvestimentos_Base,
-								"Ordem", QtdeFixasFluxoCaixaInvet + RANKX( Tipos_FluxoCaixaInvestimentos_Base, TB_CTA[descta], , ASC, Dense )
+								"Ordem", QtdeFixasFluxoCaixaInvet + RANKX( Tipos_FluxoCaixaInvestimentos_Base, TB_CTA[DESCTA], , ASC, Dense )
 							)
 			
 						VAR Soma_FluxoCaixaInvest_Fixas =
@@ -4383,7 +4383,7 @@ table _Medidas
 							)
 			
 						VAR TotalGeralFluxoCaixaInvest =
-							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(7), FiltroTotal )
+							CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(7), FiltroTotal )
 							+ Soma_FluxoCaixaInvest_Fixas
 			
 						VAR vCusto_FluxoCaixaInvest_Dias =
@@ -4402,7 +4402,7 @@ table _Medidas
 										)
 									)
 								VAR ValorContasDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(7), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(7), FiltroData )
 								VAR ValorFixasDia =
 									SUMX(
 										TiposFluoCaixaInvetimentos,
@@ -4470,11 +4470,11 @@ table _Medidas
 						VAR vFluxoCaixaInvest_Detalhe =
 							CONCATENATEX(
 								Tipos_FluxoCaixaInvest,
-								VAR CtafinAtual    = TB_CTA[ctafin]
-								VAR CategoriaAtual = TB_CTA[descta]
+								VAR CtafinAtual    = TB_CTA[CTAFIN]
+								VAR CategoriaAtual = TB_CTA[DESCTA]
 								VAR OrdemAtual     = [Ordem]
 								VAR TotalConta =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroTotal )
 								VAR PercentConta = DIVIDE( TotalConta, TotalGeralFluxoCaixaInvest, 0 )
 								VAR LinhaDias =
 									CONCATENATEX(
@@ -4492,7 +4492,7 @@ table _Medidas
 												)
 											)
 										VAR ValorDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroData )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroData )
 										RETURN
 											"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 										"",
@@ -4529,26 +4529,26 @@ table _Medidas
 							FILTER(
 								SUMMARIZE(
 									TB_CTA,
-									TB_CTA[ctafin],
-									TB_CTA[descta]
+									TB_CTA[CTAFIN],
+									TB_CTA[DESCTA]
 								),
-								VAR CtafinAtual = TB_CTA[ctafin]
+								VAR CtafinAtual = TB_CTA[CTAFIN]
 								RETURN
 									NOT( CtafinAtual IN TodosCodigosUsados ) &&
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal ) > 0
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroTotal ) > 0
 							)
 			
 						VAR TiposAClassificar =
 							ADDCOLUMNS(
 								TiposAClassificarBase,
-								"Ordem", RANKX( TiposAClassificarBase, TB_CTA[descta], , ASC, Dense )
+								"Ordem", RANKX( TiposAClassificarBase, TB_CTA[DESCTA], , ASC, Dense )
 							)
 			
 						VAR CodigosAClassificar =
-							SELECTCOLUMNS( TiposAClassificarBase, "CtaFin", TB_CTA[ctafin] )
+							SELECTCOLUMNS( TiposAClassificarBase, "CtaFin", TB_CTA[CTAFIN] )
 			
 						VAR TotalGeralAClassificar =
-							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN CodigosAClassificar, FiltroTotal )
+							CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN CodigosAClassificar, FiltroTotal )
 			
 						VAR vDiasAClassificar =
 							CONCATENATEX(
@@ -4566,7 +4566,7 @@ table _Medidas
 										)
 									)
 								VAR ValorDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN CodigosAClassificar, FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN CodigosAClassificar, FiltroData )
 								RETURN
 									"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 								"",
@@ -4585,11 +4585,11 @@ table _Medidas
 						VAR vAClassificarDetalhe =
 							CONCATENATEX(
 								TiposAClassificar,
-								VAR CtafinAtual    = TB_CTA[ctafin]
-								VAR CategoriaAtual = TB_CTA[descta]
+								VAR CtafinAtual    = TB_CTA[CTAFIN]
+								VAR CategoriaAtual = TB_CTA[DESCTA]
 								VAR OrdemAtual     = [Ordem]
 								VAR TotalConta =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroTotal )
 								VAR PercentConta = DIVIDE( TotalConta, TotalGeralAClassificar, 0 )
 								VAR LinhaDias =
 									CONCATENATEX(
@@ -4607,7 +4607,7 @@ table _Medidas
 												)
 											)
 										VAR ValorDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroData )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual, FiltroData )
 										RETURN
 											"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 										"",
@@ -4662,26 +4662,26 @@ table _Medidas
 									)
 									+ (
 										(
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1), FiltroData )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(1), FiltroData )
 											+ CALCULATE( [10. Deducoes Entrada RECOMPRA], FiltroData )
 										)
 										+ CALCULATE( [10. Entrada], TB_Apoio[Carteira] = "Descontada", FiltroData ) * -1
 									)
 								VAR ValorCustosDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2), FiltroData )
 								VAR ValorDCDDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3), FiltroData )
 								VAR ValorADMDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4), FiltroData )
 									+ SUMX(
 										TiposADMFixas,
 										VAR IDAtual = [ID]
 										RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroData )
 									)
 								VAR ValorImpLucroDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5), FiltroData )
 								VAR ValorR_D_finanDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6), FiltroData )
 									+ SUMX(
 										TiposR_Dfinan,
 										VAR IDAtual = [ID]
@@ -4691,7 +4691,7 @@ table _Medidas
 									ValorReceitaDia
 									+ ( ValorCustosDia + ValorDCDDia + ValorADMDia + ValorImpLucroDia + ValorR_D_finanDia )
 								VAR ValorFluxoInvestDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(7), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(7), FiltroData )
 									+ SUMX(
 										TiposFluoCaixaInvetimentos,
 										VAR IDAtual = [ID]
@@ -5057,27 +5057,27 @@ table _Medidas
 										)
 									)
 								VAR ValorCustosDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2), FiltroData )
 								VAR ValorDCDDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3), FiltroData )
 								VAR ValorADMDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4), FiltroData )
 									+ SUMX(
 										TiposADMFixas,
 										VAR IDAtual = [ID]
 										RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroData )
 									)
 								VAR ValorImpLucroDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5), FiltroData )
 								VAR ValorR_D_finanDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6), FiltroData )
 									+ SUMX(
 										TiposR_Dfinan,
 										VAR IDAtual = [ID]
 										RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroData )
 									)
 								VAR ValorFluxoInvestDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(7), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(7), FiltroData )
 									+ SUMX(
 										TiposFluoCaixaInvetimentos,
 										VAR IDAtual = [ID]
@@ -5128,33 +5128,33 @@ table _Medidas
 									)
 									+ (
 										(
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1), FiltroData )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(1), FiltroData )
 											+ CALCULATE( [10. Deducoes Entrada RECOMPRA], FiltroData )
 										)
 										+ CALCULATE( [10. Entrada], TB_Apoio[Carteira] = "Descontada", FiltroData ) * -1
 									)
 								VAR ValorCustosDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2), FiltroData )
 								VAR ValorDCDDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3), FiltroData )
 								VAR ValorADMDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4), FiltroData )
 									+ SUMX(
 										TiposADMFixas,
 										VAR IDAtual = [ID]
 										RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroData )
 									)
 								VAR ValorImpLucroDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5), FiltroData )
 								VAR ValorR_D_finanDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6), FiltroData )
 									+ SUMX(
 										TiposR_Dfinan,
 										VAR IDAtual = [ID]
 										RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroData )
 									)
 								VAR ValorFluxoInvestDia =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(7), FiltroData )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(7), FiltroData )
 									+ SUMX(
 										TiposFluoCaixaInvetimentos,
 										VAR IDAtual = [ID]
@@ -5471,7 +5471,7 @@ table _Medidas
 			CALCULATE(
 			    [10. Valor Total LQ],
 			    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_LQ[DATMOV] ),  -- Relacionado pela data de movimento Original
-			    CONTAINSSTRING( TB_Fatos_LQ[hismov] , "FRUTS" ) = FALSE() -- Returado pagamento fruts ( pelo historico nao é a melhor forma de fazer isso )
+			    CONTAINSSTRING( TB_Fatos_LQ[HISMOV] , "FRUTS" ) = FALSE() -- Returado pagamento fruts ( pelo historico nao é a melhor forma de fazer isso )
 			)
 		displayFolder: 10. Liquidado\00.Total
 		lineageTag: a2a81b81-74c9-4f8b-8164-eb263cd49826
@@ -5533,7 +5533,7 @@ table _Medidas
 			    [10. Valor Total LQ],
 			    TB_Fatos_LQ[CODTNS] = "90686", -- transação de Adiantamento Fornecedores
 			    TB_Fatos_LQ[CTAFIN] IN {3620,2270}, -- Contas Financeiras de ADT
-			    --CONTAINSSTRING( TB_Fatos_LQ[hismov], "pgto" ) = FALSE(), -- Buscando referencia pelo histórico ( nao aconselhado nesse modelo )
+			    --CONTAINSSTRING( TB_Fatos_LQ[HISMOV], "pgto" ) = FALSE(), -- Buscando referencia pelo histórico ( nao aconselhado nesse modelo )
 			    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_LQ[DATMOV] )
 			)
 		displayFolder: 10. Liquidado\02.Deducoes
@@ -5598,7 +5598,7 @@ table _Medidas
 			    [10. Valor Total LQ],
 			    TB_Fatos_LQ[CODTNS] = "90657", -- transação de Cheques
 			    TB_Fatos_LQ[CTAFIN] = 2220, -- busca somente transferencia
-			    CONTAINSSTRING( TB_Fatos_LQ[hismov], "cheque" ), -- Busca a Palavra cheque nos movimento ( nao aconselho a usar esse movimento )
+			    CONTAINSSTRING( TB_Fatos_LQ[HISMOV], "cheque" ), -- Busca a Palavra cheque nos movimento ( nao aconselho a usar esse movimento )
 			    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_LQ[DATMOV] )
 			)
 		formatString: 0
@@ -5610,7 +5610,7 @@ table _Medidas
 			CALCULATE(
 			    [10. Valor Total LQ],
 			    TB_Fatos_LQ[CODTNS] = "90686", -- transação de Adiantamento Fornecedores
-			    CONTAINSSTRING( TB_Fatos_LQ[hismov], "FRUTS" ) , -- Buscando referencia pelo histórico ( nao aconselhado nesse modelo )
+			    CONTAINSSTRING( TB_Fatos_LQ[HISMOV], "FRUTS" ) , -- Buscando referencia pelo histórico ( nao aconselhado nesse modelo )
 			    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_LQ[DATMOV] )
 			)
 		displayFolder: 10. Liquidado\02.Deducoes
@@ -5655,16 +5655,16 @@ table _Medidas
 			        AVERAGEX(
 			            FILTER(
 			                VALUES(TB_CLI[xCliente]),
-			                CALCULATE(MAX(TB_CLI[vlrlim])) > 0
+			                CALCULATE(MAX(TB_CLI[VLRLIM])) > 0
 			            ),
-			            CALCULATE(MAX(TB_CLI[vlrlim]))
+			            CALCULATE(MAX(TB_CLI[VLRLIM]))
 			        ),
-			        MAX(TB_CLI[vlrlim])
+			        MAX(TB_CLI[VLRLIM])
 			    )
 			    RETURN
 			    IF(
-			    SELECTEDVALUE( TB_Rede[codgre] ) = 0, IF( vLIMITE = 0, BLANK(), vLIMITE ),
-			    MAX( TB_Rede[vlrlim] )
+			    SELECTEDVALUE( TB_Rede[CODGRE] ) = 0, IF( vLIMITE = 0, BLANK(), vLIMITE ),
+			    MAX( TB_Rede[VLRLIM] )
 			)
 			
 			```
@@ -5680,11 +5680,11 @@ table _Medidas
 			    AVERAGEX(
 			        FILTER(
 			            VALUES(TB_CLI[xCliente]),
-			            CALCULATE(MAX(TB_Fat[przmed])) > 0
+			            CALCULATE(MAX(TB_Fat[PRZMED])) > 0
 			        ),
-			        CALCULATE(MAX(TB_Fat[przmed]))
+			        CALCULATE(MAX(TB_Fat[PRZMED]))
 			    ),
-			    MAX(TB_Fat[przmed])
+			    MAX(TB_Fat[PRZMED])
 			)
 		formatString: #,0
 		displayFolder: 07. Faturamento
@@ -5726,11 +5726,11 @@ table _Medidas
 			VAR vMESES = 
 			CALCULATE(
 			    [01. Valor Original],
-			    TB_Fatos_CR[tipo] = "01",
-			    TB_Fatos_CR[codtns] = "90301",
-			    NOT TB_Fatos_CR[sit] IN{"CA"},
-			    NOT TB_Fatos_CR[portador] IN{"ANTE"},
-			    USERELATIONSHIP( TB_Fatos_CR[emissao], 'CALENDARIO DAX'[Date] ),
+			    TB_Fatos_CR[TIPO] = "01",
+			    TB_Fatos_CR[CODTNS] = "90301",
+			    NOT TB_Fatos_CR[SIT] IN{"CA"},
+			    NOT TB_Fatos_CR[PORTADOR] IN{"ANTE"},
+			    USERELATIONSHIP( TB_Fatos_CR[EMISSAO], 'CALENDARIO DAX'[Date] ),
 			    TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), TB_Fatos_CR[xAnoMesVencOri] )
 			)
 			RETURN
@@ -5748,17 +5748,17 @@ table _Medidas
 			
 			CALCULATE(
 			    AVERAGEX(
-			        VALUES(TB_Fatos_CR[Titulo]),
+			        VALUES(TB_Fatos_CR[TITULO]),
 			        DATEDIFF(
-			            CALCULATE(MIN(TB_Fatos_CR[emissao])),
-			            CALCULATE(MIN(TB_Fatos_CR[venctOri])),
+			            CALCULATE(MIN(TB_Fatos_CR[EMISSAO])),
+			            CALCULATE(MIN(TB_Fatos_CR[VENCTORI])),
 			            DAY
 			        )
 			    ),
-			    TB_Fatos_CR[tipo] = "01",
-			    TB_Fatos_CR[codtns] = "90301",
-			    NOT TB_Fatos_CR[sit] IN {"CA"},
-			    NOT TB_Fatos_CR[portador] IN {"ANTE"}
+			    TB_Fatos_CR[TIPO] = "01",
+			    TB_Fatos_CR[CODTNS] = "90301",
+			    NOT TB_Fatos_CR[SIT] IN {"CA"},
+			    NOT TB_Fatos_CR[PORTADOR] IN {"ANTE"}
 			)
 		displayFolder: 07. Faturamento
 		lineageTag: 8482e4fd-acf7-42ed-b4d1-63fe449acec7
@@ -5770,21 +5770,21 @@ table _Medidas
 			VAR vMESES = 
 			CALCULATE(
 			    [01. Valor Original],
-			    TB_Fatos_CR[tipo] = "01",
-			    TB_Fatos_CR[codtns] = "90301",
-			    TB_Fatos_CR[sit] IN{"LQ"},
-			    NOT TB_Fatos_CR[portador] IN{"ANTE"},
-			    USERELATIONSHIP( TB_Fatos_CR[emissao], 'CALENDARIO DAX'[Date] ),
+			    TB_Fatos_CR[TIPO] = "01",
+			    TB_Fatos_CR[CODTNS] = "90301",
+			    TB_Fatos_CR[SIT] IN{"LQ"},
+			    NOT TB_Fatos_CR[PORTADOR] IN{"ANTE"},
+			    USERELATIONSHIP( TB_Fatos_CR[EMISSAO], 'CALENDARIO DAX'[Date] ),
 			    TREATAS( VALUES( xCalendarioTable[CALENDARIO DAX_Ano-Mes] ), TB_Fatos_CR[xAnoMesVencOri] )
 			)
 			VAR vTOTAL = 
 			CALCULATE(
 			    [01. Valor Original],
-			    TB_Fatos_CR[tipo] = "01",
-			    TB_Fatos_CR[codtns] = "90301",
-			    TB_Fatos_CR[sit] IN{"LQ"},
-			    NOT TB_Fatos_CR[portador] IN{"ANTE"},
-			    USERELATIONSHIP( TB_Fatos_CR[emissao], 'CALENDARIO DAX'[Date] )
+			    TB_Fatos_CR[TIPO] = "01",
+			    TB_Fatos_CR[CODTNS] = "90301",
+			    TB_Fatos_CR[SIT] IN{"LQ"},
+			    NOT TB_Fatos_CR[PORTADOR] IN{"ANTE"},
+			    USERELATIONSHIP( TB_Fatos_CR[EMISSAO], 'CALENDARIO DAX'[Date] )
 			)
 			RETURN
 			SWITCH(
@@ -5801,17 +5801,17 @@ table _Medidas
 			
 			CALCULATE(
 			    AVERAGEX(
-			        VALUES(TB_Fatos_CR[Titulo]),
+			        VALUES(TB_Fatos_CR[TITULO]),
 			        DATEDIFF(
-			            CALCULATE(MIN(TB_Fatos_CR[emissao])),
-			            CALCULATE(MIN(TB_Fatos_CR[venctOri])),
+			            CALCULATE(MIN(TB_Fatos_CR[EMISSAO])),
+			            CALCULATE(MIN(TB_Fatos_CR[VENCTORI])),
 			            DAY
 			        )
 			    ),
-			    TB_Fatos_CR[tipo] = "01",
-			    TB_Fatos_CR[codtns] = "90301",
-			    TB_Fatos_CR[sit] IN {"LQ"},
-			    NOT TB_Fatos_CR[portador] IN {"ANTE"}
+			    TB_Fatos_CR[TIPO] = "01",
+			    TB_Fatos_CR[CODTNS] = "90301",
+			    TB_Fatos_CR[SIT] IN {"LQ"},
+			    NOT TB_Fatos_CR[PORTADOR] IN {"ANTE"}
 			)
 		displayFolder: 07. Faturamento
 		lineageTag: 4f5c40b0-b494-4d81-bc49-3c11f78e50b6
@@ -6095,15 +6095,15 @@ table _Medidas
 											FILTER(
 												SUMMARIZE(
 													TB_CTA,
-													TB_CTA[ctafin],
-													TB_CTA[descta]
+													TB_CTA[CTAFIN],
+													TB_CTA[DESCTA]
 												),
-												TB_CTA[ctafin] IN fxFluxoCaixa(1)
+												TB_CTA[CTAFIN] IN fxFluxoCaixa(1)
 											),
 											"Ordem",
 												5 +
 												SWITCH(
-													TB_CTA[ctafin],
+													TB_CTA[CTAFIN],
 													750,  1,
 													2370, 2,
 													790,  3,
@@ -6116,7 +6116,7 @@ table _Medidas
 									VAR TotalGeralDeducoes =
 										CALCULATE(
 											[10. Deducoes TOTAL],
-											TB_CTA[ctafin] IN fxFluxoCaixa(1)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(1)
 										)
 										+ CALCULATE( [10. Deducoes Entrada RECOMPRA] )
 							
@@ -6126,7 +6126,7 @@ table _Medidas
 											VAR ValorDia =
 												CALCULATE(
 													[10. Deducoes TOTAL],
-													TB_CTA[ctafin] IN fxFluxoCaixa(1)
+													TB_CTA[CTAFIN] IN fxFluxoCaixa(1)
 												)
 												+ CALCULATE( [10. Deducoes Entrada RECOMPRA] )
 											RETURN
@@ -6190,17 +6190,17 @@ table _Medidas
 									VAR vDeducoesContasHTML =
 										CONCATENATEX(
 											TiposDeducoesContas,
-											VAR CtafinAtual    = TB_CTA[ctafin]
-											VAR CategoriaAtual = TB_CTA[descta]
+											VAR CtafinAtual    = TB_CTA[CTAFIN]
+											VAR CategoriaAtual = TB_CTA[DESCTA]
 											VAR OrdemAtual     = [Ordem]
 											VAR TotalConta =
-												CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+												CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 											VAR PercentConta = DIVIDE( TotalConta, TotalGeralDeducoes, 0 )
 											VAR LinhaDias =
 												CONCATENATEX(
 													Datas,
 													VAR ValorDia =
-														CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+														CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 													RETURN
 														"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 													"",
@@ -6266,7 +6266,7 @@ table _Medidas
 											VAR ValorDeducoesDia =
 												CALCULATE(
 													[10. Deducoes TOTAL],
-													TB_CTA[ctafin] IN fxFluxoCaixa(1)
+													TB_CTA[CTAFIN] IN fxFluxoCaixa(1)
 												)
 												+ CALCULATE( [10. Deducoes Entrada RECOMPRA] )
 											VAR ValorEntradaDescontadaDia =
@@ -6296,10 +6296,10 @@ table _Medidas
 											SUMMARIZE(
 												TB_CTA,
 												TB_CTA[xAgrupamento],
-												TB_CTA[ctafin],
-												TB_CTA[descta]
+												TB_CTA[CTAFIN],
+												TB_CTA[DESCTA]
 											),
-											TB_CTA[ctafin] IN fxFluxoCaixa(2)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(2)
 										)
 							
 									VAR Agrupamentos =
@@ -6311,7 +6311,7 @@ table _Medidas
 									VAR TotalGeralCustos =
 										CALCULATE(
 											[10. Deducoes TOTAL],
-											TB_CTA[ctafin] IN fxFluxoCaixa(2)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(2)
 										)
 							
 									VAR vCustosDiasTotal =
@@ -6320,7 +6320,7 @@ table _Medidas
 											VAR ValorDia =
 												CALCULATE(
 													[10. Deducoes TOTAL],
-													TB_CTA[ctafin] IN fxFluxoCaixa(2)
+													TB_CTA[CTAFIN] IN fxFluxoCaixa(2)
 												)
 											RETURN
 												"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
@@ -6349,7 +6349,7 @@ table _Medidas
 												CALCULATE(
 													[10. Deducoes TOTAL],
 													TB_CTA[xAgrupamento] = AgrupamentoAtual,
-													TB_CTA[ctafin] IN fxFluxoCaixa(2)
+													TB_CTA[CTAFIN] IN fxFluxoCaixa(2)
 												)
 											VAR PercentGrupo = DIVIDE( TotalGrupo, TotalGeralCustos, 0 )
 											VAR LinhaDiasGrupo =
@@ -6359,7 +6359,7 @@ table _Medidas
 														CALCULATE(
 															[10. Deducoes TOTAL],
 															TB_CTA[xAgrupamento] = AgrupamentoAtual,
-															TB_CTA[ctafin] IN fxFluxoCaixa(2)
+															TB_CTA[CTAFIN] IN fxFluxoCaixa(2)
 														)
 													RETURN
 														"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
@@ -6377,17 +6377,17 @@ table _Medidas
 											VAR LinhasContasHTML =
 												CONCATENATEX(
 													ContasDoGrupo,
-													VAR CtafinAtual    = TB_CTA[ctafin]
-													VAR CategoriaAtual = TB_CTA[descta]
-													VAR OrdemConta     = RANKX( ContasDoGrupo, TB_CTA[descta], , ASC, Dense )
+													VAR CtafinAtual    = TB_CTA[CTAFIN]
+													VAR CategoriaAtual = TB_CTA[DESCTA]
+													VAR OrdemConta     = RANKX( ContasDoGrupo, TB_CTA[DESCTA], , ASC, Dense )
 													VAR TotalConta =
-														CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+														CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 													VAR PercentConta = DIVIDE( TotalConta, TotalGrupo, 0 )
 													VAR LinhaDiasConta =
 														CONCATENATEX(
 															Datas,
 															VAR ValorDia =
-																CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+																CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 															RETURN
 																"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 															"",
@@ -6402,7 +6402,7 @@ table _Medidas
 															LinhaDiasConta &
 														"</tr>",
 													"",
-													TB_CTA[ctafin],
+													TB_CTA[CTAFIN],
 													ASC
 												)
 											RETURN
@@ -6420,22 +6420,22 @@ table _Medidas
 										FILTER(
 											SUMMARIZE(
 												TB_CTA,
-												TB_CTA[ctafin],
-												TB_CTA[descta]
+												TB_CTA[CTAFIN],
+												TB_CTA[DESCTA]
 											),
-											TB_CTA[ctafin] IN fxFluxoCaixa(3)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(3)
 										)
 							
 									VAR TiposDespesasComerciais =
 										ADDCOLUMNS(
 											TiposDCDBase,
-											"Ordem", RANKX( TiposDCDBase, TB_CTA[descta], , ASC, Dense )
+											"Ordem", RANKX( TiposDCDBase, TB_CTA[DESCTA], , ASC, Dense )
 										)
 							
 									VAR TotalGeralDCD =
 										CALCULATE(
 											[10. Deducoes TOTAL],
-											TB_CTA[ctafin] IN fxFluxoCaixa(3)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(3)
 										)
 							
 									VAR vCustosDiasDCD =
@@ -6444,7 +6444,7 @@ table _Medidas
 											VAR ValorDia =
 												CALCULATE(
 													[10. Deducoes TOTAL],
-													TB_CTA[ctafin] IN fxFluxoCaixa(3)
+													TB_CTA[CTAFIN] IN fxFluxoCaixa(3)
 												)
 											RETURN
 												"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
@@ -6464,17 +6464,17 @@ table _Medidas
 									VAR vDCDDetalhe =
 										CONCATENATEX(
 											TiposDespesasComerciais,
-											VAR CtafinAtual    = TB_CTA[ctafin]
-											VAR CategoriaAtual = TB_CTA[descta]
+											VAR CtafinAtual    = TB_CTA[CTAFIN]
+											VAR CategoriaAtual = TB_CTA[DESCTA]
 											VAR OrdemAtual     = [Ordem]
 											VAR TotalConta =
-												CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+												CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 											VAR PercentConta = DIVIDE( TotalConta, TotalGeralDCD, 0 )
 											VAR LinhaDias =
 												CONCATENATEX(
 													Datas,
 													VAR ValorDia =
-														CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+														CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 													RETURN
 														"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 													"",
@@ -6513,16 +6513,16 @@ table _Medidas
 									FILTER(
 										SUMMARIZE(
 											TB_CTA,
-											TB_CTA[ctafin],
-											TB_CTA[descta]
+											TB_CTA[CTAFIN],
+											TB_CTA[DESCTA]
 										),
-										TB_CTA[ctafin] IN fxFluxoCaixa(4)
+										TB_CTA[CTAFIN] IN fxFluxoCaixa(4)
 									)
 							
 								VAR TiposDespesasADM =
 									ADDCOLUMNS(
 										TiposADMBase,
-										"Ordem", QtdFixasADM + RANKX( TiposADMBase, TB_CTA[descta], , ASC, Dense )
+										"Ordem", QtdFixasADM + RANKX( TiposADMBase, TB_CTA[DESCTA], , ASC, Dense )
 									)
 							
 								VAR SomaADMFixas =
@@ -6531,7 +6531,7 @@ table _Medidas
 								VAR TotalGEralADM =
 									CALCULATE(
 										[10. Deducoes TOTAL],
-										TB_CTA[ctafin] IN fxFluxoCaixa(4)
+										TB_CTA[CTAFIN] IN fxFluxoCaixa(4)
 									)
 									+ SomaADMFixas
 							
@@ -6541,7 +6541,7 @@ table _Medidas
 										VAR ValorContasDia =
 											CALCULATE(
 												[10. Deducoes TOTAL],
-												TB_CTA[ctafin] IN fxFluxoCaixa(4)
+												TB_CTA[CTAFIN] IN fxFluxoCaixa(4)
 											)
 										VAR ValorFixasDia =
 											SUMX( TiposADMFixas, fxADMFixaValor( [ID] ) )
@@ -6594,17 +6594,17 @@ table _Medidas
 								VAR vADMDetalhe =
 									CONCATENATEX(
 										TiposDespesasADM,
-										VAR CtafinAtual    = TB_CTA[ctafin]
-										VAR CategoriaAtual = TB_CTA[descta]
+										VAR CtafinAtual    = TB_CTA[CTAFIN]
+										VAR CategoriaAtual = TB_CTA[DESCTA]
 										VAR OrdemAtual     = [Ordem]
 										VAR TotalConta =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 										VAR PercentConta = DIVIDE( TotalConta, TotalGEralADM, 0 )
 										VAR LinhaDias =
 											CONCATENATEX(
 												Datas,
 												VAR ValorDia =
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 												RETURN
 													"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 												"",
@@ -6631,22 +6631,22 @@ table _Medidas
 										FILTER(
 											SUMMARIZE(
 												TB_CTA,
-												TB_CTA[ctafin],
-												TB_CTA[descta]
+												TB_CTA[CTAFIN],
+												TB_CTA[DESCTA]
 											),
-											TB_CTA[ctafin] IN fxFluxoCaixa(5)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(5)
 										)
 							
 									VAR TiposImpostosLucro =
 										ADDCOLUMNS(
 											TiposIMPBase,
-											"Ordem", RANKX( TiposIMPBase, TB_CTA[descta], , ASC, Dense )
+											"Ordem", RANKX( TiposIMPBase, TB_CTA[DESCTA], , ASC, Dense )
 										)
 							
 									VAR TotalGeralImpLucro =
 										CALCULATE(
 											[10. Deducoes TOTAL],
-											TB_CTA[ctafin] IN fxFluxoCaixa(5)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(5)
 										)
 							
 									VAR vImpostoDiasLucro =
@@ -6655,7 +6655,7 @@ table _Medidas
 											VAR ValorDia =
 												CALCULATE(
 													[10. Deducoes TOTAL],
-													TB_CTA[ctafin] IN fxFluxoCaixa(5)
+													TB_CTA[CTAFIN] IN fxFluxoCaixa(5)
 												)
 											RETURN
 												"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
@@ -6675,17 +6675,17 @@ table _Medidas
 									VAR vImpDetalhe =
 										CONCATENATEX(
 											TiposImpostosLucro,
-											VAR CtafinAtual    = TB_CTA[ctafin]
-											VAR CategoriaAtual = TB_CTA[descta]
+											VAR CtafinAtual    = TB_CTA[CTAFIN]
+											VAR CategoriaAtual = TB_CTA[DESCTA]
 											VAR OrdemAtual     = [Ordem]
 											VAR TotalConta =
-												CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+												CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 											VAR PercentConta = DIVIDE( TotalConta, TotalGeralImpLucro, 0 )
 											VAR LinhaDias =
 												CONCATENATEX(
 													Datas,
 													VAR ValorDia =
-														CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+														CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 													RETURN
 														"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 													"",
@@ -6727,16 +6727,16 @@ table _Medidas
 										FILTER(
 											SUMMARIZE(
 												TB_CTA,
-												TB_CTA[ctafin],
-												TB_CTA[descta]
+												TB_CTA[CTAFIN],
+												TB_CTA[DESCTA]
 											),
-											TB_CTA[ctafin] IN fxFluxoCaixa(6)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(6)
 										)
 							
 									VAR TiposR_D_finan =
 										ADDCOLUMNS(
 											TiposR_DFinan_Base,
-											"Ordem", QtdeFixasR_D + RANKX( TiposR_DFinan_Base, TB_CTA[descta], , ASC, Dense )
+											"Ordem", QtdeFixasR_D + RANKX( TiposR_DFinan_Base, TB_CTA[DESCTA], , ASC, Dense )
 										)
 							
 									VAR SomaR_D_finanFixas =
@@ -6745,7 +6745,7 @@ table _Medidas
 									VAR TotalGeralR_D_finan =
 										CALCULATE(
 											[10. Deducoes TOTAL],
-											TB_CTA[ctafin] IN fxFluxoCaixa(6)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(6)
 										)
 										+ SomaR_D_finanFixas
 							
@@ -6755,7 +6755,7 @@ table _Medidas
 											VAR ValorContasDia =
 												CALCULATE(
 													[10. Deducoes TOTAL],
-													TB_CTA[ctafin] IN fxFluxoCaixa(6)
+													TB_CTA[CTAFIN] IN fxFluxoCaixa(6)
 												)
 											VAR ValorFixasDia =
 												SUMX( TiposR_Dfinan, fxADMFixaValor( [ID] ) )
@@ -6808,17 +6808,17 @@ table _Medidas
 									VAR vR_D_finanDetalhe =
 										CONCATENATEX(
 											TiposR_D_finan,
-											VAR CtafinAtual    = TB_CTA[ctafin]
-											VAR CategoriaAtual = TB_CTA[descta]
+											VAR CtafinAtual    = TB_CTA[CTAFIN]
+											VAR CategoriaAtual = TB_CTA[DESCTA]
 											VAR OrdemAtual     = [Ordem]
 											VAR TotalConta =
-												CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+												CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 											VAR PercentConta = DIVIDE( TotalConta, TotalGeralR_D_finan, 0 )
 											VAR LinhaDias =
 												CONCATENATEX(
 													Datas,
 													VAR ValorDia =
-														CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+														CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 													RETURN
 														"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 													"",
@@ -6865,22 +6865,22 @@ table _Medidas
 											)
 											+ (
 												(
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1) )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(1) )
 													+ CALCULATE( [10. Deducoes Entrada RECOMPRA] )
 												)
 												+ CALCULATE( [10. Entrada], TB_Apoio[Carteira] = "Descontada" ) * -1
 											)
 										VAR ValorCustosDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2) )
 										VAR ValorDCDDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3) )
 										VAR ValorADMDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4) )
 											+ SUMX( TiposADMFixas, fxADMFixaValor( [ID] ) )
 										VAR ValorImpLucroDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5) )
 										VAR ValorR_D_finanDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6) )
 											+ SUMX( TiposR_Dfinan, fxADMFixaValor( [ID] ) )
 										VAR ValorDia =
 											ValorReceitaDia
@@ -6925,16 +6925,16 @@ table _Medidas
 										FILTER(
 											SUMMARIZE(
 												TB_CTA,
-												TB_CTA[ctafin],
-												TB_CTA[descta]
+												TB_CTA[CTAFIN],
+												TB_CTA[DESCTA]
 											),
-											TB_CTA[ctafin] IN fxFluxoCaixa(7)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(7)
 										)
 							
 									VAR Tipos_FluxoCaixaInvest =
 										ADDCOLUMNS(
 											Tipos_FluxoCaixaInvestimentos_Base,
-											"Ordem", QtdeFixasFluxoCaixaInvet + RANKX( Tipos_FluxoCaixaInvestimentos_Base, TB_CTA[descta], , ASC, Dense )
+											"Ordem", QtdeFixasFluxoCaixaInvet + RANKX( Tipos_FluxoCaixaInvestimentos_Base, TB_CTA[DESCTA], , ASC, Dense )
 										)
 							
 									VAR Soma_FluxoCaixaInvest_Fixas =
@@ -6943,7 +6943,7 @@ table _Medidas
 									VAR TotalGeralFluxoCaixaInvest =
 										CALCULATE(
 											[10. Deducoes TOTAL],
-											TB_CTA[ctafin] IN fxFluxoCaixa(7)
+											TB_CTA[CTAFIN] IN fxFluxoCaixa(7)
 										)
 										+ Soma_FluxoCaixaInvest_Fixas
 							
@@ -6953,7 +6953,7 @@ table _Medidas
 											VAR ValorContasDia =
 												CALCULATE(
 													[10. Deducoes TOTAL],
-													TB_CTA[ctafin] IN fxFluxoCaixa(7)
+													TB_CTA[CTAFIN] IN fxFluxoCaixa(7)
 												)
 											VAR ValorFixasDia =
 												SUMX( TiposFluoCaixaInvetimentos, fxADMFixaValor( [ID] ) )
@@ -7006,17 +7006,17 @@ table _Medidas
 									VAR vFluxoCaixaInvest_Detalhe =
 										CONCATENATEX(
 											Tipos_FluxoCaixaInvest,
-											VAR CtafinAtual    = TB_CTA[ctafin]
-											VAR CategoriaAtual = TB_CTA[descta]
+											VAR CtafinAtual    = TB_CTA[CTAFIN]
+											VAR CategoriaAtual = TB_CTA[DESCTA]
 											VAR OrdemAtual     = [Ordem]
 											VAR TotalConta =
-												CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+												CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 											VAR PercentConta = DIVIDE( TotalConta, TotalGeralFluxoCaixaInvest, 0 )
 											VAR LinhaDias =
 												CONCATENATEX(
 													Datas,
 													VAR ValorDia =
-														CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+														CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 													RETURN
 														"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 													"",
@@ -7053,28 +7053,28 @@ table _Medidas
 										FILTER(
 											SUMMARIZE(
 												TB_CTA,
-												TB_CTA[ctafin],
-												TB_CTA[descta]
+												TB_CTA[CTAFIN],
+												TB_CTA[DESCTA]
 											),
-											VAR CtafinAtual = TB_CTA[ctafin]
+											VAR CtafinAtual = TB_CTA[CTAFIN]
 											RETURN
 												NOT( CtafinAtual IN TodosCodigosUsados ) &&
-												CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual ) > 0
+												CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual ) > 0
 										)
 							
 									VAR TiposAClassificar =
 										ADDCOLUMNS(
 											TiposAClassificarBase,
-											"Ordem", RANKX( TiposAClassificarBase, TB_CTA[descta], , ASC, Dense )
+											"Ordem", RANKX( TiposAClassificarBase, TB_CTA[DESCTA], , ASC, Dense )
 										)
 							
 									VAR CodigosAClassificar =
-										SELECTCOLUMNS( TiposAClassificarBase, "CtaFin", TB_CTA[ctafin] )
+										SELECTCOLUMNS( TiposAClassificarBase, "CtaFin", TB_CTA[CTAFIN] )
 							
 									VAR TotalGeralAClassificar =
 										CALCULATE(
 											[10. Valor Total LQ],
-											TB_CTA[ctafin] IN CodigosAClassificar
+											TB_CTA[CTAFIN] IN CodigosAClassificar
 										)
 							
 									VAR vDiasAClassificar =
@@ -7083,7 +7083,7 @@ table _Medidas
 											VAR ValorDia =
 												CALCULATE(
 													[10. Deducoes TOTAL],
-													TB_CTA[ctafin] IN CodigosAClassificar
+													TB_CTA[CTAFIN] IN CodigosAClassificar
 												)
 											RETURN
 												"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
@@ -7103,17 +7103,17 @@ table _Medidas
 									VAR vAClassificarDetalhe =
 										CONCATENATEX(
 											TiposAClassificar,
-											VAR CtafinAtual    = TB_CTA[ctafin]
-											VAR CategoriaAtual = TB_CTA[descta]
+											VAR CtafinAtual    = TB_CTA[CTAFIN]
+											VAR CategoriaAtual = TB_CTA[DESCTA]
 											VAR OrdemAtual     = [Ordem]
 											VAR TotalConta =
-												CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+												CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 											VAR PercentConta = DIVIDE( TotalConta, TotalGeralAClassificar, 0 )
 											VAR LinhaDias =
 												CONCATENATEX(
 													Datas,
 													VAR ValorDia =
-														CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+														CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] = CtafinAtual )
 													RETURN
 														"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 													"",
@@ -7154,28 +7154,28 @@ table _Medidas
 													)
 													+ (
 														(
-															CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1) )
+															CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(1) )
 															+ CALCULATE( [10. Deducoes Entrada RECOMPRA] )
 														)
 														+ CALCULATE( [10. Entrada], TB_Apoio[Carteira] = "Descontada" ) * -1
 													)
 												VAR ValorCustosDia =
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2) )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2) )
 												VAR ValorDCDDia =
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3) )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3) )
 												VAR ValorADMDia =
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4) )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4) )
 													+ SUMX( TiposADMFixas, fxADMFixaValor( [ID] ) )
 												VAR ValorImpLucroDia =
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5) )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5) )
 												VAR ValorR_D_finanDia =
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6) )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6) )
 													+ SUMX( TiposR_Dfinan, fxADMFixaValor( [ID] ) )
 												VAR ValorFluxoOperacionalDia =
 													ValorReceitaDia
 													+ ( ValorCustosDia + ValorDCDDia + ValorADMDia + ValorImpLucroDia + ValorR_D_finanDia )
 												VAR ValorFluxoInvestDia =
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(7) )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(7) )
 													+ SUMX( TiposFluoCaixaInvetimentos, fxADMFixaValor( [ID] ) )
 												VAR ValorDia =
 													ValorFluxoOperacionalDia + ValorFluxoInvestDia
@@ -7434,19 +7434,19 @@ table _Medidas
 									CONCATENATEX(
 										Datas,
 										VAR ValorCustosDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2) )
 										VAR ValorDCDDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3) )
 										VAR ValorADMDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4) )
 											+ SUMX( TiposADMFixas, fxADMFixaValor( [ID] ) )
 										VAR ValorImpLucroDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5) )
 										VAR ValorR_D_finanDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6) )
 											+ SUMX( TiposR_Dfinan, fxADMFixaValor( [ID] ) )
 										VAR ValorFluxoInvestDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(7) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(7) )
 											+ SUMX( TiposFluoCaixaInvetimentos, fxADMFixaValor( [ID] ) )
 										VAR ValorCaixaFrutsDia =
 											fxADMFixaValor( "caixa_fruts_entrada" ) + fxADMFixaValor( "caixa_fruts_saida" )
@@ -7475,25 +7475,25 @@ table _Medidas
 											)
 											+ (
 												(
-													CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1) )
+													CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(1) )
 													+ CALCULATE( [10. Deducoes Entrada RECOMPRA] )
 												)
 												+ CALCULATE( [10. Entrada], TB_Apoio[Carteira] = "Descontada" ) * -1
 											)
 										VAR ValorCustosDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(2) )
 										VAR ValorDCDDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(3) )
 										VAR ValorADMDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(4) )
 											+ SUMX( TiposADMFixas, fxADMFixaValor( [ID] ) )
 										VAR ValorImpLucroDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(5) )
 										VAR ValorR_D_finanDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(6) )
 											+ SUMX( TiposR_Dfinan, fxADMFixaValor( [ID] ) )
 										VAR ValorFluxoInvestDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(7) )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[CTAFIN] IN fxFluxoCaixa(7) )
 											+ SUMX( TiposFluoCaixaInvetimentos, fxADMFixaValor( [ID] ) )
 										VAR ValorCaixaFrutsDia =
 											fxADMFixaValor( "caixa_fruts_entrada" ) + fxADMFixaValor( "caixa_fruts_saida" )
@@ -7817,9 +7817,9 @@ table _Medidas
 			
 			CALCULATE(
 			    [01. Valor Ori CP],
-			    TB_Fatos_CP[sittit] IN {"LQ","LV"},
-			        NOT TB_Fatos_CP[Tipo] IN {"LAD"},
-			    NOT TB_Fatos_CP[CtaFin] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580})
+			    TB_Fatos_CP[SITTIT] IN {"LQ","LV"},
+			        NOT TB_Fatos_CP[TIPO] IN {"LAD"},
+			    NOT TB_Fatos_CP[CTAFIN] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580})
 			)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 01. Valores Totais\Geral
@@ -7830,9 +7830,9 @@ table _Medidas
 	measure '01. Valor Ori CP' =
 			
 			CALCULATE(
-			    SUM( TB_Fatos_CP[vlrori] ),
-			        NOT TB_Fatos_CP[Tipo] IN {"LAD"},
-			    NOT TB_Fatos_CP[CtaFin] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580})
+			    SUM( TB_Fatos_CP[VLRORI] ),
+			        NOT TB_Fatos_CP[TIPO] IN {"LAD"},
+			    NOT TB_Fatos_CP[CTAFIN] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580})
 			)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 01. Valores Totais\Geral
@@ -7843,10 +7843,10 @@ table _Medidas
 	measure '11. Projetado s' =
 			
 			IF(
-			    ISINSCOPE( TB_CLI[nomcli] ), BLANK() ,
+			    ISINSCOPE( TB_CLI[NOMCLI] ), BLANK() ,
 			CALCULATE(
 			    [11. Projetado Saidas],
-			    CROSSFILTER( TB_CTA[ctafin], TB_Fatos_CP[CtaFin], Both )
+			    CROSSFILTER( TB_CTA[CTAFIN], TB_Fatos_CP[CTAFIN], Both )
 			) )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		lineageTag: 8e4d57c9-103e-494a-af87-86bac2a31149

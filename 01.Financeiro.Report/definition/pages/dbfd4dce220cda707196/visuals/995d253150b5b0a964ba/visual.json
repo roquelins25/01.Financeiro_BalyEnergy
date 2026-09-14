@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "995d253150b5b0a964ba",
   "position": {
     "x": 0,
@@ -38,11 +38,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "titulo"
+                  "Property": "TITULO"
                 }
               },
-              "queryRef": "TB_Fatos.titulo",
-              "nativeQueryRef": "titulo",
+              "queryRef": "TB_Fatos_CR.TITULO",
+              "nativeQueryRef": "TITULO",
               "active": true
             }
           ]
@@ -73,15 +73,15 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "emissao"
+                      "Property": "EMISSAO"
                     }
                   },
                   "Function": 3
                 }
               },
-              "queryRef": "Min(TB_Fatos.emissao)",
-              "nativeQueryRef": "Emissao",
-              "displayName": "Emissao"
+              "queryRef": "Min(TB_Fatos_CR.EMISSAO)",
+              "nativeQueryRef": "EMISSAO",
+              "displayName": "EMISSAO"
             },
             {
               "field": {
@@ -93,15 +93,15 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "vencimento"
+                      "Property": "VENCIMENTO"
                     }
                   },
                   "Function": 3
                 }
               },
-              "queryRef": "Min(TB_Fatos.vencimento)",
-              "nativeQueryRef": "Vencimento",
-              "displayName": "Vencimento"
+              "queryRef": "Min(TB_Fatos_CR.VENCIMENTO)",
+              "nativeQueryRef": "VENCIMENTO",
+              "displayName": "VENCIMENTO"
             }
           ]
         }
@@ -151,21 +151,9 @@
           },
           {
             "queryRefs": [
-              "TB_Fatos.titulo"
+              "TB_Fatos_CR.TITULO"
             ],
             "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_Fatos_CR"
-                    }
-                  },
-                  "Property": "titulo"
-                }
-              }
-            ],
             "isPinned": true
           }
         ],

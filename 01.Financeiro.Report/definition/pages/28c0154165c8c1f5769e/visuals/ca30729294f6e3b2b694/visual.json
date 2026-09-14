@@ -87,11 +87,11 @@
                       "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "despar"
+                  "Property": "DESPAR"
                 }
               },
-              "queryRef": "TB_Fatos_CP.despar",
-              "nativeQueryRef": "despar",
+              "queryRef": "TB_Fatos_CP.DESPAR",
+              "nativeQueryRef": "DESPAR",
               "active": false
             },
             {
@@ -102,11 +102,11 @@
                       "Entity": "TB_CTA"
                     }
                   },
-                  "Property": "descta"
+                  "Property": "DESCTA"
                 }
               },
-              "queryRef": "TB_CTA.descta",
-              "nativeQueryRef": "descta",
+              "queryRef": "TB_CTA.DESCTA",
+              "nativeQueryRef": "DESCTA",
               "active": false
             },
             {
@@ -117,11 +117,11 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "nomcli"
+                  "Property": "NOMCLI"
                 }
               },
-              "queryRef": "TB_CLI.nomcli",
-              "nativeQueryRef": "nomcli",
+              "queryRef": "TB_CLI.NOMCLI",
+              "nativeQueryRef": "NOMCLI",
               "active": false
             },
             {
@@ -132,11 +132,11 @@
                       "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "datent"
+                  "Property": "DATENT"
                 }
               },
-              "queryRef": "TB_Fatos_CP.datent",
-              "nativeQueryRef": "datent",
+              "queryRef": "TB_Fatos_CP.DATENT",
+              "nativeQueryRef": "DATENT",
               "active": false
             },
             {
@@ -147,11 +147,11 @@
                       "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "NumTit"
+                  "Property": "NUMTIT"
                 }
               },
-              "queryRef": "TB_Fatos_CP.NumTit",
-              "nativeQueryRef": "NumTit",
+              "queryRef": "TB_Fatos_CP.NUMTIT",
+              "nativeQueryRef": "NUMTIT",
               "active": false
             }
           ]
@@ -292,7 +292,7 @@
                       "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "despar"
+                  "Property": "DESPAR"
                 }
               }
             ],
@@ -311,7 +311,7 @@
                       "Entity": "TB_CTA"
                     }
                   },
-                  "Property": "descta"
+                  "Property": "DESCTA"
                 }
               }
             ],
@@ -330,7 +330,7 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "nomcli"
+                  "Property": "NOMCLI"
                 }
               }
             ],
@@ -349,7 +349,7 @@
                       "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "datent"
+                  "Property": "DATENT"
                 }
               }
             ],
@@ -368,7 +368,7 @@
                       "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "NumTit"
+                  "Property": "NUMTIT"
                 }
               }
             ],
@@ -981,7 +981,7 @@
                 "Entity": "TB_CLI"
               }
             },
-            "Property": "nomcli"
+            "Property": "NOMCLI"
           }
         },
         "type": "Categorical"
@@ -995,7 +995,7 @@
                 "Entity": "TB_Fatos_CP"
               }
             },
-            "Property": "despar"
+            "Property": "DESPAR"
           }
         },
         "type": "Categorical"
@@ -1023,7 +1023,7 @@
                 "Entity": "TB_CTA"
               }
             },
-            "Property": "descta"
+            "Property": "DESCTA"
           }
         },
         "type": "Categorical"

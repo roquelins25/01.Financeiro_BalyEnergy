@@ -1,27 +1,27 @@
 table TB_PGT
 	lineageTag: 9e5c01df-4d39-4a8c-8bde-7274a7f26aa1
 
-	column codfpg
+	column CODFPG
 		dataType: string
-		lineageTag: 5e87f525-8381-4a2a-b68b-1a0560dbd9ae
+		lineageTag: 12658007-4f51-4434-9f3e-20c6e7900ac5
 		summarizeBy: none
-		sourceColumn: codfpg
+		sourceColumn: CODFPG
 
 		annotation SummarizationSetBy = Automatic
 
-	column desfpg
+	column DESFPG
 		dataType: string
-		lineageTag: bfa456ec-6837-4d6d-8b6e-09e2dbdcb2bc
+		lineageTag: 3cb62d33-c1c4-4245-bbe6-eb44e5e21bb0
 		summarizeBy: none
-		sourceColumn: desfpg
+		sourceColumn: DESFPG
 
 		annotation SummarizationSetBy = Automatic
 
-	column abrfpg
+	column ABRFPG
 		dataType: string
-		lineageTag: d02e2c0a-48b7-4647-9487-54964692cf68
+		lineageTag: 11c83deb-76ab-40cf-a674-1e57e97ff435
 		summarizeBy: none
-		sourceColumn: abrfpg
+		sourceColumn: ABRFPG
 
 		annotation SummarizationSetBy = Automatic
 
@@ -30,11 +30,11 @@ table TB_PGT
 	column 'abrfpg (grupos)' =
 			SWITCH(
 				TRUE,
-				ISBLANK('TB_PGT'[abrfpg]),
+				ISBLANK('TB_PGT'[ABRFPG]),
 				"(Em branco)",
-				'TB_PGT'[abrfpg] IN {"Boleto"},
+				'TB_PGT'[ABRFPG] IN {"Boleto"},
 				"Boleto",
-				'TB_PGT'[abrfpg] IN {"Dep. C/C",
+				'TB_PGT'[ABRFPG] IN {"Dep. C/C",
 					"Dep. Conta",
 					"Deposito"},
 				"Depósito",
@@ -54,27 +54,31 @@ table TB_PGT
 				            "Entity": "TB_PGT"
 				          }
 				        },
-				        "Property": "abrfpg"
+				        "Property": "ABRFPG"
 				      }
 				    }
 				  ]
 				}
 
-		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"TB_PGT"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"abrfpg"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"Boleto","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"abrfpg"}}],"Values":[[{"Literal":{"Value":"'Boleto'"}}]]}}},{"DisplayName":"Depósito","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"abrfpg"}}],"Values":[[{"Literal":{"Value":"'Dep. C/C'"}}],[{"Literal":{"Value":"'Dep. Conta'"}}],[{"Literal":{"Value":"'Deposito'"}}]]}}},{"DisplayName":"Outros"}]}
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"TB_PGT"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"ABRFPG"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"Boleto","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"ABRFPG"}}],"Values":[[{"Literal":{"Value":"'Boleto'"}}]]}}},{"DisplayName":"Depósito","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"ABRFPG"}}],"Values":[[{"Literal":{"Value":"'Dep. C/C'"}}],[{"Literal":{"Value":"'Dep. Conta'"}}],[{"Literal":{"Value":"'Deposito'"}}]]}}},{"DisplayName":"Outros"}]}
 
 		annotation SummarizationSetBy = Automatic
 
 	partition TB_PGT = m
 		mode: import
 		queryGroup: _Dim
-		source =
+		source = ```
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
-				  #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "e066fpg"]}[Data],
-				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 1",{"codfpg", "desfpg", "abrfpg"}),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Outras Colunas Removidas",{{"codfpg", type text}})
+				  Origem = Oracle.Database("147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com", [HierarchicalNavigation = true]),
+				  
+				  #"Navegação 1" = Origem{[Schema = "I260220090255_ERPP"]}[Data],
+				  #"Navegação 2" = #"Navegação 1"{[Name = "E066FPG"]}[Data],
+				
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Navegação 2",{"CODFPG", "DESFPG", "ABRFPG"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Outras Colunas Removidas",{{"CODFPG", type text}})
 				in
 				  #"Tipo Alterado"
+				```
 
 	annotation PBI_NavigationStepName = Navegação
 

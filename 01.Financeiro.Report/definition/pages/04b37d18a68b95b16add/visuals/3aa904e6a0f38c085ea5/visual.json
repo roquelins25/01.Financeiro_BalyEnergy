@@ -23,11 +23,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "tipo"
+                  "Property": "TIPO"
                 }
               },
-              "queryRef": "TB_Fatos.tipo",
-              "nativeQueryRef": "tipo",
+              "queryRef": "TB_Fatos_CR.TIPO",
+              "nativeQueryRef": "TIPO",
               "active": true
             }
           ]
@@ -50,15 +50,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [

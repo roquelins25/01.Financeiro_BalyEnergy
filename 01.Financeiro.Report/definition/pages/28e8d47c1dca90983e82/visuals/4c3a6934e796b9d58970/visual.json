@@ -20,22 +20,6 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_REP"
-                    }
-                  },
-                  "Property": "nomrep"
-                }
-              },
-              "queryRef": "TB_REP.nomrep",
-              "nativeQueryRef": "Representante",
-              "active": true,
-              "displayName": "Representante"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
                       "Entity": "TB_CLI"
                     }
                   },
@@ -44,7 +28,7 @@
               },
               "queryRef": "TB_CLI.xREDE",
               "nativeQueryRef": "xREDE",
-              "active": false,
+              "active": true,
               "displayName": "xREDE"
             },
             {
@@ -55,10 +39,10 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "nomcli"
+                  "Property": "NOMCLI"
                 }
               },
-              "queryRef": "TB_CLI.nomcli",
+              "queryRef": "TB_CLI.NOMCLI",
               "nativeQueryRef": "Nome Cliente",
               "active": false,
               "displayName": "Nome Cliente"
@@ -71,11 +55,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "titulo"
+                  "Property": "TITULO"
                 }
               },
-              "queryRef": "TB_Fatos_CR.titulo",
-              "nativeQueryRef": "titulo",
+              "queryRef": "TB_Fatos_CR.TITULO",
+              "nativeQueryRef": "TITULO",
               "active": false,
               "displayName": "titulo"
             },
@@ -87,13 +71,29 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "vencimento"
+                  "Property": "VENCIMENTO"
                 }
               },
-              "queryRef": "TB_Fatos_CR.vencimento",
-              "nativeQueryRef": "vencimento",
+              "queryRef": "TB_Fatos_CR.VENCIMENTO",
+              "nativeQueryRef": "VENCIMENTO",
               "active": false,
               "displayName": "vencimento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_REP"
+                    }
+                  },
+                  "Property": "NOMREP"
+                }
+              },
+              "queryRef": "TB_REP.NOMREP",
+              "nativeQueryRef": "Representante",
+              "active": false,
+              "displayName": "Representante"
             }
           ],
           "fieldParameters": [
@@ -168,73 +168,6 @@
         ]
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Rows"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "TB_REP.nomrep"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_REP"
-                    }
-                  },
-                  "Property": "nomrep"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_CLI.xREDE"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_CLI"
-                    }
-                  },
-                  "Property": "xREDE"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_CLI.nomcli"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_Fatos_CR.titulo"
-            ],
-            "isCollapsed": true
-          },
-          {
-            "queryRefs": [
-              "TB_Fatos_CR.vencimento"
-            ],
-            "isCollapsed": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
       "columnHeaders": [
         {

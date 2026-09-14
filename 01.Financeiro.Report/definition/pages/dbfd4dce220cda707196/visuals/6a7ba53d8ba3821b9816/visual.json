@@ -68,11 +68,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "titulo"
+                  "Property": "TITULO"
                 }
               },
-              "queryRef": "TB_Fatos.titulo",
-              "nativeQueryRef": "titulo",
+              "queryRef": "TB_Fatos_CR.TITULO",
+              "nativeQueryRef": "TITULO",
               "active": false
             }
           ]
@@ -207,10 +207,9 @@
           },
           {
             "queryRefs": [
-              "TB_Fatos.titulo"
+              "TB_Fatos_CR.TITULO"
             ],
-            "isCollapsed": true,
-            "isPinned": true
+            "isCollapsed": true
           }
         ],
         "root": {}

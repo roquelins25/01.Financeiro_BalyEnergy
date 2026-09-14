@@ -1,189 +1,10 @@
 table TB_Fatos_CR
 	lineageTag: 91b2cd6d-2aeb-4b40-9da8-5b165d22c130
 
-	column empresa
-		dataType: int64
-		formatString: 0
-		lineageTag: 7327ceac-a4ae-4ab9-9116-39f7830d028d
-		summarizeBy: sum
-		sourceColumn: empresa
-
-		annotation SummarizationSetBy = Automatic
-
-	column filial
-		dataType: int64
-		formatString: 0
-		lineageTag: 2338607c-4a74-4691-af6c-9a15f4400201
-		summarizeBy: sum
-		sourceColumn: filial
-
-		annotation SummarizationSetBy = Automatic
-
-	column titulo
-		dataType: string
-		lineageTag: 6ec793cb-1f28-4db3-ada4-59e74ad2a7f0
-		summarizeBy: none
-		sourceColumn: titulo
-
-		annotation SummarizationSetBy = Automatic
-
-	column tipo
-		dataType: string
-		lineageTag: e33d7786-46fd-4d27-800d-3b5944e6d53d
-		summarizeBy: none
-		sourceColumn: tipo
-
-		annotation SummarizationSetBy = Automatic
-
-	column sit
-		dataType: string
-		lineageTag: a53db463-70cf-4b88-bcd3-c91fd37e4e96
-		summarizeBy: none
-		sourceColumn: sit
-
-		annotation SummarizationSetBy = Automatic
-
-	column codcliente
-		dataType: int64
-		formatString: 0
-		lineageTag: 5994515a-79b4-4169-8972-69093183d59d
-		summarizeBy: none
-		sourceColumn: codcliente
-
-		annotation SummarizationSetBy = Automatic
-
-	column emissao
-		dataType: dateTime
-		formatString: Short Date
-		lineageTag: 030a3648-d916-4167-b2c6-b0306585341d
-		summarizeBy: none
-		sourceColumn: emissao
-
-		annotation SummarizationSetBy = Automatic
-
-	column portador
-		dataType: string
-		lineageTag: 12ffd98e-bf11-43e9-94ae-25340b5bed45
-		summarizeBy: none
-		sourceColumn: portador
-
-		annotation SummarizationSetBy = Automatic
-
-	column DataEntrada
-		dataType: dateTime
-		formatString: Short Date
-		lineageTag: 27666a63-9bcc-4626-9239-2df48731c259
-		summarizeBy: none
-		sourceColumn: DataEntrada
-
-		annotation SummarizationSetBy = Automatic
-
-	column VenctOri
-		dataType: dateTime
-		formatString: Short Date
-		lineageTag: b246477e-2154-4e31-bf85-ad03a3112c9c
-		summarizeBy: none
-		sourceColumn: VenctOri
-
-		changedProperty = DataType
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column vencimento
-		dataType: dateTime
-		formatString: Short Date
-		lineageTag: 3f012a07-a454-44e1-bd29-19e818d02e2c
-		summarizeBy: none
-		sourceColumn: vencimento
-
-		annotation SummarizationSetBy = Automatic
-
-	column codrep
-		dataType: int64
-		formatString: 0
-		lineageTag: 4bcdf1c1-e9db-405b-8f26-37bb7489ebea
-		summarizeBy: none
-		sourceColumn: codrep
-
-		annotation SummarizationSetBy = Automatic
-
-	column observacao
-		dataType: string
-		lineageTag: 13f9b845-1ef5-4ff4-a67a-d816ec36e772
-		summarizeBy: none
-		sourceColumn: observacao
-
-		annotation SummarizationSetBy = Automatic
-
-	column codpagamento
-		dataType: int64
-		formatString: 0
-		lineageTag: a809108e-6a50-4120-8507-6c69f28b369c
-		summarizeBy: none
-		sourceColumn: codpagamento
-
-		annotation SummarizationSetBy = Automatic
-
-	column numnota
-		dataType: int64
-		formatString: 0
-		lineageTag: acb07a31-7e38-489a-8e2d-7aca541fc3dd
-		summarizeBy: none
-		sourceColumn: numnota
-
-		annotation SummarizationSetBy = Automatic
-
-	column numpedido
-		dataType: int64
-		formatString: 0
-		lineageTag: a70b02dc-049a-463b-9599-b01a5459e2db
-		summarizeBy: sum
-		sourceColumn: numpedido
-
-		annotation SummarizationSetBy = Automatic
-
-	column valorOri
-		dataType: double
-		lineageTag: 08ce4e0e-1aad-441f-9c3f-f05c7af42f95
-		summarizeBy: sum
-		sourceColumn: valorOri
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column valorAberto
-		dataType: double
-		lineageTag: 1f4cb762-876b-47bb-83e0-5635b52ccd73
-		summarizeBy: sum
-		sourceColumn: valorAberto
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column carteira
-		dataType: string
-		lineageTag: fe068681-99d4-470d-b8c5-afe83074887a
-		summarizeBy: none
-		sourceColumn: carteira
-
-		annotation SummarizationSetBy = Automatic
-
-	column ForReaj
-		dataType: string
-		lineageTag: 12ee3185-3702-43c9-8442-244f15620e61
-		summarizeBy: none
-		sourceColumn: ForReaj
-
-		annotation SummarizationSetBy = Automatic
-
 	column '03. Aux Dias_' = ```
 			
 			VAR _dias = 
-			DATEDIFF( TODAY(), TB_Fatos_CR[vencimento], DAY )
+			DATEDIFF( TODAY(), TB_Fatos_CR[VENCIMENTO], DAY )
 			
 			VAR vRESULT = 
 			SWITCH(
@@ -215,22 +36,6 @@ table TB_Fatos_CR
 
 		annotation SummarizationSetBy = Automatic
 
-	column codtns
-		dataType: string
-		lineageTag: 5be30646-3714-452d-a937-ca6630983ef5
-		summarizeBy: none
-		sourceColumn: codtns
-
-		annotation SummarizationSetBy = Automatic
-
-	column destns
-		dataType: string
-		lineageTag: cdbc27c4-046e-4292-a41e-1b9014760e10
-		summarizeBy: none
-		sourceColumn: destns
-
-		annotation SummarizationSetBy = Automatic
-
 	column xAnoMesVencOri =
 			
 			FORMAT([VenctOri],"mmm","PT-BR")&"-"&RIGHT(YEAR([VenctOri]),2)
@@ -242,8 +47,8 @@ table TB_Fatos_CR
 	column xPzrMedioRecebimento =
 			
 			DATEDIFF(
-			    TB_Fatos_CR[emissao],
-			    TB_Fatos_CR[VenctOri],
+			    TB_Fatos_CR[EMISSAO],
+			    TB_Fatos_CR[VENCTORI],
 			    DAY )
 		formatString: 0
 		lineageTag: 1be95cfd-5f01-4104-aa8f-636110a11442
@@ -251,14 +56,253 @@ table TB_Fatos_CR
 
 		annotation SummarizationSetBy = Automatic
 
+	column EMPRESA
+		dataType: int64
+		formatString: 0
+		lineageTag: b2c4326c-31cd-45b3-851c-3d0d034ee6be
+		summarizeBy: sum
+		sourceColumn: EMPRESA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FILIAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d733c59-4964-42c2-99dd-02be3188b116
+		summarizeBy: sum
+		sourceColumn: FILIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODTNS
+		dataType: string
+		lineageTag: bca1f6dc-4f85-42de-986c-d744b852c8b6
+		summarizeBy: none
+		sourceColumn: CODTNS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESTNS
+		dataType: string
+		lineageTag: 19f0dbfb-c2c3-4be8-b27c-86b9f5b708cc
+		summarizeBy: none
+		sourceColumn: DESTNS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TITULO
+		dataType: string
+		lineageTag: 7bf1f50c-cd37-4ee4-97be-648170a7b9f6
+		summarizeBy: none
+		sourceColumn: TITULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO
+		dataType: string
+		lineageTag: 79427968-5155-4c36-86ca-a4f5b6c67384
+		summarizeBy: none
+		sourceColumn: TIPO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SIT
+		dataType: string
+		lineageTag: 23d7b3d6-956a-4aa4-852d-639cf29a3e42
+		summarizeBy: none
+		sourceColumn: SIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODCLIENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: dfa961d8-c38a-40de-b0ad-0abdc5b3e3cc
+		summarizeBy: sum
+		sourceColumn: CODCLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMISSAO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: bf5fbaf8-05e6-40d3-bd41-25970d37767f
+		summarizeBy: none
+		sourceColumn: EMISSAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORTADOR
+		dataType: string
+		lineageTag: 48c4d034-3704-47df-8f33-ff29d093104e
+		summarizeBy: none
+		sourceColumn: PORTADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATAENTRADA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 025cfaa8-1d1b-4b62-a29c-208ce7ab68cb
+		summarizeBy: none
+		sourceColumn: DATAENTRADA
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENCTORI
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 40e6fe5c-f89c-4d48-ac59-9591316acb5d
+		summarizeBy: none
+		sourceColumn: VENCTORI
+
+		annotation SummarizationSetBy = Automatic
+
+	column VENCIMENTO
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e5bd57e3-8345-4883-be18-fc7a3ce58705
+		summarizeBy: none
+		sourceColumn: VENCIMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODREP
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ff1f485-b153-4d47-a4a7-cb430960875c
+		summarizeBy: sum
+		sourceColumn: CODREP
+
+		annotation SummarizationSetBy = Automatic
+
+	column OBSERVACAO
+		dataType: string
+		lineageTag: b70df702-d3e5-4d01-a72f-2871da2eab02
+		summarizeBy: none
+		sourceColumn: OBSERVACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODPAGAMENTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 634c1d4c-27fa-47ad-8371-40a3a2680cb5
+		summarizeBy: sum
+		sourceColumn: CODPAGAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMNOTA
+		dataType: int64
+		formatString: 0
+		lineageTag: 51c2d3c7-c264-4c4a-8a40-d2a62baefacc
+		summarizeBy: sum
+		sourceColumn: NUMNOTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUMPEDIDO
+		dataType: int64
+		formatString: 0
+		lineageTag: 0927f142-14fc-46a3-bbb8-870f84f00968
+		summarizeBy: sum
+		sourceColumn: NUMPEDIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALORORI
+		dataType: double
+		lineageTag: 62ee80cb-c85e-44ce-81e0-6d1107ec9c31
+		summarizeBy: sum
+		sourceColumn: VALORORI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VALORABERTO
+		dataType: double
+		lineageTag: a9faa732-4da0-478c-949f-221cb890c85e
+		summarizeBy: sum
+		sourceColumn: VALORABERTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CARTEIRA
+		dataType: string
+		lineageTag: b3f55f70-0893-4c73-8b1d-2fb73db887d1
+		summarizeBy: none
+		sourceColumn: CARTEIRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FORREAJ
+		dataType: string
+		lineageTag: 1e45ef97-7e06-4028-969d-73b5c8da9904
+		summarizeBy: none
+		sourceColumn: FORREAJ
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_Fatos_CR = m
 		mode: import
 		queryGroup: _Fatos\CP_CR
-		source =
+		source = ```
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="select #(lf)#(tab)tcr.codemp empresa,#(lf)#(tab)tcr.codfil filial,#(lf)#(tab)tcr.codtns codtns,#(lf)#(tab)tns.destns destns,#(lf)#(tab)tcr.numtit titulo,#(lf)#(tab)tcr.codtpt tipo,#(lf)#(tab)tcr.sittit sit,#(lf)#(tab)tcr.codcli codcliente,#(lf)#(tab)tcr.datemi emissao,#(lf)#(tab)tcr.codpor portador,#(lf)#(tab)tcr.datent DataEntrada,#(lf)#(tab)tcr.vctori VenctOri,#(lf)#(tab)CASE#(lf)   #(tab) #(tab)WHEN DATEPART(WEEKDAY, tcr.vctpro) = 7 THEN DATEADD(DAY, 2, tcr.vctpro)#(lf)    #(tab)WHEN DATEPART(WEEKDAY, tcr.vctpro) = 1 THEN DATEADD(DAY, 1, tcr.vctpro)#(lf)    #(tab)ELSE tcr.vctpro#(lf)#(tab)END AS vencimento,#(lf)#(tab)tcr.codrep codrep,#(lf)#(tab)tcr.obstcr observacao,#(lf)#(tab)tcr.codfpg codpagamento,#(lf)#(tab)tcr.numnfv numnota,#(lf)#(tab)tcr.numped numpedido,#(tab)#(lf)#(tab)tcr.vlrori valorOri,#(lf)#(tab)tcr.vlrabe valorAberto,#(lf)#(tab)tcr.codcrt carteira,#(lf)#(tab)CASE #(lf)#(tab)#(tab)WHEN codfrj is null THEN '00' #(lf)#(tab)#(tab)WHEN codfrj = '' THEN '00'#(lf)#(tab)#(tab)ELSE codfrj#(lf)#(tab)END as ForReaj#(lf)#(tab)#(lf)from sapiens_producao.E301TCR tcr#(lf)INNER JOIN e001tns tns ON tns.codemp = tcr.codemp #(lf)#(tab)#(tab)      AND tns.codtns = tcr.codtns#(lf)where tcr.codcli not in('11143','21982','17661','5517','2394','17935') and tcr.datemi >= '20210101'"])
+				  Origem = Oracle.Database(
+					"147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com", 
+					[CommandTimeout = #duration(0, 0, 10, 0),
+				   Query = "
+				SELECT
+				    TCR.CODEMP                                     AS EMPRESA,
+				    TCR.CODFIL                                     AS FILIAL,
+				    TCR.CODTNS                                     AS CODTNS,
+				    TNS.DESTNS                                     AS DESTNS,
+				    TCR.NUMTIT                                     AS TITULO,
+				    TCR.CODTPT                                     AS TIPO,
+				    TCR.SITTIT                                     AS SIT,
+				    TCR.CODCLI                                     AS CODCLIENTE,
+				    TCR.DATEMI                                     AS EMISSAO,
+				    TCR.CODPOR                                     AS PORTADOR,
+				    TCR.DATENT                                     AS DATAENTRADA,
+				    TCR.VCTORI                                     AS VENCTORI,
+				
+				    CASE
+				        WHEN MOD(TRUNC(TCR.VCTPRO) - DATE '2024-01-01', 7) = 5 THEN TCR.VCTPRO + 2  -- sábado
+				        WHEN MOD(TRUNC(TCR.VCTPRO) - DATE '2024-01-01', 7) = 6 THEN TCR.VCTPRO + 1  -- domingo
+				        ELSE TCR.VCTPRO
+				    END                                             AS VENCIMENTO,
+				
+				    TCR.CODREP                                     AS CODREP,
+				    TCR.OBSTCR                                     AS OBSERVACAO,
+				    TCR.CODFPG                                     AS CODPAGAMENTO,
+				    TCR.NUMNFV                                     AS NUMNOTA,
+				    TCR.NUMPED                                     AS NUMPEDIDO,
+				    TCR.VLRORI                                     AS VALORORI,
+				    TCR.VLRABE                                     AS VALORABERTO,
+				    TCR.CODCRT                                     AS CARTEIRA,
+				
+				    CASE
+				        WHEN TCR.CODFRJ IS NULL THEN '00'
+				        WHEN TCR.CODFRJ = '' THEN '00'
+				        ELSE TCR.CODFRJ
+				    END                                             AS FORREAJ
+				
+				FROM E301TCR TCR
+				
+				INNER JOIN E001TNS TNS
+				    ON TNS.CODEMP = TCR.CODEMP
+				   AND TNS.CODTNS = TCR.CODTNS
+				
+				WHERE TCR.CODCLI NOT IN (11143,21982,17661,5517,2394,17935)
+				  AND TCR.DATEMI >= TO_DATE('2021-01-01','YYYY-MM-DD')
+				   ", HierarchicalNavigation = true])
 				in
 				  Origem
+				```
 
 	annotation PBI_NavigationStepName = Navegação
 

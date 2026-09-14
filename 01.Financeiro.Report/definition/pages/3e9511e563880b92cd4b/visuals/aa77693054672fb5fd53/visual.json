@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "aa77693054672fb5fd53",
   "position": {
     "x": 4.1244238871806829,
@@ -23,13 +23,13 @@
                       "Entity": "TB_FRJ"
                     }
                   },
-                  "Property": "desfrj"
+                  "Property": "DESFRJ"
                 }
               },
-              "queryRef": "TB_FRJ.desfrj",
-              "nativeQueryRef": "Descrição Conta",
+              "queryRef": "TB_FRJ.DESFRJ",
+              "nativeQueryRef": "Descricao da Conta",
               "active": true,
-              "displayName": "Descrição Conta"
+              "displayName": "Descricao da Conta"
             }
           ]
         }
@@ -51,15 +51,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [

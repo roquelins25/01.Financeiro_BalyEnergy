@@ -25,7 +25,7 @@
                           "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "nomcli"
+                      "Property": "NOMCLI"
                     }
                   },
                   "howCreated": 0
@@ -393,7 +393,7 @@
                           "Entity": "TB_FRJ"
                         }
                       },
-                      "Property": "desfrj"
+                      "Property": "DESFRJ"
                     }
                   },
                   "howCreated": 0
@@ -428,7 +428,7 @@
                           "Entity": "TB_FRJ"
                         }
                       },
-                      "Property": "desfrj"
+                      "Property": "DESFRJ"
                     }
                   }
                 ]
@@ -763,7 +763,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "tipo"
+                      "Property": "TIPO"
                     }
                   },
                   "howCreated": 0
@@ -852,7 +852,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "tipo"
+                      "Property": "TIPO"
                     }
                   }
                 ]

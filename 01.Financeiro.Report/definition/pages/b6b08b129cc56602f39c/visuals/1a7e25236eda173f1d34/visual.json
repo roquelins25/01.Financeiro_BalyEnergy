@@ -32,7 +32,7 @@
                             "Entity": "TB_PGT"
                           }
                         },
-                        "Property": "abrfpg"
+                        "Property": "ABRFPG"
                       }
                     }
                   ]
@@ -54,10 +54,10 @@
                       "Entity": "TB_Rede"
                     }
                   },
-                  "Property": "nomgre"
+                  "Property": "NOMGRE"
                 }
               },
-              "queryRef": "TB_Rede.nomgre",
+              "queryRef": "TB_Rede.NOMGRE",
               "nativeQueryRef": "Rede",
               "active": true,
               "displayName": "Rede"
@@ -70,11 +70,11 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "nomcli"
+                  "Property": "NOMCLI"
                 }
               },
-              "queryRef": "TB_CLI.nomcli",
-              "nativeQueryRef": "nomcli",
+              "queryRef": "TB_CLI.NOMCLI",
+              "nativeQueryRef": "NOMCLI",
               "active": false
             },
             {
@@ -85,11 +85,11 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "sigufs"
+                  "Property": "SIGUFS"
                 }
               },
-              "queryRef": "TB_CLI.sigufs",
-              "nativeQueryRef": "sigufs",
+              "queryRef": "TB_CLI.SIGUFS",
+              "nativeQueryRef": "SIGUFS",
               "active": false
             }
           ]
@@ -151,7 +151,7 @@
                       "Entity": "TB_Rede"
                     }
                   },
-                  "Property": "nomgre"
+                  "Property": "NOMGRE"
                 }
               }
             ],
@@ -170,7 +170,7 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "nomcli"
+                  "Property": "NOMCLI"
                 }
               }
             ],

@@ -1,106 +1,112 @@
 table TB_REP
 	lineageTag: 86af5e2e-ba01-4167-80a1-3391d231bfc5
 
-	column codrep
+	column CODREP
 		dataType: string
-		lineageTag: cdee7453-13e5-41e9-98d0-8343bb4c4240
+		lineageTag: dc29c7cc-415f-4f8e-9d9f-33e5b63b4ac5
 		summarizeBy: none
-		sourceColumn: codrep
+		sourceColumn: CODREP
 
 		annotation SummarizationSetBy = Automatic
 
-	column nomrep
+	column NOMREP
 		dataType: string
-		lineageTag: 623f5ac2-fd2e-4036-ae70-dc6b5ce53224
+		lineageTag: c5c40bb7-3765-473e-9bb1-a8b636da82c2
 		summarizeBy: none
-		sourceColumn: nomrep
+		sourceColumn: NOMREP
 
 		annotation SummarizationSetBy = Automatic
 
-	column aperep
+	column APEREP
 		dataType: string
-		lineageTag: 87425243-a3af-4b43-9807-535f062c63db
+		lineageTag: 35358cfe-5881-4a36-8f28-87deb0ff3892
 		summarizeBy: none
-		sourceColumn: aperep
+		sourceColumn: APEREP
 
 		annotation SummarizationSetBy = Automatic
 
-	column tiprep
+	column TIPREP
 		dataType: string
-		lineageTag: 2e8d88d9-909f-44d7-978e-2981e484ca12
+		lineageTag: 4ec10ae5-87ea-4e81-aad2-b3aa676df40e
 		summarizeBy: none
-		sourceColumn: tiprep
+		sourceColumn: TIPREP
 
 		annotation SummarizationSetBy = Automatic
 
-	column cidrep
+	column CIDREP
 		dataType: string
-		lineageTag: 1895b0d3-6070-4ffc-b7c7-84585d3384eb
+		lineageTag: 0ce4337a-e6af-45e7-a8e1-ea69f42a0bca
 		summarizeBy: none
-		sourceColumn: cidrep
+		sourceColumn: CIDREP
 
 		annotation SummarizationSetBy = Automatic
 
-	column sigufs
+	column SIGUFS
 		dataType: string
-		lineageTag: 0b37f49e-abfe-40f3-82b3-4af12310f9f8
+		lineageTag: 636d0bb7-07b2-4895-b0e4-09524218844d
 		summarizeBy: none
-		sourceColumn: sigufs
+		sourceColumn: SIGUFS
 
 		annotation SummarizationSetBy = Automatic
 
-	column fonrep
+	column FONREP
 		dataType: string
-		lineageTag: e0fb40c9-a5b2-4a9f-b4bb-3294155cab20
+		lineageTag: 131d7a88-c0ca-416d-aa40-6e72d920f7b1
 		summarizeBy: none
-		sourceColumn: fonrep
+		sourceColumn: FONREP
 
 		annotation SummarizationSetBy = Automatic
 
-	column sitrep
+	column SITREP
 		dataType: string
-		lineageTag: 70410fe6-0bba-4041-9a57-f1d68b7315a9
+		lineageTag: b5003518-3710-4aa1-91ad-bfb7c42b3200
 		summarizeBy: none
-		sourceColumn: sitrep
+		sourceColumn: SITREP
 
 		annotation SummarizationSetBy = Automatic
 
-	column repsup
-		dataType: int64
-		formatString: 0
-		lineageTag: 65d724b2-141e-4a9b-a2da-44e2bd622ccb
+	column REPSUP
+		dataType: double
+		lineageTag: facba63a-9545-42b0-89db-5aa9ae007ff4
 		summarizeBy: sum
-		sourceColumn: repsup
+		sourceColumn: REPSUP
 
 		annotation SummarizationSetBy = Automatic
 
-	column nomsup
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NOMSUP
 		dataType: string
-		lineageTag: e812c144-4698-421c-b621-b89d47166bc5
+		lineageTag: 2e8eea7c-3fd7-4e4e-b19a-78ef41204dfa
 		summarizeBy: none
-		sourceColumn: nomsup
+		sourceColumn: NOMSUP
 
 		annotation SummarizationSetBy = Automatic
 
-	column Rep_concat
-		dataType: int64
-		formatString: 0
-		lineageTag: 0fda607b-292f-494e-bb69-550d00ca770f
+	column REP_CONCAT
+		dataType: double
+		lineageTag: bc7adc4b-7d17-48b6-9e18-0aac5c0958bd
 		summarizeBy: sum
-		sourceColumn: Rep_concat
+		sourceColumn: REP_CONCAT
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition TB_REP = m
 		mode: import
 		queryGroup: _Dim
-		source =
+		source = ```
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
-				  #"Navegação 1" = Origem{[Schema = "sapiens_producao", Item = "usu_view090rep"]}[Data],
-				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Navegação 1",{{"codrep", type text}})
+				  Origem = Oracle.Database("147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com", [HierarchicalNavigation = true]),
+				  
+				  #"Navegação 1" = Origem{[Schema = "I260220090255_ERPP"]}[Data],
+				  #"Navegação 2" = #"Navegação 1"{[Name = "USU_V090REP"]}[Data],
+				
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Navegação 2",{{"CODREP", type text}})
 				in
 				  #"Tipo Alterado"
+				```
 
 	annotation PBI_NavigationStepName = Navegação
 

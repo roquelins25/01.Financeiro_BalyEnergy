@@ -5,7 +5,7 @@ table Base_Classificacao
 		dataType: int64
 		formatString: 0
 		lineageTag: 7afe540a-b315-49af-babf-789c8c68c5d4
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Cod
 
 		annotation SummarizationSetBy = Automatic
