@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "0a16619a12b59c7a630a",
   "position": {
     "x": 0.11947552543559968,
@@ -23,11 +23,11 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "sigufs"
+                  "Property": "SIGUFS"
                 }
               },
-              "queryRef": "TB_CLI.sigufs",
-              "nativeQueryRef": "sigufs",
+              "queryRef": "TB_CLI.SIGUFS",
+              "nativeQueryRef": "SIGUFS",
               "active": true
             },
             {
@@ -43,7 +43,7 @@
               },
               "queryRef": "TB_CLI.xREDE",
               "nativeQueryRef": "xREDE",
-              "active": true
+              "active": false
             }
           ]
         },

@@ -38,14 +38,14 @@ function fxFORMAT =
 
 function fxUFValorAberto =
 		( xNumber: EXPR, xUF: STRING ) =>
-		        CALCULATE( xNumber, TB_CLI[sigufs] = xUF )
+		        CALCULATE( xNumber, TB_CLI[SIGUFS] = xUF )
 	lineageTag: 8993a2b8-0c1d-4c74-b70d-61e6134ca0f0
 
 function fxColorHTMLMapa = ```
 		( xUF: STRING ) =>
 		            VAR _TABELA =
 		            ADDCOLUMNS(
-		                VALUES(TB_CLI[sigufs]),
+		                VALUES(TB_CLI[SIGUFS]),
 		                "@Total", [01. % Acumulado UF]
 		            )
 		            VAR _RESULT = 

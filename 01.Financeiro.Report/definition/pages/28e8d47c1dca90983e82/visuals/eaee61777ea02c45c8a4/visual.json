@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "eaee61777ea02c45c8a4",
   "position": {
     "x": 98.730763628352463,
@@ -23,11 +23,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "portador"
+                  "Property": "PORTADOR"
                 }
               },
-              "queryRef": "TB_Fatos.portador",
-              "nativeQueryRef": "portador",
+              "queryRef": "TB_Fatos_CR.PORTADOR",
+              "nativeQueryRef": "PORTADOR",
               "active": true
             }
           ]
@@ -57,15 +57,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [

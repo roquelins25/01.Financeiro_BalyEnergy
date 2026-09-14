@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "5a2f54e711dcad791be8",
   "position": {
     "x": 1.2885973605146859,
@@ -23,11 +23,11 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "sigufs"
+                  "Property": "SIGUFS"
                 }
               },
-              "queryRef": "TB_CLI.sigufs",
-              "nativeQueryRef": "sigufs",
+              "queryRef": "TB_CLI.SIGUFS",
+              "nativeQueryRef": "SIGUFS",
               "active": true
             },
             {
@@ -43,7 +43,7 @@
               },
               "queryRef": "TB_CLI.xREDE",
               "nativeQueryRef": "xREDE",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -123,20 +123,7 @@
         "levels": [
           {
             "queryRefs": [
-              "TB_CLI.sigufs"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_CLI"
-                    }
-                  },
-                  "Property": "sigufs"
-                }
-              }
+              "TB_CLI.SIGUFS"
             ],
             "isPinned": true
           },
@@ -160,79 +147,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'ES'"
-                  }
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'RS'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'997 - Comercial Zaffari'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'PR'"
-                  }
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'MG'"
-                  }
-                }
-              ]
-            },
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "'DF'"
-                  }
-                }
-              ],
-              "children": [
-                {
-                  "identityValues": [
-                    {
-                      "Literal": {
-                        "Value": "'1628 - B E T TRANSPORTE E LOGISTICA LTDA'"
-                      }
-                    }
-                  ],
-                  "isToggled": true
-                }
-              ]
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {
@@ -329,6 +244,20 @@
           },
           "selector": {
             "metadata": "TB_CLI.sigufs"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "277.4129991226476D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "TB_CLI.SIGUFS"
           }
         }
       ],
@@ -440,7 +369,7 @@
                 "Entity": "TB_Fatos_CR"
               }
             },
-            "Property": "sit"
+            "Property": "SIT"
           }
         },
         "type": "Categorical",

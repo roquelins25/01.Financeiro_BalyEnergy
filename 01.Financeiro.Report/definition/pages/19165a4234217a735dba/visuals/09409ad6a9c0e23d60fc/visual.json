@@ -23,10 +23,10 @@
                       "Entity": "TB_CLI"
                     }
                   },
-                  "Property": "nomcli"
+                  "Property": "NOMCLI"
                 }
               },
-              "queryRef": "TB_CLI.nomcli",
+              "queryRef": "TB_CLI.NOMCLI",
               "nativeQueryRef": "Cliente",
               "displayName": "Cliente"
             },

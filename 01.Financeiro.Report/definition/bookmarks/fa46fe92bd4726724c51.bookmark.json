@@ -94,7 +94,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "sit"
+                      "Property": "SIT"
                     }
                   },
                   "howCreated": 1
@@ -109,7 +109,7 @@
                           "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "sigufs"
+                      "Property": "SIGUFS"
                     }
                   },
                   "howCreated": 0
@@ -203,7 +203,7 @@
                           "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "sigufs"
+                      "Property": "SIGUFS"
                     }
                   }
                 ]
@@ -227,7 +227,7 @@
                                 "Entity": "TB_CLI"
                               }
                             },
-                            "Property": "sigufs"
+                            "Property": "SIGUFS"
                           }
                         }
                       ],
@@ -561,7 +561,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "sit"
+                      "Property": "SIT"
                     }
                   },
                   "howCreated": 1
@@ -1344,7 +1344,7 @@
                           "Entity": "TB_FRJ"
                         }
                       },
-                      "Property": "desfrj"
+                      "Property": "DESFRJ"
                     }
                   },
                   "howCreated": 0
@@ -1437,7 +1437,7 @@
                           "Entity": "TB_FRJ"
                         }
                       },
-                      "Property": "desfrj"
+                      "Property": "DESFRJ"
                     }
                   }
                 ]
@@ -1457,7 +1457,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "tipo"
+                      "Property": "TIPO"
                     }
                   },
                   "howCreated": 0
@@ -1574,7 +1574,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "tipo"
+                      "Property": "TIPO"
                     }
                   }
                 ]

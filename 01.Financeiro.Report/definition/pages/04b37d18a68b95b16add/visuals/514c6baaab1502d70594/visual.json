@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "514c6baaab1502d70594",
   "position": {
     "x": 94.519099951711155,
@@ -23,13 +23,12 @@
                       "Entity": "TB_FRJ"
                     }
                   },
-                  "Property": "desfrj"
+                  "Property": "DESFRJ"
                 }
               },
-              "queryRef": "TB_FRJ.desfrj",
-              "nativeQueryRef": "Descrição Conta",
-              "active": true,
-              "displayName": "Descrição Conta"
+              "queryRef": "TB_FRJ.DESFRJ",
+              "nativeQueryRef": "DESFRJ",
+              "active": true
             }
           ]
         }
@@ -58,60 +57,7 @@
       ],
       "general": [
         {
-          "properties": {
-            "selfFilterEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "t",
-                    "Entity": "TB_FRJ",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Not": {
-                        "Expression": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "t"
-                                    }
-                                  },
-                                  "Property": "desfrj"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "'GlobalNet'"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [

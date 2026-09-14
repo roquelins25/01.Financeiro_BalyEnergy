@@ -57,11 +57,11 @@
                       "Entity": "TB_Rede"
                     }
                   },
-                  "Property": "nomgre"
+                  "Property": "NOMGRE"
                 }
               },
-              "queryRef": "TB_Rede.nomgre",
-              "nativeQueryRef": "nomgre",
+              "queryRef": "TB_Rede.NOMGRE",
+              "nativeQueryRef": "NOMGRE",
               "active": false
             },
             {
@@ -87,11 +87,11 @@
                       "Entity": "TB_Fatos_CR"
                     }
                   },
-                  "Property": "titulo"
+                  "Property": "TITULO"
                 }
               },
-              "queryRef": "TB_Fatos_CR.titulo",
-              "nativeQueryRef": "titulo",
+              "queryRef": "TB_Fatos_CR.TITULO",
+              "nativeQueryRef": "TITULO",
               "active": false
             }
           ]

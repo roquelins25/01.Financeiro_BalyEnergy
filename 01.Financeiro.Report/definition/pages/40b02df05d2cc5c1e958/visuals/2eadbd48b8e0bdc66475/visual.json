@@ -51,7 +51,7 @@
                             "Entity": "TB_PGT"
                           }
                         },
-                        "Property": "abrfpg"
+                        "Property": "ABRFPG"
                       }
                     }
                   ]
@@ -228,79 +228,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "b38db92137f35dc906d5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_PGT"
-              }
-            },
-            "Property": "desfpg"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "t",
-              "Entity": "TB_PGT",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "In": {
-                      "Expressions": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "t"
-                              }
-                            },
-                            "Property": "desfpg"
-                          }
-                        }
-                      ],
-                      "Values": [
-                        [
-                          {
-                            "Literal": {
-                              "Value": "null"
-                            }
-                          }
-                        ]
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
         "name": "6c692d4db80d6a47167c",
         "field": {
           "Column": {
@@ -332,7 +259,7 @@
                       "Entity": "TB_PGT"
                     }
                   },
-                  "Property": "abrfpg"
+                  "Property": "ABRFPG"
                 }
               }
             ]

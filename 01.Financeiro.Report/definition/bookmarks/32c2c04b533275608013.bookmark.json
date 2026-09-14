@@ -24,7 +24,7 @@
                           "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "sigufs"
+                      "Property": "SIGUFS"
                     }
                   },
                   "howCreated": 0
@@ -88,7 +88,7 @@
                           "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "sigufs"
+                      "Property": "SIGUFS"
                     }
                   },
                   {
@@ -118,7 +118,7 @@
                           "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "sigufs"
+                      "Property": "SIGUFS"
                     }
                   },
                   "howCreated": 0
@@ -218,7 +218,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "titulo"
+                      "Property": "TITULO"
                     }
                   },
                   "howCreated": 0
@@ -235,7 +235,7 @@
                               "Entity": "TB_Fatos_CR"
                             }
                           },
-                          "Property": "emissao"
+                          "Property": "EMISSAO"
                         }
                       },
                       "Function": 3
@@ -255,7 +255,7 @@
                               "Entity": "TB_Fatos_CR"
                             }
                           },
-                          "Property": "vencimento"
+                          "Property": "VENCIMENTO"
                         }
                       },
                       "Function": 3
@@ -302,7 +302,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "titulo"
+                      "Property": "TITULO"
                     }
                   }
                 ]
@@ -762,7 +762,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "titulo"
+                      "Property": "TITULO"
                     }
                   },
                   "howCreated": 0
@@ -1137,7 +1137,7 @@
                           "Entity": "TB_FRJ"
                         }
                       },
-                      "Property": "desfrj"
+                      "Property": "DESFRJ"
                     }
                   },
                   "howCreated": 0
@@ -1230,7 +1230,7 @@
                           "Entity": "TB_FRJ"
                         }
                       },
-                      "Property": "desfrj"
+                      "Property": "DESFRJ"
                     }
                   }
                 ]
@@ -1250,7 +1250,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "tipo"
+                      "Property": "TIPO"
                     }
                   },
                   "howCreated": 0
@@ -1367,7 +1367,7 @@
                           "Entity": "TB_Fatos_CR"
                         }
                       },
-                      "Property": "tipo"
+                      "Property": "TIPO"
                     }
                   }
                 ]

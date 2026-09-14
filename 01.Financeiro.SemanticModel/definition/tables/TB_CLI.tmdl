@@ -9,7 +9,7 @@ table TB_CLI
 
 	column xLocalizacao =
 			
-			TB_CLI[nompai] & "-" & TB_CLI[sigufs]
+			TB_CLI[NOMPAI] & "-" & TB_CLI[SIGUFS]
 		lineageTag: 1fe2846a-c296-4625-8c03-a6b543a6a549
 		summarizeBy: none
 

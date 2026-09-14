@@ -3,7 +3,7 @@ table TB_CTA
 
 	column xAgrupamento =
 			
-			VAR Conta = TB_CTA[ctafin]
+			VAR Conta = TB_CTA[CTAFIN]
 			RETURN
 			IF(
 			    CONTAINS(
@@ -36,11 +36,11 @@ table TB_CTA
 			RETURN
 			SWITCH(
 			    TRUE(),
-			    TB_CTA[ctafin] IN vCustoProducao , "01. Producao",
-			    TB_CTA[ctafin] IN vCustoDespesasComerciais , "02. Despesas Comerciais",
-			    TB_CTA[ctafin] IN vDespesasADM , "03. Despesas Administrativas",
-			    TB_CTA[ctafin] IN vIMPOSTOS , "04. Impostos",
-			    TB_CTA[ctafin] IN vDespesasFinanceira , "05. Despesas Financeiras",
+			    TB_CTA[CTAFIN] IN vCustoProducao , "01. Producao",
+			    TB_CTA[CTAFIN] IN vCustoDespesasComerciais , "02. Despesas Comerciais",
+			    TB_CTA[CTAFIN] IN vDespesasADM , "03. Despesas Administrativas",
+			    TB_CTA[CTAFIN] IN vIMPOSTOS , "04. Impostos",
+			    TB_CTA[CTAFIN] IN vDespesasFinanceira , "05. Despesas Financeiras",
 			    "06. A Classificar" )
 		lineageTag: b38abe3a-7be9-404c-9559-15165f41725f
 		summarizeBy: none

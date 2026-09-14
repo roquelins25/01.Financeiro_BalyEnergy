@@ -329,7 +329,7 @@
                 "Entity": "TB_Fatos_CR"
               }
             },
-            "Property": "sit"
+            "Property": "SIT"
           }
         },
         "type": "Categorical",

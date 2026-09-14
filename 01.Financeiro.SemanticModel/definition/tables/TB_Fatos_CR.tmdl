@@ -4,7 +4,7 @@ table TB_Fatos_CR
 	column '03. Aux Dias_' = ```
 			
 			VAR _dias = 
-			DATEDIFF( TODAY(), TB_Fatos_CR[vencimento], DAY )
+			DATEDIFF( TODAY(), TB_Fatos_CR[VENCIMENTO], DAY )
 			
 			VAR vRESULT = 
 			SWITCH(
@@ -47,8 +47,8 @@ table TB_Fatos_CR
 	column xPzrMedioRecebimento =
 			
 			DATEDIFF(
-			    TB_Fatos_CR[emissao],
-			    TB_Fatos_CR[VenctOri],
+			    TB_Fatos_CR[EMISSAO],
+			    TB_Fatos_CR[VENCTORI],
 			    DAY )
 		formatString: 0
 		lineageTag: 1be95cfd-5f01-4104-aa8f-636110a11442
@@ -125,7 +125,7 @@ table TB_Fatos_CR
 
 	column EMISSAO
 		dataType: dateTime
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: bf5fbaf8-05e6-40d3-bd41-25970d37767f
 		summarizeBy: none
 		sourceColumn: EMISSAO
@@ -160,7 +160,7 @@ table TB_Fatos_CR
 
 	column VENCIMENTO
 		dataType: dateTime
-		formatString: General Date
+		formatString: Short Date
 		lineageTag: e5bd57e3-8345-4883-be18-fc7a3ce58705
 		summarizeBy: none
 		sourceColumn: VENCIMENTO

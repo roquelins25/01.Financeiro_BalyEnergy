@@ -35,14 +35,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Verbas"
+                      "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "numtit"
+                  "Property": "NUMTIT"
                 }
               },
-              "queryRef": "TB_Verbas.numtit",
-              "nativeQueryRef": "numtit",
+              "queryRef": "TB_Fatos_CP.NUMTIT",
+              "nativeQueryRef": "NUMTIT",
               "active": false
             }
           ]

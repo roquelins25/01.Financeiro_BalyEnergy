@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "a60b80b77207d7565049",
   "position": {
     "x": 556.45129273912551,
@@ -13,24 +13,6 @@
     "visualType": "brazilMapVisual5B5DD37DD18C45B1B3C7DD73C184549D",
     "query": {
       "queryState": {
-        "state": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_CLI"
-                    }
-                  },
-                  "Property": "sigufs"
-                }
-              },
-              "queryRef": "TB_CLI.sigufs",
-              "nativeQueryRef": "sigufs"
-            }
-          ]
-        },
         "measure": {
           "projections": [
             {
@@ -64,6 +46,24 @@
               },
               "queryRef": "_Medidas.01. % Indice Inadimplencia Operacao",
               "nativeQueryRef": "01. % Indice Inadimplencia Operacao"
+            }
+          ]
+        },
+        "state": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "SIGUFS"
+                }
+              },
+              "queryRef": "TB_CLI.SIGUFS",
+              "nativeQueryRef": "SIGUFS"
             }
           ]
         }

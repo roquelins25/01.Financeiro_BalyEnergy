@@ -168,8 +168,8 @@ table 'CALENDARIO DAX'
 		mode: import
 		source =
 				
-				var minAno = YEAR(MIN(TB_Fatos_CR[emissao]))
-				var MaxAno = YEAR(MAX(TB_Fatos_CR[vencimento]))
+				var minAno = YEAR(MIN(TB_Fatos_CR[EMISSAO]))
+				var MaxAno = YEAR(MAX(TB_Fatos_CR[VENCIMENTO]))
 				return
 				ADDCOLUMNS(
 				    FILTER(

@@ -16,7 +16,7 @@
                 "Entity": "TB_FRJ"
               }
             },
-            "Property": "desfrj"
+            "Property": "DESFRJ"
           }
         },
         "type": "Categorical",

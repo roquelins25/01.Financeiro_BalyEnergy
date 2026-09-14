@@ -57,11 +57,11 @@
                       "Entity": "TB_Rede"
                     }
                   },
-                  "Property": "nomgre"
+                  "Property": "NOMGRE"
                 }
               },
-              "queryRef": "TB_Rede.nomgre",
-              "nativeQueryRef": "nomgre",
+              "queryRef": "TB_Rede.NOMGRE",
+              "nativeQueryRef": "NOMGRE",
               "active": false
             },
             {
@@ -87,11 +87,11 @@
                       "Entity": "TB_Verbas"
                     }
                   },
-                  "Property": "numtit"
+                  "Property": "NUMTIT"
                 }
               },
-              "queryRef": "TB_Verbas.numtit",
-              "nativeQueryRef": "numtit",
+              "queryRef": "TB_Verbas.NUMTIT",
+              "nativeQueryRef": "NUMTIT",
               "active": false
             }
           ]

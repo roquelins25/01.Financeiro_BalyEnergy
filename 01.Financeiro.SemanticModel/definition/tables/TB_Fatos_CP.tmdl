@@ -4,7 +4,7 @@ table TB_Fatos_CP
 	column '03. Aux Dias_' = ```
 			
 			VAR _dias = 
-			DATEDIFF( TODAY(), TB_Fatos_CP[vctpro], DAY )
+			DATEDIFF( TODAY(), TB_Fatos_CP[VCTPRO], DAY )
 			
 			VAR vRESULT = 
 			SWITCH(
@@ -189,6 +189,59 @@ table TB_Fatos_CP
 		lineageTag: 45c4081a-7e38-4fef-87a7-2224e749265d
 		summarizeBy: none
 		sourceColumn: DESPAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"TB_Fatos_CP","TableItemName":"ID_AGP","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column ID_AGP =
+			SWITCH(
+				TRUE,
+				ISBLANK('TB_Fatos_CP'[DESPAR]),
+				"(Em branco)",
+				'TB_Fatos_CP'[DESPAR] IN {"Despesas Administrativas"},
+				"1001",
+				'TB_Fatos_CP'[DESPAR] IN {"Despesas com Pessoal"},
+				"1002",
+				'TB_Fatos_CP'[DESPAR] IN {"Despesas com Produtos"},
+				"1003",
+				'TB_Fatos_CP'[DESPAR] IN {"Despesas com Veículos"},
+				"1004",
+				'TB_Fatos_CP'[DESPAR] IN {"Despesas Comerciais"},
+				"1005",
+				'TB_Fatos_CP'[DESPAR] IN {"Despesas Financeiras"},
+				"1006",
+				'TB_Fatos_CP'[DESPAR] IN {"Impostos"},
+				"1007",
+				'TB_Fatos_CP'[DESPAR] IN {"Investimentos"},
+				"1008",
+				'TB_Fatos_CP'[DESPAR] IN {"Manutenções"},
+				"1009",
+				'TB_Fatos_CP'[DESPAR] IN {"Receita de Vendas"},
+				"1010",
+				"1011"
+			)
+		lineageTag: dfa78e8a-0ef2-4d8d-aaa8-f1ab39edc3de
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "TB_Fatos_CP"
+				          }
+				        },
+				        "Property": "DESPAR"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"t","Entity":"TB_Fatos_CP"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"GroupItems":[{"DisplayName":"(Em branco)","BlankDefaultPlaceholder":true},{"DisplayName":"1001","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Despesas Administrativas'"}}]]}}},{"DisplayName":"1002","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Despesas com Pessoal'"}}]]}}},{"DisplayName":"1003","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Despesas com Produtos'"}}]]}}},{"DisplayName":"1004","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Despesas com Veículos'"}}]]}}},{"DisplayName":"1005","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Despesas Comerciais'"}}]]}}},{"DisplayName":"1006","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Despesas Financeiras'"}}]]}}},{"DisplayName":"1007","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Impostos'"}}]]}}},{"DisplayName":"1008","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Investimentos'"}}]]}}},{"DisplayName":"1009","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Manutenções'"}}]]}}},{"DisplayName":"1010","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"t"}},"Property":"DESPAR"}}],"Values":[[{"Literal":{"Value":"'Receita de Vendas'"}}]]}}},{"DisplayName":"1011"}]}
 
 		annotation SummarizationSetBy = Automatic
 

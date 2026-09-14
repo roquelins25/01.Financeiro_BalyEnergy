@@ -18,14 +18,14 @@ table TB_NUMNFV
 				    UNION(
 				        SELECTCOLUMNS(
 				            TB_Fat,
-				            "Nota", TB_Fat[numnfv]
+				            "Nota", TB_Fat[NUMNFV]
 				        ),
 				        SELECTCOLUMNS(
 				            FILTER(
 				                TB_Fatos_CR,
-				                NOT ISBLANK(TB_Fatos_CR[numnota])
+				                NOT ISBLANK(TB_Fatos_CR[NUMNOTA])
 				            ),
-				            "Nota", TB_Fatos_CR[numnota]
+				            "Nota", TB_Fatos_CR[NUMNOTA]
 				        )
 				    )
 				)
