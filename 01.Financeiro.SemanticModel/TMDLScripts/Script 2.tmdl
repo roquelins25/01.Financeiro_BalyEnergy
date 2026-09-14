@@ -5,13 +5,13 @@ createOrReplace
 		measure '05.HTML_Fluxo_caixa_LQ' =
 				
 				VAR Granularidade = SELECTEDVALUE( yParamGranularidade[Granularidade], "Dia" )
-
+				
 				VAR PrimeiroDia   = MIN( 'CALENDARIO DAX'[Date] )
 				VAR UltimoDia     = MAX( 'CALENDARIO DAX'[Date] )
 				VAR AnoRef        = YEAR( UltimoDia )
 				VAR OffsetSemana  = WEEKDAY ( PrimeiroDia, 1 ) - 1
 				VAR AspaDupla     = UNICHAR(34)
-
+				
 				VAR FiltroTotal =
 					FILTER(
 						ALL( 'CALENDARIO DAX' ),
@@ -22,7 +22,7 @@ createOrReplace
 							'CALENDARIO DAX'[Date] >= PrimeiroDia && 'CALENDARIO DAX'[Date] <= UltimoDia
 						)
 					)
-
+				
 				VAR Datas =
 					FILTER(
 						ADDCOLUMNS(
@@ -59,7 +59,7 @@ createOrReplace
 							NOT( ISBLANK( [Faturamento] ) )
 						)
 					)
-
+				
 				VAR Cabecalho =
 					CONCATENATEX(
 						Datas,
@@ -75,7 +75,7 @@ createOrReplace
 						"",
 						[Date]
 					)
-
+				
 				-- ================================== Faturamento =======================================
 					VAR TiposFaturamento =
 						DATATABLE(
@@ -87,9 +87,9 @@ createOrReplace
 								{ 3, "Outros" }
 							}
 						)
-
+				
 					VAR TotalGeralFaturamento = CALCULATE( [07. Total Faturado Geral], FiltroTotal )
-
+				
 					VAR vFaturamentoDias =
 						CONCATENATEX(
 							Datas,
@@ -112,7 +112,7 @@ createOrReplace
 							[Date],
 							ASC
 						)
-
+				
 					VAR vFaturamentoCabecalho =
 						"<tr class='grupo subtotal clicavel' onclick='toggle(" & AspaDupla & "faturamento" & AspaDupla & ")'>" &
 							"<td class='col-descricao'><span class='seta' id='seta-faturamento'>&#9654;</span>(+) Faturamento</td>" &
@@ -120,7 +120,7 @@ createOrReplace
 							"<td class='col-percent'></td>" &
 							vFaturamentoDias &
 						"</tr>"
-
+				
 					VAR vFaturamentoDetalhe =
 						CONCATENATEX(
 							TiposFaturamento,
@@ -163,9 +163,9 @@ createOrReplace
 							[Ordem],
 							ASC
 						)
-
+				
 					VAR vFaturamento = vFaturamentoCabecalho & vFaturamentoDetalhe
-
+				
 				-- ================================== Entradas =======================================
 					VAR TiposEntradas =
 						DATATABLE(
@@ -182,7 +182,7 @@ createOrReplace
 								{ 7, "outros",        "Outros ( Diff Crdt - Debt )" }
 							}
 						)
-
+				
 					VAR SubtiposEntrada =
 						DATATABLE(
 							"Ordem", INTEGER,
@@ -194,7 +194,7 @@ createOrReplace
 								{ 3, "Vinculada", 100003 }
 							}
 						)
-
+				
 					VAR TotalGeralEntradas =
 						CALCULATE(
 							[10. Entrada]
@@ -206,7 +206,7 @@ createOrReplace
 							+ [10. ERROR],
 							FiltroTotal
 						)
-
+				
 					VAR vEntradasDias =
 						CONCATENATEX(
 							Datas,
@@ -239,7 +239,7 @@ createOrReplace
 							[Date],
 							ASC
 						)
-
+				
 					VAR vEntradasCabecalho =
 						"<tr class='grupo clicavel' onclick='toggle(" & AspaDupla & "entradas" & AspaDupla & ")'>" &
 							"<td class='col-descricao'><span class='seta' id='seta-entradas'>&#9654;</span>(+) Entradas</td>" &
@@ -247,7 +247,7 @@ createOrReplace
 							"<td class='col-percent'></td>" &
 							vEntradasDias &
 						"</tr>"
-
+				
 					VAR vEntradaSubgrupos =
 						CONCATENATEX(
 							SubtiposEntrada,
@@ -289,7 +289,7 @@ createOrReplace
 							[Ordem],
 							ASC
 						)
-
+				
 					VAR vEntradasDetalhe =
 						CONCATENATEX(
 							TiposEntradas,
@@ -366,10 +366,10 @@ createOrReplace
 							[Ordem],
 							ASC
 						)
-
+				
 					VAR vEntradas = vEntradasCabecalho & vEntradasDetalhe
-
-								
+				
+				
 				-- ================================== Deduções da Entrada =======================================
 					VAR TiposDeducoesFixas =
 						DATATABLE(
@@ -384,7 +384,7 @@ createOrReplace
 								{ 5, "recompra",      "Recompra" }
 							}
 						)
-
+				
 					VAR TiposDeducoesContas =
 						ADDCOLUMNS(
 							FILTER(
@@ -407,11 +407,11 @@ createOrReplace
 									760,  6
 								)
 						)
-
+				
 					VAR TotalGeralDeducoes =
 						CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(1), FiltroTotal )
 						+ CALCULATE( [10. Deducoes Entrada RECOMPRA], FiltroTotal )
-
+				
 					VAR vDeducoesDiasTotal =
 						CONCATENATEX(
 							Datas,
@@ -436,7 +436,7 @@ createOrReplace
 							[Date],
 							ASC
 						)
-
+				
 					VAR vDeducoesCabecalho =
 						"<tr class='grupo clicavel' onclick='toggle(" & AspaDupla & "deducoes" & AspaDupla & ")'>" &
 							"<td class='col-descricao'><span class='seta' id='seta-deducoes'>&#9654;</span>(-) Deduções da Entrada</td>" &
@@ -444,7 +444,7 @@ createOrReplace
 							"<td class='col-percent'></td>" &
 							vDeducoesDiasTotal &
 						"</tr>"
-
+				
 					VAR vDeducoesDiasVazio =
 						CONCATENATEX(
 							Datas,
@@ -453,7 +453,7 @@ createOrReplace
 							[Date],
 							ASC
 						)
-
+				
 					VAR vDeducoesFixasHTML =
 						CONCATENATEX(
 							TiposDeducoesFixas,
@@ -499,7 +499,7 @@ createOrReplace
 							[Ordem],
 							ASC
 						)
-
+				
 					VAR vDeducoesContasHTML =
 						CONCATENATEX(
 							TiposDeducoesContas,
@@ -543,16 +543,16 @@ createOrReplace
 							[Ordem],
 							ASC
 						)
-
+				
 					VAR vDeducoesDetalhe = vDeducoesFixasHTML & vDeducoesContasHTML
-
+				
 					VAR vDeducoes = vDeducoesCabecalho & vDeducoesDetalhe
 				
 				
 				-- ================================== Entrada Descontada (dedução) =======================================
 					VAR TotalEntradaDescontada =
 						CALCULATE( [10. Entrada], TB_Apoio[Carteira] = "Descontada", FiltroTotal )
-
+				
 					VAR vEntradaDescontadaDias =
 						CONCATENATEX(
 							Datas,
@@ -576,7 +576,7 @@ createOrReplace
 							[Date],
 							ASC
 						)
-
+				
 					VAR vEntradaDescontada =
 						"<tr class='grupo'>" &
 							"<td class='col-descricao'>( - ) Entrada Descontada</td>" &
@@ -584,11 +584,11 @@ createOrReplace
 							"<td class='col-percent'></td>" &
 							vEntradaDescontadaDias &
 						"</tr>"
-
+				
 				-- ================================== Receita Operacional Líquida =======================================
 					VAR TotalReceitaOPLiquida =
 						TotalGeralEntradas + ( TotalGeralDeducoes + ( TotalEntradaDescontada ) * -1 )
-
+				
 					VAR vReceitaOPLiquidaDias =
 						CONCATENATEX(
 							Datas,
@@ -629,7 +629,7 @@ createOrReplace
 							[Date],
 							ASC
 						)
-
+				
 					VAR vReceitaOPLiquida =
 						"<tr class='grupo subtotal'>" &
 							"<td class='col-descricao'>(=) Receita OP Líquida</td>" &
@@ -637,7 +637,7 @@ createOrReplace
 							"<td class='col-total-valor'></td>" &
 							vReceitaOPLiquidaDias &
 						"</tr>"
-
+				
 				
 					-- ================================== Custos de Produção =======================================
 						VAR TiposCustosContas =
@@ -650,16 +650,16 @@ createOrReplace
 								),
 								TB_CTA[ctafin] IN fxFluxoCaixa(2)
 							)
-
+				
 						VAR Agrupamentos =
 							ADDCOLUMNS(
 								SUMMARIZE( TiposCustosContas, TB_CTA[xAgrupamento] ),
 								"OrdemGrupo", RANKX( SUMMARIZE( TiposCustosContas, TB_CTA[xAgrupamento] ), TB_CTA[xAgrupamento], , ASC, Dense )
 							)
-
+				
 						VAR TotalGeralCustos =
 							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(2), FiltroTotal )
-
+				
 						VAR vCustosDiasTotal =
 							CONCATENATEX(
 								Datas,
@@ -683,7 +683,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vCustosCabecalho =
 							"<tr class='grupo clicavel ' onclick='toggle(" & AspaDupla & "custos" & AspaDupla & ")'>" &
 								"<td class='col-descricao'><span class='seta' id='seta-custos'>&#9654;</span>( - ) Custos Produção</td>" &
@@ -691,7 +691,7 @@ createOrReplace
 								"<td class='col-percent'></td>" &
 								vCustosDiasTotal &
 							"</tr>"
-
+				
 						VAR vCustosDetalhe =
 							CONCATENATEX(
 								Agrupamentos,
@@ -792,10 +792,10 @@ createOrReplace
 								TB_CTA[xAgrupamento],
 								ASC
 							)
-
+				
 						VAR vCustos = vCustosCabecalho & vCustosDetalhe
-
-									
+				
+				
 					-- ================================== Custos de Despesas Comerciais e Distribuicao =======================================
 						VAR TiposDCDBase =
 							FILTER(
@@ -806,16 +806,16 @@ createOrReplace
 								),
 								TB_CTA[ctafin] IN fxFluxoCaixa(3)
 							)
-
+				
 						VAR TiposDespesasComerciais =
 							ADDCOLUMNS(
 								TiposDCDBase,
 								"Ordem", RANKX( TiposDCDBase, TB_CTA[descta], , ASC, Dense )
 							)
-
+				
 						VAR TotalGeralDCD =
 							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(3), FiltroTotal )
-
+				
 						VAR vCustosDiasDCD =
 							CONCATENATEX(
 								Datas,
@@ -839,7 +839,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vDCDCabecalho =
 							"<tr class='grupo clicavel ' onclick='toggle(" & AspaDupla & "custosDCD" & AspaDupla & ")'>" &
 								"<td class='col-descricao'><span class='seta' id='seta-custosDCD'>&#9654;</span>( - ) Despesas Comerciais e Distribuição</td>" &
@@ -847,7 +847,7 @@ createOrReplace
 								"<td class='col-percent'></td>" &
 								vCustosDiasDCD &
 							"</tr>"
-
+				
 						VAR vDCDDetalhe =
 							CONCATENATEX(
 								TiposDespesasComerciais,
@@ -891,10 +891,10 @@ createOrReplace
 								[Ordem],
 								ASC
 							)
-
+				
 						VAR vCustosDCD = vDCDCabecalho & vDCDDetalhe
-
-									
+				
+				
 					-- ================================== Custos de Despesas Administrativas =======================================
 						VAR TiposADMFixas =
 							DATATABLE(
@@ -905,9 +905,9 @@ createOrReplace
 									{ 1, "adto_motorista", "Adiantamento Motorista" }
 								}
 							)
-
+				
 						VAR QtdFixasADM = COUNTROWS( TiposADMFixas )
-
+				
 						VAR TiposADMBase =
 							FILTER(
 								SUMMARIZE(
@@ -917,23 +917,23 @@ createOrReplace
 								),
 								TB_CTA[ctafin] IN fxFluxoCaixa(4)
 							)
-
+				
 						VAR TiposDespesasADM =
 							ADDCOLUMNS(
 								TiposADMBase,
 								"Ordem", QtdFixasADM + RANKX( TiposADMBase, TB_CTA[descta], , ASC, Dense )
 							)
-
+				
 						VAR SomaADMFixas =
 							SUMX( TiposADMFixas,
 							 VAR IDAtual = [ID]
 							 RETURN
 							 CALCULATE( fxADMFixaValor( IDAtual ), FiltroTotal ) )
-
+				
 						VAR TotalGEralADM =
 							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(4), FiltroTotal )
 							+ SomaADMFixas
-
+				
 						VAR vCustosDiaADM =
 							CONCATENATEX(
 								Datas,
@@ -954,7 +954,7 @@ createOrReplace
 								VAR ValorFixasDia =
 									SUMX( TiposADMFixas,
 										VAR IDAtual = [ID]
-							 			RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroTotal ) )
+							 			RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroData) )
 								VAR ValorDia = ValorContasDia + ValorFixasDia
 								RETURN
 									"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
@@ -962,7 +962,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vADMCabecalho =
 							"<tr class='grupo clicavel ' onclick='toggle(" & AspaDupla & "custosADM" & AspaDupla & ")'>" &
 								"<td class='col-descricao'><span class='seta' id='seta-custosADM'>&#9654;</span>( - ) Despesas Administrativas</td>" &
@@ -970,7 +970,7 @@ createOrReplace
 								"<td class='col-percent'></td>" &
 								vCustosDiaADM &
 							"</tr>"
-
+				
 						VAR vADMFixasHTML =
 							CONCATENATEX(
 								TiposADMFixas,
@@ -1012,7 +1012,7 @@ createOrReplace
 								[Ordem],
 								ASC
 							)
-
+				
 						VAR vADMDetalhe =
 							CONCATENATEX(
 								TiposDespesasADM,
@@ -1056,10 +1056,10 @@ createOrReplace
 								[Ordem],
 								ASC
 							)
-
+				
 						VAR vCustoADM = vADMCabecalho & vADMFixasHTML & vADMDetalhe
-
-					
+				
+				
 				
 					-- ================================== IMPOSTOS SOBRE O LUCRO =======================================
 						VAR TiposIMPBase =
@@ -1071,16 +1071,16 @@ createOrReplace
 								),
 								TB_CTA[ctafin] IN fxFluxoCaixa(5)
 							)
-
+				
 						VAR TiposImpostosLucro =
 							ADDCOLUMNS(
 								TiposIMPBase,
 								"Ordem", RANKX( TiposIMPBase, TB_CTA[descta], , ASC, Dense )
 							)
-
+				
 						VAR TotalGeralImpLucro =
 							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(5), FiltroTotal )
-
+				
 						VAR vImpostoDiasLucro =
 							CONCATENATEX(
 								Datas,
@@ -1104,7 +1104,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vImpLucroCabecalho =
 							"<tr class='grupo clicavel ' onclick='toggle(" & AspaDupla & "impLucro" & AspaDupla & ")'>" &
 								"<td class='col-descricao'><span class='seta' id='seta-impLucro'>&#9654;</span>( - ) Impostos sobre o Lucro</td>" &
@@ -1112,7 +1112,7 @@ createOrReplace
 								"<td class='col-percent'></td>" &
 								vImpostoDiasLucro &
 							"</tr>"
-
+				
 						VAR vImpDetalhe =
 							CONCATENATEX(
 								TiposImpostosLucro,
@@ -1156,9 +1156,9 @@ createOrReplace
 								[Ordem],
 								ASC
 							)
-
+				
 						VAR vImpLucro = vImpLucroCabecalho & vImpDetalhe
-
+				
 				
 				
 					-- ================================== RECEITAS / DESPESAS FINANCEIRAS =======================================
@@ -1173,9 +1173,9 @@ createOrReplace
 									{ 3, "Tarifas", "Tarifas" }
 								}
 							)
-
+				
 						VAR QtdeFixasR_D = COUNTROWS( TiposR_Dfinan )
-
+				
 						VAR TiposR_DFinan_Base =
 							FILTER(
 								SUMMARIZE(
@@ -1185,24 +1185,24 @@ createOrReplace
 								),
 								TB_CTA[ctafin] IN fxFluxoCaixa(6)
 							)
-
+				
 						VAR TiposR_D_finan =
 							ADDCOLUMNS(
 								TiposR_DFinan_Base,
 								"Ordem", QtdeFixasR_D + RANKX( TiposR_DFinan_Base, TB_CTA[descta], , ASC, Dense )
 							)
-
+				
 						VAR SomaR_D_finanFixas =
 							SUMX(
 								TiposR_Dfinan,
 								VAR IDAtual = [ID]
 								RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroTotal )
 							)
-
+				
 						VAR TotalGeralR_D_finan =
 							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(6), FiltroTotal )
 							+ SomaR_D_finanFixas
-
+				
 						VAR vCustosDiaR_D_finan =
 							CONCATENATEX(
 								Datas,
@@ -1233,7 +1233,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vR_D_finanCabecalho =
 							"<tr class='grupo clicavel ' onclick='toggle(" & AspaDupla & "R_D_finan" & AspaDupla & ")'>" &
 								"<td class='col-descricao'><span class='seta' id='seta-R_D_finan'>&#9654;</span>( - ) Receitas / Despesas Financeiras</td>" &
@@ -1241,7 +1241,7 @@ createOrReplace
 								"<td class='col-percent'></td>" &
 								vCustosDiaR_D_finan &
 							"</tr>"
-
+				
 						VAR vR_D_finanHTML =
 							CONCATENATEX(
 								TiposR_Dfinan,
@@ -1283,7 +1283,7 @@ createOrReplace
 								[Ordem],
 								ASC
 							)
-
+				
 						VAR vR_D_finanDetalhe =
 							CONCATENATEX(
 								TiposR_D_finan,
@@ -1327,10 +1327,10 @@ createOrReplace
 								[Ordem],
 								ASC
 							)
-
+				
 						VAR vCustoR_DFinanceiro = vR_D_finanCabecalho & vR_D_finanHTML & vR_D_finanDetalhe
-
-									
+				
+				
 					-- ================================== Fluxo de Caixa Operacional (subtotal) =======================================
 						VAR TotalFluxoCaixaOperacional =
 							TotalReceitaOPLiquida
@@ -1341,7 +1341,7 @@ createOrReplace
 								+ TotalGeralImpLucro
 								+ TotalGeralR_D_finan
 							)
-
+				
 						VAR vFluxoCaixaOperacionalDias =
 							CONCATENATEX(
 								Datas,
@@ -1407,7 +1407,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vFluxoCaixaOperacional =
 							"<tr class='grupo subtotal'>" &
 								"<td class='col-descricao'>(=) Fluxo de Caixa Operacional</td>" &
@@ -1415,8 +1415,8 @@ createOrReplace
 								"<td class='col-total-valor'></td>" &
 								vFluxoCaixaOperacionalDias &
 							"</tr>"
-
-									
+				
+				
 					-- ================================== FLUXO DE CAIXA DE INVESTIMENTOS =======================================
 						VAR TiposFluoCaixaInvetimentos =
 							DATATABLE(
@@ -1432,9 +1432,9 @@ createOrReplace
 									{ 6, "dVarCambial", "Variação Cambial" }
 								}
 							)
-
+				
 						VAR QtdeFixasFluxoCaixaInvet = COUNTROWS( TiposFluoCaixaInvetimentos )
-
+				
 						VAR Tipos_FluxoCaixaInvestimentos_Base =
 							FILTER(
 								SUMMARIZE(
@@ -1444,24 +1444,24 @@ createOrReplace
 								),
 								TB_CTA[ctafin] IN fxFluxoCaixa(7)
 							)
-
+				
 						VAR Tipos_FluxoCaixaInvest =
 							ADDCOLUMNS(
 								Tipos_FluxoCaixaInvestimentos_Base,
 								"Ordem", QtdeFixasFluxoCaixaInvet + RANKX( Tipos_FluxoCaixaInvestimentos_Base, TB_CTA[descta], , ASC, Dense )
 							)
-
+				
 						VAR Soma_FluxoCaixaInvest_Fixas =
 							SUMX(
 								TiposFluoCaixaInvetimentos,
 								VAR IDAtual = [ID]
 								RETURN CALCULATE( fxADMFixaValor( IDAtual ), FiltroTotal )
 							)
-
+				
 						VAR TotalGeralFluxoCaixaInvest =
 							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN fxFluxoCaixa(7), FiltroTotal )
 							+ Soma_FluxoCaixaInvest_Fixas
-
+				
 						VAR vCusto_FluxoCaixaInvest_Dias =
 							CONCATENATEX(
 								Datas,
@@ -1492,7 +1492,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vFluxoCaixaInvest_Cabecalho =
 							"<tr class='grupo clicavel ' onclick='toggle(" & AspaDupla & "FluxoCaixaInvest" & AspaDupla & ")'>" &
 								"<td class='col-descricao'><span class='seta' id='seta-FluxoCaixaInvest'>&#9654;</span>( - ) Fluxo de Caixa de Investimentos</td>" &
@@ -1500,7 +1500,7 @@ createOrReplace
 								"<td class='col-percent'></td>" &
 								vCusto_FluxoCaixaInvest_Dias &
 							"</tr>"
-
+				
 						VAR vFluxoCaixaFinan_HTML =
 							CONCATENATEX(
 								TiposFluoCaixaInvetimentos,
@@ -1542,7 +1542,7 @@ createOrReplace
 								[Ordem],
 								ASC
 							)
-
+				
 						VAR vFluxoCaixaInvest_Detalhe =
 							CONCATENATEX(
 								Tipos_FluxoCaixaInvest,
@@ -1586,10 +1586,9 @@ createOrReplace
 								[Ordem],
 								ASC
 							)
-
+				
 						VAR vCustoFluxoCaixaInvest = vFluxoCaixaInvest_Cabecalho & vFluxoCaixaFinan_HTML & vFluxoCaixaInvest_Detalhe
-
-					/*
+				
 					-- ================================== ( * ) A Classificar =======================================
 						VAR TodosCodigosUsados =
 							UNION(
@@ -1612,7 +1611,7 @@ createOrReplace
 								VAR CtafinAtual = TB_CTA[ctafin]
 								RETURN
 									NOT( CtafinAtual IN TodosCodigosUsados ) &&
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual ) > 0
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal ) > 0
 							)
 				
 						VAR TiposAClassificar =
@@ -1625,19 +1624,25 @@ createOrReplace
 							SELECTCOLUMNS( TiposAClassificarBase, "CtaFin", TB_CTA[ctafin] )
 				
 						VAR TotalGeralAClassificar =
-							CALCULATE(
-								[10. Valor Total LQ],
-								TB_CTA[ctafin] IN CodigosAClassificar
-							)
+							CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN CodigosAClassificar, FiltroTotal )
 				
 						VAR vDiasAClassificar =
 							CONCATENATEX(
 								Datas,
-								VAR ValorDia =
-									CALCULATE(
-										[10. Deducoes TOTAL],
-										TB_CTA[ctafin] IN CodigosAClassificar
+								VAR DataAtual = [Date]
+								VAR FiltroData =
+									FILTER(
+										ALL( 'CALENDARIO DAX' ),
+										SWITCH(
+											Granularidade,
+											"Mês",       'CALENDARIO DAX'[Ano] = YEAR( DataAtual ) && 'CALENDARIO DAX'[Mês] = MONTH( DataAtual ),
+											"Trimestre", 'CALENDARIO DAX'[Ano] = YEAR( DataAtual ) && 'CALENDARIO DAX'[trimestre] = ( INT( ( MONTH( DataAtual ) - 1 ) / 3 ) + 1 ),
+											"Ano",       'CALENDARIO DAX'[Ano] = YEAR( DataAtual ),
+											'CALENDARIO DAX'[Date] = DataAtual
+										)
 									)
+								VAR ValorDia =
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] IN CodigosAClassificar, FiltroData )
 								RETURN
 									"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 								"",
@@ -1660,13 +1665,25 @@ createOrReplace
 								VAR CategoriaAtual = TB_CTA[descta]
 								VAR OrdemAtual     = [Ordem]
 								VAR TotalConta =
-									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+									CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroTotal )
 								VAR PercentConta = DIVIDE( TotalConta, TotalGeralAClassificar, 0 )
 								VAR LinhaDias =
 									CONCATENATEX(
 										Datas,
+										VAR DataAtual = [Date]
+										VAR FiltroData =
+											FILTER(
+												ALL( 'CALENDARIO DAX' ),
+												SWITCH(
+													Granularidade,
+													"Mês",       'CALENDARIO DAX'[Ano] = YEAR( DataAtual ) && 'CALENDARIO DAX'[Mês] = MONTH( DataAtual ),
+													"Trimestre", 'CALENDARIO DAX'[Ano] = YEAR( DataAtual ) && 'CALENDARIO DAX'[trimestre] = ( INT( ( MONTH( DataAtual ) - 1 ) / 3 ) + 1 ),
+													"Ano",       'CALENDARIO DAX'[Ano] = YEAR( DataAtual ),
+													'CALENDARIO DAX'[Date] = DataAtual
+												)
+											)
 										VAR ValorDia =
-											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual )
+											CALCULATE( [10. Deducoes TOTAL], TB_CTA[ctafin] = CtafinAtual, FiltroData )
 										RETURN
 											"<td class='valor'>" & fxFORMAT( ValorDia, 4 ) & "</td>",
 										"",
@@ -1675,7 +1692,7 @@ createOrReplace
 									)
 								RETURN
 									"<tr class='normal detalhe-row ' data-grupo='aClassificar'>" &
-										"<td class='col-descricao col-nivel1'>8." & OrdemAtual & " - " & CategoriaAtual & "</td>" &
+										"<td class='col-descricao col-nivel1'>8." & CtafinAtual & " - " & CategoriaAtual & "</td>" &
 										"<td class='valor total percent'>" & fxFORMAT( TotalConta, 4 ) & "</td>" &
 										"<td class='valor total percent'>" & fxFORMAT( PercentConta, 5 ) & "</td>" &
 										LinhaDias &
@@ -1685,13 +1702,12 @@ createOrReplace
 								ASC
 							)
 				
-						VAR vAClassificar = vAClassificarCabecalho & vAClassificarDetalhe */
+						VAR vAClassificar = vAClassificarCabecalho & vAClassificarDetalhe
 				
-									
 					-- ================================== Saldo Líquido do Período (subtotal) =======================================
 						VAR TotalSaldoLiquidoPeriodo =
 							TotalFluxoCaixaOperacional + TotalGeralFluxoCaixaInvest
-
+				
 						VAR vSaldoLiquidoPeriodoDias =
 							CONCATENATEX(
 								Datas,
@@ -1766,7 +1782,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vSaldoLiquidoPeriodo =
 							"<tr class='grupo subtotal'>" &
 								"<td class='col-descricao'>(=) Saldo Líquido do Período</td>" &
@@ -1774,13 +1790,13 @@ createOrReplace
 								"<td class='col-total-valor'></td>" &
 								vSaldoLiquidoPeriodoDias &
 							"</tr>"
-
+				
 				
 					-- ================================== Caixa Fruts =======================================
 						VAR TotalCaixaFrutsEntradas = CALCULATE( fxADMFixaValor( "caixa_fruts_entrada" ), FiltroTotal )
 						VAR TotalCaixaFrutsSaidas   = CALCULATE( fxADMFixaValor( "caixa_fruts_saida" ), FiltroTotal )
 						VAR TotalSaldoCaixaFruts    = TotalCaixaFrutsEntradas + TotalCaixaFrutsSaidas
-
+				
 						VAR vCaixaFrutsEntradasDias =
 							CONCATENATEX(
 								Datas,
@@ -1803,7 +1819,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vCaixaFrutsSaidasDias =
 							CONCATENATEX(
 								Datas,
@@ -1826,7 +1842,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vSaldoCaixaFrutsDias =
 							CONCATENATEX(
 								Datas,
@@ -1854,7 +1870,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vCaixaFrutsEntradas =
 							"<tr class='grupo'>" &
 								"<td class='col-descricao'>( + ) Caixa Fruts Entradas</td>" &
@@ -1862,7 +1878,7 @@ createOrReplace
 								"<td class='col-percent'></td>" &
 								vCaixaFrutsEntradasDias &
 							"</tr>"
-
+				
 						VAR vCaixaFrutsSaidas =
 							"<tr class='grupo'>" &
 								"<td class='col-descricao'>( - ) Caixa Fruts Saidas</td>" &
@@ -1870,7 +1886,7 @@ createOrReplace
 								"<td class='col-percent'></td>" &
 								vCaixaFrutsSaidasDias &
 							"</tr>"
-
+				
 						VAR vSaldoCaixaFruts =
 							"<tr class='grupo subtotal'>" &
 								"<td class='col-descricao'>(=) Saldo Caixa Fruts</td>" &
@@ -1878,7 +1894,7 @@ createOrReplace
 								"<td class='col-total-valor'></td>" &
 								vSaldoCaixaFrutsDias &
 							"</tr>"
-
+				
 				
 				
 					-- ================================== Saldo de Bancos =======================================
@@ -1890,12 +1906,12 @@ createOrReplace
 						VAR TotalSaldoFinal =
 							CALCULATE(
 								[08. Saldo Bancos],
-								'CALENDARIO DAX'[Date] = PrimeiroDia
+								'CALENDARIO DAX'[Date] = UltimoDia
 							)
 						VAR TotalGeralSaldoBancos = TotalSaldoInicial - TotalSaldoFinal
-
+				
 						VAR Bancos = SUMMARIZE( TB_RTerceiros, TB_RTerceiros[codBanco], TB_RTerceiros[Banco] )
-
+				
 						VAR vSaldoInicialDias =
 							CONCATENATEX(
 								Datas,
@@ -1915,7 +1931,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vSaldoFinalDias =
 							CONCATENATEX(
 								Datas,
@@ -1935,7 +1951,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vSaldoBancosDias =
 							CONCATENATEX(
 								Datas,
@@ -1966,7 +1982,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vSaldoBancosCabecalho =
 							"<tr class='grupo clicavel ' onclick='toggle(" & AspaDupla & "saldoBancos" & AspaDupla & ")'>" &
 								"<td class='col-descricao'><span class='seta' id='seta-saldoBancos'>&#9654;</span>( +/- ) Saldo de Bancos</td>" &
@@ -1974,7 +1990,7 @@ createOrReplace
 								"<td class='col-percent'></td>" &
 								vSaldoBancosDias &
 							"</tr>"
-
+				
 						VAR vBancosInicialHTML =
 							CONCATENATEX(
 								Bancos,
@@ -2018,7 +2034,7 @@ createOrReplace
 								TB_RTerceiros[Banco],
 								ASC
 							)
-
+				
 						VAR vBancosFinalHTML =
 							CONCATENATEX(
 								Bancos,
@@ -2028,7 +2044,7 @@ createOrReplace
 									CALCULATE(
 										[08. Saldo Bancos],
 										TB_RTerceiros[codBanco] = BancoAtual,
-										'CALENDARIO DAX'[Date] = PrimeiroDia
+										'CALENDARIO DAX'[Date] = UltimoDia
 									)
 								VAR PercentBanco = DIVIDE( TotalBanco, TotalSaldoFinal, 0 )
 								VAR LinhaDiasBanco =
@@ -2062,7 +2078,7 @@ createOrReplace
 								TB_RTerceiros[Banco],
 								ASC
 							)
-
+				
 						VAR vLinhaSaldoInicial =
 							"<tr class='normal detalhe-row clicavel' data-grupo='saldoBancos' data-subgrupo='saldoInicial-bancos' onclick='toggle(" & AspaDupla & "saldoInicial-bancos" & AspaDupla & ")'>" &
 								"<td class='col-descricao col-nivel1'><span class='seta' id='seta-saldoInicial-bancos'>&#9654;</span>Saldo Inicial</td>" &
@@ -2071,7 +2087,7 @@ createOrReplace
 								vSaldoInicialDias &
 							"</tr>" &
 							vBancosInicialHTML
-
+				
 						VAR vLinhaSaldoFinal =
 							"<tr class='normal detalhe-row clicavel' data-grupo='saldoBancos' data-subgrupo='saldoFinal-bancos' onclick='toggle(" & AspaDupla & "saldoFinal-bancos" & AspaDupla & ")'>" &
 								"<td class='col-descricao col-nivel1'><span class='seta' id='seta-saldoFinal-bancos'>&#9654;</span>Saldo Final</td>" &
@@ -2080,16 +2096,16 @@ createOrReplace
 								vSaldoFinalDias &
 							"</tr>" &
 							vBancosFinalHTML
-
+				
 						VAR vSaldoBancosDetalhe = vLinhaSaldoInicial & vLinhaSaldoFinal
-
+				
 						VAR vSaldoBancos = vSaldoBancosCabecalho & vSaldoBancosDetalhe
-
+				
 				
 				
 					-- ================================== Resumo Final (dia a dia) =======================================
 						VAR TotalEntradasFinal = TotalReceitaOPLiquida
-
+				
 						VAR TotalSaidasFinal =
 							TotalGeralCustos
 							+ TotalGeralDCD
@@ -2098,9 +2114,9 @@ createOrReplace
 							+ TotalGeralR_D_finan
 							+ TotalGeralFluxoCaixaInvest
 							+ TotalSaldoCaixaFruts
-
+				
 						VAR TotalResultadoFinal = TotalEntradasFinal + TotalSaidasFinal
-
+				
 						VAR vSaidasFinalDias =
 							CONCATENATEX(
 								Datas,
@@ -2157,7 +2173,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vResultadoFinalDias =
 							CONCATENATEX(
 								Datas,
@@ -2235,7 +2251,7 @@ createOrReplace
 								[Date],
 								ASC
 							)
-
+				
 						VAR vEntradasFinal =
 							"<tr class='grupo subtotal'>" &
 								"<td class='col-descricao'>( + ) Entradas</td>" &
@@ -2243,7 +2259,7 @@ createOrReplace
 								"<td class='col-total-valor'></td>" &
 								vReceitaOPLiquidaDias &
 							"</tr>"
-
+				
 						VAR vSaidasFinal =
 							"<tr class='grupo subtotal'>" &
 								"<td class='col-descricao'>( - ) Saídas</td>" &
@@ -2251,7 +2267,7 @@ createOrReplace
 								"<td class='col-total-valor'></td>" &
 								vSaidasFinalDias &
 							"</tr>"
-
+				
 						VAR vResultadoFinal =
 							"<tr class='grupo subtotal'>" &
 								"<td class='col-descricao'>(=) Resultado</td>" &
@@ -2259,7 +2275,7 @@ createOrReplace
 								"<td class='col-total-valor'></td>" &
 								vResultadoFinalDias &
 							"</tr>"
-
+				
 				
 				RETURN
 				"<!DOCTYPE html>
@@ -2299,6 +2315,8 @@ createOrReplace
 				    position:sticky;
 				    top:0;
 				    z-index:3;
+					background:#8A0000;
+			   		color:white;
 				}
 				th.col-descricao-titulo{
 				    min-width:300px;
@@ -2311,7 +2329,7 @@ createOrReplace
 				}
 				th.col-total-valor{
 				    width:110px;
-				    background:#cf0000;
+				    background:#8A0000;
 				    color:white;
 				    text-align:right;
 				    font-weight:bold;
@@ -2327,7 +2345,7 @@ createOrReplace
 				
 				.col-total{
 				    width:110px;
-				    background:#cf0000;
+				    background:#8A0000;
 				    color:white;
 				    text-align:right;
 				    font-weight:bold;
@@ -2335,7 +2353,7 @@ createOrReplace
 				
 				.col-percent{
 				    width:40px;
-				    background:#cf0000;
+				    background:#8A0000;
 				    color:white;
 				    text-align:center;
 				}
@@ -2355,7 +2373,7 @@ createOrReplace
 				.grupo .col-total-valor,
 				.grupo .col-total,
 				.grupo .col-percent{
-				    background:#cf0000 !important;
+				    background:#8A0000 !important;
 				    color:#fff !important;
 				}
 				.grupo td.col-descricao{
@@ -2459,6 +2477,7 @@ createOrReplace
 				<tbody>
 				
 				    "&vFaturamento&"
+					<tr class='linha-vazia'><td colspan='999'></td></tr>
 				    "&vEntradas&"
 					"&vDeducoes&"
 					"&vEntradaDescontada&"
@@ -2481,6 +2500,8 @@ createOrReplace
 					"&vEntradasFinal&"
 					"&vSaidasFinal&"
 					"&vResultadoFinal&"
+					<tr class='linha-vazia'><td colspan='999'></td></tr>
+					<!-- "&vAClassificar&" -- >
 				
 				</tbody>
 				

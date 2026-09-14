@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "c0978589819a73ac7b06",
+  "position": {
+    "x": 6.2645011600928342,
+    "y": 80.185614849187928,
+    "z": 3000,
+    "height": 990.936143091718,
+    "width": 1911.8620823901365,
+    "tabOrder": 2000
+  },
+  "visualGroup": {
+    "displayName": "Tabela",
+    "groupMode": "ScaleMode"
+  },
+  "isHidden": true
+}

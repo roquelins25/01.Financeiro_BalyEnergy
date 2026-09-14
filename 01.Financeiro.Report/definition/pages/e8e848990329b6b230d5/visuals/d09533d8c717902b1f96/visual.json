@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d09533d8c717902b1f96",
   "position": {
     "x": 1342.8901734104047,
     "y": 74.913294797687868,
-    "z": 11,
+    "z": 3000,
     "height": 36.069364161849713,
-    "width": 564.62427745664741
+    "width": 564.62427745664741,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -110,7 +111,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Mês'"
+                                "Value": "'Dia'"
                               }
                             }
                           ]

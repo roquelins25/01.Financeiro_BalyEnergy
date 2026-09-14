@@ -1,17 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "0d181f5b69a2df835de5",
   "position": {
-    "x": 465.82794582605811,
-    "y": 139.16851493558588,
-    "z": 2000,
-    "height": 918.12561936671227,
-    "width": 1440.0932798514282,
-    "tabOrder": 18000
+    "x": 0,
+    "y": 135.31322505800463,
+    "z": 3000,
+    "height": 927.1461716937356,
+    "width": 1905.9212256774863,
+    "tabOrder": 19000
   },
   "visualGroup": {
     "displayName": "Verbas para Abatimento",
     "groupMode": "ScaleMode"
-  },
-  "isHidden": true
+  }
 }

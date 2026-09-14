@@ -151,7 +151,31 @@ relationship 0dce54a3-e7bb-f374-4535-aefa31c970ee
 	fromColumn: TB_Fatos_CP.Tipo
 	toColumn: TB_TIPO.CODTPT
 
-relationship a61297e2-af0a-444e-a8c6-aa65b90dbac2
+relationship AutoDetected_f51aee0b-d594-4d33-966e-0c88f1902901
+	fromColumn: TB_Fatos_LQ.CODTNS
+	toColumn: TB_TNS.codtns
+
+relationship 2128ade2-ee6f-b09b-85bb-744ae4cf1a2c
+	fromColumn: TB_Fatos_LQ.NUMCCO
+	toColumn: TB_Apoio.potador
+
+relationship AutoDetected_31c7f75f-1a81-41b4-9f62-411991afc617
+	fromColumn: TB_Fatos_LQ.CODCLI
+	toColumn: TB_CLI.codcli
+
+relationship AutoDetected_59821e43-1c1e-4448-8dfa-c4f601287085
+	fromColumn: TB_Fatos_CP.CtaFin
+	toColumn: TB_CTA.ctafin
+
+relationship AutoDetected_41aba577-3e5c-468b-a2ca-ebc4903d7791
+	fromColumn: TB_Fatos_LQ.CTAFIN
+	toColumn: TB_CTA.ctafin
+
+relationship 1781f8fa-63af-0a8a-656c-cad43972c4f3
+	fromColumn: TB_Projetado.ID
+	toColumn: TB_CTA.ctafin
+
+relationship 549829bc-88be-4068-b47e-fc8aacc5a2a5
 	joinOnDateBehavior: datePartOnly
 	fromColumn: 'CALENDARIO DAX'.Date
 	toColumn: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.Date
@@ -181,24 +205,6 @@ relationship 162e5d9b-5f32-9137-c1c9-ad056e52b096
 	fromColumn: TB_Fatos_CP.VCTPRO
 	toColumn: 'CALENDARIO DAX'.Date
 
-relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
-	crossFilteringBehavior: bothDirections
-	toCardinality: many
-	fromColumn: TB_AUXtempo.Tipo
-	toColumn: 'CALENDARIO DAX'.Vencidos?
-
-relationship AutoDetected_f51aee0b-d594-4d33-966e-0c88f1902901
-	fromColumn: TB_Fatos_LQ.CODTNS
-	toColumn: TB_TNS.codtns
-
-relationship 2128ade2-ee6f-b09b-85bb-744ae4cf1a2c
-	fromColumn: TB_Fatos_LQ.NUMCCO
-	toColumn: TB_Apoio.potador
-
-relationship AutoDetected_31c7f75f-1a81-41b4-9f62-411991afc617
-	fromColumn: TB_Fatos_LQ.CODCLI
-	toColumn: TB_CLI.codcli
-
 relationship 7e97d2a0-5dd6-7af5-aef7-c5614624d213
 	fromColumn: TB_Fatos_LQ.DATA_CONTA
 	toColumn: 'CALENDARIO DAX'.Date
@@ -207,14 +213,6 @@ relationship fcc236c5-5b37-2ccf-0e05-dee68cb274b7
 	isActive: false
 	fromColumn: TB_Fatos_LQ.DATMOV
 	toColumn: 'CALENDARIO DAX'.Date
-
-relationship AutoDetected_59821e43-1c1e-4448-8dfa-c4f601287085
-	fromColumn: TB_Fatos_CP.CtaFin
-	toColumn: TB_CTA.ctafin
-
-relationship AutoDetected_41aba577-3e5c-468b-a2ca-ebc4903d7791
-	fromColumn: TB_Fatos_LQ.CTAFIN
-	toColumn: TB_CTA.ctafin
 
 relationship 97ba9355-df06-5589-ecec-d381a997b370
 	isActive: false
@@ -225,4 +223,14 @@ relationship 5d1fe93d-b73b-b317-6695-1135ba921c96
 	isActive: false
 	fromColumn: TB_Fatos_CR.VenctOri
 	toColumn: 'CALENDARIO DAX'.Date
+
+relationship e8cdcfbe-e57d-518a-d599-1974e6bbfd56
+	fromColumn: TB_Projetado.AnoMes
+	toColumn: 'CALENDARIO DAX'.Date
+
+relationship 3bbf4357-cd2f-ba5e-709f-94067b22a064
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: TB_AUXtempo.Tipo
+	toColumn: 'CALENDARIO DAX'.Vencidos?
 

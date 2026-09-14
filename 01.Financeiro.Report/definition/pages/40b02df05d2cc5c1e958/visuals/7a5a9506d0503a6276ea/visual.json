@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "7a5a9506d0503a6276ea",
   "position": {
     "x": 2.3843338925267545,
@@ -67,7 +67,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'jul'"
+                                "Value": "'ago'"
                               }
                             }
                           ]

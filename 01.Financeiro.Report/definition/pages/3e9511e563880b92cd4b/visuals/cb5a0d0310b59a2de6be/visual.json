@@ -1,13 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "cb5a0d0310b59a2de6be",
   "position": {
-    "x": 6.2645011600928342,
-    "y": 80.185614849187928,
+    "x": 5.8158564547003513,
+    "y": 79.968026252129832,
     "z": 2000,
-    "height": 976.29470674676725,
-    "width": 1897.1551742058041,
-    "tabOrder": 7001
+    "height": 977.110373071642,
+    "width": 1887.5131576568947
   },
   "visualGroup": {
     "displayName": "Posiçao diaria",

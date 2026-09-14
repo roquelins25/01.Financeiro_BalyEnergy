@@ -1,0 +1,72 @@
+table TB_Projetado
+	lineageTag: 79d2f78f-e1c4-4484-820b-b0874164c5a8
+
+	column ID
+		dataType: string
+		lineageTag: 2ae8005a-37bd-41b2-b088-618af602882a
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESC
+		dataType: string
+		lineageTag: e6acf510-4419-4de2-b3f0-eb08155a017c
+		summarizeBy: none
+		sourceColumn: DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: string
+		lineageTag: 8582fd0a-361d-4682-9405-bebd080e3c35
+		summarizeBy: none
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valor
+		dataType: double
+		lineageTag: 985855e6-740d-4a97-9118-a84018e5ed35
+		summarizeBy: sum
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AnoMes
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 7a145085-db29-495a-8bc4-eca966804569
+		summarizeBy: none
+		sourceColumn: AnoMes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition TB_Projetado = m
+		mode: import
+		queryGroup: _Fatos
+		source =
+				let
+				  Origem = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vRSlYA4caHrdTeZRjJmMiOrCGn2wKv05Lvpus_ORUhRxbozq27lkDBgwrszEYhrIw/pub?output=xlsx"), null, true),
+				  #"Navegação 1" = Origem{[Item = "Projetado Ano REAL", Kind = "Sheet"]}[Data],
+				  #"Tipo de coluna alterado" = Table.TransformColumnTypes(#"Navegação 1", {{"Column2", type text}, {"Column3", Int64.Type}, {"Column18", type text}, {"Column20", type number}, {"Column21", type number}, {"Column22", type number}, {"Column25", type number}, {"Column26", type number}, {"Column27", type number}, {"Column28", type number}, {"Column29", type number}, {"Column30", type number}, {"Column31", type number}, {"Column32", type text}}),
+				    #"Linhas Superiores Removidas" = Table.Skip(#"Tipo de coluna alterado",8),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Column1", type any}, {"Column2", type text}, {"Column3", Int64.Type}, {"JANEIRO", type number}, {"FEVEREIRO", type number}, {"MARÇO", type number}, {"ABRIL", type number}, {"MAIO", type number}, {"JUNHO", type number}, {"JULHO", type any}, {"AGOSTO", type number}, {"SETEMBRO", type number}, {"OUTUBRO", type number}, {"NOVEMBRO", type number}, {"DEZEMBRO", type number}, {"ANO", type any}, {"Column17", type any}, {"Column18", type text}, {"Column19", type any}, {"Column20", type number}, {"Column21", type number}, {"Column22", type number}, {"média % 7 meses", type number}, {"media 7 meses", type number}, {"Column25", type number}, {"Column26", type number}, {"Column27", type number}, {"Column28", type number}, {"Column29", type number}, {"Column30", type number}, {"Column31", type number}, {"Column32", type text}}),
+				    #"Linhas Superiores Removidas1" = Table.Skip(#"Tipo Alterado",2),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Linhas Superiores Removidas1",{{"Column1", "ID"}, {"Column2", "DESC"}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Colunas Renomeadas",{"ID", "DESC", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Outras Colunas Removidas", each ([ID] <> null and [ID] <> 0 and [ID] <> "" and [ID] <> "#N/A")),
+				    #"Outras Colunas Não Dinâmicas" = Table.UnpivotOtherColumns(#"Linhas Filtradas", {"ID", "DESC"}, "Mes", "Valor"),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Outras Colunas Não Dinâmicas", "AnoMes", each if [Mes] = "AGOSTO" then #date(2026, 8, 1) else if [Mes] = "SETEMBRO" then #date(2026, 9, 1) else if [Mes] = "OUTUBRO" then #date(2026, 10, 1) else if [Mes] = "NOVEMBRO" then #date(2026, 11, 1) else if [Mes] = "DEZEMBRO" then #date(2026, 12, 1) else null, type date)
+				in
+				  #"Coluna Condicional Adicionada"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

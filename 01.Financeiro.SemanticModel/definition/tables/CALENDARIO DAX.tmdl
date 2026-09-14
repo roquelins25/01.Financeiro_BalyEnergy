@@ -10,7 +10,7 @@ table 'CALENDARIO DAX'
 
 		variation Variation
 			isDefault
-			relationship: a61297e2-af0a-444e-a8c6-aa65b90dbac2
+			relationship: 549829bc-88be-4068-b47e-fc8aacc5a2a5
 			defaultHierarchy: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
@@ -126,6 +126,7 @@ table 'CALENDARIO DAX'
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Vencidos?]
+		sortByColumn: Vencidos?num
 
 		annotation SummarizationSetBy = Automatic
 
@@ -146,6 +147,23 @@ table 'CALENDARIO DAX'
 
 		annotation SummarizationSetBy = Automatic
 
+	column tri/Name
+		lineageTag: 33c39ebf-f854-4488-8c1f-2769bd7c9e0c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [tri/Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Vencidos?num
+		formatString: 0
+		lineageTag: 2519112c-af73-4978-9449-27ecf929b950
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Vencidos?num]
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'CALENDARIO DAX' = calculated
 		mode: import
 		source =
@@ -163,6 +181,7 @@ table 'CALENDARIO DAX'
 				        "Nome do Mês", FORMAT([Date],"mmmm","PT-BR"),
 				        "Mês Abrev",FORMAT([Date],"mmm"),
 				        "trimestre", QUARTER([Date]),
+				        "tri/Name", QUARTER([Date])&"/Tri",
 				        "Semestre", IF(MONTH([Date]) <= 6, "1º Semestre", "2º Semestre"),
 				        "Dia",DAY([Date]),
 				        "DiasSemana", WEEKNUM( [Date], 1 ),
@@ -180,6 +199,7 @@ table 'CALENDARIO DAX'
 				        "MesAtual", IF( YEAR( [Date] ) = YEAR( TODAY() ) && MONTH( [Date] ) = MONTH( TODAY() ), "S", "N" ),
 				        "AnoTEXT", FORMAT( YEAR( [Date] ), "" ),
 				        "Vencidos?", IF( [Date] < TODAY() -2 , "Vencidas", "A Vencer" ),
+				        "Vencidos?num", IF( [Date] < TODAY() -2 , 1, 2 ),
 				        "DiaMES", FORMAT([Date],"dd","PT-BR")&"-"&FORMAT([Date],"mmm","PT-BR")
 				        )
 

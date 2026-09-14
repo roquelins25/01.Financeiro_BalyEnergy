@@ -48,7 +48,7 @@ table yTB_Dim
 				    ("Nome Cliente", NAMEOF('TB_CLI'[nomcli]), 5),
 				    ("UF", NAMEOF('xUF_Regiao'[UF]), 6),
 				    ("Região/Grupo", NAMEOF('xUF_Regiao'[Região/Grupo]), 7),
-				    ("Descricao Conta", NAMEOF('TB_FRJ'[xTipo]), 8),
+				    ("Desc. Motivo", NAMEOF('TB_FRJ'[xTipo]), 8),
 				    ("portador", NAMEOF('TB_Fatos_CR'[portador]), 9),
 				    ("tipo", NAMEOF(TB_TIPO[CODTPT]), 10),
 				    ("titulo", NAMEOF('TB_Fatos_CR'[titulo]), 11),
@@ -59,7 +59,8 @@ table yTB_Dim
 				    ("vencimento", NAMEOF('TB_Fatos_CR'[vencimento]), 16),
 				    ("codpagamento", NAMEOF('TB_Fatos_CR'[codpagamento]), 17),
 				    ("Representante", NAMEOF('TB_REP'[nomrep]), 18),
-				    ("Agp_Portador", NAMEOF(TB_Apoio[Carteira]), 19)
+				    ("Agp_Portador", NAMEOF(TB_Apoio[Carteira]), 19),
+				    ("Agp_Forma Pagamento", NAMEOF(TB_PGT[abrfpg (grupos)]), 20)
 				}
 
 	annotation PBI_Id = 7ac42367b93e4983a72f18b309072a63
