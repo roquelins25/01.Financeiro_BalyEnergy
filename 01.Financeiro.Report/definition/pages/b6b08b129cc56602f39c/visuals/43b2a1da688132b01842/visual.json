@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "43b2a1da688132b01842",
   "position": {
     "x": 442.27378190255217,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 42.598607888631086,
     "width": 1462.1345707656612,
-    "tabOrder": 13000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "advancedSlicerVisual",
@@ -67,7 +67,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'agosto'"
+                                "Value": "'setembro'"
                               }
                             }
                           ]

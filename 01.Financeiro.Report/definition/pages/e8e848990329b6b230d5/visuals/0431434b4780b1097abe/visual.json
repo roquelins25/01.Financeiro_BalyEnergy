@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "0431434b4780b1097abe",
   "position": {
-    "x": 1524.3556168159889,
-    "y": 0,
-    "z": 4,
-    "height": 93.949000689179869,
-    "width": 361.24052377670574
+    "x": 514.94199535962878,
+    "y": 66.403712296983755,
+    "z": 0,
+    "height": 41.345707656612525,
+    "width": 140.32482598607888,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
@@ -22,33 +23,15 @@
                       "Entity": "CALENDARIO DAX"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "AnoTEXT"
                 }
               },
-              "queryRef": "CALENDARIO DAX.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "CALENDARIO DAX.AnoTEXT",
+              "nativeQueryRef": "AnoTEXT",
               "active": true
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "CALENDARIO DAX"
-                  }
-                },
-                "Property": "Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
@@ -58,7 +41,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'RelativeDatePicker'"
+                  "Value": "'Dropdown'"
                 }
               }
             }
@@ -68,6 +51,13 @@
       "general": [
         {
           "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "filter": {
               "filter": {
                 "Version": 2,
@@ -81,51 +71,88 @@
                 "Where": [
                   {
                     "Condition": {
-                      "And": {
-                        "Left": {
-                          "Comparison": {
-                            "ComparisonKind": 2,
-                            "Left": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "c"
-                                  }
-                                },
-                                "Property": "Date"
-                              }
-                            },
-                            "Right": {
-                              "Literal": {
-                                "Value": "datetime'2026-06-01T00:00:00'"
-                              }
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "c"
+                                }
+                              },
+                              "Property": "AnoTEXT"
                             }
                           }
-                        },
-                        "Right": {
-                          "Comparison": {
-                            "ComparisonKind": 3,
-                            "Left": {
-                              "Column": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Source": "c"
-                                  }
-                                },
-                                "Property": "Date"
-                              }
-                            },
-                            "Right": {
+                        ],
+                        "Values": [
+                          [
+                            {
                               "Literal": {
-                                "Value": "datetime'2026-07-01T00:00:00'"
+                                "Value": "'2026'"
                               }
                             }
-                          }
-                        }
+                          ]
+                        ]
                       }
                     }
                   }
                 ]
+              }
+            }
+          }
+        }
+      ],
+      "slider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "calendarButton": [
+        {
+          "properties": {
+            "strokeShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "iconTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            },
+            "iconSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "40D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
               }
             }
           }

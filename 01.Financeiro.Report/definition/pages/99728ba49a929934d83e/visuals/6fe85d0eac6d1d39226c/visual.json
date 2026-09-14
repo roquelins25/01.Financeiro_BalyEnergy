@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "6fe85d0eac6d1d39226c",
   "position": {
-    "x": 63.400267737617135,
-    "y": 152.03130243655983,
+    "x": 252.12121212121215,
+    "y": 139.67959079904986,
     "z": 0,
-    "height": 526.05087014725564,
-    "width": 1216.5997322623828,
-    "tabOrder": 2000
+    "height": 539.504132231405,
+    "width": 1027.878787878788,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "pivotTable",
@@ -20,20 +20,84 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "xCalendarioTable"
+                      "Entity": "CALENDARIO DAX"
                     }
                   },
-                  "Property": "Periodo"
+                  "Property": "Vencidos?"
                 }
               },
-              "queryRef": "xCalendarioTable.Periodo",
-              "nativeQueryRef": "Periodo",
-              "active": true
+              "queryRef": "CALENDARIO DAX.Vencidos?",
+              "nativeQueryRef": "Vencidos?",
+              "active": true,
+              "displayName": "Vencidos?"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Ano"
+                }
+              },
+              "queryRef": "CALENDARIO DAX.Ano",
+              "nativeQueryRef": "Ano",
+              "active": false,
+              "displayName": "Ano"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Nome do Mês"
+                }
+              },
+              "queryRef": "CALENDARIO DAX.Nome do Mês",
+              "nativeQueryRef": "Nome do Mês",
+              "active": false,
+              "displayName": "Nome do Mês"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Dia"
+                }
+              },
+              "queryRef": "CALENDARIO DAX.Dia",
+              "nativeQueryRef": "Dia",
+              "active": false
             }
           ]
         },
         "Rows": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Apoio"
+                    }
+                  },
+                  "Property": "Carteira"
+                }
+              },
+              "queryRef": "TB_Apoio.Carteira",
+              "nativeQueryRef": "Agp_Portador",
+              "active": true,
+              "displayName": "Agp_Portador"
+            },
             {
               "field": {
                 "Column": {
@@ -47,8 +111,84 @@
               },
               "queryRef": "TB_Fatos_CR.portador",
               "nativeQueryRef": "portador",
-              "active": true,
+              "active": false,
               "displayName": "portador"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_FRJ"
+                    }
+                  },
+                  "Property": "xTipo"
+                }
+              },
+              "queryRef": "TB_FRJ.xTipo",
+              "nativeQueryRef": "Desc. Motivo",
+              "active": false,
+              "displayName": "Desc. Motivo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "nomcli"
+                }
+              },
+              "queryRef": "TB_CLI.nomcli",
+              "nativeQueryRef": "Nome Cliente",
+              "active": false,
+              "displayName": "Nome Cliente"
+            },
+            {
+              "field": {
+                "GroupRef": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_PGT"
+                    }
+                  },
+                  "Property": "abrfpg (grupos)",
+                  "GroupedColumns": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "TB_PGT"
+                          }
+                        },
+                        "Property": "abrfpg"
+                      }
+                    }
+                  ]
+                }
+              },
+              "queryRef": "TB_PGT.abrfpg (grupos)",
+              "nativeQueryRef": "Agp_Forma Pagamento",
+              "active": false,
+              "displayName": "Agp_Forma Pagamento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "titulo"
+                }
+              },
+              "queryRef": "TB_Fatos_CR.titulo",
+              "nativeQueryRef": "titulo",
+              "active": false,
+              "displayName": "titulo"
             }
           ],
           "fieldParameters": [
@@ -64,7 +204,7 @@
                 }
               },
               "index": 0,
-              "length": 1
+              "length": 6
             }
           ]
         },
@@ -78,11 +218,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "04. Valor Aberto CR"
+                  "Property": "01. Valor AB CR"
                 }
               },
-              "queryRef": "_Medidas.04. Valor Aberto",
-              "nativeQueryRef": "04. Valor Aberto"
+              "queryRef": "_Medidas.01. Valor AB CR",
+              "nativeQueryRef": "01. Valor AB CR"
             }
           ]
         }
@@ -97,7 +237,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "04. Valor Aberto CR"
+                "Property": "01. Valor AB CR"
               }
             },
             "direction": "Descending"
@@ -105,6 +245,177 @@
         ]
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Columns"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "CALENDARIO DAX.Vencidos?"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Vencidos?"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CALENDARIO DAX.Ano"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Ano"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CALENDARIO DAX.Nome do Mês"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Nome do Mês"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "CALENDARIO DAX.Dia"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      },
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "TB_Apoio.Carteira"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Apoio"
+                    }
+                  },
+                  "Property": "Carteira"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_Fatos_CR.portador"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "portador"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_FRJ.xTipo"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_FRJ"
+                    }
+                  },
+                  "Property": "xTipo"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_CLI.nomcli"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "nomcli"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_PGT.abrfpg (grupos)"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "TB_Fatos_CR.titulo"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
       "columnHeaders": [
         {
@@ -165,6 +476,20 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "showExpandCollapseButtons": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
                 }
               }
             }
@@ -382,6 +707,20 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "440.3221287521793D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "TB_Apoio.Carteira"
+          }
         }
       ],
       "subTotals": [
@@ -390,7 +729,7 @@
             "columnSubtotals": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -427,62 +766,10 @@
                   "Value": "'Center'"
                 }
               }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
             }
           },
           "selector": {
-            "metadata": "_Medidas.04. Valor Aberto"
-          }
-        }
-      ],
-      "values": [
-        {
-          "properties": {},
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "_Medidas.04. Valor Aberto"
-          }
-        },
-        {
-          "properties": {
-            "backColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Medidas"
-                        }
-                      },
-                      "Property": "04. Cor"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 0
-                }
-              }
-            ],
-            "metadata": "_Medidas.04. Valor Aberto"
+            "metadata": "_Medidas.01. Valor AB CR"
           }
         }
       ]
@@ -504,5 +791,116 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "0dd4641b4ee0272156b3"
+  "parentGroupName": "0dd4641b4ee0272156b3",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "91c4809703cd4de0dd7b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "01. Valor AB CR"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b4d93cc00c8ec39d870d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CALENDARIO DAX"
+              }
+            },
+            "Property": "Dia"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ee3ecf51e87e4a7474e2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TB_Apoio"
+              }
+            },
+            "Property": "Carteira"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "TB_Apoio",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "t"
+                              }
+                            },
+                            "Property": "Carteira"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'GlobalNet'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
 }

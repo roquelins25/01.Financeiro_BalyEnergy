@@ -1,0 +1,40 @@
+table yParamGranularidade
+	lineageTag: f81741d4-4648-4f41-9cf1-d34512978f15
+
+	column Granularidade
+		lineageTag: 7ff71361-d2aa-4805-af6a-96a9aacbf95f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Granularidade]
+		sortByColumn: Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordem
+		formatString: 0
+		lineageTag: be3c022b-3209-48d2-aa85-1f96e6a723f4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ordem]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition yParamGranularidade = calculated
+		mode: import
+		source = ```
+				
+				    DATATABLE(
+				        "Granularidade", STRING,
+				        "Ordem", INTEGER,
+				        {
+				            { "Dia", 4 },
+				            { "Mês", 3 },
+				            { "Trimestre", 2 },
+				            { "Ano", 1 }
+				        }
+				    )
+				
+				```
+
+	annotation PBI_Id = 0b674d912f9f47c0bd25f36b5c232866
+

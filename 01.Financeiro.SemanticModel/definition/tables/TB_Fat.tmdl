@@ -143,12 +143,29 @@ table TB_Fat
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column descpg
+		dataType: string
+		lineageTag: 17690d95-fcb3-4706-b971-128f9f0a4ffd
+		summarizeBy: none
+		sourceColumn: descpg
+
+		annotation SummarizationSetBy = Automatic
+
+	column przmed
+		dataType: int64
+		formatString: 0
+		lineageTag: a3c74531-d91a-4585-8c6d-918970c4ab84
+		summarizeBy: sum
+		sourceColumn: przmed
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_Fat = m
 		mode: import
 		queryGroup: _Fatos
 		source =
 				let
-				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="        SELECT #(lf)        #(tab)nfv.codemp codemp,#(lf)        #(tab)nfv.codfil codfil,#(lf)        #(tab)nfv.datemi datemi,#(lf)        #(tab)nfv.codsnf codsnf,#(lf)        #(tab)nfv.tipnfs tipnfs,#(lf)        #(tab)ipv.tnspro tnspro,#(lf)        #(tab)nfv.codcli codcli,#(lf)        #(tab)nfv.codrep codrep,#(lf)        #(tab)nfv.codcpg codcpg,#(lf)        #(tab)nfv.codfpg codfpg,#(lf)        #(tab)nfv.sitnfv sitnfv,#(lf)        #(tab)nfv.numnfv numnfv,#(lf)        #(tab)#(lf)        #(tab)ipv.codpro codpro,#(lf)        #(tab)ipv.vlrliq vlrliq,#(lf)        #(tab)ipv.vlrfin vlrfin,#(lf)        #(tab)ipv.qtdfat qtdfat#(lf)        #(tab)#(lf)        FROM e140nfv nfv       #(lf)        INNER JOIN e140ipv ipv ON nfv.codemp = ipv.codemp                                           #(lf)                              AND nfv.codfil = ipv.codfil                                            #(lf)                              AND nfv.codsnf = ipv.codsnf                                            #(lf)                              AND nfv.numnfv = ipv.numnfv                        #(lf)        INNER JOIN e140ide ide ON ide.codemp = nfv.codemp                                            #(lf)                              AND ide.codfil = nfv.codfil                                            #(lf)                              AND ide.codsnf = nfv.codsnf                                            #(lf)                              AND ide.numnfv = nfv.numnfv#(lf)        WHERE ide.SitDoe = 3  -- filtra retorno sefaz = Autorizada                        #(lf)          AND nfv.sitnfv = 2  -- filtra somente NF fechada#(lf)          AND (ipv.tnspro LIKE '5%' OR ipv.tnspro LIKE '6%' OR ipv.tnspro LIKE '7%') --Filtra Transacao de Venda                    #(lf)          AND nfv.datemi >= '20210101' -- retira Fruts#(lf)          AND nfv.codcli not in('11143','21982','17661','5517','2394','17935')"])
+				  Origem = Sql.Database("159.112.182.77", "I260220090255_ERPP", [CommandTimeout=#duration(0, 2, 0, 0), Query="        SELECT #(lf)        #(tab)nfv.codemp codemp,#(lf)        #(tab)nfv.codfil codfil,#(lf)        #(tab)nfv.datemi datemi,#(lf)        #(tab)nfv.codsnf codsnf,#(lf)        #(tab)nfv.tipnfs tipnfs,#(lf)        #(tab)ipv.tnspro tnspro,#(lf)        #(tab)nfv.codcli codcli,#(lf)        #(tab)nfv.codrep codrep,#(lf)        #(tab)nfv.codcpg codcpg,#(lf)        #(tab)nfv.codfpg codfpg,#(lf)        #(tab)cpg.descpg descpg,#(lf)        #(tab)cpg.przmed przmed,#(lf)        #(tab)nfv.sitnfv sitnfv,#(lf)        #(tab)nfv.numnfv numnfv,#(lf)        #(tab)#(lf)        #(tab)ipv.codpro codpro,#(lf)        #(tab)ipv.vlrliq vlrliq,#(lf)        #(tab)ipv.vlrfin vlrfin,#(lf)        #(tab)ipv.qtdfat qtdfat#(lf)        #(tab)#(lf)        FROM e140nfv nfv       #(lf)        INNER JOIN e140ipv ipv ON nfv.codemp = ipv.codemp                                           #(lf)                              AND nfv.codfil = ipv.codfil                                            #(lf)                              AND nfv.codsnf = ipv.codsnf                                            #(lf)                              AND nfv.numnfv = ipv.numnfv                        #(lf)        INNER JOIN e140ide ide ON ide.codemp = nfv.codemp                                            #(lf)                              AND ide.codfil = nfv.codfil                                            #(lf)                              AND ide.codsnf = nfv.codsnf                                            #(lf)                              AND ide.numnfv = nfv.numnfv#(lf)        left join e028cpg cpg  ON cpg.codemp = nfv.codemp#(lf)#(tab)  #(tab)#(tab)#(tab)#(tab)#(tab)#(tab)  AND cpg.codcpg = nfv.codcpg#(lf)        WHERE ide.SitDoe = 3  -- filtra retorno sefaz = Autorizada                        #(lf)          AND nfv.sitnfv = 2  -- filtra somente NF fechada#(lf)          AND (ipv.tnspro LIKE '5%' OR ipv.tnspro LIKE '6%' OR ipv.tnspro LIKE '7%') --Filtra Transacao de Venda                    #(lf)          AND nfv.datemi >= '20210101' -- retira Fruts#(lf)          AND nfv.codcli not in('11143','21982','17661','5517','2394','17935')"])
 				in
 				  Origem
 

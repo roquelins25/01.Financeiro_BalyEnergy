@@ -1,0 +1,89 @@
+table TB_CTA
+	lineageTag: 4411d2e5-f8f3-42c6-b390-99624670fdde
+
+	column ctafin
+		dataType: int64
+		formatString: 0
+		lineageTag: b49bc906-e18f-439f-b5ec-50192b292ccd
+		summarizeBy: none
+		sourceColumn: ctafin
+
+		annotation SummarizationSetBy = Automatic
+
+	column descta
+		dataType: string
+		lineageTag: e9809dcc-2381-4a06-b814-1c2e08977436
+		summarizeBy: none
+		sourceColumn: descta
+
+		annotation SummarizationSetBy = Automatic
+
+	column abrcta
+		dataType: string
+		lineageTag: 8ea30aee-d0f9-4d56-9181-0c5273a744f3
+		summarizeBy: none
+		sourceColumn: abrcta
+
+		annotation SummarizationSetBy = Automatic
+
+	column xAgrupamento =
+			
+			VAR Conta = TB_CTA[ctafin]
+			RETURN
+			IF(
+			    CONTAINS(
+			        fxFluxoCaixa(2),
+			        [CtaFin], Conta
+			    ),
+			    SWITCH(
+			        TRUE(),
+			        Conta IN {1060,2040,3730,850,1800,3350,3921,2840}, "01. Consumo",
+			        Conta IN {1080,530,610,640,630,660,620,520,580,710,650,560,570,590,3050,2540}, "02. Matéria Prima",
+			        Conta IN {540,670,3850,700,3910,680,500}, "03. Embalagem",
+			        Conta IN {1100,1890}, "04. Manutenção",
+			        "05. A Classificar"
+			    ),
+			    BLANK()
+			)
+		lineageTag: 7d7c0d81-c4ed-4517-8fd8-16b8b3cb948f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column xAGP =
+			
+			VAR vCustoProducao = { 1060,3730,2040,850,1800,1080,1100,1890,530,540,610,640,630,650,660,670,620,520,580,3850,710,560,700,570,3910,680,590,500,3050,3350,2840,3921,2540,720,3750,2080 }
+			VAR vCustoDespesasComerciais = { 1330,3640,1550,3610,3040,2490,4051,3860,1250,1650,1160,1640,490,1720,1750,3140,1390,1340,2520,4001,1290,1320,1990 }
+			VAR vDespesasADM = { 3981,840,3150,1070,2810,3880,920,2030,2030,2020,1980,1960,190,280,2000,3780,1110,2530,2950,2820,2640,2970,3830,2480,310,1130,290,200,240,2260,3530,930,1200,2510,2510,1730,1930,1910,870,860,1000,2330,2010,1700,1030,3560,940,1920,960,1140,170,3660,230,350,880,980,2360,160,990,140,970,1850,2651,1090,1190,210,270,180,1440,260,300,2150,2140 }
+			VAR vIMPOSTOS = { 770 }
+			VAR vDespesasFinanceira = { 70, 420, 3690 }
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    TB_CTA[ctafin] IN vCustoProducao , "01. Producao",
+			    TB_CTA[ctafin] IN vCustoDespesasComerciais , "02. Despesas Comerciais",
+			    TB_CTA[ctafin] IN vDespesasADM , "03. Despesas Administrativas",
+			    TB_CTA[ctafin] IN vIMPOSTOS , "04. Impostos",
+			    TB_CTA[ctafin] IN vDespesasFinanceira , "05. Despesas Financeiras",
+			    "06. A Classificar" )
+		lineageTag: b38abe3a-7be9-404c-9559-15165f41725f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TB_CTA = m
+		mode: import
+		queryGroup: _Dim
+		source =
+				let
+				    Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
+				    sapiens_producao_e037frj = Fonte{[Schema="sapiens_producao",Item="e091plf"]}[Data],
+				    #"Outras Colunas Removidas" = Table.SelectColumns(sapiens_producao_e037frj,{"ctafin", "descta", "abrcta"})
+				in
+				    #"Outras Colunas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

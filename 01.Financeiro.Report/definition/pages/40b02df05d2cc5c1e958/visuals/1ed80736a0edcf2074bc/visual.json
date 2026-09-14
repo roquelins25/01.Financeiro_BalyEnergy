@@ -1,11 +1,11 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "1ed80736a0edcf2074bc",
   "position": {
-    "x": 1593.6890951276102,
-    "y": 700.37122969837583,
-    "z": 4000,
-    "height": 354.57076566125289,
+    "x": 1594.9419953596287,
+    "y": 234.292343387471,
+    "z": 5000,
+    "height": 266.86774941995361,
     "width": 305.707656612529,
     "tabOrder": 2000
   },
@@ -91,8 +91,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.4
+                      "ColorId": 5,
+                      "Percent": 0
                     }
                   }
                 }
@@ -188,6 +188,39 @@
               "expr": {
                 "Literal": {
                   "Value": "'07.  CR'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

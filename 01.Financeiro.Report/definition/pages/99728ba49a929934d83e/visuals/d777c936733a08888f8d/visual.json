@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d777c936733a08888f8d",
   "position": {
-    "x": 76.039603960396036,
-    "y": 108.60364358114131,
+    "x": 75.812672176308553,
+    "y": 121.16719410483499,
     "z": 2000,
-    "height": 53.617669459253612,
-    "width": 168.65194211728863,
-    "tabOrder": 7003
+    "height": 553.60881542699724,
+    "width": 169.25619834710744,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -68,7 +68,42 @@
                           [
                             {
                               "Literal": {
+                                "Value": "'''TB_Apoio''[Carteira]'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
                                 "Value": "'''TB_Fatos_CR''[portador]'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'''TB_FRJ''[xTipo]'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'''TB_CLI''[nomcli]'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'''TB_PGT''[abrfpg (grupos)]'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'''TB_Fatos_CR''[titulo]'"
                               }
                             }
                           ]
@@ -96,7 +131,62 @@
                                 "0": [
                                   {
                                     "Literal": {
+                                      "Value": "'''TB_Apoio''[Carteira]'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
                                       "Value": "'''TB_Fatos_CR''[portador]'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'''TB_FRJ''[xTipo]'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'''TB_CLI''[nomcli]'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'''TB_PGT''[abrfpg (grupos)]'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'''TB_Fatos_CR''[titulo]'"
                                     }
                                   }
                                 ]
@@ -120,7 +210,22 @@
                         },
                         "valueMap": [
                           {
+                            "0": "Agp_Portador"
+                          },
+                          {
                             "0": "portador"
+                          },
+                          {
+                            "0": "Desc. Motivo"
+                          },
+                          {
+                            "0": "Nome Cliente"
+                          },
+                          {
+                            "0": "Agp_Forma Pagamento"
+                          },
+                          {
+                            "0": "titulo"
                           }
                         ]
                       }
@@ -134,15 +239,7 @@
       ],
       "data": [
         {
-          "properties": {
-            "mode": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Dropdown'"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [
@@ -190,24 +287,10 @@
       "title": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "text": {
               "expr": {
                 "Literal": {
                   "Value": "'Dimensões'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
                 }
               }
             }
@@ -220,7 +303,7 @@
             "name": {
               "expr": {
                 "Literal": {
-                  "Value": "''"
+                  "Value": "'List'"
                 }
               }
             }
@@ -234,13 +317,6 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
-                }
-              }
-            },
-            "customizeSpacing": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             }

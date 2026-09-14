@@ -259,6 +259,12 @@ table TB_CLI
 
 		annotation SummarizationSetBy = Automatic
 
+	column xCliente = TB_CLI[codcli] &" - "& TB_CLI[nomcli]
+		lineageTag: 6ed20906-a49d-40c6-ae7a-36e73bc1ab1a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_CLI = m
 		mode: import
 		queryGroup: _Dim

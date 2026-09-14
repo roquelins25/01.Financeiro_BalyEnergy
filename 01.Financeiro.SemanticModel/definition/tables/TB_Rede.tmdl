@@ -2,7 +2,8 @@ table TB_Rede
 	lineageTag: be5ca997-a178-48ac-8763-cfc7d006db9b
 
 	column codgre
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 114a05b6-1057-43da-a4c6-2fbba6171869
 		summarizeBy: none
 		sourceColumn: codgre
@@ -25,16 +26,55 @@ table TB_Rede
 
 		annotation SummarizationSetBy = Automatic
 
+	column vlrlim
+		dataType: double
+		lineageTag: 2ec69a4c-6dfa-40be-8b1d-f077823cbaf7
+		summarizeBy: sum
+		sourceColumn: vlrlim
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column xREDE = TB_Rede[codgre] &" - "& TB_Rede[nomgre]
+		lineageTag: da855332-22f5-461e-a0a1-d496c7a62b7a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_Rede = m
 		mode: import
 		queryGroup: _Dim
-		source =
+		source = ```
 				let
-				    Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP"),
-				    sapiens_producao_usu_view069gre = Fonte{[Schema="sapiens_producao",Item="usu_view069gre"]}[Data],
-				    #"Tipo Alterado" = Table.TransformColumnTypes(sapiens_producao_usu_view069gre,{{"codgre", type text}, {"nomgre", type text}, {"siggre", type text}})
+				  Fonte = Sql.Database("159.112.182.77", "I260220090255_ERPP", [Query="
+				select
+					e069gre.codgre,
+					e069gre.nomgre,
+					e069gre.siggre,
+					e069hgr.vlrlim
+				from e069gre 
+				left join e069hgr 
+					   on e069hgr.codgre = e069gre.codgre 
+					  and e069hgr.codemp = 1
+					  and e069hgr.codfil = 1
+				  
+				  ", CommandTimeout=#duration(0, 2, 0, 0)]),
+				    Personalizar1 = Table.InsertRows(
+				    Fonte,
+				    0,
+				    {
+				        [
+				            codgre = 0,
+				            nomgre = "Sem Rede",
+				            siggre = "Sem Rede",
+				            vlrlim = 0
+				        ]
+				    }
+				)
 				in
-				    #"Tipo Alterado"
+				  Personalizar1
+				```
 
 	annotation PBI_NavigationStepName = Navegação
 
