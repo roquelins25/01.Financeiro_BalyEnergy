@@ -115,16 +115,19 @@
       "navigationStepName": "Navegação",
       "text": [
         "let",
-        "  Origem = Sql.Database(\"159.112.182.77\", \"I260220090255_ERPP\"),",
-        "  #\"Navegação 1\" = Origem{[Schema = \"sapiens_producao\", Item = \"usu_view090rep\"]}[Data],",
-        "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Navegação 1\",{{\"codrep\", type text}})",
+        "  Origem = Oracle.Database(\"147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com\", [HierarchicalNavigation = true]),",
+        "  ",
+        "  #\"Navegação 1\" = Origem{[Schema = \"I260220090255_ERPP\"]}[Data],",
+        "  #\"Navegação 2\" = #\"Navegação 1\"{[Name = \"USU_V090REP\"]}[Data],",
+        "",
+        "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Navegação 2\",{{\"CODREP\", type text}})",
         "in",
         "  #\"Tipo Alterado\""
       ],
       "isDirectQuery": false,
       "lastLoadedAsTableFormulaText": "{\"IncludesReferencedQueries\":false,\"RootFormulaText\":\"let\\n  Origem = Sql.Database(\\\"159.112.182.77\\\", \\\"I260220090255_ERPP\\\"),\\n  #\\\"Navegação 1\\\" = Origem{[Schema = \\\"sapiens_producao\\\", Item = \\\"usu_view090rep\\\"]}[Data],\\n    #\\\"Tipo Alterado\\\" = Table.TransformColumnTypes(#\\\"Navegação 1\\\",{{\\\"codrep\\\", type text}})\\nin\\n  #\\\"Tipo Alterado\\\"\",\"ReferencedQueriesFormulaText\":{}}",
       "loadAsTableDisabled": false,
-      "resultType": "Exception",
+      "resultType": "Table",
       "isHidden": false
     },
     {
