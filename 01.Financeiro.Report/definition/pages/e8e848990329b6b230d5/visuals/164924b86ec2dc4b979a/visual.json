@@ -4,10 +4,10 @@
   "position": {
     "x": 717.91183294663574,
     "y": 68.909512761020878,
-    "z": 4000,
+    "z": 3000,
     "height": 36.334106728538281,
     "width": 241.80974477958236,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -81,7 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'setembro'"
+                                "Value": "'agosto'"
                               }
                             }
                           ]

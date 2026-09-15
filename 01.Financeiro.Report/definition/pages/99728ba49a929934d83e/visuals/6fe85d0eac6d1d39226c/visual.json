@@ -755,34 +755,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "91c4809703cd4de0dd7b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor AB CR"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b4d93cc00c8ec39d870d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CALENDARIO DAX"
-              }
-            },
-            "Property": "Dia"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "ee3ecf51e87e4a7474e2",
         "field": {
           "Column": {

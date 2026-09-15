@@ -5647,31 +5647,19 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure '07. Valor limite Cliente' = ```
+	measure '07. Valor limite Cliente' =
 			
-			VAR vLIMITE = 
-			    IF(
-			        ISINSCOPE(TB_CLI[xCliente]) = FALSE() ,
-			        AVERAGEX(
-			            FILTER(
-			                VALUES(TB_CLI[xCliente]),
-			                CALCULATE(MAX(TB_CLI[VLRLIM])) > 0
-			            ),
-			            CALCULATE(MAX(TB_CLI[VLRLIM]))
-			        ),
-			        MAX(TB_CLI[VLRLIM])
-			    )
-			    RETURN
-			    IF(
-			    SELECTEDVALUE( TB_Rede[CODGRE] ) = 0, IF( vLIMITE = 0, BLANK(), vLIMITE ),
-			    MAX( TB_Rede[VLRLIM] )
-			)
+			VAR vLIMITECLI = CALCULATE( MAX( TB_CLI[VLRLIM] ), NOT TB_CLI[CODCLI] IN {11143,21982,17661,5517,2394,17935} )
+			VAR vLIMITEGRE = CALCULATE( MAX( TB_Rede[VLRLIM] ), NOT TB_Rede[CODGRE] IN {113,55} )
 			
-			```
+			RETURN
+			IF(
+			    ISINSCOPE(TB_CLI[xCliente] ), vLIMITECLI, vLIMITEGRE )
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: 07. Faturamento
 		lineageTag: c8e37a08-e6f2-4cf4-b2c1-af9a9e612ed0
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure '07. PrazoMedioCliente' =
 			
@@ -5695,7 +5683,8 @@ table _Medidas
 			VAR MesesSelecionados =
 			    CALCULATETABLE(
 			        VALUES('CALENDARIO DAX'[Ano-Mes]),
-			        ALLSELECTED('CALENDARIO DAX'[Ano-Mes])
+			        ALLSELECTED('CALENDARIO DAX'[Ano-Mes]),
+			        'CALENDARIO DAX'[Ano] = 2026
 			    )
 			
 			RETURN
@@ -7858,6 +7847,20 @@ table _Medidas
 			( [07.  CR Valor Original FAT] * 0.3 ) + [07.  CR Valor Original FAT]
 		displayFolder: _Others
 		lineageTag: 66bebebe-f3ce-458f-a670-6943ab0dbdcb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '12. Limite vs CR' =
+			
+			DIVIDE( [01. Valor AB CR], [07. Valor limite Cliente], 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 95e30ad0-95d3-4877-9bf3-852b9c757d9c
+
+	measure '12. limite DIFF' =
+			
+			[07. Valor limite Cliente] - [01. Valor AB CR]
+		displayFolder: 07. Faturamento
+		lineageTag: 9af1038b-3eeb-4210-989d-118fd7f1c2a6
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 

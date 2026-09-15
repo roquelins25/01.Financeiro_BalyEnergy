@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "b47754fd954e207a1c38",
   "position": {
-    "x": 4.1244238871806829,
-    "y": 560.28555816536516,
+    "x": 3.2642109632332654,
+    "y": 560.2474258815605,
     "z": 4000,
-    "height": 204.88698032183476,
-    "width": 355.65287150205279,
+    "height": 127.79582366589327,
+    "width": 355.82366589327148,
     "tabOrder": 4000
   },
   "visual": {
@@ -59,13 +59,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Basic'"
-                }
-              }
-            },
-            "isInvertedSelectionMode": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }
