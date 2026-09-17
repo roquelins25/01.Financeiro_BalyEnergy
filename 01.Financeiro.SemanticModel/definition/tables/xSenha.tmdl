@@ -5,35 +5,43 @@ table xSenha
 			
 			SWITCH(
 			    TRUE(),
-			    HASONEFILTER( xSenha[DESC] ) && xAcesso[Valor xAcesso] = MAX( xSenha[Senha] ), "Calendario", 
+			    HASONEFILTER( xSenha[SENHA] ) && xAcesso[Valor xAcesso] = MAX( xSenha[Senha] ), "Calendario", 
 			    "Senha Incorreta"
 			)
 			```
 		lineageTag: 774f6e4a-b811-41e0-8f24-77fc22b91f6a
 
 	column ID
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: 412b94cc-46a5-4a38-bf87-ae6a4eadb9d4
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: ID
 
 		annotation SummarizationSetBy = Automatic
 
-	column DESC
-		dataType: string
-		lineageTag: cf65697f-e165-4661-8b83-3bb34d028730
-		summarizeBy: none
-		sourceColumn: DESC
+	column SENHA
+		dataType: int64
+		formatString: 0
+		lineageTag: 83f644e5-4f3f-472c-a837-b55e2b8135c7
+		summarizeBy: sum
+		sourceColumn: SENHA
 
 		annotation SummarizationSetBy = Automatic
 
-	column Senha
+	column PAINEIL
+		dataType: string
+		lineageTag: 02184b9a-37d0-4a94-b357-16a73606917d
+		summarizeBy: none
+		sourceColumn: PAINEIL
+
+		annotation SummarizationSetBy = Automatic
+
+	column IDNUM
 		dataType: int64
 		formatString: 0
-		lineageTag: 9efd939c-72e0-4f6f-a5a0-92fdf1da886d
+		lineageTag: e48150a8-f277-4630-99fe-77cac2eb6c46
 		summarizeBy: sum
-		sourceColumn: Senha
+		sourceColumn: IDNUM
 
 		annotation SummarizationSetBy = Automatic
 
@@ -41,10 +49,13 @@ table xSenha
 		mode: import
 		source =
 				let
-				  Origem = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMjQwMDBU0lFydPEFkoZGxuamhkqxsQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [ID = _t, DESC = _t, Senha = _t]),
-				  #"Tipo de coluna alterado" = Table.TransformColumnTypes(Origem, {{"ID", Int64.Type}, {"DESC", type text}, {"Senha", Int64.Type}})
+				  Origem = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vQDK8LhGdVDH0AxNNAm5l08ZIBIcp6sLjUGkDlZbYTUt5xjNb_HlZzeGwtv1mcpME63emYyZCDr5oqo/pub?output=xlsx"), null, true),
+				  #"Navegação 1" = Origem{[Item = "Página1", Kind = "Sheet"]}[Data],
+				  #"Cabeçalhos promovidos" = Table.PromoteHeaders(#"Navegação 1", [PromoteAllScalars = true]),
+				  #"Tipo de coluna alterado" = Table.TransformColumnTypes(#"Cabeçalhos promovidos", {{"ID", type text}, {"SENHA", Int64.Type}, {"PAINEIL", type text}, {"IDNUM", Int64.Type}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo de coluna alterado", each ([PAINEIL] = "01. Financeiro"))
 				in
-				  #"Tipo de coluna alterado"
+				  #"Linhas Filtradas"
 
 	annotation PBI_NavigationStepName = Navegação
 

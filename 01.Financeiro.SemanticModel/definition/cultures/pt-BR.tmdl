@@ -6496,48 +6496,6 @@ cultureInfo pt-BR
 			      ],
 			      "NameType": "Identifier"
 			    },
-			    "x_senha.desc": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "xSenha",
-			          "ConceptualProperty": "DESC"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "desc": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "description": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        }
-			      ]
-			    },
-			    "x_senha.senha": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "xSenha",
-			          "ConceptualProperty": "Senha"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "senha": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "x_senha.x_acessos": {
 			      "Definition": {
 			        "Binding": {

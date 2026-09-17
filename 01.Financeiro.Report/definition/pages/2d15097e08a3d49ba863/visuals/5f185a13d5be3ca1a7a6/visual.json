@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "5f185a13d5be3ca1a7a6",
   "position": {
     "x": 1290.4872389791183,
@@ -23,11 +23,11 @@
                       "Entity": "xSenha"
                     }
                   },
-                  "Property": "DESC"
+                  "Property": "ID"
                 }
               },
-              "queryRef": "xSenha.DESC",
-              "nativeQueryRef": "DESC",
+              "queryRef": "xSenha.ID",
+              "nativeQueryRef": "ID",
               "active": true
             }
           ]
@@ -135,7 +135,7 @@
                                   "Source": "x"
                                 }
                               },
-                              "Property": "DESC"
+                              "Property": "ID"
                             }
                           }
                         ],
