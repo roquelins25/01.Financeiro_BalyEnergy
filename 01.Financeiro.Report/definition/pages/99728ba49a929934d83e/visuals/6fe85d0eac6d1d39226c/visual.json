@@ -87,82 +87,6 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Apoio"
-                    }
-                  },
-                  "Property": "Carteira"
-                }
-              },
-              "queryRef": "TB_Apoio.Carteira",
-              "nativeQueryRef": "Agp_Portador",
-              "active": true,
-              "displayName": "Agp_Portador"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_FRJ"
-                    }
-                  },
-                  "Property": "xTipo"
-                }
-              },
-              "queryRef": "TB_FRJ.xTipo",
-              "nativeQueryRef": "Desc. Motivo",
-              "active": false,
-              "displayName": "Desc. Motivo"
-            },
-            {
-              "field": {
-                "GroupRef": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_PGT"
-                    }
-                  },
-                  "Property": "abrfpg (grupos)",
-                  "GroupedColumns": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "TB_PGT"
-                          }
-                        },
-                        "Property": "ABRFPG"
-                      }
-                    }
-                  ]
-                }
-              },
-              "queryRef": "TB_PGT.abrfpg (grupos)",
-              "nativeQueryRef": "Agp_Forma Pagamento",
-              "active": false,
-              "displayName": "Agp_Forma Pagamento"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_CLI"
-                    }
-                  },
-                  "Property": "NOMCLI"
-                }
-              },
-              "queryRef": "TB_CLI.NOMCLI",
-              "nativeQueryRef": "Nome Cliente",
-              "active": false,
-              "displayName": "Nome Cliente"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
                       "Entity": "TB_Fatos_CR"
                     }
                   },
@@ -171,24 +95,8 @@
               },
               "queryRef": "TB_Fatos_CR.PORTADOR",
               "nativeQueryRef": "PORTADOR",
-              "active": false,
+              "active": true,
               "displayName": "portador"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_Fatos_CR"
-                    }
-                  },
-                  "Property": "TITULO"
-                }
-              },
-              "queryRef": "TB_Fatos_CR.TITULO",
-              "nativeQueryRef": "TITULO",
-              "active": false,
-              "displayName": "titulo"
             }
           ],
           "fieldParameters": [
@@ -204,7 +112,7 @@
                 }
               },
               "index": 0,
-              "length": 6
+              "length": 1
             }
           ]
         },
@@ -314,63 +222,6 @@
             ],
             "isCollapsed": true,
             "isPinned": true
-          }
-        ],
-        "root": {}
-      },
-      {
-        "roles": [
-          "Rows"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "TB_Apoio.Carteira"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_Apoio"
-                    }
-                  },
-                  "Property": "Carteira"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_FRJ.xTipo"
-            ],
-            "isCollapsed": true
-          },
-          {
-            "queryRefs": [
-              "TB_PGT.abrfpg (grupos)"
-            ],
-            "isCollapsed": true
-          },
-          {
-            "queryRefs": [
-              "TB_CLI.NOMCLI"
-            ],
-            "isCollapsed": true
-          },
-          {
-            "queryRefs": [
-              "TB_Fatos_CR.PORTADOR"
-            ],
-            "isCollapsed": true
-          },
-          {
-            "queryRefs": [
-              "TB_Fatos_CR.TITULO"
-            ],
-            "isCollapsed": true
           }
         ],
         "root": {}
@@ -755,34 +606,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "91c4809703cd4de0dd7b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor AB CR"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b4d93cc00c8ec39d870d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CALENDARIO DAX"
-              }
-            },
-            "Property": "Dia"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "ee3ecf51e87e4a7474e2",
         "field": {
           "Column": {
@@ -845,6 +668,7 @@
             }
           ]
         },
+        "howCreated": "User",
         "objects": {
           "general": [
             {

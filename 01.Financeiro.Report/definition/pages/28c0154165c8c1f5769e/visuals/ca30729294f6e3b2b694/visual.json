@@ -4,10 +4,10 @@
   "position": {
     "x": 463.57308584686774,
     "y": 419.72157772621807,
-    "z": 4000,
+    "z": 3000,
     "height": 632.71461716937358,
     "width": 1434.5707656612528,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -927,121 +927,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fd9779a3d180b8e4c7c4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor LQ CP"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "cbbfc34f706bc10175e8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor AB CP"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a1432afcfadc1b5b9d2a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CALENDARIO DAX"
-              }
-            },
-            "Property": "Ano-Mes"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3e194914f6c77918027a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_CLI"
-              }
-            },
-            "Property": "NOMCLI"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "c30758fbdee57b613761",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_Fatos_CP"
-              }
-            },
-            "Property": "DESPAR"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "01515cbcc5ab257912f3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "11. Projetado s"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "bfe0cf81d382f4507683",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_CTA"
-              }
-            },
-            "Property": "DESCTA"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d134a89f1959feda06a5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "01. Valor Ori CP"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

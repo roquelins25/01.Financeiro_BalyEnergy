@@ -53,5 +53,27 @@
       }
     ]
   },
-  "visibility": "HiddenInViewMode"
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "b8cf3aa47ea9af4984f6",
+      "target": "d777d6938106e6431c17",
+      "type": "NoFilter"
+    },
+    {
+      "source": "6a86c04b1be638fd9fe9",
+      "target": "d777d6938106e6431c17",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3bc13022f8c306a80e7e",
+      "target": "d777d6938106e6431c17",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d777d6938106e6431c17",
+      "target": "b8cf3aa47ea9af4984f6",
+      "type": "DataFilter"
+    }
+  ]
 }

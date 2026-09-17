@@ -211,7 +211,7 @@ table TB_Fat
 				WHERE IDE.SITDOE = 3  -- filtra retorno sefaz = Autorizada
 				  AND NFV.SITNFV = 2  -- filtra somente NF fechada
 				  AND (IPV.TNSPRO LIKE '5%' OR IPV.TNSPRO LIKE '6%' OR IPV.TNSPRO LIKE '7%')  -- Filtra Transacao de Venda
-				  AND NFV.DATEMI >= TO_DATE('2021-01-01','YYYY-MM-DD')  
+				  AND NFV.DATEMI >= TO_DATE('2025-01-01','YYYY-MM-DD')  
 				  AND NFV.CODCLI NOT IN ('11143','21982','17661','5517','2394','17935') -- retira Fruts
 				   ", HierarchicalNavigation = true])
 				in

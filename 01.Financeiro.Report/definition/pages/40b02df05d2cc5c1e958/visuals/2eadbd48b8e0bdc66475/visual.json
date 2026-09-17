@@ -79,9 +79,6 @@
               "nativeQueryRef": "07. Faturamento a receber"
             }
           ]
-        },
-        "Y2": {
-          "projections": []
         }
       }
     },
@@ -224,63 +221,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6c692d4db80d6a47167c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "xCalendarioTable"
-              }
-            },
-            "Property": "Periodo"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "921675b256c36c566282",
-        "field": {
-          "GroupRef": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "TB_PGT"
-              }
-            },
-            "Property": "abrfpg (grupos)",
-            "GroupedColumns": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_PGT"
-                    }
-                  },
-                  "Property": "ABRFPG"
-                }
-              }
-            ]
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1a4ab7851cb6b17c98c9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "07. Faturamento a Receber"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

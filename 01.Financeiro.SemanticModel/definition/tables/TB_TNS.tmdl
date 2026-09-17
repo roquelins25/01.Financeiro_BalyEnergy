@@ -22,7 +22,7 @@ table TB_TNS
 		queryGroup: _Dim
 		source =
 				let
-				  Origem =  Oracle.Database("147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com", [HierarchicalNavigation = true]),
+				  Origem =  Oracle.Database("(DESCRIPTION = (ENABLE=broken) (ADDRESS = (PROTOCOL = TCP)(HOST = 147.15.121.67 )(PORT = 49182))(CONNECT_DATA =(SERVICE_NAME = i260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com )))", [HierarchicalNavigation = true]),
 				
 				  #"Navegação 1" = Origem{[Schema = "I260220090255_ERPP"]}[Data],
 				  #"Navegação 2" = #"Navegação 1"{[Name = "E001TNS"]}[Data],

@@ -68,42 +68,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''TB_Apoio''[Carteira]'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'''TB_Fatos_CR''[portador]'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'''TB_FRJ''[xTipo]'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'''TB_CLI''[nomcli]'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'''TB_PGT''[abrfpg (grupos)]'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'''TB_Fatos_CR''[titulo]'"
+                                "Value": "'''TB_Fatos_CR''[PORTADOR]'"
                               }
                             }
                           ]
@@ -131,62 +96,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''TB_Apoio''[Carteira]'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'''TB_Fatos_CR''[portador]'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'''TB_FRJ''[xTipo]'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'''TB_CLI''[nomcli]'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'''TB_PGT''[abrfpg (grupos)]'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'''TB_Fatos_CR''[titulo]'"
+                                      "Value": "'''TB_Fatos_CR''[PORTADOR]'"
                                     }
                                   }
                                 ]
@@ -210,22 +120,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "Agp_Portador"
-                          },
-                          {
                             "0": "portador"
-                          },
-                          {
-                            "0": "Desc. Motivo"
-                          },
-                          {
-                            "0": "Nome Cliente"
-                          },
-                          {
-                            "0": "Agp_Forma Pagamento"
-                          },
-                          {
-                            "0": "titulo"
                           }
                         ]
                       }
