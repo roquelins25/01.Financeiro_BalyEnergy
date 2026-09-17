@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d777d6938106e6431c17",
   "position": {
-    "x": 453.19825834171485,
-    "y": 54.948103636023475,
+    "x": 454.03083880066708,
+    "y": 311.8460906231561,
     "z": 0,
-    "height": 950.95127610208817,
+    "height": 694.106728538283,
     "width": 1442.0881670533643,
     "tabOrder": 8003
   },
@@ -798,65 +798,7 @@
             "Property": "07. Valor limite Cliente"
           }
         },
-        "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "_",
-              "Entity": "_Medidas",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Or": {
-                  "Left": {
-                    "Comparison": {
-                      "ComparisonKind": 1,
-                      "Left": {
-                        "Measure": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "_"
-                            }
-                          },
-                          "Property": "07. Valor limite Cliente"
-                        }
-                      },
-                      "Right": {
-                        "Literal": {
-                          "Value": "0L"
-                        }
-                      }
-                    }
-                  },
-                  "Right": {
-                    "Comparison": {
-                      "ComparisonKind": 3,
-                      "Left": {
-                        "Measure": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "_"
-                            }
-                          },
-                          "Property": "07. Valor limite Cliente"
-                        }
-                      },
-                      "Right": {
-                        "Literal": {
-                          "Value": "0L"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
+        "type": "Advanced"
       },
       {
         "name": "98fc6bdba996e4d22668",

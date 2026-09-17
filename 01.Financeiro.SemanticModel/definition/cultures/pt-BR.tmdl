@@ -88,16 +88,6 @@ cultureInfo pt-BR
 			          "carteira": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "Agp_Portador": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -1767,16 +1757,6 @@ cultureInfo pt-BR
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
-			        },
-			        {
-			          "Desc. Motivo": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -3386,7 +3366,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "Valor Aberto": {
+			          "Valor AB.": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -3396,7 +3376,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "Valor Ab.": {
+			          "Valor Aberto": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -4428,6 +4408,16 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
+			          "Valor Previsto a Pagar": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "A Pagar ( HOJE )": {
 			            "State": "Suggested",
 			            "Source": {
@@ -4439,16 +4429,6 @@ cultureInfo pt-BR
 			        },
 			        {
 			          "A Pagar ( VENCIDAS)": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Valor Previsto a Pagar": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -8659,16 +8639,6 @@ cultureInfo pt-BR
 			          "abrfpg": {
 			            "State": "Generated",
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "Agp_Forma Pagamento": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]

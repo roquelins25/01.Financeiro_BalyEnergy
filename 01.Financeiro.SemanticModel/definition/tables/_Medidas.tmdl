@@ -7864,6 +7864,17 @@ table _Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure '07. Total Faturado Ano Anterior' =
+			
+			CALCULATE(
+			    [07. Total Faturado Geral],
+			    SAMEPERIODLASTYEAR( 'CALENDARIO DAX'[Date] )
+			)
+		displayFolder: 07. Faturamento
+		lineageTag: 567aa5c2-cd97-45a6-9ae3-58b351ed451b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition _Medidas = m
 		mode: import
 		source =
