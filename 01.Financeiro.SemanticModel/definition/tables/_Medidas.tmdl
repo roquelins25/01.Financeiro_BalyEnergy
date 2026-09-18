@@ -1673,10 +1673,11 @@ table _Medidas
 	measure '08. Saldo Bancos' =
 			
 			SUM( TB_RTerceiros[Valor] )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 08. Saldo Bancos
 		lineageTag: e5c4667b-f0e1-42ec-87b5-b924d7d16c66
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure '01. Valor AB CP' =
 			
@@ -7874,6 +7875,19 @@ table _Medidas
 		lineageTag: 567aa5c2-cd97-45a6-9ae3-58b351ed451b
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '13. DataName' =
+			
+			VAR DataFormatada =
+			    FORMAT(
+			        SELECTEDVALUE( 'CALENDARIO DAX'[Date] ),
+			        "dddd, dd \d\e mmmm \d\e yyyy",
+			        "pt-BR"
+			    )
+			RETURN
+			    UPPER(LEFT(DataFormatada, 1)) &
+			    MID(DataFormatada, 2, LEN(DataFormatada))
+		lineageTag: 3acf7bc7-54ca-41bc-8180-18ab3231cae0
 
 	partition _Medidas = m
 		mode: import
