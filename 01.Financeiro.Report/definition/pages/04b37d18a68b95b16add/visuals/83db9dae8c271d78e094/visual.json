@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "5f185a13d5be3ca1a7a6",
+  "name": "83db9dae8c271d78e094",
   "position": {
     "x": 1290.4872389791183,
     "y": 239.30394431554524,
-    "z": 2000,
+    "z": 20000,
     "height": 61.392111368909511,
     "width": 518.70069605568449,
-    "tabOrder": 2000
+    "tabOrder": 17001
   },
   "visual": {
     "visualType": "slicer",
@@ -32,23 +32,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "xSenha"
-                  }
-                },
-                "Property": "DESC"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "objects": {
@@ -164,5 +147,6 @@
       "filterChanges": true
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "isHidden": true
 }

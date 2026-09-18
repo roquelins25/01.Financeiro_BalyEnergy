@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "71edced377bb9bd4a629",
+  "name": "313677f0ac7336067007",
   "position": {
-    "x": 4.1244238871806829,
-    "y": 560.28555816536516,
-    "z": 4000,
-    "height": 204.88698032183476,
-    "width": 355.65287150205279,
-    "tabOrder": 3000
+    "x": 1290.4872389791183,
+    "y": 239.30394431554524,
+    "z": 8001,
+    "height": 61.392111368909511,
+    "width": 518.70069605568449,
+    "tabOrder": 7001
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Operacao"
+                      "Entity": "xSenha"
                     }
                   },
-                  "Property": "OP"
+                  "Property": "ID"
                 }
               },
-              "queryRef": "TB_Operacao.OP",
-              "nativeQueryRef": "OP",
+              "queryRef": "xSenha.ID",
+              "nativeQueryRef": "ID",
               "active": true
             }
           ]
@@ -40,10 +40,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "TB_Operacao"
+                    "Entity": "xSenha"
                   }
                 },
-                "Property": "OP"
+                "Property": "DESC"
               }
             },
             "direction": "Ascending"
@@ -58,7 +58,52 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Basic'"
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
@@ -73,8 +118,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "t",
-                    "Entity": "TB_Operacao",
+                    "Name": "x",
+                    "Entity": "xSenha",
                     "Type": 0
                   }
                 ],
@@ -87,10 +132,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "t"
+                                  "Source": "x"
                                 }
                               },
-                              "Property": "OP"
+                              "Property": "ID"
                             }
                           }
                         ],
@@ -98,7 +143,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Operação SC'"
+                                "Value": "'ADM'"
                               }
                             }
                           ]
@@ -111,63 +156,14 @@
             }
           }
         }
-      ],
-      "selection": [
-        {
-          "properties": {
-            "selectAllCheckboxEnabled": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "items": [
-        {
-          "properties": {
-            "padding": {
-              "expr": {
-                "Literal": {
-                  "Value": "5D"
-                }
-              }
-            }
-          }
-        }
       ]
     },
-    "visualContainerObjects": {
-      "background": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ]
+    "syncGroup": {
+      "groupName": "ID",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "9884c485ff42f06cc7ba"
+  "isHidden": true
 }
