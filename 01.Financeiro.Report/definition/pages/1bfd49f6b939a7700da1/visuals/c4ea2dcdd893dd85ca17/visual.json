@@ -9,10 +9,10 @@
     "width": 305.76923076923077
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Values": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -22,11 +22,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "08. Saldo Bancos"
+                  "Property": "13. Saldo Consolidado"
                 }
               },
-              "queryRef": "_Medidas.08. Saldo Bancos",
-              "nativeQueryRef": "08. Saldo Bancos"
+              "queryRef": "_Medidas.13. Saldo Consolidado",
+              "nativeQueryRef": "13. Saldo Consolidado"
             }
           ]
         }
@@ -41,7 +41,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "08. Saldo Bancos"
+                "Property": "13. Saldo Consolidado"
               }
             },
             "direction": "Descending"
@@ -51,7 +51,36 @@
       }
     },
     "objects": {
-      "categoryLabels": [
+      "layout": [
+        {
+          "properties": {
+            "autoGrid": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "fillCustom": [
         {
           "properties": {
             "show": {
@@ -64,16 +93,62 @@
           }
         }
       ],
-      "labels": [
+      "accentBar": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
             "fontFamily": {
               "expr": {
                 "Literal": {
                   "Value": "'''Courier New'''"
                 }
               }
-            },
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
@@ -81,20 +156,16 @@
                 }
               }
             },
-            "bold": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "italic": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "20D"
                 }
               }
             }
+          },
+          "selector": {
+            "metadata": "_Medidas.13. Saldo Consolidado"
           }
         }
       ]
@@ -114,6 +185,19 @@
         }
       ],
       "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
         {
           "properties": {
             "show": {
