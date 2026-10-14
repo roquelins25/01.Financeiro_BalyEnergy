@@ -1,14 +1,10 @@
 table xSenha
 	lineageTag: 0efd0780-2589-42a0-9bec-78b257d3f4ec
 
-	measure xAcessos = ```
+	measure xAcessos =
 			
-			SWITCH(
-			    TRUE(),
-			    HASONEFILTER( xSenha[SENHA] ) && xAcesso[Valor xAcesso] = MAX( xSenha[Senha] ), "Calendario", 
-			    "Senha Incorreta"
-			)
-			```
+			IF(
+			    HASONEFILTER( xSenha[ID] ) && [Valor xAcesso] = MAX( xSenha[SENHA] ), "Calendario", "Senha Incorreta" )
 		lineageTag: 774f6e4a-b811-41e0-8f24-77fc22b91f6a
 
 	column ID

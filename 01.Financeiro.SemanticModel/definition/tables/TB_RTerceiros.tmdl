@@ -1,4 +1,5 @@
 table TB_RTerceiros
+	excludeFromModelRefresh
 	lineageTag: 74b93616-09f4-4cc7-a515-2997d00b3fdf
 
 	column Contas

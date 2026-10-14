@@ -5741,14 +5741,15 @@ table _Medidas
 			        VALUES(TB_Fatos_CR[TITULO]),
 			        DATEDIFF(
 			            CALCULATE(MIN(TB_Fatos_CR[EMISSAO])),
-			            CALCULATE(MIN(TB_Fatos_CR[VENCTORI])),
+			            CALCULATE(MIN(TB_Fatos_CR[VENCIMENTO])),
 			            DAY
 			        )
 			    ),
 			    TB_Fatos_CR[TIPO] = "01",
 			    TB_Fatos_CR[CODTNS] = "90301",
 			    NOT TB_Fatos_CR[SIT] IN {"CA"},
-			    NOT TB_Fatos_CR[PORTADOR] IN {"ANTE"}
+			    NOT TB_Fatos_CR[PORTADOR] IN {"ANTE"},
+			    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_CR[EMISSAO] )
 			)
 		displayFolder: 07. Faturamento
 		lineageTag: 8482e4fd-acf7-42ed-b4d1-63fe449acec7
@@ -5801,7 +5802,8 @@ table _Medidas
 			    TB_Fatos_CR[TIPO] = "01",
 			    TB_Fatos_CR[CODTNS] = "90301",
 			    TB_Fatos_CR[SIT] IN {"LQ"},
-			    NOT TB_Fatos_CR[PORTADOR] IN {"ANTE"}
+			    NOT TB_Fatos_CR[PORTADOR] IN {"ANTE"},
+			    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_CR[EMISSAO] )
 			)
 		displayFolder: 07. Faturamento
 		lineageTag: 4f5c40b0-b494-4d81-bc49-3c11f78e50b6
@@ -7860,10 +7862,11 @@ table _Medidas
 	measure '12. limite DIFF' =
 			
 			[07. Valor limite Cliente] - [01. Valor AB CR]
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 07. Faturamento
 		lineageTag: 9af1038b-3eeb-4210-989d-118fd7f1c2a6
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure '07. Total Faturado Ano Anterior' =
 			
@@ -7916,7 +7919,7 @@ table _Medidas
 			    'CALENDARIO DAX'[Date] = vULTIMADATA )
 			```
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 13. HomePrincipal
+		displayFolder: 13. HomePrincipal\01. Formulas
 		lineageTag: 206e3025-9e79-4b79-b3b7-b0d8f9f08404
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -7934,7 +7937,7 @@ table _Medidas
 			
 			[01. AB Simples] + [01. AB Vinculada] + [01. AB Descontada]
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 13. HomePrincipal
+		displayFolder: 13. HomePrincipal\01. Formulas
 		lineageTag: f0d852e5-19b6-46ca-9a27-a03aed007f24
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -7944,7 +7947,7 @@ table _Medidas
 			CALCULATE(
 			    COUNTROWS( TB_Fatos_CR ),
 			    TB_Fatos_CR[SIT] = "AB" )
-		displayFolder: 13. HomePrincipal
+		displayFolder: 13. HomePrincipal\01. Formulas
 		lineageTag: fa99971f-3922-43cb-a08d-be75ea95ddae
 
 		formatStringDefinition = SELECTEDMEASURE() & " títulos"
@@ -7953,7 +7956,7 @@ table _Medidas
 			
 			[01. Valor LQ CP] + [01. Valor AB CP]
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		displayFolder: 13. HomePrincipal
+		displayFolder: 13. HomePrincipal\01. Formulas
 		lineageTag: 373c2e5e-d26a-4199-9dd8-8c78e27c38b7
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -7986,7 +7989,7 @@ table _Medidas
 			RETURN
 			vABERTO + vLIQUI
 			```
-		displayFolder: 13. HomePrincipal
+		displayFolder: 13. HomePrincipal\01. Formulas
 		lineageTag: d7a6bfa8-2b49-44de-a61b-285befe40aca
 
 		formatStringDefinition = SELECTEDMEASURE() & " Pagamentos"
@@ -7995,7 +7998,7 @@ table _Medidas
 			
 			// calcula a necessidade
 			[13. Entrada Previstas ( Hoje )] -  ABS( [13. Saidas Previstas ( Hoje )] )
-		displayFolder: 13. HomePrincipal
+		displayFolder: 13. HomePrincipal\01. Formulas
 		lineageTag: 5ae3fb65-04ed-4a61-a236-c58d4976e329
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -8010,10 +8013,92 @@ table _Medidas
 			
 			IF( ISBLANK( [08. Saldo Bancos] ), [13. Saldo Consolidado] ) + [13. Entrada Previstas ( Hoje )] - ABS( [13. Saidas Previstas ( Hoje )] )
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
-		displayFolder: 13. HomePrincipal
+		displayFolder: 13. HomePrincipal\01. Formulas
 		lineageTag: 5992ae36-a185-4523-b68b-b313870ee81a
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '13. Saidas Previstas Grafic ( hoje )' =
+			
+			ABS( [13. Saidas Previstas ( Hoje )] )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 13. HomePrincipal
+		lineageTag: 6876712a-c6e0-4083-9e65-468924ebc84f
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '13. Titulo grafico' =
+			
+			VAR vMIN = CALCULATE( MIN('CALENDARIO DAX'[Dia]),FILTER( ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[13. Entrada Grafico EIXO] = 1 ) )
+			VAR vMAX = CALCULATE( MAX('CALENDARIO DAX'[Dia]),FILTER( ALL( 'CALENDARIO DAX' ), 'CALENDARIO DAX'[13. Entrada Grafico EIXO] = 1 ) )
+			VAR vMes = SELECTEDVALUE( 'CALENDARIO DAX'[Mês Abrev] )
+			RETURN
+			"Fluxo Financeiro Semanal( " &vMIN&" a "&vMAX& " " &vMes& " )"
+		displayFolder: 13. HomePrincipal\format
+		lineageTag: 15f0e08a-b76c-425f-baac-e37391ab1914
+
+	measure '13a. Entradas do Mes' =
+			
+			CALCULATE(
+			    [10. Entrada],
+			    ALL( 'CALENDARIO DAX' ),
+			    VALUES( 'CALENDARIO DAX'[Mês] )
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 13. HomePrincipal\01. Formulas
+		lineageTag: e5263545-4dda-419a-9c39-ff5144d8ddbe
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '13a. Saidas do Mes' = ```
+			
+			CALCULATE( [01. Valor Ori CP], 
+				REMOVEFILTERS( 'CALENDARIO DAX' ), 
+				KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Ano] ) ), 
+				KEEPFILTERS( VALUES( 'CALENDARIO DAX'[Mês] ) )
+				)
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		displayFolder: 13. HomePrincipal\01. Formulas
+		lineageTag: 24876de4-e09b-48b1-8710-9d46302b44b5
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '07. Prazo Medio NF (Dt Entrada)''' = ```
+			
+			    CALCULATE(
+			        AVERAGEX(
+			            SUMMARIZE( TB_Fatos_CR, TB_Fatos_CR[EMPRESA], TB_Fatos_CR[FILIAL], TB_Fatos_CR[NUMNOTA] ),
+			            CALCULATE(
+			                AVERAGEX(
+			                    TB_Fatos_CR,
+			                    DATEDIFF( TB_Fatos_CR[EMISSAO], TB_Fatos_CR[VENCIMENTO], DAY )
+			                )
+			            )
+			        ),
+			        TB_Fatos_CR[TIPO] = "01",
+			        TB_Fatos_CR[CODTNS] = "90301",
+			        NOT TB_Fatos_CR[SIT] IN { "CA" },
+			        NOT TB_Fatos_CR[PORTADOR] IN { "ANTE" },
+			        TB_Fatos_CR[NUMNOTA] <> 0,
+			        USERELATIONSHIP( TB_Fatos_CR[DATAENTRADA], 'CALENDARIO DAX'[Date] )
+			    )
+			```
+		displayFolder: 07. Faturamento
+		lineageTag: 07d23a27-5ffe-4a1a-ba7a-8161497e7b5c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '07. Pz Med (dt Entrada ) Ano Anterior' =
+			
+			CALCULATE(
+			    [07. Prazo Medio NF (Dt Entrada)'],
+			    SAMEPERIODLASTYEAR( 'CALENDARIO DAX'[Date] )
+			)
+		displayFolder: 07. Faturamento
+		lineageTag: fc3e4443-b17b-440d-9bcd-1537c59b27e5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition _Medidas = m
 		mode: import

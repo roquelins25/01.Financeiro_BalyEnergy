@@ -1,39 +1,34 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "81e2cad484355625c855",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "1fce588a3f716a0132be",
   "position": {
-    "x": 1250.6694678557697,
-    "y": 3.8552898775812423,
+    "x": 1076.2412993039443,
+    "y": 3.366260948207652,
     "z": 1000,
-    "height": 918.12561936671227,
-    "width": 655.25175782171675,
-    "tabOrder": 1000
+    "height": 922.13457076566124,
+    "width": 828.16705336426912,
+    "tabOrder": 17001
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_CLI"
+                      "Entity": "TB_Fatos_CP"
                     }
                   },
-                  "Property": "xREDE"
+                  "Property": "NUMTIT"
                 }
               },
-              "queryRef": "TB_CLI.xREDE",
-              "nativeQueryRef": "xREDE",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
+              "queryRef": "TB_Fatos_CP.NUMTIT",
+              "nativeQueryRef": "NUMTIT"
+            },
             {
               "field": {
                 "Measure": {
@@ -45,8 +40,22 @@
                   "Property": "06.Operacao Valor AB Verbas"
                 }
               },
-              "queryRef": "_Medidas.05.Operacao Valor AB Verbas",
-              "nativeQueryRef": "05.Operacao Valor AB Verbas"
+              "queryRef": "_Medidas.06.Operacao Valor AB Verbas",
+              "nativeQueryRef": "Valor Aberto"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CP"
+                    }
+                  },
+                  "Property": "OBSTCP"
+                }
+              },
+              "queryRef": "TB_Fatos_CP.OBSTCP",
+              "nativeQueryRef": "OBSTCP"
             }
           ]
         }
@@ -66,68 +75,36 @@
             },
             "direction": "Descending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "objects": {
-      "valueAxis": [
+      "columnHeaders": [
         {
           "properties": {
-            "roundRange": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "logAxisScale": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "invertAxis": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "maxMarginFactor": {
-              "expr": {
-                "Literal": {
-                  "Value": "50L"
-                }
-              }
-            },
-            "preferredCategoryWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "50D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "labels": [
-        {
-          "properties": {
-            "show": {
+            "autoSizeColumnWidth": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
             }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "131.06053229213222D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.05.Operacao Valor AB Verbas"
           }
         }
       ]
@@ -140,13 +117,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Verbas para Abatimento'"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
                 }
               }
             },

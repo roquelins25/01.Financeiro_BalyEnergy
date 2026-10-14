@@ -1,0 +1,90 @@
+createOrReplace
+
+	ref table _Medidas
+
+		measure '10. Antecipacao Banco' =
+				
+				CALCULATE(
+				    [10. Valor Total LQ],
+				    TB_Fatos_LQ[CODTNS] = "90770",
+				    USERELATIONSHIP( TB_Fatos_LQ[DATMOV], 'CALENDARIO DAX'[Date])
+				) * -1 -- invertido sinal por conta da transação não alterada
+			displayFolder: 10. Liquidado\01.Entradas
+			lineageTag: 9826602c-fcfd-4cbf-918b-cb884efdf92c
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure '10. Antecipacao Cliente' =
+				
+				CALCULATE(
+				    [10. Valor Total LQ],
+				    TB_Fatos_LQ[CODTNS] = "9061A",
+				    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_LQ[DATMOV])
+				)
+			displayFolder: 10. Liquidado\01.Entradas
+			lineageTag: 89a0c180-c753-44f6-a005-e2224311af33
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure '10. Deducoes Entrada RECOMPRA' =
+				
+				CALCULATE(
+				    [10. Deducoes TOTAL],
+				    TB_Fatos_LQ[CODTNS] = "90769" )
+			displayFolder: 10. Liquidado\01.Entradas
+			lineageTag: d1ed41ac-6796-42c5-89b9-7c4484eb3245
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure '10. Entrada FRUTS' = ```
+				
+				// COLOCADO CONTA FINANCEIRA DE ENTRADAS
+				CALCULATE( 
+				    [10. Valor Total LQ],
+				    TB_Fatos_LQ[CTAFIN] IN{40,110,2270,3010,3620}, -- somente contas financeira de entrada
+					NOT TB_Fatos_LQ[CODTNSMCR] IN({"90467"}), -- retirado Transação de antecipação
+				    KEEPFILTERS( TB_Fatos_LQ[CODCLI] IN{11143}), -- codigo cliente fruts
+				    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_LQ[DATMOV] )
+				    )
+				```
+			displayFolder: 10. Liquidado\01.Entradas
+			lineageTag: 15388eca-f516-4d56-aa16-bad0bd794bc7
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure '10. ERROR' =
+				
+				CALCULATE(
+				    [10. Valor Total LQ],
+				    TB_Fatos_LQ[CODTNS] IN({"90657","90617","90769","90770","90762"}),
+				    USERELATIONSHIP( 'CALENDARIO DAX'[Date], TB_Fatos_LQ[DATMOV] )
+				)
+			displayFolder: 10. Liquidado\01.Entradas
+			lineageTag: 6dc492c7-ea04-403d-be3b-00a36f3fd896
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure '10. Estorno de Juros' =
+				
+				CALCULATE(
+				    [10. Valor Total LQ],
+				    TB_Fatos_LQ[CODTNS] = "90616" -- transação de estorno de juros
+				
+				)
+			displayFolder: 10. Liquidado\01.Entradas
+			lineageTag: e1ea73af-f306-423f-8bd1-f2238c30972d
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+		measure '10. Rendimentos' =
+				
+				CALCULATE(
+				    [10. Valor Total LQ],
+				    TB_Fatos_LQ[CODTNS] = "90608" -- transação de Rendimentos
+				
+				)
+			displayFolder: 10. Liquidado\01.Entradas
+			lineageTag: ddb10bd0-9f87-42a2-baff-22943aa1cf4f
+
+			annotation PBI_FormatHint = {"isGeneralNumber":true}
+

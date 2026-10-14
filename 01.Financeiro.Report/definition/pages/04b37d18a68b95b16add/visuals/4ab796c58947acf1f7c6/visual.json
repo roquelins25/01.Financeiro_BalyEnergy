@@ -12,5 +12,6 @@
   "visualGroup": {
     "displayName": "Encontros de lançamentos ",
     "groupMode": "ScaleMode"
-  }
+  },
+  "isHidden": true
 }

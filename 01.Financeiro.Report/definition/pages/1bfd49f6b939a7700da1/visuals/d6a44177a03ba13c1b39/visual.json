@@ -97,7 +97,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "datetime'2026-09-18T00:00:00'"
+                                "Value": "datetime'2026-09-23T00:00:00'"
                               }
                             }
                           }
@@ -117,7 +117,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "datetime'2026-09-19T00:00:00'"
+                                "Value": "datetime'2026-09-24T00:00:00'"
                               }
                             }
                           }
@@ -211,5 +211,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "8bb74eadd00d901211c0"
+  "parentGroupName": "8bb74eadd00d901211c0",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2e0cc930a60a22c47268",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CALENDARIO DAX"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
 }

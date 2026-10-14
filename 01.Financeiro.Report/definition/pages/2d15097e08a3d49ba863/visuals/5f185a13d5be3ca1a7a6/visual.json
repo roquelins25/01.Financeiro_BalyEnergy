@@ -74,13 +74,6 @@
                   "Value": "false"
                 }
               }
-            },
-            "strictSingleSelect": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
             }
           }
         }

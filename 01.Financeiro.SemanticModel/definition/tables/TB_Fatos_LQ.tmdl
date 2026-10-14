@@ -39,7 +39,7 @@ table TB_Fatos_LQ
 		dataType: int64
 		formatString: 0
 		lineageTag: bb1ef885-b56c-4305-a6f8-43ae10bb1904
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CTAFIN
 
 		annotation SummarizationSetBy = Automatic
@@ -98,7 +98,7 @@ table TB_Fatos_LQ
 		dataType: int64
 		formatString: 0
 		lineageTag: ef4cf147-3007-411c-a921-a7342b6ac019
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODCLI
 
 		annotation SummarizationSetBy = Automatic
@@ -209,7 +209,6 @@ table TB_Fatos_LQ
 				         E044CCU
 				    WHERE E600MCC.SITMCC <> 'I'
 				      AND E600MCC.CODEMP = 1
-				      --AND E600MCC.CODFIL = 1
 				      AND E600MCC.CODEMP = E070EMP.CODEMP
 				      AND E600RAT.CODEMP = E600MCC.CODEMP
 				      AND E600RAT.NUMCCO = E600MCC.NUMCCO
@@ -266,21 +265,17 @@ table TB_Fatos_LQ
 				        EX.DESCCO,
 				        EX.HISMOV,
 				        EX.DATMOV,
-				
 				        CASE
-				            WHEN MOD(TRUNC(EX.DATMOV) - DATE '2024-01-01', 7) = 5
-				                 AND MCR.CODTNS = '90350'
-				                 AND EX.NUMCCO NOT IN ('ITAU10917-0', 'SAFRA VINC', 'BMP SOCIEDADE', 'RED')
-				            THEN EX.DATMOV + 3
-				
-				            WHEN MOD(TRUNC(EX.DATMOV) - DATE '2024-01-01', 7) <> 5
-				                 AND (MCR.CODTNS = '90350' OR MCR.CODTNS IS NULL)
-				                 AND EX.NUMCCO NOT IN ('ITAU10917-0', 'SAFRA VINC', 'BMP SOCIEDADE', 'RED')
-				            THEN EX.DATMOV + 1
-				
+				            WHEN MCR.CODTNS = '90350'
+				            AND (EX.NUMCCO IS NULL
+				                OR EX.NUMCCO NOT IN ('ITAU10917-0', 'SAFRA VINC', 'BMP SOCIEDADE', 'RED'))
+				            THEN EX.DATMOV +
+				                CASE WHEN MOD(TRUNC(EX.DATMOV) - DATE '2024-01-01', 7) = 4
+				                    THEN 3
+				                    ELSE 1
+				                END
 				            ELSE EX.DATMOV
 				        END AS DATA_CONTA,
-				
 				        EX.VLRRAT, 
 				        EX.CTAFIN,
 				        EX.DESCTA,
@@ -293,7 +288,11 @@ table TB_Fatos_LQ
 				
 				    LEFT JOIN TB_MCR MCR
 				        ON MCR.CODEMP = EX.CODEMP 
-				       AND MCR.CODFIL = EX.CODFIL 
+				       AND ( CASE 
+						       	WHEN MCR.CODFIL <> 1 THEN 1
+						       	ELSE MCR.CODFIL
+						     END ) = EX.CODFIL 
+				       
 				       AND MCR.SEQMOV = EX.SEQMCR
 				       AND MCR.NUMTIT = EX.NUMMCR
 				       AND MCR.CODTPT = EX.TPTMCR
@@ -309,7 +308,7 @@ table TB_Fatos_LQ
 				
 				SELECT *
 				FROM TB_CONSOLIDADO
-				WHERE DATA_CONTA >= TO_DATE('2026-01-01','YYYY-MM-DD')
+				WHERE datmov >= TO_DATE('01/01/2025','DD/MM/YYYY')
 				   ", HierarchicalNavigation = true])
 				
 				 in 
@@ -318,5 +317,5 @@ table TB_Fatos_LQ
 
 	annotation PBI_NavigationStepName = Navegação
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 

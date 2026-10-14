@@ -10,7 +10,7 @@ table 'CALENDARIO DAX'
 
 		variation Variation
 			isDefault
-			relationship: 549829bc-88be-4068-b47e-fc8aacc5a2a5
+			relationship: 9584fc5b-ff09-4003-a370-9397a9d7b1e7
 			defaultHierarchy: LocalDateTable_6419cd5c-1708-4800-84c6-d2bb7fbb11ae.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
@@ -164,6 +164,34 @@ table 'CALENDARIO DAX'
 
 		annotation SummarizationSetBy = Automatic
 
+	column DiaSemanaNAME
+		lineageTag: 3652078f-fac8-43ca-8aac-6cbc0907344e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DiaSemanaNAME]
+		sortByColumn: Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column '13. Entrada Grafico EIXO' =
+			
+			VAR vHoje = TODAY()
+			VAR vData = 'CALENDARIO DAX'[Date]
+			
+			RETURN
+			    IF(
+			        vData >= vHoje - 3 &&
+			        vData <= vHoje + 3,
+			        1,
+			        BLANK()
+			    )
+		lineageTag: cd095c76-e821-4265-9e4c-fe70c4e92f98
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition 'CALENDARIO DAX' = calculated
 		mode: import
 		source =
@@ -200,7 +228,8 @@ table 'CALENDARIO DAX'
 				        "AnoTEXT", FORMAT( YEAR( [Date] ), "" ),
 				        "Vencidos?", IF( [Date] < TODAY() -2 , "Vencidas", "A Vencer" ),
 				        "Vencidos?num", IF( [Date] < TODAY() -2 , 1, 2 ),
-				        "DiaMES", FORMAT([Date],"dd","PT-BR")&"-"&FORMAT([Date],"mmm","PT-BR")
+				        "DiaMES", FORMAT([Date],"dd","PT-BR")&"-"&FORMAT([Date],"mmm","PT-BR"),
+				        "DiaSemanaNAME", FORMAT([Date], "ddd dd", "pt-BR")
 				        )
 
 	annotation PBI_Id = 70c714a6d9dd46e697057a3dbd334d70

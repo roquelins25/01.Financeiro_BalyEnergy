@@ -37,7 +37,7 @@ table TB_Verbas
 		dataType: int64
 		formatString: 0
 		lineageTag: 758b59e2-c5cb-403c-a92e-cb1eecbda4af
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODFOR
 
 		annotation SummarizationSetBy = Automatic

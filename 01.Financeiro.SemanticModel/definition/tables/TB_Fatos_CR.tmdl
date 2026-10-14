@@ -118,7 +118,7 @@ table TB_Fatos_CR
 		dataType: int64
 		formatString: 0
 		lineageTag: dfa961d8-c38a-40de-b0ad-0abdc5b3e3cc
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODCLIENTE
 
 		annotation SummarizationSetBy = Automatic
@@ -171,7 +171,7 @@ table TB_Fatos_CR
 		dataType: int64
 		formatString: 0
 		lineageTag: 8ff1f485-b153-4d47-a4a7-cb430960875c
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODREP
 
 		annotation SummarizationSetBy = Automatic
@@ -188,7 +188,7 @@ table TB_Fatos_CR
 		dataType: int64
 		formatString: 0
 		lineageTag: 634c1d4c-27fa-47ad-8371-40a3a2680cb5
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODPAGAMENTO
 
 		annotation SummarizationSetBy = Automatic
@@ -197,7 +197,7 @@ table TB_Fatos_CR
 		dataType: int64
 		formatString: 0
 		lineageTag: 51c2d3c7-c264-4c4a-8a40-d2a62baefacc
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: NUMNOTA
 
 		annotation SummarizationSetBy = Automatic
@@ -247,6 +247,28 @@ table TB_Fatos_CR
 
 		annotation SummarizationSetBy = Automatic
 
+	column ULDTAPGT
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f065c914-fb1b-40d1-b3a4-ae62b830c509
+		summarizeBy: none
+		sourceColumn: ULDTAPGT
+
+		variation Variation
+			isDefault
+			relationship: ce363270-e56b-42a2-98aa-e6e70d2a6de8
+			defaultHierarchy: LocalDateTable_3130a5fb-3415-4f87-b722-22571b915148.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS_PAGAMENTO
+		dataType: string
+		lineageTag: e232cdb2-2e1a-45a8-9ab2-f439f383ede5
+		summarizeBy: none
+		sourceColumn: STATUS_PAGAMENTO
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_Fatos_CR = m
 		mode: import
 		queryGroup: _Fatos\CP_CR
@@ -256,49 +278,90 @@ table TB_Fatos_CR
 					"147.15.121.67:49182/I260220090255_p.subnetappxts2p.saaspremiumvcn1.oraclevcn.com", 
 					[CommandTimeout = #duration(0, 0, 10, 0),
 				   Query = "
+				WITH TITULOS AS (
+				
+				    SELECT
+				        TCR.CODEMP                                     AS EMPRESA,
+				        TCR.CODFIL                                     AS FILIAL,
+				        TCR.CODTNS                                     AS CODTNS,
+				        TNS.DESTNS                                     AS DESTNS,
+				        TCR.NUMTIT                                     AS TITULO,
+				        TCR.CODTPT                                     AS TIPO,
+				        TCR.SITTIT                                     AS SIT,
+				        TCR.CODCLI                                     AS CODCLIENTE,
+				        TCR.DATEMI                                     AS EMISSAO,
+				        TCR.CODPOR                                     AS PORTADOR,
+				        TCR.DATENT                                     AS DATAENTRADA,
+				        TCR.VCTORI                                     AS VENCTORI,
+				        TCR.ULTPGT                                     AS ULDTAPGT,
+				
+				        CASE
+				            WHEN MOD(TRUNC(TCR.VCTPRO) - DATE '2024-01-01', 7) = 5
+				                THEN TCR.VCTPRO + 2
+				
+				            WHEN MOD(TRUNC(TCR.VCTPRO) - DATE '2024-01-01', 7) = 6
+				                THEN TCR.VCTPRO + 1
+				
+				            ELSE TCR.VCTPRO
+				        END                                             AS VENCIMENTO,
+				
+				        TCR.CODREP                                     AS CODREP,
+				        TCR.OBSTCR                                     AS OBSERVACAO,
+				        TCR.CODFPG                                     AS CODPAGAMENTO,
+				        TCR.NUMNFV                                     AS NUMNOTA,
+				        TCR.NUMPED                                     AS NUMPEDIDO,
+				        TCR.VLRORI                                     AS VALORORI,
+				        TCR.VLRABE                                     AS VALORABERTO,
+				        TCR.CODCRT                                     AS CARTEIRA,
+				
+				        CASE
+				            WHEN TCR.CODFRJ IS NULL THEN '00'
+				            WHEN TCR.CODFRJ = '' THEN '00'
+				            ELSE TCR.CODFRJ
+				        END                                             AS FORREAJ
+				
+				    FROM E301TCR TCR
+				
+				    INNER JOIN E001TNS TNS
+				        ON TNS.CODEMP = TCR.CODEMP
+				       AND TNS.CODTNS = TCR.CODTNS
+				
+				    WHERE TCR.CODCLI NOT IN (
+				        11143,
+				        21982,
+				        17661,
+				        5517,
+				        2394,
+				        17935
+				    )
+				
+				    AND TCR.DATEMI >= TO_DATE('2021-01-01','YYYY-MM-DD')
+				
+				    --AND TCR.NUMTIT = '0103/2026'
+				)
+				
 				SELECT
-				    TCR.CODEMP                                     AS EMPRESA,
-				    TCR.CODFIL                                     AS FILIAL,
-				    TCR.CODTNS                                     AS CODTNS,
-				    TNS.DESTNS                                     AS DESTNS,
-				    TCR.NUMTIT                                     AS TITULO,
-				    TCR.CODTPT                                     AS TIPO,
-				    TCR.SITTIT                                     AS SIT,
-				    TCR.CODCLI                                     AS CODCLIENTE,
-				    TCR.DATEMI                                     AS EMISSAO,
-				    TCR.CODPOR                                     AS PORTADOR,
-				    TCR.DATENT                                     AS DATAENTRADA,
-				    TCR.VCTORI                                     AS VENCTORI,
+				    TITULOS.*,
 				
 				    CASE
-				        WHEN MOD(TRUNC(TCR.VCTPRO) - DATE '2024-01-01', 7) = 5 THEN TCR.VCTPRO + 2  -- sábado
-				        WHEN MOD(TRUNC(TCR.VCTPRO) - DATE '2024-01-01', 7) = 6 THEN TCR.VCTPRO + 1  -- domingo
-				        ELSE TCR.VCTPRO
-				    END                                             AS VENCIMENTO,
+					    WHEN TIPO = 'DEV' THEN 'DEVOLUCAO'
+				        WHEN SIT = 'LQ'
+				             AND TRUNC(ULDTAPGT) = DATE '1900-12-31'
+				            THEN 'SEM PAGAMENTO'
 				
-				    TCR.CODREP                                     AS CODREP,
-				    TCR.OBSTCR                                     AS OBSERVACAO,
-				    TCR.CODFPG                                     AS CODPAGAMENTO,
-				    TCR.NUMNFV                                     AS NUMNOTA,
-				    TCR.NUMPED                                     AS NUMPEDIDO,
-				    TCR.VLRORI                                     AS VALORORI,
-				    TCR.VLRABE                                     AS VALORABERTO,
-				    TCR.CODCRT                                     AS CARTEIRA,
+				        WHEN SIT = 'LQ'
+				             AND ULDTAPGT <= VENCIMENTO
+				            THEN 'PAGO EM DIA'
 				
-				    CASE
-				        WHEN TCR.CODFRJ IS NULL THEN '00'
-				        WHEN TCR.CODFRJ = '' THEN '00'
-				        ELSE TCR.CODFRJ
-				    END                                             AS FORREAJ
+				        WHEN SIT = 'LQ'
+				             AND ULDTAPGT > VENCIMENTO
+				            THEN 'PAGO ATRASADO'
+						WHEN SIT = 'CA' THEN 'CANCELADO'
+						
+				        ELSE 'EM ABERTO'
+				    END AS STATUS_PAGAMENTO
 				
-				FROM E301TCR TCR
-				
-				INNER JOIN E001TNS TNS
-				    ON TNS.CODEMP = TCR.CODEMP
-				   AND TNS.CODTNS = TCR.CODTNS
-				
-				WHERE TCR.CODCLI NOT IN (11143,21982,17661,5517,2394,17935)
-				  AND TCR.DATEMI >= TO_DATE('2021-01-01','YYYY-MM-DD')
+				FROM TITULOS
 				   ", HierarchicalNavigation = true])
 				in
 				  Origem
