@@ -57,7 +57,7 @@ table TB_Fat
 		dataType: int64
 		formatString: 0
 		lineageTag: dcd10d5a-aaa6-4588-a0b8-4383fda3ec8b
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODCLI
 
 		annotation SummarizationSetBy = Automatic
@@ -66,7 +66,7 @@ table TB_Fat
 		dataType: int64
 		formatString: 0
 		lineageTag: d4671a35-8616-463a-b8b7-590417b078f5
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODREP
 
 		annotation SummarizationSetBy = Automatic
@@ -83,7 +83,7 @@ table TB_Fat
 		dataType: int64
 		formatString: 0
 		lineageTag: fdd5873b-a3f6-4aa7-802f-bda24862babc
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CODFPG
 
 		annotation SummarizationSetBy = Automatic
@@ -117,7 +117,7 @@ table TB_Fat
 		dataType: int64
 		formatString: 0
 		lineageTag: e3fd6797-e29d-410c-936d-56343123e525
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: NUMNFV
 
 		annotation SummarizationSetBy = Automatic

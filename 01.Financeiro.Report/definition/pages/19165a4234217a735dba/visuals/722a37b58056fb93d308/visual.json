@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_CLI"
+                      "Entity": "TB_Rede"
                     }
                   },
                   "Property": "xREDE"
                 }
               },
-              "queryRef": "TB_CLI.xREDE",
+              "queryRef": "TB_Rede.xREDE",
               "nativeQueryRef": "xREDE",
               "active": true
             }
@@ -71,7 +71,7 @@
                 "From": [
                   {
                     "Name": "t",
-                    "Entity": "TB_CLI",
+                    "Entity": "TB_Rede",
                     "Type": 0
                   }
                 ],
@@ -98,6 +98,13 @@
                                 {
                                   "Literal": {
                                     "Value": "'0 - Sem Rede'"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "null"
                                   }
                                 }
                               ]

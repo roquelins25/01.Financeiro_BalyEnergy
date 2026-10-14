@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "1bfd49f6b939a7700da1",
+  "displayName": "Pg Home",
+  "displayOption": "FitToPage",
+  "height": 1698,
+  "width": 1250,
+  "objects": {
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Pagina HOME DETALHADO.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "Pagina_HOME_DETALHADO9959568142951487.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Normal'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "d6a44177a03ba13c1b39",
+      "target": "1034055a1cc0a2c07cc8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d6a44177a03ba13c1b39",
+      "target": "8e20db86c99ea9d7de48",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d6a44177a03ba13c1b39",
+      "target": "54e5cf80c14a4b7e124b",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d6a44177a03ba13c1b39",
+      "target": "d58ae766c02d1699ba70",
+      "type": "NoFilter"
+    }
+  ]
+}
