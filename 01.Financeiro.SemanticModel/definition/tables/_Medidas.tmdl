@@ -2839,6 +2839,7 @@ table _Medidas
 			CALCULATE( 
 			    [10. Valor Total LQ],
 			    TB_Fatos_LQ[CTAFIN] IN{40,110,2270,3010,3620},
+			    KEEPFILTERS( TB_APOIO[Carteira] <> "Cheque" ),
 				NOT TB_Fatos_LQ[CODTNS] IN({"90686"}),
 			    KEEPFILTERS( NOT TB_Fatos_LQ[CODCLI] IN{11143,21982,17661,46501,5517,48831,17935,2394,7868}) )
 			```
@@ -2899,7 +2900,8 @@ table _Medidas
 			
 			CALCULATE(
 			    [10. Valor Total LQ],
-			    TB_Fatos_LQ[CODTNS] = "90608" -- transação de Rendimentos
+			    TB_Fatos_LQ[CODTNS] = "90608", -- transação de Rendimentos
+			    TB_Fatos_LQ[NUMCCO] <> "APL-DAYC"
 			
 			)
 		displayFolder: 10. Liquidado\01.Entradas
