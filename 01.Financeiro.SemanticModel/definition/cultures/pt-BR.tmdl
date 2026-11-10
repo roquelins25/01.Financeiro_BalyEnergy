@@ -88,6 +88,16 @@ cultureInfo pt-BR
 			          "carteira": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Agp_Portador": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -1229,6 +1239,16 @@ cultureInfo pt-BR
 			          "ano-me": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Ano-Mes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -1766,6 +1786,16 @@ cultureInfo pt-BR
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Desc. Motivo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -3701,16 +3731,6 @@ cultureInfo pt-BR
 			        {
 			          "nomrep": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Representante": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6106,6 +6126,16 @@ cultureInfo pt-BR
 			        {
 			          "codtpt": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tipo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -8547,16 +8577,6 @@ cultureInfo pt-BR
 			          "codcli": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "Cod. Cliente": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -8601,6 +8621,16 @@ cultureInfo pt-BR
 			          "abrfpg": {
 			            "State": "Generated",
 			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "Agp_Forma Pagamento": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -8986,6 +9016,16 @@ cultureInfo pt-BR
 			        {
 			          "sit": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "situacao": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]

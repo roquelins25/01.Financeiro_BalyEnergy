@@ -3,7 +3,8 @@
   "displayName": "OP_Diaria",
   "name": "5ce6058639ed44f7cc6d",
   "options": {
-    "targetVisualNames": []
+    "targetVisualNames": [],
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.5",

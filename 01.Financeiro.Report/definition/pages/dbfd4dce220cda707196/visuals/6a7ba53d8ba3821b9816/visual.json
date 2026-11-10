@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "6a7ba53d8ba3821b9816",
   "position": {
-    "x": 551.53674478932385,
-    "y": 33.187483374313693,
+    "x": 551.63345610678243,
+    "y": 28.984632342219115,
     "z": 3000,
-    "height": 303.98712791633147,
-    "width": 656.16733708769107,
+    "height": 482.53618194348729,
+    "width": 656.31977946243967,
     "tabOrder": 2000
   },
   "visual": {
@@ -58,6 +58,21 @@
               },
               "queryRef": "TB_CLI.xREDE",
               "nativeQueryRef": "xREDE",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "xCliente"
+                }
+              },
+              "queryRef": "TB_CLI.xCliente",
+              "nativeQueryRef": "xCliente",
               "active": false
             },
             {
@@ -207,9 +222,28 @@
           },
           {
             "queryRefs": [
+              "TB_CLI.xCliente"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
               "TB_Fatos_CR.TITULO"
             ],
             "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "TITULO"
+                }
+              }
+            ],
             "isPinned": true
           }
         ],
@@ -263,7 +297,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "178.11950922735488D"
+                  "Value": "248.64818676265577D"
                 }
               }
             }

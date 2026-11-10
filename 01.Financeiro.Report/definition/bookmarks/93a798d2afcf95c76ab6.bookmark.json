@@ -3,7 +3,8 @@
   "displayName": "OP_Enc_Lanc_Aguard",
   "name": "93a798d2afcf95c76ab6",
   "options": {
-    "targetVisualNames": []
+    "targetVisualNames": [],
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.3",

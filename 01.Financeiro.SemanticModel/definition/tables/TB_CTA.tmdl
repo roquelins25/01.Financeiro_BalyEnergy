@@ -73,6 +73,12 @@ table TB_CTA
 
 		annotation SummarizationSetBy = Automatic
 
+	column xIDCTA = TB_CTA[CTAFIN] & " - " & TB_CTA[DESCTA]
+		lineageTag: 74231cd7-fcaa-4bb1-8981-b7396c32b76e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition TB_CTA = m
 		mode: import
 		queryGroup: _Dim

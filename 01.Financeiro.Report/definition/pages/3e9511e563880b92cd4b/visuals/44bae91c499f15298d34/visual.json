@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "44bae91c499f15298d34",
   "position": {
     "x": 4.1244238871806829,
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TB_Fatos_CR"
+                      "Entity": "TB_TIPO"
                     }
                   },
-                  "Property": "TIPO"
+                  "Property": "CODTPT"
                 }
               },
-              "queryRef": "TB_Fatos_CR.TIPO",
-              "nativeQueryRef": "TIPO",
+              "queryRef": "TB_TIPO.CODTPT",
+              "nativeQueryRef": "CODTPT",
               "active": true
             }
           ]
@@ -57,7 +57,7 @@
                 "From": [
                   {
                     "Name": "t",
-                    "Entity": "TB_Fatos_CR",
+                    "Entity": "TB_TIPO",
                     "Type": 0
                   }
                 ],
@@ -73,7 +73,7 @@
                                   "Source": "t"
                                 }
                               },
-                              "Property": "TIPO"
+                              "Property": "CODTPT"
                             }
                           }
                         ],

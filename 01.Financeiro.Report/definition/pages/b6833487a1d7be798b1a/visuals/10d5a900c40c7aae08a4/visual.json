@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "10d5a900c40c7aae08a4",
   "position": {
     "x": 579.35455454897522,
@@ -14,7 +14,24 @@
     "query": {
       "queryState": {
         "Category": {
-          "projections": [],
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_FRJ"
+                    }
+                  },
+                  "Property": "xTipo"
+                }
+              },
+              "queryRef": "TB_FRJ.xTipo",
+              "nativeQueryRef": "Desc. Motivo",
+              "active": true,
+              "displayName": "Desc. Motivo"
+            }
+          ],
           "fieldParameters": [
             {
               "parameterExpr": {
@@ -28,7 +45,7 @@
                 }
               },
               "index": 0,
-              "length": 0
+              "length": 1
             }
           ]
         },

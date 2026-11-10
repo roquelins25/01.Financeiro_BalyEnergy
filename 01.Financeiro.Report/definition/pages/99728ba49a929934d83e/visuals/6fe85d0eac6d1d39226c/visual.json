@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "6fe85d0eac6d1d39226c",
   "position": {
     "x": 252.12121212121215,
@@ -87,6 +87,150 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Ano"
+                }
+              },
+              "queryRef": "CALENDARIO DAX.Ano",
+              "nativeQueryRef": "Ano",
+              "active": false,
+              "displayName": "Ano"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Ano-Mes"
+                }
+              },
+              "queryRef": "CALENDARIO DAX.Ano-Mes",
+              "nativeQueryRef": "Ano-Mes",
+              "active": false,
+              "displayName": "Ano-Mes"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Nome do Mês"
+                }
+              },
+              "queryRef": "CALENDARIO DAX.Nome do Mês",
+              "nativeQueryRef": "Nome do Mês",
+              "active": false,
+              "displayName": "Nome do Mês"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CALENDARIO DAX"
+                    }
+                  },
+                  "Property": "Vencidos?"
+                }
+              },
+              "queryRef": "CALENDARIO DAX.Vencidos?",
+              "nativeQueryRef": "Vencidos?",
+              "active": false,
+              "displayName": "Vencidos?"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "xREDE"
+                }
+              },
+              "queryRef": "TB_CLI.xREDE",
+              "nativeQueryRef": "xREDE",
+              "active": false,
+              "displayName": "xREDE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_CLI"
+                    }
+                  },
+                  "Property": "NOMCLI"
+                }
+              },
+              "queryRef": "TB_CLI.NOMCLI",
+              "nativeQueryRef": "Nome Cliente",
+              "active": false,
+              "displayName": "Nome Cliente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "xUF_Regiao"
+                    }
+                  },
+                  "Property": "UF"
+                }
+              },
+              "queryRef": "xUF_Regiao.UF",
+              "nativeQueryRef": "UF",
+              "active": false,
+              "displayName": "UF"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "xUF_Regiao"
+                    }
+                  },
+                  "Property": "Região/Grupo"
+                }
+              },
+              "queryRef": "xUF_Regiao.Região/Grupo",
+              "nativeQueryRef": "Região/Grupo",
+              "active": false,
+              "displayName": "Região/Grupo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_FRJ"
+                    }
+                  },
+                  "Property": "xTipo"
+                }
+              },
+              "queryRef": "TB_FRJ.xTipo",
+              "nativeQueryRef": "Desc. Motivo",
+              "active": false,
+              "displayName": "Desc. Motivo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
                       "Entity": "TB_Fatos_CR"
                     }
                   },
@@ -94,9 +238,197 @@
                 }
               },
               "queryRef": "TB_Fatos_CR.PORTADOR",
-              "nativeQueryRef": "PORTADOR",
-              "active": true,
+              "nativeQueryRef": "portador",
+              "active": false,
               "displayName": "portador"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_TIPO"
+                    }
+                  },
+                  "Property": "CODTPT"
+                }
+              },
+              "queryRef": "TB_TIPO.CODTPT",
+              "nativeQueryRef": "tipo",
+              "active": true,
+              "displayName": "tipo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "TITULO"
+                }
+              },
+              "queryRef": "TB_Fatos_CR.TITULO",
+              "nativeQueryRef": "titulo",
+              "active": false,
+              "displayName": "titulo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "SIT"
+                }
+              },
+              "queryRef": "TB_Fatos_CR.SIT",
+              "nativeQueryRef": "situacao",
+              "active": false,
+              "displayName": "situacao"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "NUMNOTA"
+                }
+              },
+              "queryRef": "TB_Fatos_CR.NUMNOTA",
+              "nativeQueryRef": "numnota",
+              "active": false,
+              "displayName": "numnota"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "OBSERVACAO"
+                }
+              },
+              "queryRef": "TB_Fatos_CR.OBSERVACAO",
+              "nativeQueryRef": "observacao",
+              "active": false,
+              "displayName": "observacao"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "EMISSAO"
+                }
+              },
+              "queryRef": "TB_Fatos_CR.EMISSAO",
+              "nativeQueryRef": "emissao",
+              "active": false,
+              "displayName": "emissao"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "VENCIMENTO"
+                }
+              },
+              "queryRef": "TB_Fatos_CR.VENCIMENTO",
+              "nativeQueryRef": "vencimento",
+              "active": false,
+              "displayName": "vencimento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Fatos_CR"
+                    }
+                  },
+                  "Property": "CODPAGAMENTO"
+                }
+              },
+              "queryRef": "TB_Fatos_CR.CODPAGAMENTO",
+              "nativeQueryRef": "codpagamento",
+              "active": false,
+              "displayName": "codpagamento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_REP"
+                    }
+                  },
+                  "Property": "NOMREP"
+                }
+              },
+              "queryRef": "TB_REP.NOMREP",
+              "nativeQueryRef": "Representante",
+              "active": false,
+              "displayName": "Representante"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_Apoio"
+                    }
+                  },
+                  "Property": "Carteira"
+                }
+              },
+              "queryRef": "TB_Apoio.Carteira",
+              "nativeQueryRef": "Agp_Portador",
+              "active": false,
+              "displayName": "Agp_Portador"
+            },
+            {
+              "field": {
+                "GroupRef": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "TB_PGT"
+                    }
+                  },
+                  "Property": "abrfpg (grupos)",
+                  "GroupedColumns": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "TB_PGT"
+                          }
+                        },
+                        "Property": "ABRFPG"
+                      }
+                    }
+                  ]
+                }
+              },
+              "queryRef": "TB_PGT.abrfpg (grupos)",
+              "nativeQueryRef": "Agp_Forma Pagamento",
+              "active": false,
+              "displayName": "Agp_Forma Pagamento"
             }
           ],
           "fieldParameters": [
@@ -112,7 +444,7 @@
                 }
               },
               "index": 0,
-              "length": 1
+              "length": 21
             }
           ]
         },
@@ -668,7 +1000,6 @@
             }
           ]
         },
-        "howCreated": "User",
         "objects": {
           "general": [
             {

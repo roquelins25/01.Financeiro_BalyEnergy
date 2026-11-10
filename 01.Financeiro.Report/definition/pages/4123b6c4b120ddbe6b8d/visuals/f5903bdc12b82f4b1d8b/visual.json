@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "f5903bdc12b82f4b1d8b",
   "position": {
-    "x": 420.78566505858026,
-    "y": 559.72432804962091,
+    "x": 420.97447795823666,
+    "y": 516.19489559164731,
     "z": 3,
-    "height": 520.02756719503793,
-    "width": 1470.1033769813921
+    "height": 563.80510440835269,
+    "width": 1469.6519721577727
   },
   "visual": {
     "visualType": "pivotTable",
@@ -252,8 +252,18 @@
             },
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Ano 2026'"
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TB_CLI"
+                        }
+                      },
+                      "Property": "xREDE"
+                    }
+                  },
+                  "Function": 3
                 }
               }
             }

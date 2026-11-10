@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "9cd7e14ead222e85551e",
   "position": {
     "x": 1034.7436804932911,
@@ -68,7 +68,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'''TB_Fatos''[portador]'"
+                                "Value": "'''TB_FRJ''[xTipo]'"
                               }
                             }
                           ]
@@ -96,7 +96,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'''TB_Fatos''[portador]'"
+                                      "Value": "'''TB_FRJ''[xTipo]'"
                                     }
                                   }
                                 ]
@@ -120,7 +120,7 @@
                         },
                         "valueMap": [
                           {
-                            "0": "portador"
+                            "0": "Descricao Conta"
                           }
                         ]
                       }

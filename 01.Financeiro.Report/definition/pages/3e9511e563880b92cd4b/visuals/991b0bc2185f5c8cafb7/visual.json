@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "991b0bc2185f5c8cafb7",
   "position": {
     "x": 455.35850568693309,
@@ -33,6 +33,21 @@
         }
       }
     },
+    "objects": {
+      "compatibility": [
+        {
+          "properties": {
+            "legacyRendering": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -50,5 +65,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "cb5a0d0310b59a2de6be"
+  "parentGroupName": "cb5a0d0310b59a2de6be",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7cb8749b000211bb8686",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "05. HTML SALDO DIA"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

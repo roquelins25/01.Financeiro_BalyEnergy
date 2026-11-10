@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "d777d6938106e6431c17",
   "position": {
     "x": 453.88986578267378,
@@ -28,7 +28,7 @@
               },
               "queryRef": "TB_Rede.xREDE",
               "nativeQueryRef": "xREDE",
-              "active": true
+              "active": false
             },
             {
               "field": {
@@ -43,7 +43,7 @@
               },
               "queryRef": "TB_CLI.xCliente",
               "nativeQueryRef": "xCliente",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -166,6 +166,20 @@
               "queryRef": "_Medidas.07. Media Faturamento",
               "nativeQueryRef": "Media Fat.",
               "displayName": "Media Fat."
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Limite sugerido"
+                }
+              },
+              "queryRef": "_Medidas.Lmite sugerido",
+              "nativeQueryRef": "Limite sugerido"
             }
           ]
         }

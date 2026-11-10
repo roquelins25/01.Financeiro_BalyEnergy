@@ -25,7 +25,7 @@ queryGroup _Fatos\CP_CR
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop","DaxQueryView_Desktop"]
+annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop","DaxQueryView_Desktop","MCP-PBIModeling"]
 
 annotation PBI_QueryOrder = ["Base_Classificacao","TB_Apoio","TB_PGT","TB_CLI","TB_REP","TB_Rede","TB_Fatos_CP","TB_RTerceiros","TB_Fatos_CR","_Medidas","TB_FRJ","TB_AUXtempo","TB_Projetado","TB_OPRede","TB_OPUf","TB_Operacao","TB_Lvel","xUF_Regiao","TB_Verbas","TB_Fat","TB_TNS","DataAtualizacao","TB_TIPO","xSenha","TB_Fatos_LQ","TB_CTA"]
 

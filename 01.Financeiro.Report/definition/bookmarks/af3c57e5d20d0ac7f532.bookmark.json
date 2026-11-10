@@ -3,7 +3,8 @@
   "displayName": "OP_Vencidos_do_mes",
   "name": "af3c57e5d20d0ac7f532",
   "options": {
-    "targetVisualNames": []
+    "targetVisualNames": [],
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.5",

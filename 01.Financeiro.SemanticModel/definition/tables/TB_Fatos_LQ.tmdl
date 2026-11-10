@@ -317,5 +317,5 @@ table TB_Fatos_LQ
 
 	annotation PBI_NavigationStepName = Navegação
 
-	annotation PBI_ResultType = Exception
+	annotation PBI_ResultType = Table
 

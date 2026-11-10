@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "5a2f54e711dcad791be8",
   "position": {
     "x": 1.2885973605146859,
@@ -43,7 +43,7 @@
               },
               "queryRef": "TB_CLI.xREDE",
               "nativeQueryRef": "xREDE",
-              "active": true
+              "active": false
             }
           ]
         },
@@ -115,41 +115,6 @@
         ]
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Rows"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "TB_CLI.SIGUFS"
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "TB_CLI.xREDE"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "TB_CLI"
-                    }
-                  },
-                  "Property": "xREDE"
-                }
-              }
-            ],
-            "isPinned": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
       "columnHeaders": [
         {

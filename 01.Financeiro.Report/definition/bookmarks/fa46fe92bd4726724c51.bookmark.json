@@ -3,7 +3,9 @@
   "displayName": "Inad-Filtro",
   "name": "fa46fe92bd4726724c51",
   "options": {
-    "targetVisualNames": [],
+    "targetVisualNames": [
+      "84e2631145b500b21414"
+    ],
     "suppressData": true
   },
   "explorationState": {
@@ -12,26 +14,11 @@
     "sections": {
       "b6833487a1d7be798b1a": {
         "visualContainers": {
-          "f4e5efe46edb2c05e5bc": {
+          "10d5a900c40c7aae08a4": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "eb6052020dc6a428c936",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "xUF_Regiao"
-                        }
-                      },
-                      "Property": "Região/Grupo"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "1a2b5b40081cdb614a32",
+                  "name": "942696830620046038dc",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -48,7 +35,7 @@
               ]
             },
             "singleVisual": {
-              "visualType": "clusteredColumnChart",
+              "visualType": "donutChart",
               "objects": {},
               "orderBy": [
                 {
@@ -65,16 +52,216 @@
                   }
                 }
               ],
-              "activeProjections": {
+              "projections": {
+                "Y": [
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "01 % Indice Inadimplencia"
+                    }
+                  }
+                ]
+              },
+              "parameters": {
                 "Category": [
+                  {
+                    "expr": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "yTB_Dim"
+                          }
+                        },
+                        "Property": "yTB_Dim"
+                      }
+                    },
+                    "index": 0,
+                    "length": 0
+                  }
+                ]
+              }
+            }
+          },
+          "32bfe36b4015564dec90": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "3a72ee7ebbdc4b0b4193": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8176d790740990b88412",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TB_CLI"
+                        }
+                      },
+                      "Property": "xREDE"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
                   {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "xUF_Regiao"
+                          "Entity": "TB_CLI"
                         }
                       },
-                      "Property": "Região/Grupo"
+                      "Property": "xREDE"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "3bb68dc6504755001e65": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "418e2a9b760b4a3ae737": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "546ddc47c4510b2847a8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2c5df3c1d006589840c6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TB_Fatos_CR"
+                        }
+                      },
+                      "Property": "TIPO"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "t",
+                                "Entity": "TB_Fatos_CR",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "t"
+                                            }
+                                          },
+                                          "Property": "TIPO"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'01'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TB_Fatos_CR"
+                        }
+                      },
+                      "Property": "TIPO"
                     }
                   }
                 ]
@@ -100,7 +287,7 @@
                   "howCreated": 1
                 },
                 {
-                  "name": "c2ba1edb9051067adbda",
+                  "name": "0599992bbba952da09c7",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -115,7 +302,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "ccb8f837d321556546c6",
+                  "name": "bcaa1eb6398e60d03e77",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -130,7 +317,22 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "e6908613b888788ee390",
+                  "name": "a1402271d7d53a4b5ed3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "01. Valor AB/LQ Original"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "18c9bb52d0b00769937c",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -145,7 +347,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "6d1a13161dc51e640309",
+                  "name": "e33cd4c939eeb2097817",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -155,21 +357,6 @@
                         }
                       },
                       "Property": "01 % Indice Inadimplencia"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "22874cd0c7153998d768",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Medidas"
-                        }
-                      },
-                      "Property": "01. Valor AB/LQ Original"
                     }
                   },
                   "howCreated": 0
@@ -205,6 +392,16 @@
                       },
                       "Property": "SIGUFS"
                     }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TB_CLI"
+                        }
+                      },
+                      "Property": "xREDE"
+                    }
                   }
                 ]
               },
@@ -216,20 +413,7 @@
                   "levels": [
                     {
                       "queryRefs": [
-                        "TB_CLI.sigufs"
-                      ],
-                      "isCollapsed": true,
-                      "identityKeys": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Entity": "TB_CLI"
-                              }
-                            },
-                            "Property": "SIGUFS"
-                          }
-                        }
+                        "TB_CLI.SIGUFS"
                       ],
                       "isPinned": true
                     },
@@ -254,76 +438,142 @@
                     }
                   ],
                   "root": {
+                    "identityValues": []
+                  }
+                }
+              ]
+            }
+          },
+          "65e6c7b1dd3a6e21e46c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a7ec3692640731a2b900",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CALENDARIO DAX"
+                        }
+                      },
+                      "Property": "Ano"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "35bf3fb9c0d1267560c4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CALENDARIO DAX"
+                        }
+                      },
+                      "Property": "Ano-Mes"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CALENDARIO DAX"
+                        }
+                      },
+                      "Property": "Ano"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CALENDARIO DAX"
+                        }
+                      },
+                      "Property": "Ano-Mes"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "CALENDARIO DAX.Ano"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "CALENDARIO DAX"
+                              }
+                            },
+                            "Property": "Ano"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "CALENDARIO DAX.Ano-Mes"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
                     "identityValues": [],
                     "children": [
                       {
                         "identityValues": [
                           {
                             "Literal": {
-                              "Value": "'ES'"
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "identityValues": [
-                          {
-                            "Literal": {
-                              "Value": "'RS'"
+                              "Value": "2026L"
                             }
                           }
                         ],
-                        "children": [
-                          {
-                            "identityValues": [
-                              {
-                                "Literal": {
-                                  "Value": "'997 - Comercial Zaffari'"
-                                }
-                              }
-                            ],
-                            "isToggled": true
-                          }
-                        ]
-                      },
-                      {
-                        "identityValues": [
-                          {
-                            "Literal": {
-                              "Value": "'PR'"
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "identityValues": [
-                          {
-                            "Literal": {
-                              "Value": "'MG'"
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "identityValues": [
-                          {
-                            "Literal": {
-                              "Value": "'DF'"
-                            }
-                          }
-                        ],
-                        "children": [
-                          {
-                            "identityValues": [
-                              {
-                                "Literal": {
-                                  "Value": "'1628 - B E T TRANSPORTE E LOGISTICA LTDA'"
-                                }
-                              }
-                            ],
-                            "isToggled": true
-                          }
-                        ]
+                        "isToggled": true
                       }
                     ]
                   }
@@ -331,12 +581,61 @@
               ]
             }
           },
+          "7fb6698035da94e61203": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
           "9619928cdd1ab42b0055": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "a175e990a7a2615e34e1",
+                  "name": "cecd09747957e9a0afb9",
                   "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "c",
+                        "Entity": "CALENDARIO DAX",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "c"
+                                        }
+                                      },
+                                      "Property": "Vencidos?"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
                   "expression": {
                     "Column": {
                       "Expression": {
@@ -428,416 +727,6 @@
                       },
                       "Property": "Vencidos?"
                     }
-                  }
-                ]
-              }
-            }
-          },
-          "65e6c7b1dd3a6e21e46c": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "faca656bdad644994a0b",
-                  "type": "Advanced",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "CALENDARIO DAX"
-                        }
-                      },
-                      "Property": "Ano"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "0344f0113ae611a7160d",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "CALENDARIO DAX"
-                        }
-                      },
-                      "Property": "Ano-Mes"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        },
-                        "isInvertedSelectionMode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "true"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "CALENDARIO DAX"
-                        }
-                      },
-                      "Property": "Ano"
-                    }
-                  }
-                ]
-              },
-              "expansionStates": [
-                {
-                  "roles": [
-                    "Values"
-                  ],
-                  "levels": [
-                    {
-                      "queryRefs": [
-                        "CALENDARIO DAX.Ano"
-                      ],
-                      "isCollapsed": true,
-                      "identityKeys": [
-                        {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Entity": "CALENDARIO DAX"
-                              }
-                            },
-                            "Property": "Ano"
-                          }
-                        }
-                      ],
-                      "isPinned": true
-                    },
-                    {
-                      "queryRefs": [
-                        "CALENDARIO DAX.Ano-Mes"
-                      ],
-                      "isCollapsed": true,
-                      "isPinned": true
-                    }
-                  ],
-                  "root": {
-                    "identityValues": []
-                  }
-                }
-              ]
-            }
-          },
-          "d438bfe9680391912410": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "d9f665400b820c9ec9aa",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "TB_Fatos_CR"
-                        }
-                      },
-                      "Property": "SIT"
-                    }
-                  },
-                  "howCreated": 1
-                },
-                {
-                  "name": "331873d0d14e458019c8",
-                  "type": "Categorical",
-                  "filter": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "c",
-                        "Entity": "CALENDARIO DAX",
-                        "Type": 0
-                      }
-                    ],
-                    "Where": [
-                      {
-                        "Condition": {
-                          "In": {
-                            "Expressions": [
-                              {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Source": "c"
-                                    }
-                                  },
-                                  "Property": "Ano"
-                                }
-                              }
-                            ],
-                            "Values": [
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "2025L"
-                                  }
-                                }
-                              ],
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "2026L"
-                                  }
-                                }
-                              ],
-                              [
-                                {
-                                  "Literal": {
-                                    "Value": "2024L"
-                                  }
-                                }
-                              ]
-                            ]
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "CALENDARIO DAX"
-                        }
-                      },
-                      "Property": "Ano"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "32b406e9ad00db511606",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Medidas"
-                        }
-                      },
-                      "Property": "01 % Indice Inadimplencia"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "fd707cd544c42166a5e9",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "CALENDARIO DAX"
-                        }
-                      },
-                      "Property": "Ano-Mes"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "c86a17210e2a5b59e6a2",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Medidas"
-                        }
-                      },
-                      "Property": "01. Valor AB/LQ Original"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "ce9b3ea4aed1431c2507",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Medidas"
-                        }
-                      },
-                      "Property": "01. Valor AB/LQ aberto"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "pivotTable",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 1,
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "CALENDARIO DAX"
-                        }
-                      },
-                      "Property": "Ano"
-                    }
-                  }
-                }
-              ],
-              "activeProjections": {
-                "Columns": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "CALENDARIO DAX"
-                        }
-                      },
-                      "Property": "Ano"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "10d5a900c40c7aae08a4": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "4f6ab50bc5ea062e3110",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Medidas"
-                        }
-                      },
-                      "Property": "01 % Indice Inadimplencia"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "a91104483309486346dd",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "TB_FRJ"
-                        }
-                      },
-                      "Property": "xTipo"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "donutChart",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Medidas"
-                        }
-                      },
-                      "Property": "01 % Indice Inadimplencia"
-                    }
-                  }
-                }
-              ],
-              "activeProjections": {
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "TB_FRJ"
-                        }
-                      },
-                      "Property": "xTipo"
-                    }
-                  }
-                ]
-              },
-              "projections": {
-                "Y": [
-                  {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Medidas"
-                        }
-                      },
-                      "Property": "01 % Indice Inadimplencia"
-                    }
-                  }
-                ],
-                "Category": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "TB_FRJ"
-                        }
-                      },
-                      "Property": "xTipo"
-                    }
-                  }
-                ]
-              },
-              "parameters": {
-                "Category": [
-                  {
-                    "expr": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "yTB_Dim"
-                          }
-                        },
-                        "Property": "yTB_Dim"
-                      }
-                    },
-                    "index": 0,
-                    "length": 1
                   }
                 ]
               }
@@ -1126,7 +1015,7 @@
                                       [
                                         {
                                           "Literal": {
-                                            "Value": "'''TB_FRJ''[xTipo]'"
+                                            "Value": "'''TB_Fatos''[portador]'"
                                           }
                                         }
                                       ]
@@ -1200,22 +1089,341 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "'''TB_FRJ''[xTipo]'"
+                            "Value": "'''TB_Fatos''[portador]'"
                           }
                         }
                       }
                     }
                   },
-                  "displayName": "Descricao Conta"
+                  "displayName": "portador"
                 }
               ]
+            }
+          },
+          "a04835d0cb280c3e2690": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "ac10d90960a78d825803": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e10e0e623456006d49da",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TB_FRJ"
+                        }
+                      },
+                      "Property": "DESFRJ"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TB_FRJ"
+                        }
+                      },
+                      "Property": "DESFRJ"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d438bfe9680391912410": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d9f665400b820c9ec9aa",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TB_Fatos_CR"
+                        }
+                      },
+                      "Property": "SIT"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "331873d0d14e458019c8",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "c",
+                        "Entity": "CALENDARIO DAX",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "c"
+                                    }
+                                  },
+                                  "Property": "Ano"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2025L"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2026L"
+                                  }
+                                }
+                              ],
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "2024L"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CALENDARIO DAX"
+                        }
+                      },
+                      "Property": "Ano"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "50fc96c113997b661416",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CALENDARIO DAX"
+                        }
+                      },
+                      "Property": "Ano-Mes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "109d93a52bb014ed740b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "01. Valor AB/LQ Original"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "82c80e220c6b9808b1e0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "01. Valor AB/LQ aberto"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a759f20507b1088a2806",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "01 % Indice Inadimplencia"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CALENDARIO DAX"
+                        }
+                      },
+                      "Property": "Ano"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CALENDARIO DAX"
+                        }
+                      },
+                      "Property": "Ano"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f4e5efe46edb2c05e5bc": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d5d6b02f375c6373d606",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "xUF_Regiao"
+                        }
+                      },
+                      "Property": "Região/Grupo"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "77b35d50410e87b68300",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "01 % Indice Inadimplencia"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Medidas"
+                        }
+                      },
+                      "Property": "01 % Indice Inadimplencia"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "xUF_Regiao"
+                        }
+                      },
+                      "Property": "Região/Grupo"
+                    }
+                  }
+                ]
+              }
             }
           },
           "fe4c9006eb7c8c40a325": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "c0449c1073ba6e95215c",
+                  "name": "0d074aad01e5aaedd5da",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -1251,100 +1459,26 @@
               ]
             }
           },
-          "418e2a9b760b4a3ae737": {
+          "45f31e4dad0d238366d2": {
             "singleVisual": {
-              "visualType": "actionButton",
+              "visualType": "pageNavigator",
               "objects": {}
             }
           },
-          "32bfe36b4015564dec90": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "7fb6698035da94e61203": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "3a72ee7ebbdc4b0b4193": {
+          "84e2631145b500b21414": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "6f37376069940b653b06",
+                  "name": "07160500e380390c202a",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_CLI"
+                          "Entity": "xSenha"
                         }
                       },
-                      "Property": "xREDE"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        },
-                        "isInvertedSelectionMode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "true"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "TB_CLI"
-                        }
-                      },
-                      "Property": "xREDE"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "ac10d90960a78d825803": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "050f9acc530ae06658c8",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "TB_FRJ"
-                        }
-                      },
-                      "Property": "DESFRJ"
+                      "Property": "ID"
                     }
                   },
                   "howCreated": 0
@@ -1363,121 +1497,8 @@
                             "Version": 2,
                             "From": [
                               {
-                                "Name": "t",
-                                "Entity": "TB_FRJ",
-                                "Type": 0
-                              }
-                            ],
-                            "Where": [
-                              {
-                                "Condition": {
-                                  "Not": {
-                                    "Expression": {
-                                      "In": {
-                                        "Expressions": [
-                                          {
-                                            "Column": {
-                                              "Expression": {
-                                                "SourceRef": {
-                                                  "Source": "t"
-                                                }
-                                              },
-                                              "Property": "desfrj"
-                                            }
-                                          }
-                                        ],
-                                        "Values": [
-                                          [
-                                            {
-                                              "Literal": {
-                                                "Value": "'GlobalNet'"
-                                              }
-                                            }
-                                          ]
-                                        ]
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        },
-                        "isInvertedSelectionMode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "true"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "TB_FRJ"
-                        }
-                      },
-                      "Property": "DESFRJ"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "546ddc47c4510b2847a8": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "55c454ac154a8497cc87",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "TB_Fatos_CR"
-                        }
-                      },
-                      "Property": "TIPO"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "general": [
-                    {
-                      "properties": {
-                        "filter": {
-                          "filter": {
-                            "Version": 2,
-                            "From": [
-                              {
-                                "Name": "t",
-                                "Entity": "TB_Fatos_CR",
+                                "Name": "x",
+                                "Entity": "xSenha",
                                 "Type": 0
                               }
                             ],
@@ -1490,10 +1511,10 @@
                                         "Column": {
                                           "Expression": {
                                             "SourceRef": {
-                                              "Source": "t"
+                                              "Source": "x"
                                             }
                                           },
-                                          "Property": "tipo"
+                                          "Property": "ID"
                                         }
                                       }
                                     ],
@@ -1501,42 +1522,7 @@
                                       [
                                         {
                                           "Literal": {
-                                            "Value": "'01'"
-                                          }
-                                        }
-                                      ],
-                                      [
-                                        {
-                                          "Literal": {
-                                            "Value": "'02'"
-                                          }
-                                        }
-                                      ],
-                                      [
-                                        {
-                                          "Literal": {
-                                            "Value": "'03'"
-                                          }
-                                        }
-                                      ],
-                                      [
-                                        {
-                                          "Literal": {
-                                            "Value": "'06'"
-                                          }
-                                        }
-                                      ],
-                                      [
-                                        {
-                                          "Literal": {
-                                            "Value": "'CHD'"
-                                          }
-                                        }
-                                      ],
-                                      [
-                                        {
-                                          "Literal": {
-                                            "Value": "'CHQ'"
+                                            "Value": "'ADM'"
                                           }
                                         }
                                       ]
@@ -1565,32 +1551,38 @@
                   ]
                 }
               },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "xSenha"
+                        }
+                      },
+                      "Property": "DESC"
+                    }
+                  }
+                }
+              ],
               "activeProjections": {
                 "Values": [
                   {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "TB_Fatos_CR"
+                          "Entity": "xSenha"
                         }
                       },
-                      "Property": "TIPO"
+                      "Property": "ID"
                     }
                   }
                 ]
+              },
+              "display": {
+                "mode": "hidden"
               }
-            }
-          },
-          "3bb68dc6504755001e65": {
-            "singleVisual": {
-              "visualType": "image",
-              "objects": {}
-            }
-          },
-          "a04835d0cb280c3e2690": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
             }
           }
         },

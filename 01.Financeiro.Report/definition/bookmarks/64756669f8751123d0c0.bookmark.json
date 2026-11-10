@@ -5,7 +5,8 @@
   "options": {
     "targetVisualNames": [
       "07b5cf9dadefe4766cfe"
-    ]
+    ],
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.3",

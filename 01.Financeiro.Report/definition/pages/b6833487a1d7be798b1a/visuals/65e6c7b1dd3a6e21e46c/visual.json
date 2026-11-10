@@ -1,10 +1,10 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "65e6c7b1dd3a6e21e46c",
   "position": {
     "x": 837.1366594360087,
     "y": 41.648590021691973,
-    "z": 0,
+    "z": 2000,
     "height": 29.154013015184383,
     "width": 297.09327548806942,
     "tabOrder": 0
@@ -43,7 +43,7 @@
               },
               "queryRef": "CALENDARIO DAX.Ano-Mes",
               "nativeQueryRef": "Ano-Mes",
-              "active": true
+              "active": false
             }
           ]
         }
@@ -82,20 +82,7 @@
             "isPinned": true
           }
         ],
-        "root": {
-          "children": [
-            {
-              "identityValues": [
-                {
-                  "Literal": {
-                    "Value": "2026L"
-                  }
-                }
-              ],
-              "isToggled": true
-            }
-          ]
-        }
+        "root": {}
       }
     ],
     "objects": {

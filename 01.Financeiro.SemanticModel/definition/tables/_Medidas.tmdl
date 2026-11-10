@@ -5697,10 +5697,11 @@ table _Medidas
 			            [07. Total Faturado Geral]
 			        )
 			    )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 07. Faturamento
 		lineageTag: 5ee4556d-091a-4896-a2cb-fb0ec7d4e062
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure '.... Cor CalendarioAux' =
 			
@@ -7826,7 +7827,7 @@ table _Medidas
 			CALCULATE(
 			    SUM( TB_Fatos_CP[VLRORI] ),
 			        NOT TB_Fatos_CP[TIPO] IN {"LAD"},
-			    NOT TB_Fatos_CP[CTAFIN] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580})
+			    KEEPFILTERS( NOT TB_Fatos_CP[CTAFIN] IN({2300,3610,3040,3070,2370,1630,3110,3100,3580}) )
 			)
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: 01. Valores Totais\Geral
@@ -8101,6 +8102,49 @@ table _Medidas
 		lineageTag: fc3e4443-b17b-440d-9bcd-1537c59b27e5
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Limite sugerido' =
+			
+			VAR DtFim  = CALCULATE( MAX( TB_Fat[DATEMI] ), ALL( TB_Fat ) )
+			VAR Janela = 180
+			VAR Fator  = 1.3
+			VAR Fat =
+			    CALCULATE(
+			        [07. Total Faturado Geral],
+			        REMOVEFILTERS( 'CALENDARIO DAX' ),
+			        TB_Fat[DATEMI] > DtFim - Janela,
+			        TB_Fat[DATEMI] <= DtFim
+			    )
+			VAR PrazoPond =
+			    DIVIDE(
+			        CALCULATE(
+			            SUMX( TB_Fat, TB_Fat[VLRFIN] * TB_Fat[PRZMED] ),
+			            REMOVEFILTERS( 'CALENDARIO DAX' ),
+			            TB_Fat[VLRFIN] > 0,
+			            NOT TB_Fat[TNSPRO] IN { "5201O", "6202Q", "6201A", "6201S", "6201Z", "51015" },
+			            TB_Fat[DATEMI] > DtFim - Janela,
+			            TB_Fat[DATEMI] <= DtFim
+			        ),
+			        Fat
+			    )
+			RETURN
+			    ROUND( DIVIDE( Fat, Janela ) * PrazoPond * Fator, -3 )
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: 07. Faturamento
+		lineageTag: 117b1d34-dc62-4be8-a1ef-39ada21a025f
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	/// Dias distintos com faturamento (DATEMI). Mesmo criterio de 07. Total Faturado Geral: VLRFIN > 0 e exclui TNSPRO de nao faturamento. Varias notas no mesmo dia contam 1.
+	measure '07. Dias com Faturamento' =
+			CALCULATE(
+			    DISTINCTCOUNT( TB_Fat[DATEMI] ),
+			    TB_Fat[VLRFIN] > 0,
+			    NOT TB_Fat[TNSPRO] IN { "5201O", "6202Q", "6201A", "6201S", "6201Z", "51015" }
+			)
+		formatString: 0
+		displayFolder: 07. Faturamento
+		lineageTag: 8562da49-030e-40c9-81f7-de3ce9d228c6
 
 	partition _Medidas = m
 		mode: import
